@@ -504,7 +504,239 @@ button { font-family:inherit; }
   font-size:12px;
 }
 
-/* END OF PART 1 CSS */
+/* HOW IT WORKS */
+
+.steps {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
+.step {
+  text-align:center;
+  padding:20px;
+}
+
+.step-number {
+  width:48px;
+  height:48px;
+  background:var(--green);
+  color:var(--gold);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  margin:0 auto 15px;
+  font-weight:bold;
+  font-size:19px;
+}
+
+.step h3 {
+  color:var(--green);
+  font-size:16px;
+  margin-bottom:8px;
+}
+
+.step p {
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* CTA */
+
+.cta {
+  background:linear-gradient(120deg,var(--green),var(--green2));
+  color:white;
+  padding:60px 20px;
+  text-align:center;
+}
+
+.cta h2 {
+  font-size:clamp(25px,4vw,37px);
+  margin-bottom:12px;
+}
+
+.cta p {
+  color:#dce9e1;
+  max-width:650px;
+  margin:0 auto 25px;
+  font-size:14px;
+}
+
+/* FAQ */
+
+.faq-list {
+  max-width:820px;
+  margin:auto;
+}
+
+.faq-item {
+  border:1px solid var(--border);
+  border-radius:8px;
+  margin-bottom:11px;
+  overflow:hidden;
+}
+
+.faq-question {
+  width:100%;
+  text-align:left;
+  background:white;
+  padding:17px;
+  border:0;
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  color:var(--green);
+  font-weight:bold;
+  font-size:14px;
+  cursor:pointer;
+}
+
+.faq-answer {
+  display:none;
+  padding:0 17px 17px;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.faq-item.active .faq-answer { display:block; }
+
+.faq-item.active .faq-question { color:var(--green3); }
+
+/* CONTACT */
+
+.contact-section { background:var(--light); }
+
+.contact-box {
+  background:white;
+  border:1px solid var(--border);
+  border-radius:13px;
+  padding:30px;
+  text-align:center;
+  max-width:700px;
+  margin:auto;
+}
+
+.contact-box h2 {
+  color:var(--green);
+  margin-bottom:10px;
+}
+
+.contact-box p {
+  color:var(--muted);
+  font-size:14px;
+  margin-bottom:20px;
+}
+
+/* FOOTER */
+
+footer {
+  background:#041f16;
+  color:#d3e0d8;
+  padding:45px 0 20px;
+}
+
+.footer-grid {
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr;
+  gap:35px;
+  padding-bottom:30px;
+}
+
+.footer-brand {
+  font-size:27px;
+  color:white;
+  font-weight:900;
+  margin-bottom:10px;
+}
+
+.footer-about {
+  font-size:12px;
+  color:#b6c9bd;
+  max-width:340px;
+}
+
+.footer-column h3 {
+  color:var(--gold);
+  font-size:14px;
+  margin-bottom:14px;
+}
+
+.footer-column a {
+  display:block;
+  color:#c6d4cb;
+  font-size:12px;
+  margin-bottom:9px;
+}
+
+.footer-column a:hover { color:var(--gold); }
+
+.footer-bottom {
+  border-top:1px solid rgba(255,255,255,.12);
+  padding-top:17px;
+  text-align:center;
+  color:#9fb3a6;
+  font-size:11px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px) {
+  .nav-links { gap:13px; }
+  .nav-links a { font-size:11px; }
+  .hero-grid { gap:30px; }
+  .institution-grid { grid-template-columns:repeat(3,1fr); }
+}
+
+@media(max-width:700px) {
+  .topbar-content {
+    justify-content:center;
+    text-align:center;
+  }
+
+  .nav-content { min-height:68px; }
+
+  .menu-toggle { display:block; }
+
+  .nav-links {
+    display:none;
+    position:absolute;
+    top:68px;
+    left:0;
+    width:100%;
+    background:white;
+    padding:20px 5%;
+    box-shadow:0 10px 20px rgba(0,0,0,.1);
+    flex-direction:column;
+    align-items:stretch;
+    gap:17px;
+  }
+
+  .nav-links.show { display:flex; }
+  .nav-links a { font-size:14px; }
+  .hero { padding:60px 0; }
+
+  .hero-grid { grid-template-columns:1fr; }
+  .preview { transform:none; }
+  .access-grid { grid-template-columns:1fr; }
+  .institution-grid { grid-template-columns:repeat(2,1fr); }
+  .feature-grid { grid-template-columns:repeat(2,1fr); }
+  .steps { grid-template-columns:1fr; gap:10px; }
+
+  .footer-grid { grid-template-columns:1fr 1fr; }
+
+  .footer-grid > div:first-child { grid-column:1/-1; }
+}
+
+@media(max-width:420px) {
+  .feature-grid { grid-template-columns:1fr; }
+
+  .hero-buttons { flex-direction:column; }
+  .hero-buttons .btn { width:100%; }
+
+  .footer-grid { grid-template-columns:1fr; }
+  .footer-grid > div:first-child { grid-column:auto; }
+}
 </style>
 </head>
 
@@ -810,219 +1042,275 @@ button { font-family:inherit; }
 
     </div>
   </div>
-          </section>
-  
-<!-- HOW IT WORKS -->
-<section class="section" id="how-it-works">
-  <div class="section-heading">
-    <span class="eyebrow">SIMPLE PROCESS</span>
-    <h2>How EDUNEXA Works</h2>
-    <p>Getting your school started on EDUNEXA is simple.</p>
-  </div>
+</section>
 
-  <div class="steps">
-    <div class="step">
-      <div class="step-number">01</div>
-      <h3>Register Your School</h3>
-      <p>Submit your school's information through our registration portal.</p>
+<!-- HOW IT WORKS -->
+
+<section class="section" id="how-it-works">
+  <div class="container">
+
+    <div class="section-heading">
+      <div class="eyebrow">GETTING STARTED</div>
+      <h2>How EDUNEXA Works</h2>
+      <p>Getting your school started on EDUNEXA is designed to be straightforward.</p>
     </div>
-    <div class="step">
-      <div class="step-number">02</div>
-      <h3>School Verification</h3>
-      <p>Your registration can be reviewed by the platform administration.</p>
-    </div>
-    <div class="step">
-      <div class="step-number">03</div>
-      <h3>Set Up Your School</h3>
-      <p>Prepare your school's academic and administrative information.</p>
-    </div>
-    <div class="step">
-      <div class="step-number">04</div>
-      <h3>Manage Your School</h3>
-      <p>Access the tools your school needs as they become available.</p>
+
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Register Your School</h3>
+        <p>Submit your institution's information through the school registration page.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>School Review</h3>
+        <p>Your application is reviewed before the school is approved for access.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Access Your Portal</h3>
+        <p>Once the required services are activated, authorised users can access their assigned portals.</p>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section class="section about-section" id="about">
-  <div class="about-content">
-    <span class="eyebrow">ABOUT EDUNEXA</span>
-    <h2>One Platform. Every School. Endless Possibilities.</h2>
+<!-- CTA -->
+
+<section class="cta">
+  <div class="container">
+    <h2>Bring Your School Into the Digital Future</h2>
     <p>
-      EDUNEXA is designed to bring schools and educational institutions
-      together through one central digital platform.
+      Join the vision of a connected educational community.
+      Make school administration more organised with EDUNEXA.
     </p>
-    <p>
-      Our vision is to simplify school administration, improve access
-      to educational services and support the digital transformation
-      of education.
-    </p>
-    <a href="school-registration.html" class="primary-btn">
-      Get Started →
+    <a href="school-registration.html" class="btn btn-gold">
+      REGISTER YOUR SCHOOL →
     </a>
-  </div>
-  <div class="about-highlight">
-    <div class="highlight-icon">🎓</div>
-    <h3>Education Without Limits</h3>
-    <p>
-      A shared digital platform designed for different types of
-      educational institutions.
-    </p>
   </div>
 </section>
 
 <!-- FAQ -->
+
 <section class="section" id="faq">
-  <div class="section-heading">
-    <span class="eyebrow">NEED HELP?</span>
-    <h2>Frequently Asked Questions</h2>
-    <p>Find answers to common questions about EDUNEXA.</p>
+  <div class="container">
+
+    <div class="section-heading">
+      <div class="eyebrow">HELP CENTRE</div>
+      <h2>Frequently Asked Questions</h2>
+      <p>Answers to common questions about EDUNEXA.</p>
+    </div>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question">
+          What is EDUNEXA?
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          EDUNEXA is an all-in-one school management platform designed
+          to support educational institutions and their communities.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Can any school register?
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          EDUNEXA is intended for different educational institutions,
+          including nursery, primary, secondary, colleges, polytechnics,
+          universities and other schools.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          How do I register my school?
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          Select Register Your School on the homepage and complete
+          the registration application.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          What is the difference between School Login and Portal Login?
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          School Login is intended for accessing an institution's
+          management dashboard. Portal Login is intended for individual
+          members of the school community, such as teachers, parents,
+          students, accountants and other staff.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Can parents and students use EDUNEXA?
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          Yes. The planned platform includes dedicated parent and
+          student portals with access based on their assigned accounts.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Can one platform manage multiple schools?
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          Yes. EDUNEXA is being developed with a multi-school structure
+          so that different institutions can have their own accounts,
+          records and authorised users.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Is EDUNEXA available on mobile phones?
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          The website is designed to work on mobile phones, tablets
+          and computers through supported web browsers.
+        </div>
+      </div>
+
+    </div>
   </div>
-
-  <div class="faq-list">
-    <details class="faq-item">
-      <summary>What is EDUNEXA?</summary>
-      <p>
-        EDUNEXA is an all-in-one school platform designed to support
-        different educational institutions.
-      </p>
-    </details>
-
-    <details class="faq-item">
-      <summary>Can any school register?</summary>
-      <p>
-        Yes. EDUNEXA is intended for different types of schools and
-        educational institutions.
-      </p>
-    </details>
-
-    <details class="faq-item">
-      <summary>How can I register my school?</summary>
-      <p>
-        Select Register Your School and complete the registration form.
-      </p>
-    </details>
-
-    <details class="faq-item">
-      <summary>Is EDUNEXA available on mobile phones?</summary>
-      <p>
-        The website is designed to work on mobile phones, tablets
-        and computers.
-      </p>
-    </details>
-
-    <details class="faq-item">
-      <summary>Can I log in to my school account?</summary>
-      <p>
-        The School Login page is being prepared. Secure account
-        authentication will need to be connected before schools can
-        use real accounts.
-      </p>
-    </details>
-  </div>
-</section>
-
-<!-- CALL TO ACTION -->
-<section class="cta-section">
-  <div>
-    <span class="eyebrow">JOIN THE EDUNEXA PLATFORM</span>
-    <h2>Bring Your School Into the Digital Future.</h2>
-    <p>Start your school's registration today.</p>
-  </div>
-  <a href="school-registration.html" class="cta-btn">
-    Register Your School →
-  </a>
 </section>
 
 <!-- CONTACT -->
-<section class="section contact-section" id="contact">
-  <div class="section-heading">
-    <span class="eyebrow">GET IN TOUCH</span>
-    <h2>Contact EDUNEXA</h2>
-    <p>Have a question about the platform? Contact our team.</p>
-  </div>
 
-  <div class="contact-card">
-    <div class="contact-icon">✉️</div>
-    <h3>Email Support</h3>
-    <p>For general enquiries and support.</p>
-    <a href="mailto:olohunwaabdulsalam47@gmail.com">
-      Contact Support
-    </a>
+<section class="section contact-section" id="contact">
+  <div class="container">
+    <div class="contact-box">
+      <div class="eyebrow">GET IN TOUCH</div>
+      <h2>Have Questions About EDUNEXA?</h2>
+      <p>
+        Contact the EDUNEXA team for information about the platform,
+        school registration and future services.
+      </p>
+      <a href="mailto:olohunwaabdulsalam47@gmail.com" class="btn btn-gold">
+        CONTACT EDUNEXA
+      </a>
+    </div>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-main">
-    <div class="footer-brand">
-      <a href="index.html" class="logo footer-logo">
-        <span class="logo-icon">E</span>
-        <span>EDUNEXA</span>
-      </a>
-      <p>One Platform. Every School. Endless Possibilities.</p>
+
+<footer>
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div>
+        <div class="footer-brand">EDU<span>NEXA</span></div>
+        <p class="footer-about">
+          One Platform. Every School. Endless Possibilities.
+          EDUNEXA aims to bring educational institutions,
+          administrators, teachers, parents and students together
+          through one connected platform.
+        </p>
+      </div>
+
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <a href="#home">Home</a>
+        <a href="#institutions">Institutions</a>
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#faq">FAQ</a>
+      </div>
+
+      <div class="footer-column">
+        <h3>School Access</h3>
+        <a href="school-registration.html">Register Your School</a>
+        <a href="school-login.html">School Login</a>
+        <a href="#school-access" data-coming="portal">Portal Login</a>
+        <a href="#contact">Contact Us</a>
+      </div>
+
     </div>
 
-    <div class="footer-links">
-      <h3>Quick Links</h3>
-      <a href="#home">Home</a>
-      <a href="school-registration.html">Register Your School</a>
-      <a href="school-login.html">School Login</a>
-      <a href="#about">About Us</a>
+    <div class="footer-bottom">
+      © <span id="year"></span> EDUNEXA. All Rights Reserved.
+      <br>
+      One Platform. Every School. Endless Possibilities.
     </div>
 
-    <div class="footer-links">
-      <h3>Explore</h3>
-      <a href="#features">Features</a>
-      <a href="#how-it-works">How It Works</a>
-      <a href="#faq">FAQs</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>© <span id="currentYear"></span> EDUNEXA. All rights reserved.</p>
-    <p>Designed for the Future of Education.</p>
   </div>
 </footer>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  // Mobile navigation
-  const menuButton = document.querySelector(".menu-toggle");
-  const navigation = document.querySelector(".nav-links");
 
-  if (menuButton && navigation) {
-    menuButton.addEventListener("click", function () {
-      navigation.classList.toggle("active");
-      menuButton.classList.toggle("active");
-    });
+// MOBILE NAVIGATION
 
-    navigation.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        navigation.classList.remove("active");
-        menuButton.classList.remove("active");
-      });
-    });
-  }
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
 
-  // Current year
-  const yearElement = document.getElementById("currentYear");
-  if (yearElement) {
-    yearElement.textContent = new Date().getFullYear();
-  }
+menuToggle.addEventListener("click", function() {
+  const isOpen = navLinks.classList.toggle("show");
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+  menuToggle.textContent = isOpen ? "✕" : "☰";
+});
 
-  // Portal Login notice only
-  document.querySelectorAll('[data-coming="portal"]').forEach(function (link) {
-    link.addEventListener("click", function (event) {
-      event.preventDefault();
-      alert("The Portal Login feature is not available yet. It will be introduced in a future update.");
-    });
+document.querySelectorAll(".nav-links a").forEach(function(link) {
+  link.addEventListener("click", function() {
+    navLinks.classList.remove("show");
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.textContent = "☰";
   });
 });
+
+// FAQ ACCORDION
+
+document.querySelectorAll(".faq-question").forEach(function(button) {
+  button.addEventListener("click", function() {
+    const item = button.parentElement;
+    const wasActive = item.classList.contains("active");
+
+    document.querySelectorAll(".faq-item").forEach(function(other) {
+      other.classList.remove("active");
+      other.querySelector(".faq-question span").textContent = "+";
+    });
+
+    if (!wasActive) {
+      item.classList.add("active");
+      button.querySelector("span").textContent = "−";
+    }
+  });
+});
+
+// PORTAL LOGIN COMING SOON
+
+document.querySelectorAll('[data-coming="portal"]').forEach(function(link) {
+  link.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    alert("Portal Login is coming soon. Teacher, Parent, Student, Accountant and Other Staff access is still being developed.");
+  });
+});
+
+// AUTOMATIC COPYRIGHT YEAR
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
 </script>
 
 </body>
-                                        </html>
-                                        
+</html>
