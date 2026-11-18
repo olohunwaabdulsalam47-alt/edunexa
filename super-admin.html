@@ -1,87 +1,541 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#073d2b">
-<title>EDUNEXA | Super Admin</title>
+<meta name="description" content="Register your school on EDUNEXA, the all-in-one school management platform.">
+<title>School Registration | EDUNEXA</title>
+
 <style>
-:root{--green:#073d2b;--green2:#0c6245;--gold:#d6ad50;--bg:#f4f7f4;--white:#fff;--text:#24332c;--muted:#718078;--border:#e3eae4;--red:#bd3d3d}
-*{box-sizing:border-box;margin:0;padding:0}body{font-family:Arial,sans-serif;background:var(--bg);color:var(--text)}button,input,select{font:inherit}button{cursor:pointer}.layout{display:flex;min-height:100vh}.sidebar{width:245px;background:var(--green);color:#fff;padding:25px 16px;flex-shrink:0}.brand{font-size:24px;font-weight:900;margin:0 10px 35px}.brand span{color:var(--gold)}.admin-label{font-size:11px;color:#c6d9ce;margin:0 10px 15px}.nav button{width:100%;text-align:left;border:0;background:transparent;color:#d9e7df;padding:14px 12px;border-radius:8px;margin-bottom:5px;font-size:14px}.nav button:hover,.nav button.active{background:#155a40;color:#fff}.nav button span{margin-right:10px}.sidebar-bottom{margin-top:40px;padding:12px;color:#c6d9ce;font-size:12px}.main{flex:1;min-width:0}.topbar{height:72px;background:#fff;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;padding:0 28px}.topbar h2{color:var(--green);font-size:19px}.admin-profile{font-size:13px;color:var(--muted)}.content{padding:28px;max-width:1400px;margin:auto}.notice{padding:13px 15px;background:#fff8e8;border:1px solid #f1dfb3;color:#725b25;border-radius:8px;font-size:12px;margin-bottom:20px;line-height:1.5}.welcome{margin-bottom:25px}.welcome h1{font-size:26px;color:var(--green);margin-bottom:6px}.welcome p{color:var(--muted);font-size:14px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:25px}.stat,.panel{background:#fff;border:1px solid var(--border);border-radius:12px}.stat{padding:21px}.stat small{color:var(--muted);font-size:12px}.stat strong{display:block;font-size:30px;color:var(--green);margin-top:9px}.symbol{float:right;font-size:23px}.panel{padding:22px;margin-bottom:22px}.panel-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:20px;flex-wrap:wrap}.panel h3{color:var(--green);font-size:17px}.btn{border:0;border-radius:7px;padding:11px 15px;font-weight:700;font-size:13px}.primary{background:var(--green);color:#fff}.danger{background:#fae9e9;color:var(--red)}.success{background:#e5f4e9;color:#207344}.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.field label{display:block;font-size:12px;font-weight:700;margin-bottom:7px}.field input,.field select{width:100%;padding:12px;border:1px solid var(--border);border-radius:7px;background:#fff;outline:none}.field input:focus,.field select:focus{border-color:var(--green2)}.full{grid-column:1/-1}.form-actions{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}.table-tools{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:17px}.table-tools input,.table-tools select{padding:10px;border:1px solid var(--border);border-radius:7px;background:#fff}.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;min-width:650px}th,td{text-align:left;padding:13px 11px;border-bottom:1px solid var(--border);font-size:12px}th{color:var(--muted);font-size:11px;background:#f8faf8}.status{display:inline-block;padding:5px 9px;border-radius:20px;font-size:11px;font-weight:700}.pending{background:#fff4d8;color:#946a13}.approved{background:#e4f4e9;color:#237443}.rejected{background:#fae8e8;color:#ad3636}.suspended{background:#e9edf5;color:#52627f}.actions{display:flex;gap:5px;flex-wrap:wrap}.actions button{padding:6px 8px;font-size:11px;border:0;border-radius:5px}.empty{text-align:center;color:var(--muted);padding:30px}.page{display:none}.page.active{display:block}.code-display{background:#edf5ef;border:1px dashed var(--green2);padding:13px;border-radius:7px;font-weight:800;color:var(--green);margin-top:10px;display:none}.field-note{font-size:11px;color:var(--muted);margin-top:5px}footer{text-align:center;color:var(--muted);font-size:11px;padding:20px}
-@media(max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}.sidebar{width:205px}}@media(max-width:650px){.layout{display:block}.sidebar{width:100%;padding:14px}.brand{margin:0 5px 12px}.admin-label{display:none}.nav{display:flex;overflow-x:auto;gap:5px}.nav button{white-space:nowrap;width:auto;margin:0;padding:10px}.sidebar-bottom{display:none}.topbar{height:58px;padding:0 15px}.content{padding:18px 13px}.stats{gap:9px}.stat{padding:15px}.stat strong{font-size:24px}.form-grid{grid-template-columns:1fr}.full{grid-column:auto}}
+:root {
+  --green: #073d2b;
+  --green2: #0c6245;
+  --gold: #d6ad50;
+  --light: #f4f7f4;
+  --white: #ffffff;
+  --text: #24332b;
+  --muted: #718078;
+  --border: #dce5de;
+  --danger: #b42318;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--light);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+header {
+  background: var(--green);
+  color: white;
+  padding: 20px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.brand {
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.brand span {
+  color: var(--gold);
+}
+
+header a {
+  color: white;
+  text-decoration: none;
+  border: 1px solid var(--gold);
+  padding: 9px 16px;
+  border-radius: 7px;
+  font-size: 14px;
+}
+
+.hero {
+  background: linear-gradient(120deg, var(--green), var(--green2));
+  color: white;
+  text-align: center;
+  padding: 45px 20px;
+}
+
+.hero h1 {
+  font-size: clamp(26px, 5vw, 38px);
+  margin-bottom: 10px;
+}
+
+.hero p {
+  color: #e5eee8;
+  max-width: 650px;
+  margin: auto;
+}
+
+.container {
+  width: 92%;
+  max-width: 850px;
+  margin: 35px auto;
+}
+
+.form-card {
+  background: white;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.06);
+}
+
+.form-heading {
+  margin-bottom: 25px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 17px;
+}
+
+.form-heading h2 {
+  color: var(--green);
+  font-size: 23px;
+}
+
+.form-heading p {
+  color: var(--muted);
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.section-title {
+  color: var(--green);
+  font-size: 17px;
+  margin: 25px 0 15px;
+  padding-left: 10px;
+  border-left: 4px solid var(--gold);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 17px;
+}
+
+.form-group {
+  margin-bottom: 5px;
+}
+
+.form-group.full {
+  grid-column: 1 / -1;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 7px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+  background: white;
+  color: var(--text);
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--green2);
+  box-shadow: 0 0 0 3px rgba(12,98,69,0.09);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 95px;
+}
+
+.required {
+  color: var(--danger);
+}
+
+.notice {
+  background: #fff8e8;
+  border: 1px solid #ead49e;
+  padding: 14px;
+  border-radius: 8px;
+  margin: 22px 0;
+  font-size: 13px;
+  color: #684d13;
+}
+
+.demo-warning {
+  background: #fff0ed;
+  border: 1px solid #f0c1b9;
+  color: #842b20;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.submit-btn {
+  width: 100%;
+  border: none;
+  background: var(--green);
+  color: white;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.submit-btn:hover {
+  background: var(--green2);
+}
+
+footer {
+  text-align: center;
+  padding: 25px 15px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+#result {
+  display: none;
+  padding: 18px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  background: #eaf7ee;
+  border: 1px solid #a8d5b5;
+  color: #155b2d;
+}
+
+#result a {
+  color: var(--green);
+  font-weight: bold;
+}
+
+@media(max-width: 600px) {
+  .form-card {
+    padding: 20px 16px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-group.full {
+    grid-column: auto;
+  }
+
+  header {
+    padding: 17px 5%;
+  }
+}
 </style>
 </head>
+
 <body>
-<div class="layout">
-<aside class="sidebar">
-  <div class="brand">EDUN<span>EXA</span></div><div class="admin-label">SUPER ADMIN CONTROL</div>
-  <nav class="nav">
-    <button class="active" data-page="dashboard"><span>▦</span>Dashboard</button>
-    <button data-page="schools"><span>🏫</span>All Schools</button>
-    <button data-page="register"><span>＋</span>Register School</button>
-    <button data-page="approvals"><span>✓</span>Approvals</button>
-    <button data-page="settings"><span>⚙</span>Platform Settings</button>
-  </nav>
-  <div class="sidebar-bottom">EDUNEXA Administration<br>Platform Control Centre</div>
-</aside>
-<main class="main">
-<header class="topbar"><h2 id="pageTitle">Dashboard</h2><div class="admin-profile">Development Preview · Not for real school data</div></header>
-<div class="content">
-<div class="notice"><strong>DEVELOPMENT / DEMO ONLY:</strong> This file stores sample records in this browser only. It is NOT connected to Firebase, does not authenticate administrators, and does not protect real school data. Do not enter real student, parent, staff, payment or school-confidential information.</div>
-<section class="page active" id="dashboard">
-  <div class="welcome"><h1>Welcome to EDUNEXA</h1><p>Manage educational institutions from one central control panel.</p></div>
-  <div class="stats">
-    <div class="stat"><span class="symbol">🏫</span><small>Total Schools</small><strong id="totalSchools">0</strong></div>
-    <div class="stat"><span class="symbol">⏳</span><small>Pending Approvals</small><strong id="pendingSchools">0</strong></div>
-    <div class="stat"><span class="symbol">✓</span><small>Approved Schools</small><strong id="approvedSchools">0</strong></div>
-    <div class="stat"><span class="symbol">⛔</span><small>Suspended Schools</small><strong id="suspendedSchools">0</strong></div>
+
+<header>
+  <div class="brand">EDU<span>NEXA</span></div>
+  <a href="index.html">Back to Homepage</a>
+</header>
+
+<section class="hero">
+  <h1>Register Your School</h1>
+  <p>Join EDUNEXA and become part of an all-in-one digital school management platform.</p>
+</section>
+
+<main class="container">
+  <div class="form-card">
+
+    <div class="form-heading">
+      <h2>School Registration Form</h2>
+      <p>Enter your institution's information below.</p>
+    </div>
+
+    <div class="demo-warning">
+      <strong>DEMO VERSION:</strong> This registration form currently uses browser storage for testing. Do not enter real school, staff, or personal information.
+    </div>
+
+    <div id="result" role="status"></div>
+
+    <form id="schoolRegistrationForm">
+
+      <h3 class="section-title">1. School Information</h3>
+
+      <div class="form-grid">
+
+        <div class="form-group full">
+          <label for="schoolName">School / Institution Name <span class="required">*</span></label>
+          <input type="text" id="schoolName" name="schoolName" placeholder="Enter school name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="schoolType">Institution Type <span class="required">*</span></label>
+          <select id="schoolType" name="schoolType" required>
+            <option value="">Select institution type</option>
+            <option value="Nursery School">Nursery School</option>
+            <option value="Primary School">Primary School</option>
+            <option value="Secondary School">Secondary School</option>
+            <option value="Nursery and Primary School">Nursery and Primary School</option>
+            <option value="Primary and Secondary School">Primary and Secondary School</option>
+            <option value="Combined School">Combined School</option>
+            <option value="College">College</option>
+            <option value="Polytechnic">Polytechnic</option>
+            <option value="University">University</option>
+            <option value="Vocational Institution">Vocational Institution</option>
+            <option value="Islamic School">Islamic School</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="ownership">Ownership <span class="required">*</span></label>
+          <select id="ownership" name="ownership" required>
+            <option value="">Select ownership</option>
+            <option value="Private">Private</option>
+            <option value="Government">Government</option>
+            <option value="Missionary">Missionary</option>
+            <option value="Community">Community</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+      </div>
+
+      <h3 class="section-title">2. School Location</h3>
+
+      <div class="form-grid">
+
+        <div class="form-group">
+          <label for="country">Country <span class="required">*</span></label>
+          <input type="text" id="country" name="country" value="Nigeria" required>
+        </div>
+
+        <div class="form-group">
+          <label for="state">State / Region <span class="required">*</span></label>
+          <input type="text" id="state" name="state" placeholder="Enter state" required>
+        </div>
+
+        <div class="form-group">
+          <label for="city">City / Town <span class="required">*</span></label>
+          <input type="text" id="city" name="city" placeholder="Enter city or town" required>
+        </div>
+
+        <div class="form-group full">
+          <label for="address">School Address <span class="required">*</span></label>
+          <textarea id="address" name="address" placeholder="Enter school address" required></textarea>
+        </div>
+
+      </div>
+
+      <h3 class="section-title">3. Contact Information</h3>
+
+      <div class="form-grid">
+
+        <div class="form-group full">
+          <label for="contactPerson">Contact Person / School Representative <span class="required">*</span></label>
+          <input type="text" id="contactPerson" name="contactPerson" placeholder="Enter representative name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address <span class="required">*</span></label>
+          <input type="email" id="email" name="email" placeholder="school@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number <span class="required">*</span></label>
+          <input type="tel" id="phone" name="phone" placeholder="Enter phone number" required>
+        </div>
+
+      </div>
+
+      <div class="notice">
+        By submitting this demonstration form, you understand that the application will be stored only in this browser for testing. It is not an official registration or approval.
+      </div>
+
+      <button type="submit" class="submit-btn">
+        Submit School Application
+      </button>
+
+    </form>
   </div>
-  <div class="panel"><div class="panel-head"><h3>Recent School Registrations</h3><button class="btn primary" onclick="showPage('schools')">View All Schools</button></div><div class="table-wrap"><table><thead><tr><th>School</th><th>School Code</th><th>Type</th><th>Status</th></tr></thead><tbody id="recentSchools"></tbody></table></div></div>
-</section>
-<section class="page" id="schools">
-<div class="panel"><div class="panel-head"><h3>All Registered Schools</h3><button class="btn primary" onclick="showPage('register')">＋ Add School</button></div>
-<div class="table-tools"><input id="schoolSearch" placeholder="Search school or code..." oninput="renderSchools()"><select id="statusFilter" onchange="renderSchools()"><option value="">All statuses</option><option>Pending</option><option>Approved</option><option>Rejected</option><option>Suspended</option></select></div>
-<div class="table-wrap"><table><thead><tr><th>School Name</th><th>School Code</th><th>Institution Type</th><th>Status</th><th>Actions</th></tr></thead><tbody id="schoolRows"></tbody></table></div></div>
-</section>
-<section class="page" id="register">
-<div class="panel"><div class="panel-head"><h3>Register a School (Demo)</h3></div>
-<form id="schoolForm"><div class="form-grid">
-<div class="field full"><label>School / Institution Name *</label><input id="schoolName" required maxlength="120" placeholder="Enter official institution name"></div>
-<div class="field"><label>Institution Type *</label><select id="schoolType" required><option value="">Select type</option><option>Nursery / Early Childhood</option><option>Primary School</option><option>Secondary School</option><option>Combined School</option><option>College</option><option>Polytechnic</option><option>University</option><option>Technical / Vocational</option><option>International School</option><option>Montessori School</option><option>Special Education</option><option>Faith-Based School</option><option>Tutorial / Training Centre</option><option>Other</option></select></div>
-<div class="field"><label>Ownership *</label><select id="ownership" required><option value="">Select ownership</option><option>Public / Government</option><option>Private</option><option>Community</option><option>Non-profit</option><option>Other</option></select></div>
-<div class="field"><label>Country *</label><input id="country" required value="Nigeria"></div>
-<div class="field"><label>State / Region *</label><input id="state" required></div>
-<div class="field"><label>City / Town *</label><input id="city" required></div>
-<div class="field"><label>Administrator / Contact Person *</label><input id="contactPerson" required></div>
-<div class="field"><label>Contact Email *</label><input id="email" type="email" required></div>
-<div class="field"><label>Phone Number *</label><input id="phone" type="tel" required placeholder="+234..."></div>
-<div class="field full"><label>School Address</label><input id="address"></div>
-</div><div class="form-actions"><button class="btn primary" type="submit">Register Demo School</button><button class="btn danger" type="reset">Clear Form</button></div><div id="generatedCode" class="code-display"></div></form></div>
-</section>
-<section class="page" id="approvals"><div class="panel"><div class="panel-head"><h3>Pending School Approvals</h3></div><div class="table-wrap"><table><thead><tr><th>School</th><th>Code</th><th>Contact Person</th><th>Actions</th></tr></thead><tbody id="approvalRows"></tbody></table></div></div></section>
-<section class="page" id="settings">
-<div class="panel"><h3 style="margin-bottom:15px">Platform Information</h3><p>EDUNEXA supports different educational institutions, academic structures and ownership models.</p><p style="margin-top:10px"><strong>Platform:</strong> EDUNEXA</p><p><strong>Slogan:</strong> One Platform. Every School. Endless Possibilities.</p><p><strong>Administrator area:</strong> Super Admin</p><p style="margin-top:15px;color:#a33;font-size:12px">Production security, phone + password + SMS OTP authentication, trusted server-side role checks and database integration are not implemented in this preview.</p></div>
-<div class="panel"><h3 style="margin-bottom:12px">Demo Data</h3><p style="font-size:13px;color:#718078;margin-bottom:15px">Clear sample registrations stored in this browser.</p><button class="btn danger" onclick="clearDemoData()">Clear Demo School Records</button></div>
-</section>
-</div><footer>© <span id="year"></span> EDUNEXA. Development Preview.</footer>
-</main></div>
+</main>
+
+<footer>
+  <strong>EDUNEXA</strong><br>
+  One Platform. Every School. Endless Possibilities.
+  <br><br>
+  &copy; 2026 EDUNEXA. All rights reserved.
+</footer>
+
 <script>
-"use strict";
-const STORAGE_KEY="edunexa_demo_schools_v2";
-function loadSchools(){try{const v=JSON.parse(localStorage.getItem(STORAGE_KEY)||"[]");return Array.isArray(v)?v:[]}catch(e){return[]}}
-let schools=loadSchools();
-function saveSchools(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(schools))}catch(e){alert("This browser could not save demo records. Check available storage.")}}
-function escapeHTML(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
-function showPage(page){document.querySelectorAll(".page").forEach(s=>s.classList.toggle("active",s.id===page));document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===page));const titles={dashboard:"Dashboard",schools:"All Schools",register:"Register School",approvals:"School Approvals",settings:"Platform Settings"};document.getElementById("pageTitle").textContent=titles[page]||"Dashboard";refreshDashboard()}
-document.querySelectorAll(".nav button").forEach(b=>b.addEventListener("click",()=>showPage(b.dataset.page)));
-function generateSchoolCode(){let code;do{code="EDU-"+Math.random().toString(36).slice(2,8).toUpperCase()}while(schools.some(s=>s.code===code));return code}
-document.getElementById("schoolForm").addEventListener("submit",function(e){e.preventDefault();const v=id=>document.getElementById(id).value.trim();const school={id:Date.now()+Math.floor(Math.random()*1000),name:v("schoolName"),type:v("schoolType"),ownership:v("ownership"),country:v("country"),state:v("state"),city:v("city"),contact:v("contactPerson"),email:v("email"),phone:v("phone"),address:v("address"),code:generateSchoolCode(),status:"Pending",date:new Date().toISOString()};schools.unshift(school);saveSchools();const box=document.getElementById("generatedCode");box.style.display="block";box.textContent="DEMO RECORD ONLY — generated school code: "+school.code;this.reset();document.getElementById("country").value="Nigeria";refreshDashboard()});
-function statusBadge(status){const safe=["Pending","Approved","Rejected","Suspended"].includes(status)?status:"Pending";return '<span class="status '+safe.toLowerCase()+'">'+safe+'</span>'}
-function renderSchools(){const search=(document.getElementById("schoolSearch")?.value||"").toLowerCase();const filter=document.getElementById("statusFilter")?.value||"";const rows=document.getElementById("schoolRows");const filtered=schools.filter(s=>(String(s.name).toLowerCase().includes(search)||String(s.code).toLowerCase().includes(search))&&(!filter||s.status===filter));rows.innerHTML=filtered.length?filtered.map(s=>'<tr><td>'+escapeHTML(s.name)+'</td><td><strong>'+escapeHTML(s.code)+'</strong></td><td>'+escapeHTML(s.type)+'</td><td>'+statusBadge(s.status)+'</td><td><div class="actions">'+(s.status==="Pending"?'<button class="success" onclick="changeStatus('+Number(s.id)+',\\'Approved\\')">Approve</button><button class="danger" onclick="changeStatus('+Number(s.id)+',\\'Rejected\\')">Reject</button>':"")+(s.status==="Approved"?'<button class="danger" onclick="changeStatus('+Number(s.id)+',\\'Suspended\\')">Suspend</button>':"")+(s.status==="Suspended"?'<button class="success" onclick="changeStatus('+Number(s.id)+',\\'Approved\\')">Reactivate</button>':"")+'</div></td></tr>').join(""):'<tr><td colspan="5" class="empty">No school records found.</td></tr>'}
-function renderApprovals(){const pending=schools.filter(s=>s.status==="Pending");document.getElementById("approvalRows").innerHTML=pending.length?pending.map(s=>'<tr><td>'+escapeHTML(s.name)+'</td><td><strong>'+escapeHTML(s.code)+'</strong></td><td>'+escapeHTML(s.contact)+'</td><td><div class="actions"><button class="success" onclick="changeStatus('+Number(s.id)+',\\'Approved\\')">Approve</button><button class="danger" onclick="changeStatus('+Number(s.id)+',\\'Rejected\\')">Reject</button></div></td></tr>').join(""):'<tr><td colspan="4" class="empty">There are no pending approvals.</td></tr>'}
-function changeStatus(id,status){if(!["Approved","Rejected","Suspended"].includes(status))return;const s=schools.find(x=>x.id===id);if(!s)return;s.status=status;saveSchools();refreshDashboard()}
-function refreshDashboard(){document.getElementById("totalSchools").textContent=schools.length;document.getElementById("pendingSchools").textContent=schools.filter(s=>s.status==="Pending").length;document.getElementById("approvedSchools").textContent=schools.filter(s=>s.status==="Approved").length;document.getElementById("suspendedSchools").textContent=schools.filter(s=>s.status==="Suspended").length;document.getElementById("recentSchools").innerHTML=schools.length?schools.slice(0,5).map(s=>'<tr><td>'+escapeHTML(s.name)+'</td><td>'+escapeHTML(s.code)+'</td><td>'+escapeHTML(s.type)+'</td><td>'+statusBadge(s.status)+'</td></tr>').join(""):'<tr><td colspan="4" class="empty">No registrations yet.</td></tr>';renderSchools();renderApprovals()}
-function clearDemoData(){if(!confirm("Clear all demo records stored in this browser?"))return;schools=[];saveSchools();refreshDashboard()}
-document.getElementById("year").textContent=new Date().getFullYear();refreshDashboard();
+(function () {
+  "use strict";
+
+  const STORAGE_KEY = "edunexa_demo_schools_v2";
+
+  const form = document.getElementById("schoolRegistrationForm");
+  const result = document.getElementById("result");
+
+  function getSchools() {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+
+      if (!saved) return [];
+
+      const schools = JSON.parse(saved);
+
+      return Array.isArray(schools) ? schools : [];
+    } catch (error) {
+      console.error("Could not read school records:", error);
+      return null;
+    }
+  }
+
+  function generateSchoolCode(schools) {
+    let code;
+
+    do {
+      const randomNumber = Math.floor(100000 + Math.random() * 900000);
+      code = "EDU-" + randomNumber;
+    } while (schools.some(school => school.code === code));
+
+    return code;
+  }
+
+  function showMessage(message, isError) {
+    result.style.display = "block";
+    result.style.background = isError ? "#fff0ed" : "#eaf7ee";
+    result.style.borderColor = isError ? "#f0c1b9" : "#a8d5b5";
+    result.style.color = isError ? "#842b20" : "#155b2d";
+    result.innerHTML = message;
+
+    result.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+  }
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    if (!form.reportValidity()) return;
+
+    const schools = getSchools();
+
+    if (schools === null) {
+      showMessage(
+        "Your browser storage could not be read. Please check your browser settings and try again.",
+        true
+      );
+      return;
+    }
+
+    const school = {
+      id: "school_" + Date.now() + "_" + Math.random().toString(36).slice(2, 8),
+
+      name: document.getElementById("schoolName").value.trim(),
+
+      type: document.getElementById("schoolType").value,
+
+      ownership: document.getElementById("ownership").value,
+
+      country: document.getElementById("country").value.trim(),
+
+      state: document.getElementById("state").value.trim(),
+
+      city: document.getElementById("city").value.trim(),
+
+      contact: document.getElementById("contactPerson").value.trim(),
+
+      email: document.getElementById("email").value.trim(),
+
+      phone: document.getElementById("phone").value.trim(),
+
+      address: document.getElementById("address").value.trim(),
+
+      code: generateSchoolCode(schools),
+
+      status: "Pending",
+
+      date: new Date().toISOString()
+    };
+
+    if (
+      !school.name ||
+      !school.type ||
+      !school.ownership ||
+      !school.country ||
+      !school.state ||
+      !school.city ||
+      !school.contact ||
+      !school.email ||
+      !school.phone ||
+      !school.address
+    ) {
+      showMessage("Please complete all required fields.", true);
+      return;
+    }
+
+    schools.unshift(school);
+
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(schools));
+
+      showMessage(
+        "<strong>Application submitted successfully!</strong><br><br>" +
+        "School: " + escapeHTML(school.name) + "<br>" +
+        "Demo Reference: " + escapeHTML(school.code) + "<br>" +
+        "Status: Pending Approval<br><br>" +
+        "Your demonstration application has been added to the browser's school records.<br><br>" +
+        "<a href='super-admin.html'>Open Super Admin Dashboard →</a>",
+        false
+      );
+
+      form.reset();
+      document.getElementById("country").value = "Nigeria";
+
+    } catch (error) {
+      schools.shift();
+
+      showMessage(
+        "The application could not be saved. Your browser storage may be full or unavailable. Please try again.",
+        true
+      );
+
+      console.error("Could not save school:", error);
+    }
+  });
+
+  function escapeHTML(value) {
+    return String(value).replace(/[&<>"']/g, function (character) {
+      const replacements = {
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;"
+      };
+
+      return replacements[character];
+    });
+  }
+
+})();
 </script>
-</body></html>
+</body>
+</html>
