@@ -5,210 +5,256 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#073d2b">
+<meta name="description" content="EDUNEXA School Login Portal">
 <title>EDUNEXA | School Login</title>
 
 <style>
 :root {
-  --green:#073d2b;
-  --green2:#0c6245;
-  --gold:#d6ad50;
-  --bg:#f4f7f4;
-  --white:#ffffff;
-  --text:#25352d;
-  --muted:#718078;
-  --border:#dfe8e1;
+  --green: #073d2b;
+  --green2: #0c6245;
+  --gold: #d6ad50;
+  --bg: #f4f7f4;
+  --white: #ffffff;
+  --text: #24332b;
+  --muted: #718078;
+  --border: #dce5de;
 }
 
 * {
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  font-family:Arial, sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  min-height:100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
 }
 
 header {
-  background:var(--green);
-  color:white;
-  padding:18px 7%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+  background: var(--green);
+  padding: 18px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
-  font-size:25px;
-  font-weight:800;
-  letter-spacing:1px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  text-decoration: none;
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: 1px;
 }
 
-.logo span {
-  color:var(--gold);
+.logo-icon {
+  background: var(--gold);
+  color: var(--green);
+  width: 39px;
+  height: 39px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  font-size: 24px;
 }
 
-header a {
-  color:white;
-  text-decoration:none;
-  font-size:14px;
+.home-link {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 main {
-  min-height:calc(100vh - 75px);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:35px 15px;
+  min-height: calc(100vh - 150px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 45px 18px;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 460px;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.heading .icon {
+  width: 68px;
+  height: 68px;
+  border-radius: 20px;
+  background: #e4eee7;
+  display: grid;
+  place-items: center;
+  font-size: 32px;
+  margin: 0 auto 17px;
+}
+
+.heading h1 {
+  color: var(--green);
+  font-size: 29px;
+  margin-bottom: 10px;
+}
+
+.heading p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
 }
 
 .login-card {
-  background:white;
-  width:100%;
-  max-width:460px;
-  padding:35px;
-  border-radius:16px;
-  box-shadow:0 10px 40px rgba(0,0,0,.07);
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  padding: 32px;
+  box-shadow: 0 12px 35px rgba(7,61,43,0.07);
 }
 
-.icon {
-  width:65px;
-  height:65px;
-  background:#e9f3ed;
-  border-radius:16px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:30px;
-  margin:0 auto 18px;
+.login-card h2 {
+  color: var(--green);
+  font-size: 20px;
+  margin-bottom: 8px;
 }
 
-h1 {
-  text-align:center;
-  color:var(--green);
-  font-size:27px;
-  margin-bottom:9px;
+.card-description {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 25px;
+  line-height: 1.5;
 }
 
-.subtitle {
-  text-align:center;
-  color:var(--muted);
-  font-size:14px;
-  line-height:1.6;
-  margin-bottom:28px;
+.form-group {
+  margin-bottom: 19px;
 }
 
 label {
-  display:block;
-  font-size:13px;
-  font-weight:bold;
-  margin:17px 0 8px;
+  display: block;
+  font-size: 13px;
+  font-weight: bold;
+  color: var(--text);
+  margin-bottom: 8px;
 }
 
 input {
-  width:100%;
-  padding:14px;
-  border:1px solid var(--border);
-  border-radius:8px;
-  font-size:15px;
-  outline:none;
+  width: 100%;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  outline: none;
+  font-size: 15px;
+  background: #fff;
+  color: var(--text);
 }
 
 input:focus {
-  border-color:var(--green2);
-  box-shadow:0 0 0 3px rgba(12,98,69,.09);
+  border-color: var(--green2);
+  box-shadow: 0 0 0 3px rgba(12,98,69,0.09);
 }
 
 .password-wrap {
-  position:relative;
+  position: relative;
 }
 
 .password-wrap input {
-  padding-right:65px;
+  padding-right: 75px;
 }
 
 .show-password {
-  position:absolute;
-  right:12px;
-  top:50%;
-  transform:translateY(-50%);
-  border:0;
-  background:none;
-  color:var(--green2);
-  cursor:pointer;
-  font-weight:bold;
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  color: var(--green2);
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-button.login-btn {
-  width:100%;
-  padding:15px;
-  margin-top:25px;
-  background:var(--green);
-  color:white;
-  border:0;
-  border-radius:8px;
-  font-size:15px;
-  font-weight:bold;
-  cursor:pointer;
+.forgot {
+  display: block;
+  text-align: right;
+  margin-top: -5px;
+  margin-bottom: 22px;
+  color: var(--green2);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: bold;
 }
 
-button.login-btn:hover {
-  background:var(--green2);
+.login-button {
+  width: 100%;
+  padding: 15px;
+  background: var(--green);
+  border: none;
+  border-radius: 9px;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-.message {
-  display:none;
-  margin-top:17px;
-  padding:13px;
-  border-radius:8px;
-  background:#fff7e5;
-  color:#76551a;
-  font-size:13px;
-  line-height:1.6;
+.login-button:hover {
+  background: var(--green2);
 }
 
-.links {
-  text-align:center;
-  margin-top:22px;
-  font-size:13px;
-  line-height:2;
-  color:var(--muted);
+.notice {
+  margin-top: 19px;
+  padding: 13px;
+  background: #fff8e8;
+  border: 1px solid #f0dfb6;
+  border-radius: 9px;
+  color: #76591c;
+  font-size: 12px;
+  line-height: 1.6;
 }
 
-.links a {
-  color:var(--green2);
-  text-decoration:none;
-  font-weight:bold;
+.register-link {
+  text-align: center;
+  margin-top: 23px;
+  font-size: 13px;
+  color: var(--muted);
 }
 
-.divider {
-  border-top:1px solid var(--border);
-  margin:23px 0;
-}
-
-.register {
-  text-align:center;
-  font-size:13px;
-  color:var(--muted);
+.register-link a {
+  color: var(--green2);
+  font-weight: bold;
+  text-decoration: none;
 }
 
 footer {
-  text-align:center;
-  padding:20px;
-  color:var(--muted);
-  font-size:12px;
+  background: var(--green);
+  color: rgba(255,255,255,0.8);
+  text-align: center;
+  padding: 20px;
+  font-size: 12px;
 }
 
-@media(max-width:480px) {
-  .login-card {
-    padding:25px 20px;
+@media(max-width: 480px) {
+  header {
+    padding: 15px 5%;
   }
 
-  h1 {
-    font-size:24px;
+  .logo {
+    font-size: 19px;
+  }
+
+  .login-card {
+    padding: 24px 19px;
+  }
+
+  .heading h1 {
+    font-size: 25px;
   }
 }
 </style>
@@ -217,123 +263,143 @@ footer {
 <body>
 
 <header>
-  <div class="logo">EDU<span>NEXA</span></div>
-  <a href="index.html">← Back to Home</a>
+  <a href="index.html" class="logo">
+    <span class="logo-icon">E</span>
+    <span>EDUNEXA</span>
+  </a>
+
+  <a href="index.html" class="home-link">← Back Home</a>
 </header>
 
 <main>
-  <section class="login-card">
+  <div class="login-container">
 
-    <div class="icon">🏫</div>
+    <div class="heading">
+      <div class="icon">🏫</div>
+      <h1>School Login</h1>
+      <p>
+        Welcome to the EDUNEXA School Portal.
+        Access your school's management workspace.
+      </p>
+    </div>
 
-    <h1>School Login</h1>
+    <div class="login-card">
+      <h2>Sign in to your school</h2>
+      <p class="card-description">
+        Enter your registered school details below.
+      </p>
 
-    <p class="subtitle">
-      Sign in to your school's EDUNEXA management account.
-      Manage your institution from one secure platform.
-    </p>
+      <form id="schoolLoginForm">
 
-    <form id="schoolLoginForm">
+        <div class="form-group">
+          <label for="schoolCode">School Code</label>
+          <input
+            type="text"
+            id="schoolCode"
+            placeholder="e.g. EDU-123456"
+            autocomplete="off"
+            required
+          >
+        </div>
 
-      <label for="schoolCode">School Registration Code</label>
-      <input
-        type="text"
-        id="schoolCode"
-        placeholder="Example: EDU-123456"
-        autocomplete="off"
-        required
-      >
+        <div class="form-group">
+          <label for="phone">Registered Phone Number</label>
+          <input
+            type="tel"
+            id="phone"
+            placeholder="Enter registered phone number"
+            autocomplete="tel"
+            required
+          >
+        </div>
 
-      <label for="phone">Registered Phone Number</label>
-      <input
-        type="tel"
-        id="phone"
-        placeholder="Enter your registered phone number"
-        autocomplete="tel"
-        required
-      >
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="password-wrap">
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter your password"
+              autocomplete="current-password"
+              required
+            >
+            <button
+              type="button"
+              class="show-password"
+              id="togglePassword"
+            >SHOW</button>
+          </div>
+        </div>
 
-      <label for="password">Password</label>
+        <a href="#" class="forgot" id="forgotPassword">
+          Forgot Password?
+        </a>
 
-      <div class="password-wrap">
-        <input
-          type="password"
-          id="password"
-          placeholder="Enter your password"
-          autocomplete="current-password"
-          required
-        >
+        <button type="submit" class="login-button">
+          SIGN IN →
+        </button>
 
-        <button
-          type="button"
-          class="show-password"
-          id="togglePassword"
-        >Show</button>
-      </div>
+      </form>
 
-      <button type="submit" class="login-btn">
-        SIGN IN TO SCHOOL
-      </button>
-
-      <div class="message" id="message">
+      <div class="notice">
+        <strong>Security notice:</strong>
         School authentication is not connected yet.
-        Your login details have not been submitted or stored.
-        Please wait until secure account authentication is activated.
+        Do not enter real passwords or sensitive account information.
       </div>
 
-    </form>
-
-    <div class="links">
-      <a href="#" id="forgotPassword">Forgot Password?</a>
-      <div>Need help accessing your school account?</div>
-      <a href="index.html">Contact EDUNEXA</a>
+      <div class="register-link">
+        Don't have a school account?
+        <a href="school-registration.html">Register Your School</a>
+      </div>
     </div>
 
-    <div class="divider"></div>
-
-    <div class="register">
-      Don't have a school account?
-      <br>
-      <a href="school-registration.html">Register Your School</a>
-    </div>
-
-  </section>
+  </div>
 </main>
 
 <footer>
-  © 2026 EDUNEXA. All Rights Reserved.
-  <br>
-  One Platform. Every School. Endless Possibilities.
+  © <span id="year"></span> EDUNEXA. All Rights Reserved.
 </footer>
 
 <script>
-const password = document.getElementById("password");
-const toggle = document.getElementById("togglePassword");
-const form = document.getElementById("schoolLoginForm");
-const message = document.getElementById("message");
+document.getElementById("year").textContent =
+  new Date().getFullYear();
 
-toggle.addEventListener("click", function() {
-  if(password.type === "password") {
-    password.type = "text";
-    toggle.textContent = "Hide";
+const passwordInput = document.getElementById("password");
+const toggleButton = document.getElementById("togglePassword");
+
+toggleButton.addEventListener("click", function () {
+  if (passwordInput.type === "password") {
+    passwordInput.type = "text";
+    toggleButton.textContent = "HIDE";
   } else {
-    password.type = "password";
-    toggle.textContent = "Show";
+    passwordInput.type = "password";
+    toggleButton.textContent = "SHOW";
   }
 });
 
-form.addEventListener("submit", function(event) {
-  event.preventDefault();
-  message.style.display = "block";
-});
+document.getElementById("schoolLoginForm").addEventListener(
+  "submit",
+  function (event) {
+    event.preventDefault();
 
-document.getElementById("forgotPassword")
-.addEventListener("click", function(event) {
-  event.preventDefault();
-  alert("Secure password recovery will be available when authentication is connected.");
-});
+    alert(
+      "School Login is not connected to secure authentication yet. " +
+      "Please wait for the authentication system to be implemented."
+    );
+  }
+);
+
+document.getElementById("forgotPassword").addEventListener(
+  "click",
+  function (event) {
+    event.preventDefault();
+
+    alert(
+      "Password recovery will be available after secure authentication is connected."
+    );
+  }
+);
 </script>
 
 </body>
-  </html>
-  
+</html>
