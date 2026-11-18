@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#073d2b">
+<title>EDUNEXA | School Login</title>
+
+<style>
+:root {
+  --green:#073d2b;
+  --green2:#0c6245;
+  --gold:#d6ad50;
+  --bg:#f4f7f4;
+  --white:#ffffff;
+  --text:#25352d;
+  --muted:#718078;
+  --border:#dfe8e1;
+}
+
+* {
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body {
+  font-family:Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+}
+
+header {
+  background:var(--green);
+  color:white;
+  padding:18px 7%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo {
+  font-size:25px;
+  font-weight:800;
+  letter-spacing:1px;
+}
+
+.logo span {
+  color:var(--gold);
+}
+
+header a {
+  color:white;
+  text-decoration:none;
+  font-size:14px;
+}
+
+main {
+  min-height:calc(100vh - 75px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:35px 15px;
+}
+
+.login-card {
+  background:white;
+  width:100%;
+  max-width:460px;
+  padding:35px;
+  border-radius:16px;
+  box-shadow:0 10px 40px rgba(0,0,0,.07);
+}
+
+.icon {
+  width:65px;
+  height:65px;
+  background:#e9f3ed;
+  border-radius:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:30px;
+  margin:0 auto 18px;
+}
+
+h1 {
+  text-align:center;
+  color:var(--green);
+  font-size:27px;
+  margin-bottom:9px;
+}
+
+.subtitle {
+  text-align:center;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.6;
+  margin-bottom:28px;
+}
+
+label {
+  display:block;
+  font-size:13px;
+  font-weight:bold;
+  margin:17px 0 8px;
+}
+
+input {
+  width:100%;
+  padding:14px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  font-size:15px;
+  outline:none;
+}
+
+input:focus {
+  border-color:var(--green2);
+  box-shadow:0 0 0 3px rgba(12,98,69,.09);
+}
+
+.password-wrap {
+  position:relative;
+}
+
+.password-wrap input {
+  padding-right:65px;
+}
+
+.show-password {
+  position:absolute;
+  right:12px;
+  top:50%;
+  transform:translateY(-50%);
+  border:0;
+  background:none;
+  color:var(--green2);
+  cursor:pointer;
+  font-weight:bold;
+}
+
+button.login-btn {
+  width:100%;
+  padding:15px;
+  margin-top:25px;
+  background:var(--green);
+  color:white;
+  border:0;
+  border-radius:8px;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+button.login-btn:hover {
+  background:var(--green2);
+}
+
+.message {
+  display:none;
+  margin-top:17px;
+  padding:13px;
+  border-radius:8px;
+  background:#fff7e5;
+  color:#76551a;
+  font-size:13px;
+  line-height:1.6;
+}
+
+.links {
+  text-align:center;
+  margin-top:22px;
+  font-size:13px;
+  line-height:2;
+  color:var(--muted);
+}
+
+.links a {
+  color:var(--green2);
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.divider {
+  border-top:1px solid var(--border);
+  margin:23px 0;
+}
+
+.register {
+  text-align:center;
+  font-size:13px;
+  color:var(--muted);
+}
+
+footer {
+  text-align:center;
+  padding:20px;
+  color:var(--muted);
+  font-size:12px;
+}
+
+@media(max-width:480px) {
+  .login-card {
+    padding:25px 20px;
+  }
+
+  h1 {
+    font-size:24px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">EDU<span>NEXA</span></div>
+  <a href="index.html">← Back to Home</a>
+</header>
+
+<main>
+  <section class="login-card">
+
+    <div class="icon">🏫</div>
+
+    <h1>School Login</h1>
+
+    <p class="subtitle">
+      Sign in to your school's EDUNEXA management account.
+      Manage your institution from one secure platform.
+    </p>
+
+    <form id="schoolLoginForm">
+
+      <label for="schoolCode">School Registration Code</label>
+      <input
+        type="text"
+        id="schoolCode"
+        placeholder="Example: EDU-123456"
+        autocomplete="off"
+        required
+      >
+
+      <label for="phone">Registered Phone Number</label>
+      <input
+        type="tel"
+        id="phone"
+        placeholder="Enter your registered phone number"
+        autocomplete="tel"
+        required
+      >
+
+      <label for="password">Password</label>
+
+      <div class="password-wrap">
+        <input
+          type="password"
+          id="password"
+          placeholder="Enter your password"
+          autocomplete="current-password"
+          required
+        >
+
+        <button
+          type="button"
+          class="show-password"
+          id="togglePassword"
+        >Show</button>
+      </div>
+
+      <button type="submit" class="login-btn">
+        SIGN IN TO SCHOOL
+      </button>
+
+      <div class="message" id="message">
+        School authentication is not connected yet.
+        Your login details have not been submitted or stored.
+        Please wait until secure account authentication is activated.
+      </div>
+
+    </form>
+
+    <div class="links">
+      <a href="#" id="forgotPassword">Forgot Password?</a>
+      <div>Need help accessing your school account?</div>
+      <a href="index.html">Contact EDUNEXA</a>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="register">
+      Don't have a school account?
+      <br>
+      <a href="school-registration.html">Register Your School</a>
+    </div>
+
+  </section>
+</main>
+
+<footer>
+  © 2026 EDUNEXA. All Rights Reserved.
+  <br>
+  One Platform. Every School. Endless Possibilities.
+</footer>
+
+<script>
+const password = document.getElementById("password");
+const toggle = document.getElementById("togglePassword");
+const form = document.getElementById("schoolLoginForm");
+const message = document.getElementById("message");
+
+toggle.addEventListener("click", function() {
+  if(password.type === "password") {
+    password.type = "text";
+    toggle.textContent = "Hide";
+  } else {
+    password.type = "password";
+    toggle.textContent = "Show";
+  }
+});
+
+form.addEventListener("submit", function(event) {
+  event.preventDefault();
+  message.style.display = "block";
+});
+
+document.getElementById("forgotPassword")
+.addEventListener("click", function(event) {
+  event.preventDefault();
+  alert("Secure password recovery will be available when authentication is connected.");
+});
+</script>
+
+</body>
+  </html>
+  
