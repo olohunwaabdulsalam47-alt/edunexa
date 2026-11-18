@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,716 +19,169 @@
       --border: #e4eae5;
       --shadow: 0 12px 35px rgba(5, 48, 32, .09);
     }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 85px;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background: var(--white);
-      line-height: 1.65;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    button {
-      font: inherit;
-      cursor: pointer;
-    }
-
-    .container {
-      width: min(1120px, 92%);
-      margin: auto;
-    }
-
-    .topbar {
-      background: var(--green);
-      color: #e8f2ec;
-      text-align: center;
-      padding: 9px 15px;
-      font-size: 13px;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(255,255,255,.97);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .navbar {
-      min-height: 76px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 25px;
-      font-weight: 900;
-      color: var(--green);
-      letter-spacing: -.8px;
-    }
-
-    .brand-mark {
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      border-radius: 12px;
-      background: var(--green);
-      color: var(--gold);
-      font-size: 23px;
-      font-weight: 900;
-    }
-
-    .brand span:last-child {
-      color: var(--gold);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .nav-links a:hover {
-      color: var(--green-light);
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .btn {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      border: 0;
-      border-radius: 8px;
-      padding: 12px 19px;
-      font-weight: 700;
-      font-size: 14px;
-      transition: .2s;
-    }
-
-    .btn-primary {
-      background: var(--green);
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background: var(--green-light);
-      transform: translateY(-2px);
-    }
-
-    .btn-gold {
-      background: var(--gold);
-      color: #18271f;
-    }
-
-    .btn-outline {
-      border: 1px solid var(--green);
-      color: var(--green);
-      background: transparent;
-    }
-
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: 0;
-      color: var(--green);
-      font-size: 28px;
-    }
-
-    .hero {
-      background:
-        radial-gradient(circle at 85% 15%, rgba(214,173,80,.18), transparent 30%),
-        linear-gradient(135deg, #f5f8f4, #ffffff 60%);
-      padding: 95px 0 85px;
-      overflow: hidden;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      align-items: center;
-      gap: 55px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      background: #e8f1eb;
-      color: var(--green);
-      padding: 7px 13px;
-      border-radius: 30px;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: .7px;
-      margin-bottom: 20px;
-    }
-
-    h1 {
-      color: var(--green);
-      font-size: clamp(38px, 6vw, 62px);
-      line-height: 1.08;
-      letter-spacing: -2px;
-      margin-bottom: 22px;
-    }
-
-    h1 span {
-      color: var(--gold);
-    }
-
-    .hero-text {
-      color: var(--muted);
-      max-width: 570px;
-      font-size: 17px;
-      margin-bottom: 28px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 25px;
-    }
-
-    .hero-note {
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .dashboard-preview {
-      background: white;
-      border: 1px solid var(--border);
-      padding: 23px;
-      border-radius: 19px;
-      box-shadow: var(--shadow);
-      transform: rotate(1deg);
-    }
-
-    .preview-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-bottom: 18px;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 18px;
-    }
-
-    .preview-top strong {
-      color: var(--green);
-      font-size: 17px;
-    }
-
-    .live-dot {
-      color: #168451;
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .preview-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .preview-card {
-      padding: 17px;
-      background: #f5f8f5;
-      border-radius: 11px;
-    }
-
-    .preview-card small {
-      color: var(--muted);
-      font-size: 11px;
-    }
-
-    .preview-card strong {
-      display: block;
-      color: var(--green);
-      font-size: 25px;
-      margin-top: 5px;
-    }
-
-    .preview-bottom {
-      background: var(--green);
-      color: white;
-      padding: 18px;
-      border-radius: 11px;
-      margin-top: 13px;
-    }
-
-    .preview-bottom p {
-      color: #d7e6dc;
-      font-size: 12px;
-      margin-top: 5px;
-    }
-
-    .section {
-      padding: 85px 0;
-    }
-
-    .section-light {
-      background: var(--cream);
-    }
-
-    .section-heading {
-      max-width: 700px;
-      margin: 0 auto 42px;
-      text-align: center;
-    }
-
-    .section-heading h2 {
-      color: var(--green);
-      font-size: clamp(28px, 4vw, 39px);
-      line-height: 1.2;
-      margin-bottom: 13px;
-    }
-
-    .section-heading p {
-      color: var(--muted);
-    }
-
-    .institution-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 17px;
-    }
-
-    .institution-card {
-      background: white;
-      border: 1px solid var(--border);
-      padding: 23px 18px;
-      border-radius: 13px;
-      transition: .2s;
-    }
-
-    .institution-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
-    }
-
-    .institution-icon {
-      width: 46px;
-      height: 46px;
-      display: grid;
-      place-items: center;
-      border-radius: 12px;
-      background: #eaf2ec;
-      font-size: 23px;
-      margin-bottom: 14px;
-    }
-
-    .institution-card h3 {
-      color: var(--green);
-      font-size: 16px;
-      margin-bottom: 7px;
-    }
-
-    .institution-card p {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .feature-card {
-      border: 1px solid var(--border);
-      padding: 24px;
-      border-radius: 13px;
-      background: white;
-    }
-
-    .feature-card .symbol {
-      font-size: 27px;
-      margin-bottom: 12px;
-    }
-
-    .feature-card h3 {
-      color: var(--green);
-      font-size: 17px;
-      margin-bottom: 8px;
-    }
-
-    .feature-card p {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .how-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-    }
-
-    .how-card {
-      text-align: center;
-      padding: 25px;
-    }
-
-    .step-number {
-      width: 52px;
-      height: 52px;
-      display: grid;
-      place-items: center;
-      margin: 0 auto 16px;
-      border-radius: 50%;
-      background: var(--green);
-      color: var(--gold);
-      font-size: 21px;
-      font-weight: 900;
-    }
-
-    .how-card h3 {
-      color: var(--green);
-      margin-bottom: 8px;
-    }
-
-    .how-card p {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .adapt-box {
-      background: var(--green);
-      color: white;
-      padding: 48px;
-      border-radius: 18px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 30px;
-      align-items: center;
-    }
-
-    .adapt-box h2 {
-      font-size: 30px;
-      line-height: 1.2;
-      margin-bottom: 12px;
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+    body { font-family: Arial, Helvetica, sans-serif; color: var(--text); background: var(--white); line-height: 1.65; }
+    a { text-decoration: none; color: inherit; }
+    button { font: inherit; cursor: pointer; }
+    .container { width: min(1120px, 92%); margin: auto; }
+    .topbar { background: var(--green); color: #e8f2ec; text-align: center; padding: 9px 15px; font-size: 13px; }
+    header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.97); border-bottom: 1px solid var(--border); }
+    .navbar { min-height: 76px; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-size: 25px; font-weight: 900; color: var(--green); letter-spacing: -.8px; }
+    .brand-mark { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 12px; background: var(--green); color: var(--gold); font-size: 23px; font-weight: 900; }
+    .brand span:last-child { color: var(--gold); }
+    .nav-links { display: flex; align-items: center; gap: 20px; font-size: 13px; font-weight: 700; }
+    .nav-links a:hover { color: var(--green-light); }
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+    .btn { display: inline-flex; justify-content: center; align-items: center; border: 0; border-radius: 8px; padding: 12px 19px; font-weight: 700; font-size: 14px; transition: .2s; text-align: center; }
+    .btn-primary { background: var(--green); color: white; }
+    .btn-primary:hover { background: var(--green-light); transform: translateY(-2px); }
+    .btn-gold { background: var(--gold); color: #18271f; }
+    .btn-outline { border: 1px solid var(--green); color: var(--green); background: transparent; }
+    .menu-toggle { display: none; background: none; border: 0; color: var(--green); font-size: 28px; }
+    .hero { background: radial-gradient(circle at 85% 15%, rgba(214,173,80,.18), transparent 30%), linear-gradient(135deg, #f5f8f4, #ffffff 60%); padding: 95px 0 85px; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 55px; }
+    .eyebrow { display: inline-block; background: #e8f1eb; color: var(--green); padding: 7px 13px; border-radius: 30px; font-size: 12px; font-weight: 800; letter-spacing: .7px; margin-bottom: 20px; }
+    h1 { color: var(--green); font-size: clamp(38px, 6vw, 62px); line-height: 1.08; letter-spacing: -2px; margin-bottom: 22px; }
+    h1 span { color: var(--gold); }
+    .hero-text { color: var(--muted); max-width: 570px; font-size: 17px; margin-bottom: 28px; }
+    .hero-buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 25px; }
+    .hero-note { color: var(--muted); font-size: 12px; }
+    .dashboard-preview { background: white; border: 1px solid var(--border); padding: 23px; border-radius: 19px; box-shadow: var(--shadow); transform: rotate(1deg); }
+    .preview-top { display: flex; justify-content: space-between; align-items: center; padding-bottom: 18px; border-bottom: 1px solid var(--border); margin-bottom: 18px; }
+    .preview-top strong { color: var(--green); font-size: 17px; }
+    .live-dot { color: #168451; font-size: 12px; font-weight: 700; }
+    .preview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .preview-card { padding: 17px; background: #f5f8f5; border-radius: 11px; }
+    .preview-card small { color: var(--muted); font-size: 11px; }
+    .preview-card strong { display: block; color: var(--green); font-size: 25px; margin-top: 5px; }
+    .preview-bottom { background: var(--green); color: white; padding: 18px; border-radius: 11px; margin-top: 13px; }
+    .preview-bottom p { color: #d7e6dc; font-size: 12px; margin-top: 5px; }
+    .section { padding: 85px 0; }
+    .section-light { background: var(--cream); }
+    .section-heading { max-width: 700px; margin: 0 auto 42px; text-align: center; }
+    .section-heading h2 { color: var(--green); font-size: clamp(28px, 4vw, 39px); line-height: 1.2; margin-bottom: 13px; }
+    .section-heading p { color: var(--muted); }
+    .institution-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 17px; }
+    .institution-card { background: white; border: 1px solid var(--border); padding: 23px 18px; border-radius: 13px; transition: .2s; }
+    .institution-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .institution-icon { width: 46px; height: 46px; display: grid; place-items: center; border-radius: 12px; background: #eaf2ec; font-size: 23px; margin-bottom: 14px; }
+    .institution-card h3 { color: var(--green); font-size: 16px; margin-bottom: 7px; }
+    .institution-card p { color: var(--muted); font-size: 13px; }
+    .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .feature-card { border: 1px solid var(--border); padding: 24px; border-radius: 13px; background: white; }
+    .feature-card .symbol { font-size: 27px; margin-bottom: 12px; }
+    .feature-card h3 { color: var(--green); font-size: 17px; margin-bottom: 8px; }
+    .feature-card p { color: var(--muted); font-size: 13px; }
+    .feature-card .access-status { margin-top: 13px; color: var(--green); font-weight: 700; }
+    .feature-card .access-link { margin-top: 17px; }
+    .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+    .how-card { text-align: center; padding: 25px; }
+    .step-number { width: 52px; height: 52px; display: grid; place-items: center; margin: 0 auto 16px; border-radius: 50%; background: var(--green); color: var(--gold); font-size: 21px; font-weight: 900; }
+    .how-card h3 { color: var(--green); margin-bottom: 8px; }
+    .how-card p { color: var(--muted); font-size: 14px; }
+    .adapt-box { background: var(--green); color: white; padding: 48px; border-radius: 18px; display: grid; grid-template-columns: 1fr auto; gap: 30px; align-items: center; }
+    .adapt-box h2 { font-size: 30px; line-height: 1.2; margin-bottom: 12px; }
+    .adapt-box p { color: #d6e5dc; max-width: 680px; }
+    .adapt-box .btn { white-space: nowrap; }
+    .faq-list { max-width: 800px; margin: auto; }
+    .faq-item { background: white; border: 1px solid var(--border); border-radius: 10px; margin-bottom: 12px; overflow: hidden; }
+    .faq-question { width: 100%; padding: 18px 20px; border: 0; background: white; color: var(--green); text-align: left; font-weight: 800; display: flex; justify-content: space-between; gap: 15px; }
+    .faq-answer { display: none; color: var(--muted); padding: 0 20px 18px; font-size: 14px; }
+    .faq-item.active .faq-answer { display: block; }
+    .faq-item.active .faq-question span { transform: rotate(45deg); }
+    .contact-panel { background: #f2f6f2; border: 1px solid var(--border); border-radius: 16px; padding: 35px; text-align: center; }
+    .contact-panel h2 { color: var(--green); font-size: 30px; margin-bottom: 10px; }
+    .contact-panel p { color: var(--muted); margin-bottom: 22px; }
+    footer { background: #052c20; color: white; padding: 55px 0 20px; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 35px; padding-bottom: 35px; }
+    .footer-brand { color: white; font-size: 25px; font-weight: 900; margin-bottom: 12px; }
+    .footer-brand span { color: var(--gold); }
+    footer p, footer a { color: #c9d8cf; font-size: 13px; }
+    footer h3 { color: var(--gold); margin-bottom: 14px; font-size: 15px; }
+    .footer-links { display: grid; gap: 9px; }
+    .footer-links a:hover { color: white; }
+    .copyright { border-top: 1px solid rgba(255,255,255,.15); padding-top: 20px; text-align: center; color: #c9d8cf; font-size: 12px; }
+
+    @media (max-width: 1000px) {
+      .nav-links { gap: 12px; font-size: 12px; }
+      .nav-actions .btn { padding: 10px 12px; font-size: 12px; }
     }
-
-    .adapt-box p {
-      color: #d6e5dc;
-      max-width: 680px;
-    }
-
-    .adapt-box .btn {
-      white-space: nowrap;
-    }
-
-    .faq-list {
-      max-width: 800px;
-      margin: auto;
-    }
-
-    .faq-item {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      margin-bottom: 12px;
-      overflow: hidden;
-    }
-
-    .faq-question {
-      width: 100%;
-      padding: 18px 20px;
-      border: 0;
-      background: white;
-      color: var(--green);
-      text-align: left;
-      font-weight: 800;
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-    }
-
-    .faq-answer {
-      display: none;
-      color: var(--muted);
-      padding: 0 20px 18px;
-      font-size: 14px;
-    }
-
-    .faq-item.active .faq-answer {
-      display: block;
-    }
-
-    .faq-item.active .faq-question span {
-      transform: rotate(45deg);
-    }
-
-    .contact-panel {
-      background: #f2f6f2;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 35px;
-      text-align: center;
-    }
-
-    .contact-panel h2 {
-      color: var(--green);
-      font-size: 30px;
-      margin-bottom: 10px;
-    }
-
-    .contact-panel p {
-      color: var(--muted);
-      margin-bottom: 22px;
-    }
-
-    footer {
-      background: #052c20;
-      color: white;
-      padding: 55px 0 20px;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
-      gap: 35px;
-      padding-bottom: 35px;
-    }
-
-    .footer-brand {
-      color: white;
-      font-size: 25px;
-      font-weight: 900;
-      margin-bottom: 12px;
-    }
-
-    .footer-brand span {
-      color: var(--gold);
-    }
-
-    footer p, footer a {
-      color: #c9d8cf;
-      font-size: 13px;
-    }
-
-    footer h3 {
-      color: var(--gold);
-      margin-bottom: 14px;
-      font-size: 15px;
-    }
-
-    .footer-links {
-      display: grid;
-      gap: 9px;
-    }
-
-    .footer-links a:hover {
-      color: white;
-    }
-
-    .copyright {
-      border-top: 1px solid rgba(255,255,255,.15);
-      padding-top: 20px;
-      text-align: center;
-      color: #c9d8cf;
-      font-size: 12px;
-    }
-
     @media (max-width: 850px) {
-      .nav-links {
-        gap: 13px;
-      }
-
-      .institution-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .hero-grid {
-        gap: 30px;
-      }
+      .nav-links { gap: 13px; }
+      .institution-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-grid { gap: 30px; }
     }
-
     @media (max-width: 700px) {
-      .navbar {
-        min-height: 68px;
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 68px;
-        left: 0;
-        right: 0;
-        background: white;
-        padding: 20px 5%;
-        border-bottom: 1px solid var(--border);
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      .nav-actions .btn-outline {
-        display: none;
-      }
-
-      .hero {
-        padding: 65px 0;
-      }
-
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .dashboard-preview {
-        transform: none;
-      }
-
-      .feature-grid,
-      .how-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .adapt-box {
-        grid-template-columns: 1fr;
-        padding: 30px 23px;
-      }
-
-      .adapt-box .btn {
-        justify-self: start;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
-      }
+      .navbar { min-height: 68px; }
+      .menu-toggle { display: block; }
+      .nav-links { display: none; position: absolute; top: 68px; left: 0; right: 0; background: white; padding: 20px 5%; border-bottom: 1px solid var(--border); flex-direction: column; align-items: flex-start; }
+      .nav-links.open { display: flex; }
+      .nav-actions .btn-outline { display: none; }
+      .hero { padding: 65px 0; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .dashboard-preview { transform: none; }
+      .feature-grid, .how-grid { grid-template-columns: 1fr; }
+      .adapt-box { grid-template-columns: 1fr; padding: 30px 23px; }
+      .adapt-box .btn { justify-self: start; }
+      .footer-grid { grid-template-columns: 1fr; gap: 25px; }
     }
-
     @media (max-width: 420px) {
-      .brand {
-        font-size: 21px;
-      }
-
-      .brand-mark {
-        width: 37px;
-        height: 37px;
-      }
-
-      .nav-actions .btn {
-        padding: 10px 12px;
-        font-size: 12px;
-      }
-
-      .institution-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-      }
-
-      .institution-card {
-        padding: 16px 12px;
-      }
-
-      .institution-card h3 {
-        font-size: 14px;
-      }
-
-      .section {
-        padding: 65px 0;
-      }
-
-      .contact-panel {
-        padding: 25px 16px;
-      }
+      .brand { font-size: 21px; }
+      .brand-mark { width: 37px; height: 37px; }
+      .nav-actions .btn { padding: 10px 12px; font-size: 12px; }
+      .institution-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .institution-card { padding: 16px 12px; }
+      .institution-card h3 { font-size: 14px; }
+      .section { padding: 65px 0; }
+      .contact-panel { padding: 25px 16px; }
+      .hero-buttons .btn { width: 100%; }
     }
   </style>
 </head>
-
 <body>
-
-  <div class="topbar">
-    A smarter way to manage every educational institution.
-  </div>
+  <div class="topbar">A smarter way to manage every educational institution.</div>
 
   <header>
     <div class="container navbar">
-
       <a href="#home" class="brand" aria-label="EDUNEXA home">
-        <span class="brand-mark">E</span>
-        EDUN<span>EXA</span>
+        <span class="brand-mark">E</span>EDUN<span>EXA</span>
       </a>
-
       <nav class="nav-links" id="navLinks">
         <a href="#home">Home</a>
         <a href="#institutions">Institutions</a>
         <a href="#features">Features</a>
         <a href="#how-it-works">How It Works</a>
+        <a href="#school-access">Register School</a>
+        <a href="#school-access">School Login</a>
         <a href="#faq">FAQ</a>
       </nav>
-
       <div class="nav-actions">
         <a href="#contact" class="btn btn-outline">Contact</a>
-        <a href="#contact" class="btn btn-primary">Get Started</a>
-        <button class="menu-toggle" id="menuToggle"
-          aria-label="Open navigation" aria-expanded="false">☰</button>
+        <a href="#school-access" class="btn btn-primary">School Access</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
       </div>
-
     </div>
   </header>
 
   <main>
-
     <section class="hero" id="home">
       <div class="container hero-grid">
-
         <div>
           <span class="eyebrow">THE ALL-IN-ONE EDUCATION PLATFORM</span>
-
-          <h1>
-            One Platform.<br>
-            <span>Every School.</span><br>
-            Endless Possibilities.
-          </h1>
-
+          <h1>One Platform.<br><span>Every School.</span><br>Endless Possibilities.</h1>
           <p class="hero-text">
-            EDUNEXA is designed to bring school management, student
-            information, attendance, academics, communication and
-            administration together in one adaptable platform.
+            EDUNEXA is designed to bring school management, student information,
+            attendance, academics, communication and administration together
+            in one adaptable platform.
           </p>
-
           <div class="hero-buttons">
-            <a href="#contact" class="btn btn-primary">Explore EDUNEXA</a>
+            <a href="#school-access" class="btn btn-gold">REGISTER YOUR SCHOOL</a>
+            <a href="#school-access" class="btn btn-primary">LOGIN YOUR SCHOOL</a>
             <a href="#features" class="btn btn-outline">Discover Features</a>
           </div>
-
-          <p class="hero-note">
-            Designed for schools and educational institutions of every type and size.
-          </p>
+          <p class="hero-note">Designed for schools and educational institutions of every type and size.</p>
         </div>
 
         <div class="dashboard-preview">
@@ -737,359 +189,158 @@
             <strong>EDUNEXA Overview</strong>
             <span class="live-dot">● Platform Preview</span>
           </div>
-
           <div class="preview-grid">
-            <div class="preview-card">
-              <small>Student Management</small>
-              <strong>01</strong>
-            </div>
-
-            <div class="preview-card">
-              <small>School Administration</small>
-              <strong>02</strong>
-            </div>
-
-            <div class="preview-card">
-              <small>Academic Management</small>
-              <strong>03</strong>
-            </div>
-
-            <div class="preview-card">
-              <small>Attendance Management</small>
-              <strong>04</strong>
-            </div>
+            <div class="preview-card"><small>Student Management</small><strong>01</strong></div>
+            <div class="preview-card"><small>School Administration</small><strong>02</strong></div>
+            <div class="preview-card"><small>Academic Management</small><strong>03</strong></div>
+            <div class="preview-card"><small>Attendance Management</small><strong>04</strong></div>
           </div>
-
           <div class="preview-bottom">
             <strong>Everything connected.</strong>
-            <p>
-              A unified vision for managing educational institutions
-              from one central platform.
-            </p>
+            <p>A unified vision for managing educational institutions from one central platform.</p>
           </div>
         </div>
-
       </div>
     </section>
 
     <section class="section section-light" id="institutions">
       <div class="container">
-
         <div class="section-heading">
           <span class="eyebrow">WHO EDUNEXA SERVES</span>
           <h2>Built for Every Educational Institution</h2>
-          <p>
-            Different institutions have different needs.
-            EDUNEXA is planned to adapt to their structures,
-            academic systems and administrative requirements.
-          </p>
+          <p>Different institutions have different needs. EDUNEXA is planned to adapt to their structures, academic systems and administrative requirements.</p>
         </div>
-
         <div class="institution-grid">
-
-          <article class="institution-card">
-            <div class="institution-icon">🧸</div>
-            <h3>Nursery & Early Childhood</h3>
-            <p>Early learning, child records, classes and parent communication.</p>
-          </article>
-
-          <article class="institution-card">
-            <div class="institution-icon">📚</div>
-            <h3>Primary Schools</h3>
-            <p>Pupils, teachers, subjects, attendance and academic records.</p>
-          </article>
-
-          <article class="institution-card">
-            <div class="institution-icon">🎓</div>
-            <h3>Secondary Schools</h3>
-            <p>Classes, subject combinations, examinations and results.</p>
-          </article>
-
-          <article class="institution-card">
-            <div class="institution-icon">🏛️</div>
-            <h3>Colleges & Universities</h3>
-            <p>Departments, programmes, semesters and student administration.</p>
-          </article>
-
-          <article class="institution-card">
-            <div class="institution-icon">🔧</div>
-            <h3>Technical & Vocational</h3>
-            <p>Skills training, practical courses and certification records.</p>
-          </article>
-
-          <article class="institution-card">
-            <div class="institution-icon">🌍</div>
-            <h3>International Schools</h3>
-            <p>Flexible academic structures and different curriculum systems.</p>
-          </article>
-
-          <article class="institution-card">
-            <div class="institution-icon">🏫</div>
-            <h3>Public & Private Schools</h3>
-            <p>Administrative tools for government and privately owned schools.</p>
-          </article>
-
-          <article class="institution-card">
-            <div class="institution-icon">🤝</div>
-            <h3>Faith-Based Institutions</h3>
-            <p>Adaptable support for Islamic, Christian and other faith-based schools.</p>
-          </article>
-
-          <article class="institution-card">
-            <div class="institution-icon">🧩</div>
-            <h3>Special Education</h3>
-            <p>Configurable records and services for specialised learning needs.</p>
-          </article>
-
-          <article class="institution-card">
-            <div class="institution-icon">🌱</div>
-            <h3>Montessori Schools</h3>
-            <p>Flexible learner records and alternative educational structures.</p>
-          </article>
-
-          <article class="institution-card">
-            <div class="institution-icon">✏️</div>
-            <h3>Tutorial Centres</h3>
-            <p>Learner registration, lessons, schedules and progress records.</p>
-          </article>
-
-          <article class="institution-card">
-            <div class="institution-icon">🏢</div>
-            <h3>Multi-Campus Institutions</h3>
-            <p>Central administration with separate campus-level management.</p>
-          </article>
-
+          <article class="institution-card"><div class="institution-icon">🧸</div><h3>Nursery & Early Childhood</h3><p>Early learning, child records, classes and parent communication.</p></article>
+          <article class="institution-card"><div class="institution-icon">📚</div><h3>Primary Schools</h3><p>Pupils, teachers, subjects, attendance and academic records.</p></article>
+          <article class="institution-card"><div class="institution-icon">🎓</div><h3>Secondary Schools</h3><p>Classes, subject combinations, examinations and results.</p></article>
+          <article class="institution-card"><div class="institution-icon">🏛️</div><h3>Colleges & Universities</h3><p>Departments, programmes, semesters and student administration.</p></article>
+          <article class="institution-card"><div class="institution-icon">🔧</div><h3>Technical & Vocational</h3><p>Skills training, practical courses and certification records.</p></article>
+          <article class="institution-card"><div class="institution-icon">🌍</div><h3>International Schools</h3><p>Flexible academic structures and different curriculum systems.</p></article>
+          <article class="institution-card"><div class="institution-icon">🏫</div><h3>Public & Private Schools</h3><p>Administrative tools for government and privately owned schools.</p></article>
+          <article class="institution-card"><div class="institution-icon">🤝</div><h3>Faith-Based Institutions</h3><p>Adaptable support for Islamic, Christian and other faith-based schools.</p></article>
+          <article class="institution-card"><div class="institution-icon">🧩</div><h3>Special Education</h3><p>Configurable records and services for specialised learning needs.</p></article>
+          <article class="institution-card"><div class="institution-icon">🌱</div><h3>Montessori Schools</h3><p>Flexible learner records and alternative educational structures.</p></article>
+          <article class="institution-card"><div class="institution-icon">✏️</div><h3>Tutorial Centres</h3><p>Learner registration, lessons, schedules and progress records.</p></article>
+          <article class="institution-card"><div class="institution-icon">🏢</div><h3>Multi-Campus Institutions</h3><p>Central administration with separate campus-level management.</p></article>
         </div>
       </div>
     </section>
 
     <section class="section" id="features">
       <div class="container">
-
         <div class="section-heading">
           <span class="eyebrow">ONE CONNECTED SYSTEM</span>
           <h2>School Management Made More Organised</h2>
-          <p>
-            EDUNEXA is planned as a collection of connected modules.
-            Schools can use the tools that match their needs.
-          </p>
+          <p>EDUNEXA is planned as a collection of connected modules. Schools can use the tools that match their needs.</p>
         </div>
-
         <div class="feature-grid">
-
-          <article class="feature-card">
-            <div class="symbol">🏫</div>
-            <h3>School Registration</h3>
-            <p>Register institutions and assign each school its own unique identification code.</p>
-          </article>
-
-          <article class="feature-card">
-            <div class="symbol">👨‍🎓</div>
-            <h3>Student Management</h3>
-            <p>Manage admissions, student profiles, classes and academic histories.</p>
-          </article>
-
-          <article class="feature-card">
-            <div class="symbol">👩‍🏫</div>
-            <h3>Staff Management</h3>
-            <p>Organise teachers, administrators, roles and staff information.</p>
-          </article>
-
-          <article class="feature-card">
-            <div class="symbol">📅</div>
-            <h3>Attendance Management</h3>
-            <p>Plan attendance options including manual, QR and compatible device-based methods.</p>
-          </article>
-
-          <article class="feature-card">
-            <div class="symbol">📝</div>
-            <h3>Exams & Results</h3>
-            <p>Manage assessments, grading structures, report cards and academic progress.</p>
-          </article>
-
-          <article class="feature-card">
-            <div class="symbol">💳</div>
-            <h3>Fees & Finance</h3>
-            <p>Organise fee schedules, payment records and financial reporting.</p>
-          </article>
-
-          <article class="feature-card">
-            <div class="symbol">👪</div>
-            <h3>Parent Portal</h3>
-            <p>Give parents and guardians appropriate access to school updates and learner information.</p>
-          </article>
-
-          <article class="feature-card">
-            <div class="symbol">📢</div>
-            <h3>Communication</h3>
-            <p>Share announcements, notices and important school information.</p>
-          </article>
-
-          <article class="feature-card">
-            <div class="symbol">📊</div>
-            <h3>Reports & Analytics</h3>
-            <p>Help authorised school users understand records and institutional performance.</p>
-          </article>
-
-          <article class="feature-card">
-            <div class="symbol">📖</div>
-            <h3>Library Management</h3>
-            <p>Organise books, borrowing records and library activities.</p>
-          </article>
-
-          <article class="feature-card">
-            <div class="symbol">🚌</div>
-            <h3>Transport Management</h3>
-            <p>Manage transport information, routes and assigned vehicles.</p>
-          </article>
-
-          <article class="feature-card">
-            <div class="symbol">⚙️</div>
-            <h3>Custom School Settings</h3>
-            <p>Configure academic years, terms, semesters, grading and school structures.</p>
-          </article>
-
+          <article class="feature-card"><div class="symbol">🏫</div><h3>School Registration</h3><p>Register institutions and assign each school its own unique identification code.</p></article>
+          <article class="feature-card"><div class="symbol">👨‍🎓</div><h3>Student Management</h3><p>Manage admissions, student profiles, classes and academic histories.</p></article>
+          <article class="feature-card"><div class="symbol">👩‍🏫</div><h3>Staff Management</h3><p>Organise teachers, administrators, roles and staff information.</p></article>
+          <article class="feature-card"><div class="symbol">📅</div><h3>Attendance Management</h3><p>Plan attendance options including manual, QR and compatible device-based methods.</p></article>
+          <article class="feature-card"><div class="symbol">📝</div><h3>Exams & Results</h3><p>Manage assessments, grading structures, report cards and academic progress.</p></article>
+          <article class="feature-card"><div class="symbol">💳</div><h3>Fees & Finance</h3><p>Organise fee schedules, payment records and financial reporting.</p></article>
+          <article class="feature-card"><div class="symbol">👪</div><h3>Parent Portal</h3><p>Give parents and guardians appropriate access to school updates and learner information.</p></article>
+          <article class="feature-card"><div class="symbol">📢</div><h3>Communication</h3><p>Share announcements, notices and important school information.</p></article>
+          <article class="feature-card"><div class="symbol">📊</div><h3>Reports & Analytics</h3><p>Help authorised school users understand records and institutional performance.</p></article>
+          <article class="feature-card"><div class="symbol">📖</div><h3>Library Management</h3><p>Organise books, borrowing records and library activities.</p></article>
+          <article class="feature-card"><div class="symbol">🚌</div><h3>Transport Management</h3><p>Manage transport information, routes and assigned vehicles.</p></article>
+          <article class="feature-card"><div class="symbol">⚙️</div><h3>Custom School Settings</h3><p>Configure academic years, terms, semesters, grading and school structures.</p></article>
         </div>
       </div>
     </section>
 
     <section class="section section-light" id="how-it-works">
       <div class="container">
-
         <div class="section-heading">
           <span class="eyebrow">SIMPLE STRUCTURE</span>
           <h2>How EDUNEXA Is Intended to Work</h2>
-          <p>
-            A shared platform with separate, protected spaces
-            for each registered institution.
-          </p>
+          <p>A shared platform with separate, protected spaces for each registered institution.</p>
         </div>
-
         <div class="how-grid">
-
-          <article class="how-card">
-            <div class="step-number">1</div>
-            <h3>Register Your Institution</h3>
-            <p>
-              An authorised representative submits the institution's
-              information for registration.
-            </p>
-          </article>
-
-          <article class="how-card">
-            <div class="step-number">2</div>
-            <h3>Set Up Your School</h3>
-            <p>
-              Configure school type, academic structure, classes,
-              departments and other settings.
-            </p>
-          </article>
-
-          <article class="how-card">
-            <div class="step-number">3</div>
-            <h3>Manage Your Institution</h3>
-            <p>
-              Authorised users access the modules and records
-              assigned to their institution.
-            </p>
-          </article>
-
+          <article class="how-card"><div class="step-number">1</div><h3>Register Your Institution</h3><p>An authorised representative submits the institution's information for registration.</p></article>
+          <article class="how-card"><div class="step-number">2</div><h3>Set Up Your School</h3><p>Configure school type, academic structure, classes, departments and other settings.</p></article>
+          <article class="how-card"><div class="step-number">3</div><h3>Manage Your Institution</h3><p>Authorised users access the modules and records assigned to their institution.</p></article>
         </div>
-
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="adapt">
       <div class="container">
-
         <div class="adapt-box">
           <div>
             <h2>Every School Is Different. Your Platform Should Adapt.</h2>
-            <p>
-              Whether an institution uses terms or semesters,
-              classes or departments, one curriculum or another,
-              EDUNEXA is intended to support flexible configurations
-              rather than force every school into one structure.
-            </p>
+            <p>Whether an institution uses terms or semesters, classes or departments, one curriculum or another, EDUNEXA is intended to support flexible configurations rather than force every school into one structure.</p>
           </div>
-
-          <a href="#contact" class="btn btn-gold">Discover EDUNEXA</a>
+          <a href="#school-access" class="btn btn-gold">Get School Access</a>
         </div>
-
       </div>
     </section>
 
-    <section class="section section-light" id="faq">
+    <!-- School registration and login entry points -->
+    <section class="section section-light" id="school-access">
       <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">SCHOOL ACCESS</span>
+          <h2>Welcome to EDUNEXA</h2>
+          <p>Register your institution or access your existing school account. Each school will have its own dedicated management space.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="symbol">🏫</div>
+            <h3>REGISTER YOUR SCHOOL</h3>
+            <p>Start the registration process for your educational institution and request a dedicated EDUNEXA school account.</p>
+            <p class="access-status">Registration portal is being prepared.</p>
+            <div class="access-link"><a class="btn btn-gold" href="#school-registration-notice">Register interest</a></div>
+          </article>
+          <article class="feature-card">
+            <div class="symbol">🔐</div>
+            <h3>LOGIN YOUR SCHOOL</h3>
+            <p>Access your institution's dedicated EDUNEXA management portal once your school account has been activated.</p>
+            <p class="access-status">School login will be enabled after secure account setup.</p>
+            <div class="access-link"><a class="btn btn-primary" href="#school-login-notice">School login information</a></div>
+          </article>
+        </div>
+        <div class="contact-panel" id="school-registration-notice" style="margin-top:22px;">
+          <h2>School registration is not yet connected</h2>
+          <p>This homepage currently provides the information and entry points only. The secure registration form, school account creation and approval workflow still need to be connected to the EDUNEXA backend.</p>
+        </div>
+        <div class="contact-panel" id="school-login-notice" style="margin-top:18px;">
+          <h2>School login is not yet enabled</h2>
+          <p>School login will be connected after secure authentication and school-specific access controls are ready. Do not enter passwords on this preview page.</p>
+        </div>
+      </div>
+    </section>
 
+    <section class="section" id="faq">
+      <div class="container">
         <div class="section-heading">
           <span class="eyebrow">COMMON QUESTIONS</span>
           <h2>Frequently Asked Questions</h2>
           <p>Learn more about the EDUNEXA vision.</p>
         </div>
-
         <div class="faq-list">
-
           <div class="faq-item">
-            <button class="faq-question">
-              Is EDUNEXA only for Islamic schools?
-              <span>＋</span>
-            </button>
-            <div class="faq-answer">
-              No. EDUNEXA is intended for all educational institutions,
-              including public, private, secular, faith-based,
-              international and specialised schools.
-            </div>
+            <button class="faq-question" type="button">Is EDUNEXA only for Islamic schools?<span>＋</span></button>
+            <div class="faq-answer">No. EDUNEXA is intended for all educational institutions, including public, private, secular, faith-based, international and specialised schools.</div>
           </div>
-
           <div class="faq-item">
-            <button class="faq-question">
-              Can different schools have separate accounts?
-              <span>＋</span>
-            </button>
-            <div class="faq-answer">
-              That is a core part of the planned system.
-              Each institution will have its own protected account,
-              users and school records.
-            </div>
+            <button class="faq-question" type="button">Can different schools have separate accounts?<span>＋</span></button>
+            <div class="faq-answer">That is a core part of the planned system. Each institution will have its own protected account, users and school records.</div>
           </div>
-
           <div class="faq-item">
-            <button class="faq-question">
-              Can a university use EDUNEXA?
-              <span>＋</span>
-            </button>
-            <div class="faq-answer">
-              The platform is being planned to support higher education
-              structures such as faculties, departments, programmes
-              and semesters.
-            </div>
+            <button class="faq-question" type="button">Can a university use EDUNEXA?<span>＋</span></button>
+            <div class="faq-answer">The platform is being planned to support higher education structures such as faculties, departments, programmes and semesters.</div>
           </div>
-
           <div class="faq-item">
-            <button class="faq-question">
-              Does this homepage already contain a working school database?
-              <span>＋</span>
-            </button>
-            <div class="faq-answer">
-              No. This is the public homepage. Secure accounts,
-              databases, registration, dashboards and other live
-              services must be developed and connected separately.
-            </div>
+            <button class="faq-question" type="button">Does this homepage already contain a working school database?<span>＋</span></button>
+            <div class="faq-answer">No. This is the public homepage. Secure accounts, databases, registration, dashboards and other live services must be developed and connected separately.</div>
           </div>
-
           <div class="faq-item">
-            <button class="faq-question">
-              Can schools use different academic systems?
-              <span>＋</span>
-            </button>
-            <div class="faq-answer">
-              The planned configuration system will support different
-              school structures, including terms, semesters,
-              departments, classes and grading systems.
-            </div>
+            <button class="faq-question" type="button">Can schools use different academic systems?<span>＋</span></button>
+            <div class="faq-answer">The planned configuration system will support different school structures, including terms, semesters, departments, classes and grading systems.</div>
           </div>
-
         </div>
       </div>
     </section>
@@ -1099,56 +350,34 @@
         <div class="contact-panel">
           <span class="eyebrow">WELCOME TO EDUNEXA</span>
           <h2>One Platform. Every School.</h2>
-          <p>
-            A unified vision for the future of school management
-            and educational administration.
-          </p>
+          <p>A unified vision for the future of school management and educational administration.</p>
           <a href="#home" class="btn btn-primary">Back to Top</a>
         </div>
       </div>
     </section>
-
   </main>
 
   <footer>
     <div class="container">
-
       <div class="footer-grid">
-
         <div>
           <div class="footer-brand">EDUN<span>EXA</span></div>
-          <p>
-            One Platform. Every School. Endless Possibilities.
-            Bringing educational administration together
-            through one adaptable platform.
-          </p>
+          <p>One Platform. Every School. Endless Possibilities. Bringing educational administration together through one adaptable platform.</p>
         </div>
-
         <div>
           <h3>Explore</h3>
           <div class="footer-links">
-            <a href="#home">Home</a>
-            <a href="#institutions">Institutions</a>
-            <a href="#features">Features</a>
-            <a href="#how-it-works">How It Works</a>
+            <a href="#home">Home</a><a href="#institutions">Institutions</a><a href="#features">Features</a><a href="#how-it-works">How It Works</a>
           </div>
         </div>
-
         <div>
-          <h3>Information</h3>
+          <h3>School Access</h3>
           <div class="footer-links">
-            <a href="#faq">Frequently Asked Questions</a>
-            <a href="#contact">Contact</a>
-            <a href="#home">About EDUNEXA</a>
+            <a href="#school-access">Register Your School</a><a href="#school-access">Login Your School</a><a href="#faq">Frequently Asked Questions</a><a href="#contact">Contact</a>
           </div>
         </div>
-
       </div>
-
-      <div class="copyright">
-        © <span id="currentYear"></span> EDUNEXA. All rights reserved.
-      </div>
-
+      <div class="copyright">© <span id="currentYear"></span> EDUNEXA. All rights reserved.</div>
     </div>
   </footer>
 
@@ -1175,15 +404,12 @@
     // FAQ accordion
     document.querySelectorAll(".faq-question").forEach(function (button) {
       button.addEventListener("click", function () {
-        const item = button.parentElement;
-        item.classList.toggle("active");
+        button.parentElement.classList.toggle("active");
       });
     });
 
     // Automatic copyright year
-    document.getElementById("currentYear").textContent =
-      new Date().getFullYear();
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
   </script>
-
 </body>
 </html>
