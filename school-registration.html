@@ -1,0 +1,341 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#073d2b">
+<title>Register Your School | EDUNEXA</title>
+
+<style>
+:root {
+  --green:#073d2b;
+  --light:#0c6245;
+  --gold:#d6ad50;
+  --cream:#f4f7f4;
+  --text:#24332c;
+  --muted:#66756d;
+  --border:#dfe8e1;
+}
+* {box-sizing:border-box;margin:0;padding:0}
+body {
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--cream);
+  color:var(--text);
+  line-height:1.6;
+}
+header {
+  background:var(--green);
+  color:white;
+  padding:20px;
+}
+.header-inner {
+  max-width:950px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+}
+.logo {font-size:25px;font-weight:900}
+.logo span {color:var(--gold)}
+header a {color:white;text-decoration:none;font-size:13px}
+.container {
+  width:min(950px,92%);
+  margin:35px auto;
+}
+.intro {text-align:center;margin-bottom:25px}
+.intro h1 {color:var(--green);font-size:32px}
+.intro p {color:var(--muted);margin-top:8px}
+.notice {
+  background:#fff4d9;
+  border:1px solid #e8cf8d;
+  border-radius:10px;
+  padding:15px;
+  margin-bottom:20px;
+  font-size:13px;
+  color:#654d16;
+}
+.form-card {
+  background:white;
+  border:1px solid var(--border);
+  border-radius:15px;
+  padding:28px;
+  box-shadow:0 10px 30px rgba(5,48,32,.06);
+}
+.section-title {
+  color:var(--green);
+  font-size:18px;
+  border-bottom:1px solid var(--border);
+  padding-bottom:10px;
+  margin:25px 0 18px;
+}
+.section-title:first-child {margin-top:0}
+.grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:17px;
+}
+.field {margin-bottom:15px}
+.field.full {grid-column:1/-1}
+label {
+  display:block;
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:6px;
+}
+input,select,textarea {
+  width:100%;
+  padding:13px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:white;
+  font:inherit;
+  font-size:14px;
+  outline:none;
+}
+input:focus,select:focus,textarea:focus {
+  border-color:var(--light);
+}
+textarea {min-height:90px;resize:vertical}
+.checkbox {
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  margin:20px 0;
+  font-size:13px;
+}
+.checkbox input {width:auto;margin-top:5px}
+button {
+  width:100%;
+  padding:15px;
+  border:0;
+  border-radius:8px;
+  background:var(--green);
+  color:white;
+  font-size:14px;
+  font-weight:800;
+  cursor:pointer;
+}
+button:hover {background:var(--light)}
+#result {
+  display:none;
+  margin-top:20px;
+  padding:20px;
+  background:#eaf4ec;
+  border:1px solid #b9d9c1;
+  border-radius:10px;
+  color:var(--green);
+}
+#result h3 {margin-bottom:8px}
+.back {
+  display:block;
+  text-align:center;
+  margin-top:22px;
+  color:var(--green);
+  font-weight:700;
+  text-decoration:none;
+  font-size:14px;
+}
+footer {
+  text-align:center;
+  padding:25px;
+  color:var(--muted);
+  font-size:12px;
+}
+@media(max-width:650px) {
+  .grid {grid-template-columns:1fr}
+  .form-card {padding:20px}
+  .intro h1 {font-size:26px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">EDUN<span>EXA</span></div>
+    <a href="index.html">← Back to Homepage</a>
+  </div>
+</header>
+
+<main class="container">
+
+  <div class="intro">
+    <h1>Register Your School</h1>
+    <p>Start your institution's EDUNEXA registration profile.</p>
+  </div>
+
+  <div class="notice">
+    <strong>DEVELOPMENT PREVIEW:</strong>
+    This page is not connected to the official database.
+    Use fictional test information only. Do not enter real
+    school, student, staff, contact or password information.
+    No official registration or school code will be issued here.
+  </div>
+
+  <form class="form-card" id="registrationForm">
+
+    <h2 class="section-title">Institution Information</h2>
+
+    <div class="grid">
+
+      <div class="field full">
+        <label for="schoolName">School / Institution Name *</label>
+        <input id="schoolName" required maxlength="100"
+          placeholder="Example: Demo International School">
+      </div>
+
+      <div class="field">
+        <label for="institutionType">Institution Type *</label>
+        <select id="institutionType" required>
+          <option value="">Select institution type</option>
+          <option>Nursery / Early Childhood</option>
+          <option>Primary School</option>
+          <option>Secondary School</option>
+          <option>Nursery, Primary & Secondary</option>
+          <option>College</option>
+          <option>Polytechnic</option>
+          <option>University</option>
+          <option>Technical / Vocational School</option>
+          <option>International School</option>
+          <option>Montessori School</option>
+          <option>Special Education School</option>
+          <option>Faith-Based Institution</option>
+          <option>Tutorial / Training Centre</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="country">Country *</label>
+        <input id="country" required value="Nigeria">
+      </div>
+
+      <div class="field">
+        <label for="state">State / Region *</label>
+        <input id="state" required placeholder="Enter state or region">
+      </div>
+
+      <div class="field">
+        <label for="city">City / Town *</label>
+        <input id="city" required placeholder="Enter city or town">
+      </div>
+
+      <div class="field full">
+        <label for="address">Institution Address *</label>
+        <textarea id="address" required
+          placeholder="Enter fictional test address"></textarea>
+      </div>
+
+      <div class="field">
+        <label for="website">Website (Optional)</label>
+        <input id="website" placeholder="https://example.com">
+      </div>
+
+      <div class="field">
+        <label for="year">Year Established (Optional)</label>
+        <input id="year" type="number" min="1800" max="2100"
+          placeholder="Example: 2020">
+      </div>
+
+    </div>
+
+    <h2 class="section-title">Institution Contact (Test Information Only)</h2>
+
+    <div class="grid">
+
+      <div class="field">
+        <label for="email">Institution Email *</label>
+        <input id="email" type="email" required
+          placeholder="demo@example.com">
+      </div>
+
+      <div class="field">
+        <label for="phone">Institution Phone *</label>
+        <input id="phone" type="tel" required
+          placeholder="Use a fictional number">
+      </div>
+
+      <div class="field">
+        <label for="learners">Estimated Number of Learners</label>
+        <input id="learners" type="number" min="0"
+          placeholder="Example: 500">
+      </div>
+
+      <div class="field">
+        <label for="contactPerson">Representative Name *</label>
+        <input id="contactPerson" required
+          placeholder="Fictional representative name">
+      </div>
+
+      <div class="field full">
+        <label for="role">Representative Role *</label>
+        <select id="role" required>
+          <option value="">Select role</option>
+          <option>School Proprietor / Owner</option>
+          <option>Principal / Head Teacher</option>
+          <option>Director</option>
+          <option>Administrator</option>
+          <option>Other Authorised Representative</option>
+        </select>
+      </div>
+
+    </div>
+
+    <div class="checkbox">
+      <input type="checkbox" id="agreement" required>
+      <label for="agreement">
+        I confirm that I am using fictional test information
+        and understand that this is only a preview. No official
+        registration is being submitted.
+      </label>
+    </div>
+
+    <button type="submit">PREVIEW REGISTRATION</button>
+
+    <div id="result" role="status" aria-live="polite">
+      <h3>Registration Preview Created</h3>
+      <p>Your test preview code:</p>
+      <h2 id="previewCode"></h2>
+      <p>This is not an official EDUNEXA school code.
+        No information has been submitted or saved.</p>
+    </div>
+
+  </form>
+
+  <a href="index.html" class="back">← Return to EDUNEXA Homepage</a>
+
+</main>
+
+<footer>
+  © <span id="yearNow"></span> EDUNEXA.
+  One Platform. Every School. Endless Possibilities.
+</footer>
+
+<script>
+document.getElementById("yearNow").textContent =
+  new Date().getFullYear();
+
+document.getElementById("registrationForm")
+.addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  if (!this.reportValidity()) return;
+
+  const code = "EDU-PREVIEW-" +
+    Math.random().toString(36).substring(2, 7).toUpperCase();
+
+  document.getElementById("previewCode").textContent = code;
+  document.getElementById("result").style.display = "block";
+
+  document.getElementById("result").scrollIntoView({
+    behavior:"smooth",
+    block:"center"
+  });
+});
+</script>
+
+</body>
+</html>
