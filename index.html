@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#073d2b">
 <meta name="description" content="EDUNEXA is a multi-school attendance management platform for educational institutions.">
+<link rel="manifest" href="./manifest.json">
 <title>EDUNEXA | Every School. Smarter Attendance.</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,9 +33,7 @@
   padding:0;
 }
 
-html{
-  scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth;}
 
 body{
   font-family:'DM Sans',sans-serif;
@@ -42,14 +42,8 @@ body{
   line-height:1.65;
 }
 
-a{
-  text-decoration:none;
-  color:inherit;
-}
-
-button{
-  font:inherit;
-}
+a{text-decoration:none;color:inherit;}
+button{font:inherit;}
 
 .container{
   width:min(1160px,92%);
@@ -70,9 +64,7 @@ button{
   flex-wrap:wrap;
 }
 
-.topbar strong{
-  color:var(--gold);
-}
+.topbar strong{color:var(--gold);}
 
 header{
   background:rgba(255,255,255,.97);
@@ -105,7 +97,6 @@ header{
   display:grid;
   place-items:center;
   color:var(--gold);
-  font-family:'Manrope',sans-serif;
   font-weight:800;
   font-size:19px;
   border:2px solid var(--gold);
@@ -121,7 +112,6 @@ header{
 
 .logo-name small{
   display:block;
-  font-family:'DM Sans',sans-serif;
   font-size:9px;
   font-weight:700;
   color:var(--muted);
@@ -143,9 +133,7 @@ header{
   transition:.2s;
 }
 
-.nav-links a:hover{
-  color:var(--green3);
-}
+.nav-links a:hover{color:var(--green3);}
 
 .nav-actions{
   display:flex;
@@ -210,9 +198,7 @@ header{
   overflow:hidden;
 }
 
-.hero-content{
-  max-width:720px;
-}
+.hero-content{max-width:720px;}
 
 .eyebrow{
   display:inline-flex;
@@ -241,9 +227,7 @@ header{
   margin-bottom:22px;
 }
 
-.hero h1 span{
-  color:var(--gold);
-}
+.hero h1 span{color:var(--gold);}
 
 .hero p{
   max-width:590px;
@@ -306,9 +290,7 @@ header{
   font-size:17px;
 }
 
-.section{
-  padding:82px 0;
-}
+.section{padding:82px 0;}
 
 .section-heading{
   max-width:700px;
@@ -390,10 +372,9 @@ header{
   font-weight:800;
 }
 
-.access-link:hover{
-  color:var(--gold);
-}
-  .institution-grid{
+.access-link:hover{color:var(--gold);}
+
+.institution-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:15px;
@@ -424,9 +405,7 @@ header{
   color:var(--green);
 }
 
-.features-section{
-  background:white;
-}
+.features-section{background:white;}
 
 .feature-grid{
   display:grid;
@@ -470,9 +449,7 @@ header{
   gap:55px;
 }
 
-.attendance-section .section-label{
-  color:var(--gold);
-}
+.attendance-section .section-label{color:var(--gold);}
 
 .attendance-section h2{
   font-family:'Manrope',sans-serif;
@@ -528,390 +505,8 @@ header{
   font-size:13px;
 }
 
-.attendance-stat strong{
-  color:var(--gold);
-}
-
-.steps-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
-}
-
-.step-card{
-  background:white;
-  border:1px solid var(--line);
-  padding:25px 20px;
-  border-radius:13px;
-}
-
-.step-number{
-  width:39px;
-  height:39px;
-  display:grid;
-  place-items:center;
-  background:var(--green);
-  color:var(--gold);
-  border-radius:11px;
-  font-weight:800;
-  margin-bottom:17px;
-}
-
-.step-card h3{
-  color:var(--green);
-  font-size:15px;
-  margin-bottom:8px;
-}
-
-.step-card p{
-  font-size:12px;
-  color:var(--muted);
-}
-
-.pricing-section{
-  background:#edf3ee;
-}
-
-.pricing-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-
-.price-card{
-  background:white;
-  border:1px solid var(--line);
-  border-radius:15px;
-  padding:29px;
-}
-
-.price-card.featured{
-  border:2px solid var(--gold);
-  transform:translateY(-7px);
-}
-
-.price-card h3{
-  color:var(--green);
-  font-family:'Manrope',sans-serif;
-  font-size:19px;
-}
-
-.price-card .price{
-  font-size:30px;
-  font-weight:800;
-  color:var(--green);
-  margin:17px 0 4px;
-}
-
-.price-card .price small{
-  font-size:12px;
-  color:var(--muted);
-}
-
-.price-card p{
-  color:var(--muted);
-  font-size:12px;
-  margin-bottom:19px;
-}
-
-.price-card ul{
-  list-style:none;
-  margin:20px 0;
-}
-
-.price-card li{
-  font-size:12px;
-  padding:8px 0;
-  border-bottom:1px solid var(--line);
-}
-
-.price-card li:before{
-  content:"✓";
-  color:var(--green2);
-  margin-right:8px;
-  font-weight:800;
-}
-
-.pricing-note{
-  text-align:center;
-  font-size:11px;
-  color:var(--muted);
-  margin-top:25px;
-}
-
-.security-section{
-  background:white;
-}
-
-.security-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-}
-
-.security-card{
-  border:1px solid var(--line);
-  border-radius:13px;
-  padding:23px;
-}
-
-.security-card span{
-  font-size:24px;
-}
-
-.security-card h3{
-  color:var(--green);
-  font-size:15px;
-  margin:12px 0 7px;
-}
-
-.security-card p{
-  color:var(--muted);
-  font-size:12px;
-}
-
-.cta-section{
-  background:linear-gradient(120deg,var(--green),var(--green2));
-  color:white;
-  text-align:center;
-  padding:75px 0;
-}
-
-.cta-section h2{
-  font-family:'Manrope',sans-serif;
-  font-size:clamp(27px,4vw,40px);
-  margin-bottom:14px;
-}
-
-.cta-section p{
-  color:#d9e9df;
-  font-size:14px;
-  margin-bottom:25px;
-}
-
-.faq-list{
-  max-width:820px;
-  margin:auto;
-}
-
-.faq-item{
-  background:white;
-  border:1px solid var(--line);
-  border-radius:11px;
-  margin-bottom:12px;
-  overflow:hidden;
-}
-
-.faq-question{
-  width:100%;
-  background:white;
-  border:0;
-  padding:19px 21px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  text-align:left;
-  color:var(--green);
-  font-weight:800;
-  cursor:pointer;
-}
-
-.faq-answer{
-  display:none;
-  padding:0 21px 19px;
-  color:var(--muted);
-  font-size:13px;
-}
-
-.faq-item.active .faq-answer{
-  display:block;
-}
-
-.faq-item.active .faq-question span{
-  transform:rotate(45deg);
-}
-
-.contact-section{
-  background:#edf3ee;
-}
-
-.contact-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:35px;
-  align-items:center;
-}
-
-.contact-details{
-  background:white;
-  border-radius:15px;
-  padding:30px;
-}
-
-.contact-details h3{
-  color:var(--green);
-  font-family:'Manrope',sans-serif;
-  margin-bottom:16px;
-}
-
-.contact-details p{
-  font-size:13px;
-  color:var(--muted);
-  margin:12px 0;
-}
-
-.contact-details strong{
-  color:var(--green);
-}
-
-footer{
-  background:#032719;
-  color:#d7e6dc;
-  padding:45px 0 20px;
-}
-
-.footer-grid{
-  display:grid;
-  grid-template-columns:2fr 1fr 1fr;
-  gap:35px;
-  padding-bottom:30px;
-}
-
-footer h3,footer h4{
-  color:white;
-  margin-bottom:15px;
-}
-
-footer p,footer a{
-  color:#b9cfc0;
-  font-size:12px;
-}
-
-footer a{
-  display:block;
-  margin:9px 0;
-}
-
-footer a:hover{
-  color:var(--gold);
-}
-
-.footer-bottom{
-  border-top:1px solid rgba(255,255,255,.13);
-  padding-top:18px;
-  text-align:center;
-  font-size:11px;
-  color:#a9c1b1;
-}
-
-@media(max-width:1000px){
-  .nav-links{
-    gap:13px;
-  }
-  .nav-links a{
-    font-size:12px;
-  }
-  .access-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-}
-
-@media(max-width:760px){
-  .navbar{
-    min-height:70px;
-  }
-
-  .menu-toggle{
-    display:block;
-  }
-
-  .nav-links{
-    display:none;
-    position:absolute;
-    top:70px;
-    left:0;
-    width:100%;
-    background:white;
-    padding:20px 5%;
-    box-shadow:0 12px 20px rgba(0,0,0,.08);
-    flex-direction:column;
-    align-items:flex-start;
-    gap:17px;
-  }
-
-  .nav-links.show{
-    display:flex;
-  }
-
-  .nav-actions{
-    display:none;
-  }
-
-  .hero{
-    padding:75px 0;
-  }
-
-  .institution-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .feature-grid,
-  .security-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .attendance-layout,
-  .contact-grid{
-    grid-template-columns:1fr;
-  }
-
-  .steps-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .pricing-grid{
-    grid-template-columns:1fr;
-  }
-
-  .price-card.featured{
-    transform:none;
-  }
-
-  .footer-grid{
-    grid-template-columns:1fr 1fr;
-  }
-}
-
-@media(max-width:480px){
-  .access-grid,
-  .feature-grid,
-  .security-grid,
-  .steps-grid{
-    grid-template-columns:1fr;
-  }
-
-  .hero h1{
-    font-size:39px;
-  }
-
-  .hero-actions .btn{
-    width:100%;
-  }
-
-  .attendance-list{
-    grid-template-columns:1fr;
-  }
-
-  .footer-grid{
-    grid-template-columns:1fr;
-  }
-
-  .topbar-inner{
-    justify-content:center;
-    text-align:center;
-  }
-    }
-  </style>
+.attendance-stat strong{color:var(--gold);}
+</style>
 </head>
 
 <body>
@@ -925,7 +520,6 @@ footer a:hover{
 
 <header>
   <div class="container navbar">
-
     <a href="#" class="logo">
       <div class="logo-mark">E</div>
       <div class="logo-name">
@@ -950,7 +544,6 @@ footer a:hover{
       <a href="school-login.html" class="btn btn-outline">School Login</a>
       <a href="school-registration.html" class="btn btn-primary">Register School</a>
     </div>
-
   </div>
 </header>
 
@@ -959,7 +552,6 @@ footer a:hover{
 <section class="hero">
   <div class="container">
     <div class="hero-content">
-
       <div class="eyebrow">The Future of School Attendance</div>
 
       <h1>
@@ -987,7 +579,6 @@ footer a:hover{
         <span>✓</span>
         Designed for modern educational institutions
       </div>
-
     </div>
   </div>
 </section>
@@ -1003,17 +594,13 @@ footer a:hover{
 
 <section class="section" id="access">
   <div class="container">
-
     <div class="section-heading">
       <div class="section-label">Portal Access</div>
       <h2>Access Your EDUNEXA Portal</h2>
-      <p>
-        Choose the portal that matches your role in the school community.
-      </p>
+      <p>Choose the portal that matches your role in the school community.</p>
     </div>
 
     <div class="access-grid">
-
       <div class="access-card">
         <div class="access-icon">🏫</div>
         <h3>School Registration</h3>
@@ -1041,14 +628,13 @@ footer a:hover{
         <p>View attendance information for your linked children.</p>
         <a class="access-link" href="parent-portal.html">PARENT PORTAL →</a>
       </div>
-
     </div>
   </div>
 </section>
 
+
 <section class="section" id="institutions">
   <div class="container">
-
     <div class="section-heading">
       <div class="section-label">Who We Serve</div>
       <h2>One Platform for Every Institution</h2>
@@ -1069,13 +655,11 @@ footer a:hover{
       <div class="institution-card"><span>🏢</span><h3>Public Institutions</h3></div>
       <div class="institution-card"><span>🏘️</span><h3>Multi-Campus Schools</h3></div>
     </div>
-
   </div>
 </section>
 
 <section class="section features-section" id="features">
   <div class="container">
-
     <div class="section-heading">
       <div class="section-label">Platform Capabilities</div>
       <h2>Everything You Need for Smarter Attendance</h2>
@@ -1083,7 +667,6 @@ footer a:hover{
     </div>
 
     <div class="feature-grid">
-
       <div class="feature-card">
         <div class="feature-icon">👨‍🎓</div>
         <h3>Student Records</h3>
@@ -1137,14 +720,12 @@ footer a:hover{
         <h3>Multiple Campuses</h3>
         <p>Support institutions operating across multiple approved school locations.</p>
       </div>
-
     </div>
   </div>
 </section>
 
 <section class="section attendance-section">
   <div class="container attendance-layout">
-
     <div>
       <div class="section-label">Attendance Technology</div>
       <h2>Smarter Identification. Better Attendance Records.</h2>
@@ -1173,13 +754,11 @@ footer a:hover{
       <div class="attendance-stat"><span>Parent Access</span><strong>View Only</strong></div>
       <div class="attendance-stat"><span>Correction Approval</span><strong>Admin / Principal</strong></div>
     </div>
-
   </div>
 </section>
 
 <section class="section" id="how-it-works">
   <div class="container">
-
     <div class="section-heading">
       <div class="section-label">Getting Started</div>
       <h2>How EDUNEXA Works</h2>
@@ -1211,13 +790,11 @@ footer a:hover{
         <p>Teachers record attendance and authorised staff review reports and corrections.</p>
       </div>
     </div>
-
   </div>
 </section>
 
 <section class="section pricing-section" id="pricing">
   <div class="container">
-
     <div class="section-heading">
       <div class="section-label">Flexible Plans</div>
       <h2>Plans Designed for Different School Sizes</h2>
@@ -1225,7 +802,6 @@ footer a:hover{
     </div>
 
     <div class="pricing-grid">
-
       <div class="price-card">
         <h3>Starter</h3>
         <div class="price">₦5,000 <small>/ month</small></div>
@@ -1269,19 +845,16 @@ footer a:hover{
         </ul>
         <a href="school-registration.html" class="btn btn-outline">Get Started</a>
       </div>
-
     </div>
 
     <p class="pricing-note">
       These prices are proposed examples and are not yet final published subscription prices.
     </p>
-
   </div>
 </section>
 
 <section class="section security-section">
   <div class="container">
-
     <div class="section-heading">
       <div class="section-label">Trust and Protection</div>
       <h2>Designed with Security in Mind</h2>
@@ -1307,9 +880,9 @@ footer a:hover{
         <p>Parents and guardians can access only children linked to their verified accounts.</p>
       </div>
     </div>
-
   </div>
 </section>
+
 
 <section class="cta-section">
   <div class="container">
@@ -1321,7 +894,6 @@ footer a:hover{
 
 <section class="section" id="faq">
   <div class="container">
-
     <div class="section-heading">
       <div class="section-label">Frequently Asked Questions</div>
       <h2>Questions About EDUNEXA?</h2>
@@ -1329,40 +901,46 @@ footer a:hover{
     </div>
 
     <div class="faq-list">
-
       <div class="faq-item">
         <button class="faq-question">What is EDUNEXA? <span>＋</span></button>
-        <div class="faq-answer">EDUNEXA is a multi-school attendance management platform designed for different types of educational institutions.</div>
+        <div class="faq-answer">
+          EDUNEXA is a multi-school attendance management platform designed for different types of educational institutions.
+        </div>
       </div>
 
       <div class="faq-item">
         <button class="faq-question">Can different schools use EDUNEXA? <span>＋</span></button>
-        <div class="faq-answer">Yes. The platform is designed to support multiple independent schools and educational institutions.</div>
+        <div class="faq-answer">
+          Yes. The platform is designed to support multiple independent schools and educational institutions.
+        </div>
       </div>
 
       <div class="faq-item">
         <button class="faq-question">Can students mark their own attendance? <span>＋</span></button>
-        <div class="faq-answer">No. Teachers control attendance recording. Students can view their own attendance information through the Student Portal.</div>
+        <div class="faq-answer">
+          No. Teachers control attendance recording. Students can view their own attendance information through the Student Portal.
+        </div>
       </div>
 
       <div class="faq-item">
         <button class="faq-question">What can parents do? <span>＋</span></button>
-        <div class="faq-answer">Verified parents and guardians can view attendance information for their linked children.</div>
+        <div class="faq-answer">
+          Verified parents and guardians can view attendance information for their linked children.
+        </div>
       </div>
 
       <div class="faq-item">
         <button class="faq-question">Is EDUNEXA fully operational? <span>＋</span></button>
-        <div class="faq-answer">EDUNEXA is currently under development. Some pages are demonstration interfaces, and secure authentication, live attendance, notifications and payment integrations still need implementation.</div>
+        <div class="faq-answer">
+          EDUNEXA is currently under development. Some pages are demonstration interfaces, and secure authentication, live attendance, notifications and payment integrations still need implementation.
+        </div>
       </div>
-
     </div>
-
   </div>
 </section>
 
 <section class="section contact-section" id="contact">
   <div class="container contact-grid">
-
     <div>
       <div class="section-label">Contact EDUNEXA</div>
       <h2 style="font-family:Manrope,sans-serif;color:var(--green);font-size:34px;margin:12px 0;">
@@ -1379,7 +957,6 @@ footer a:hover{
       <p><strong>Platform:</strong> Multi-School Attendance Management</p>
       <p><strong>Website:</strong> EDUNEXA</p>
     </div>
-
   </div>
 </section>
 
@@ -1387,13 +964,13 @@ footer a:hover{
 
 <footer>
   <div class="container">
-
     <div class="footer-grid">
-
       <div>
         <h3>EDUNEXA</h3>
         <p>One Platform. Every School. Smarter Attendance.</p>
-        <p style="margin-top:12px;">A modern attendance management platform for educational institutions.</p>
+        <p style="margin-top:12px;">
+          A modern attendance management platform for educational institutions.
+        </p>
       </div>
 
       <div>
@@ -1411,13 +988,11 @@ footer a:hover{
         <a href="student-portal.html">Student Portal</a>
         <a href="parent-portal.html">Parent Portal</a>
       </div>
-
     </div>
 
     <div class="footer-bottom">
       © <span id="year"></span> EDUNEXA. All Rights Reserved.
     </div>
-
   </div>
 </footer>
 
@@ -1442,6 +1017,9 @@ document.querySelectorAll(".faq-question").forEach(function(question){
 });
 
 document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+<!-- EDUNEXA PWA INSTALLATION -->
 <script src="./app-install.js"></script>
 
 </body>
