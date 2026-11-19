@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#073d2b">
 <meta name="description" content="EDUNEXA Super Admin Control Centre">
-<title>EDUNEXA | Super Admin Control Centre</title>
+<title>EDUNEXA | Super Admin</title>
 
 <style>
 :root{
@@ -15,573 +15,437 @@
   --gold:#d6ad50;
   --bg:#f4f7f4;
   --white:#ffffff;
-  --text:#24332b;
+  --text:#17251e;
   --muted:#718078;
-  --border:#dce5de;
-  --red:#b83227;
-  --blue:#2863a5;
-  --orange:#b7791f;
+  --border:#e3eae5;
+  --red:#c43d3d;
+  --shadow:0 8px 28px rgba(7,61,43,.08);
 }
-*{margin:0;padding:0;box-sizing:border-box}
+*{box-sizing:border-box}
 body{
+  margin:0;
   font-family:Arial,Helvetica,sans-serif;
   background:var(--bg);
   color:var(--text);
-  min-height:100vh;
 }
-button,input,select{font:inherit}
+button,input,select,textarea{font:inherit}
 button{cursor:pointer}
 .hidden{display:none!important}
 
-/* LOGIN SCREEN */
-
+/* LOGIN */
 .login-screen{
   min-height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:25px;
+  padding:22px;
   background:
-    radial-gradient(circle at top right,#176b4b 0,transparent 38%),
-    linear-gradient(135deg,#05291e,#073d2b 60%,#0c6245);
+    radial-gradient(circle at top right,rgba(214,173,80,.16),transparent 35%),
+    linear-gradient(135deg,#052d20,#0c6245);
 }
-.login-box{
+.login-card{
   width:100%;
-  max-width:440px;
-  background:white;
-  padding:34px;
-  border-radius:19px;
+  max-width:430px;
+  background:#fff;
+  border-radius:20px;
+  padding:34px 28px;
   box-shadow:0 20px 60px rgba(0,0,0,.2);
 }
-.login-brand{
-  text-align:center;
-  margin-bottom:27px;
-}
-.brand-icon{
-  width:62px;
-  height:62px;
-  background:var(--gold);
-  color:var(--green);
+.brand-mark{
+  width:62px;height:62px;
+  display:grid;place-items:center;
+  margin:0 auto 15px;
   border-radius:17px;
-  display:grid;
-  place-items:center;
-  font-size:32px;
+  background:var(--green);
+  color:var(--gold);
+  font-size:25px;
   font-weight:900;
-  margin:0 auto 13px;
+  border:2px solid var(--gold);
 }
-.login-brand h1{
+.login-card h1{
+  text-align:center;
+  margin:0;
   color:var(--green);
   font-size:25px;
-  letter-spacing:1px;
 }
-.login-brand p{
-  color:var(--muted);
-  font-size:12px;
-  margin-top:7px;
-}
-.login-box h2{
-  font-size:20px;
-  color:var(--green);
-  margin-bottom:8px;
-}
-.login-description{
+.login-subtitle{
+  text-align:center;
   color:var(--muted);
   font-size:13px;
-  line-height:1.6;
-  margin-bottom:23px;
+  margin:9px 0 27px;
 }
-.form-group{margin-bottom:17px}
-.form-group label{
+.gold-line{
+  width:55px;height:3px;
+  background:var(--gold);
+  margin:15px auto 23px;
+  border-radius:5px;
+}
+.field{margin-bottom:17px}
+.field label{
   display:block;
   font-size:13px;
-  font-weight:bold;
+  font-weight:700;
   margin-bottom:8px;
 }
-.form-group input{
+.field input,.field select,.field textarea{
   width:100%;
-  padding:14px;
+  padding:13px 14px;
   border:1px solid var(--border);
   border-radius:9px;
   outline:none;
-  background:white;
+  background:#fbfdfb;
+  color:var(--text);
 }
-.form-group input:focus{
+.field input:focus,.field select:focus,.field textarea:focus{
   border-color:var(--green2);
   box-shadow:0 0 0 3px rgba(12,98,69,.09);
 }
-.login-submit{
-  width:100%;
-  padding:15px;
+.primary-btn{
   border:0;
   border-radius:9px;
+  padding:13px 17px;
   background:var(--green);
   color:white;
-  font-weight:bold;
-  margin-top:5px;
+  font-weight:700;
+  width:100%;
 }
-.login-submit:hover{background:var(--green2)}
+.primary-btn:hover{background:var(--green2)}
+.primary-btn:disabled{opacity:.6;cursor:wait}
 .login-message{
   display:none;
-  margin-bottom:15px;
-  padding:12px;
+  padding:11px 13px;
   border-radius:8px;
-  font-size:12px;
-  line-height:1.6;
+  font-size:13px;
+  line-height:1.5;
+  margin-top:15px;
+  background:#fff2f0;
+  color:#9d3028;
 }
-.login-message.show{
-  display:block;
-  background:#fff0ee;
-  border:1px solid #f0d0cc;
-  color:var(--red);
+.login-message.success{
+  background:#eaf6ee;
+  color:#17643a;
 }
-.login-security{
-  margin-top:20px;
-  background:#fff8e8;
-  border:1px solid #f0dfb6;
-  padding:12px;
-  border-radius:8px;
-  color:#76591c;
-  font-size:11px;
-  line-height:1.7;
-}
-.back-home{
-  display:block;
+.login-footer{
   text-align:center;
-  color:var(--green2);
-  font-size:12px;
-  font-weight:bold;
-  text-decoration:none;
-  margin-top:20px;
+  color:var(--muted);
+  font-size:11px;
+  margin-top:22px;
 }
 
-/* ADMIN APPLICATION */
-
-.admin-app{min-height:100vh}
+/* APPLICATION */
+.app-shell{min-height:100vh}
 .topbar{
-  height:67px;
+  height:68px;
   background:var(--green);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:0 25px;
   color:white;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 22px;
   position:sticky;
   top:0;
   z-index:20;
+  box-shadow:0 3px 15px rgba(0,0,0,.12);
 }
 .top-brand{
   display:flex;
   align-items:center;
-  gap:10px;
+  gap:11px;
   font-weight:900;
-  letter-spacing:1px;
-  font-size:19px;
+  letter-spacing:.5px;
 }
-.top-brand span:first-child{
-  background:var(--gold);
-  color:var(--green);
-  width:34px;
-  height:34px;
-  border-radius:8px;
-  display:grid;
-  place-items:center;
+.top-brand span{
+  color:var(--gold);
+  font-size:21px;
 }
-.top-actions{
+.top-right{
   display:flex;
   align-items:center;
-  gap:14px;
-}
-.admin-label{
+  gap:15px;
   font-size:12px;
-  color:#f5e8c7;
 }
-.logout-button{
+.admin-pill{
+  border:1px solid rgba(214,173,80,.55);
+  color:var(--gold);
+  padding:7px 11px;
+  border-radius:20px;
+}
+.logout-btn{
   background:var(--gold);
-  color:var(--green);
   border:0;
-  border-radius:7px;
+  color:var(--green);
   padding:9px 13px;
-  font-size:12px;
-  font-weight:bold;
+  border-radius:7px;
+  font-weight:800;
 }
-.layout{
-  display:flex;
-  min-height:calc(100vh - 67px);
-}
+.layout{display:flex;min-height:calc(100vh - 68px)}
 .sidebar{
   width:245px;
   flex-shrink:0;
-  background:#092f23;
-  padding:22px 13px;
-  color:white;
+  background:#fff;
+  border-right:1px solid var(--border);
+  padding:20px 13px;
 }
 .sidebar-heading{
-  color:#b9cbbf;
+  color:var(--muted);
   font-size:10px;
-  font-weight:bold;
-  letter-spacing:1.5px;
-  padding:5px 11px 14px;
+  font-weight:800;
+  letter-spacing:1.3px;
+  padding:8px 12px 13px;
 }
-.nav-button{
-  width:100%;
+.nav-btn{
   display:flex;
   align-items:center;
   gap:11px;
-  padding:12px 11px;
-  margin-bottom:5px;
+  width:100%;
   border:0;
-  border-radius:8px;
   background:transparent;
-  color:#d8e5dc;
+  color:#526158;
+  padding:12px 13px;
+  border-radius:8px;
   text-align:left;
-  font-size:12px;
-  transition:.2s;
+  font-size:13px;
+  margin-bottom:4px;
 }
-.nav-button:hover,
-.nav-button.active{
-  background:var(--green2);
-  color:white;
+.nav-btn:hover,.nav-btn.active{
+  background:#edf5ef;
+  color:var(--green);
+  font-weight:800;
 }
 .nav-icon{
   width:20px;
   text-align:center;
   font-size:16px;
 }
-.sidebar-footer{
-  border-top:1px solid rgba(255,255,255,.13);
-  margin-top:22px;
-  padding:17px 10px;
-  color:#aebfb4;
-  font-size:10px;
-  line-height:1.7;
-}
 .main-content{
   flex:1;
   min-width:0;
-  padding:28px;
+  padding:27px;
 }
-.page-header{
+.page{display:none}
+.page.active{display:block}
+.page-heading{
   display:flex;
   justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
+  align-items:flex-start;
   gap:15px;
-  margin-bottom:25px;
+  margin-bottom:23px;
 }
-.page-header h1{
+.page-heading h1{
+  margin:0;
   color:var(--green);
   font-size:25px;
-  margin-bottom:7px;
 }
-.page-header p{
+.page-heading p{
   color:var(--muted);
-  font-size:12px;
+  margin:7px 0 0;
+  font-size:13px;
   line-height:1.5;
-}
-.date-label{
-  background:white;
-  border:1px solid var(--border);
-  border-radius:8px;
-  padding:10px 13px;
-  font-size:11px;
-  color:var(--muted);
 }
 .welcome-banner{
   background:linear-gradient(110deg,#073d2b,#0c6245);
-  border-radius:13px;
-  padding:23px;
   color:white;
-  margin-bottom:23px;
+  border-radius:14px;
+  padding:24px;
+  margin-bottom:22px;
   position:relative;
   overflow:hidden;
 }
+.welcome-banner:after{
+  content:"";
+  position:absolute;
+  width:170px;height:170px;
+  border:24px solid rgba(214,173,80,.15);
+  border-radius:50%;
+  right:-45px;top:-65px;
+}
 .welcome-banner h2{
-  font-size:19px;
-  margin-bottom:8px;
+  margin:0 0 9px;
+  font-size:21px;
+  position:relative;
+  z-index:1;
 }
 .welcome-banner p{
-  color:#d5e5da;
-  font-size:12px;
-  line-height:1.7;
-}
-.welcome-mark{
-  position:absolute;
-  right:24px;
-  top:10px;
-  font-size:75px;
-  color:rgba(255,255,255,.09);
-  font-weight:900;
-}
-.section-title{
-  font-size:16px;
-  color:var(--green);
-  margin:24px 0 14px;
+  margin:0;
+  color:#d8e8df;
+  font-size:13px;
+  position:relative;
+  z-index:1;
 }
 .stats-grid{
   display:grid;
   grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:14px;
+  gap:15px;
+  margin-bottom:22px;
 }
 .stat-card{
   background:white;
   border:1px solid var(--border);
-  border-radius:11px;
-  padding:17px;
-  min-width:0;
+  border-radius:12px;
+  padding:19px;
+  box-shadow:var(--shadow);
 }
-.stat-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:8px;
-}
-.stat-name{
-  color:var(--muted);
-  font-size:11px;
-  font-weight:bold;
-}
-.stat-icon{
-  width:33px;
-  height:33px;
-  border-radius:9px;
-  display:grid;
-  place-items:center;
-  background:#edf6ef;
-  color:var(--green);
-  font-size:17px;
-}
-.stat-number{
+.stat-label{color:var(--muted);font-size:12px}
+.stat-value{
   font-size:27px;
-  color:var(--green);
   font-weight:900;
-  margin-top:13px;
+  color:var(--green);
+  margin:12px 0 5px;
 }
-.stat-note{
-  color:var(--muted);
-  font-size:10px;
-  margin-top:6px;
-}
+.stat-note{font-size:11px;color:var(--muted)}
 .content-grid{
   display:grid;
   grid-template-columns:1.5fr 1fr;
-  gap:16px;
-  margin-top:19px;
+  gap:17px;
 }
 .panel{
-  background:white;
+  background:#fff;
   border:1px solid var(--border);
-  border-radius:11px;
-  padding:18px;
+  border-radius:12px;
+  padding:19px;
+  margin-bottom:18px;
+  box-shadow:var(--shadow);
   min-width:0;
 }
-.panel-heading{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-  margin-bottom:17px;
-}
-.panel-heading h3{
+.panel h3{
+  margin:0 0 16px;
   color:var(--green);
-  font-size:14px;
-}
-.panel-heading span{
-  color:var(--muted);
-  font-size:10px;
-}
-.activity-list{
-  display:grid;
-  gap:15px;
-}
-.activity-item{
-  display:flex;
-  align-items:flex-start;
-  gap:10px;
-  font-size:11px;
-  line-height:1.5;
-}
-.activity-dot{
-  width:9px;
-  height:9px;
-  border-radius:50%;
-  background:var(--gold);
-  margin-top:3px;
-  flex-shrink:0;
-}
-.activity-item strong{color:var(--green)}
-.activity-item small{
-  display:block;
-  color:var(--muted);
-  margin-top:3px;
-}
-.quick-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:10px;
-}
-.quick-button{
-  border:1px solid var(--border);
-  background:#f8faf8;
-  padding:14px 9px;
-  border-radius:9px;
-  text-align:left;
-  color:var(--green);
-  font-size:11px;
-  font-weight:bold;
-}
-.quick-button:hover{
-  background:#edf6ef;
-  border-color:var(--green2);
-}
-.quick-button span{
-  display:block;
-  font-size:19px;
-  margin-bottom:7px;
-}
-.page-section{display:none}
-.page-section.active{display:block}
-.data-panel{
-  background:white;
-  border:1px solid var(--border);
-  border-radius:11px;
-  padding:18px;
-  overflow:hidden;
-}
-.toolbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-bottom:17px;
-}
-.toolbar input,
-.toolbar select{
-  padding:10px 12px;
-  border:1px solid var(--border);
-  border-radius:7px;
-  background:white;
-  font-size:12px;
-  outline:none;
-}
-.toolbar input{flex:1;min-width:160px}
-.primary-button{
-  background:var(--green);
-  color:white;
-  border:0;
-  border-radius:7px;
-  padding:10px 14px;
-  font-size:11px;
-  font-weight:bold;
-}
-.table-wrap{overflow-x:auto}
-table{
-  border-collapse:collapse;
-  width:100%;
-  min-width:650px;
-  font-size:11px;
-}
-th{
-  background:#f1f6f2;
-  color:var(--green);
-  text-align:left;
-  padding:12px;
-}
-td{
-  padding:13px 12px;
-  border-bottom:1px solid #edf1ed;
-  color:#526159;
+  font-size:15px;
 }
 .empty-state{
   text-align:center;
-  padding:35px 12px;
+  padding:25px 12px;
   color:var(--muted);
-  font-size:12px;
-}
-.status-pill{
-  display:inline-block;
-  padding:5px 8px;
-  border-radius:20px;
-  font-size:10px;
-  font-weight:bold;
-}
-.status-pending{background:#fff5df;color:#986b16}
-.status-approved{background:#e6f4e9;color:#17613c}
-.status-suspended{background:#fdebea;color:#a12b25}
-.info-box{
-  background:#fff8e8;
-  border:1px solid #f0dfb6;
-  border-radius:9px;
-  padding:14px;
-  color:#76591c;
-  font-size:12px;
-  line-height:1.7;
-  margin-bottom:17px;
-}
-.simple-card-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:14px;
-}
-.setting-card{
-  background:white;
-  border:1px solid var(--border);
-  border-radius:10px;
-  padding:17px;
-}
-.setting-card h3{
-  color:var(--green);
   font-size:13px;
-  margin-bottom:8px;
-}
-.setting-card p{
-  color:var(--muted);
-  font-size:11px;
   line-height:1.6;
 }
-.footer-note{
-  text-align:center;
-  padding:25px 10px 10px;
-  color:var(--muted);
-  font-size:10px;
+.quick-actions{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
 }
-@media(max-width:1000px){
+.quick-action{
+  padding:14px;
+  border:1px solid var(--border);
+  border-radius:9px;
+  background:#fbfdfb;
+  text-align:left;
+  color:var(--green);
+  font-weight:700;
+  font-size:12px;
+}
+.quick-action:hover{border-color:var(--gold);background:#fffdf6}
+.section-note{
+  background:#fff9e9;
+  border:1px solid #f0dfb3;
+  color:#72591e;
+  padding:13px;
+  border-radius:9px;
+  font-size:12px;
+  line-height:1.6;
+  margin-bottom:17px;
+}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:550px}
+th,td{
+  text-align:left;
+  padding:12px 10px;
+  border-bottom:1px solid var(--border);
+  font-size:12px;
+}
+th{color:var(--muted);font-weight:800;background:#fbfdfb}
+td{color:#45534a}
+.toolbar{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:15px;
+}
+.toolbar input,.toolbar select{
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:white;
+  min-width:160px;
+}
+.secondary-btn{
+  padding:10px 14px;
+  border:1px solid var(--border);
+  background:white;
+  color:var(--green);
+  border-radius:8px;
+  font-weight:700;
+  font-size:12px;
+}
+.secondary-btn:hover{border-color:var(--gold)}
+.security-item{
+  padding:13px 0;
+  border-bottom:1px solid var(--border);
+  font-size:13px;
+}
+.security-item:last-child{border-bottom:0}
+.status-label{
+  display:inline-block;
+  padding:5px 9px;
+  border-radius:20px;
+  background:#eaf6ee;
+  color:#17643a;
+  font-size:10px;
+  font-weight:800;
+}
+.footer-note{
+  color:var(--muted);
+  font-size:11px;
+  text-align:center;
+  padding:18px 5px;
+}
+
+/* MOBILE */
+.menu-toggle{
+  display:none;
+  border:1px solid rgba(255,255,255,.25);
+  background:transparent;
+  color:white;
+  padding:7px 10px;
+  border-radius:7px;
+}
+@media(max-width:900px){
   .stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .content-grid{grid-template-columns:1fr}
 }
 @media(max-width:700px){
-  .topbar{padding:0 13px}
-  .top-brand{font-size:16px}
-  .admin-label{display:none}
-  .layout{display:block}
+  .topbar{padding:0 13px;height:60px}
+  .top-brand{font-size:14px}
+  .top-brand span{font-size:18px}
+  .menu-toggle{display:block}
+  .top-right{gap:8px}
+  .admin-pill{display:none}
+  .logout-btn{padding:8px 10px;font-size:11px}
+  .layout{min-height:calc(100vh - 60px)}
   .sidebar{
-    width:100%;
-    padding:10px;
-    display:flex;
-    overflow-x:auto;
-    gap:5px;
+    position:fixed;
+    z-index:30;
+    top:60px;
+    bottom:0;
+    left:0;
+    width:255px;
+    overflow-y:auto;
+    transform:translateX(-105%);
+    transition:transform .2s ease;
+    box-shadow:var(--shadow);
   }
-  .sidebar-heading,.sidebar-footer{display:none}
-  .nav-button{
-    width:auto;
-    min-width:max-content;
-    margin:0;
-    padding:10px;
-  }
-  .nav-button span:last-child{font-size:10px}
-  .main-content{padding:17px 12px}
-  .page-header h1{font-size:21px}
-  .stats-grid{gap:9px}
-  .stat-card{padding:13px}
-  .stat-number{font-size:23px}
-  .simple-card-grid{grid-template-columns:1fr}
-  .welcome-mark{font-size:55px;right:10px}
+  .sidebar.open{transform:translateX(0)}
+  .main-content{padding:18px 13px}
+  .page-heading h1{font-size:21px}
+  .welcome-banner{padding:20px}
+  .welcome-banner h2{font-size:18px}
+  .stats-grid{gap:10px}
+  .stat-card{padding:14px}
+  .stat-value{font-size:23px}
 }
 @media(max-width:380px){
-  .stats-grid{grid-template-columns:1fr 1fr}
-  .stat-name{font-size:10px}
-  .stat-number{font-size:21px}
-  .login-box{padding:25px 19px}
+  .stats-grid{grid-template-columns:1fr}
+  .login-card{padding:27px 20px}
 }
 </style>
 </head>
@@ -589,870 +453,711 @@ td{
 <body>
 
 <!-- SUPER ADMIN LOGIN -->
-
 <section id="loginScreen" class="login-screen">
-  <div class="login-box">
-    <div class="login-brand">
-      <div class="brand-icon">E</div>
-      <h1>EDUNEXA</h1>
-      <p>ONE PLATFORM. EVERY SCHOOL.</p>
-    </div>
-
-    <h2>Super Admin Login</h2>
-    <p class="login-description">
-      Authorised platform administrators only. Sign in to access
-      the EDUNEXA central control centre.
+  <div class="login-card">
+    <div class="brand-mark">E</div>
+    <h1>EDUNEXA</h1>
+    <div class="gold-line"></div>
+    <p class="login-subtitle">
+      SUPER ADMIN CONTROL CENTRE<br>
+      Secure Platform Administration
     </p>
 
-    <div id="loginMessage" class="login-message"></div>
-
-    <form id="adminLoginForm">
-      <div class="form-group">
-        <label for="adminId">Super Admin ID</label>
-        <input type="text" id="adminId"
-          placeholder="Enter your Super Admin ID"
-          autocomplete="username" required>
+    <form id="loginForm">
+      <div class="field">
+        <label for="adminEmail">Gmail Address</label>
+        <input
+          type="email"
+          id="adminEmail"
+          value="olohunwaabdulsalam47@gmail.com"
+          placeholder="Enter your administrator email"
+          autocomplete="username"
+          required
+        >
       </div>
 
-      <div class="form-group">
+      <div class="field">
         <label for="adminPassword">Password</label>
-        <input type="password" id="adminPassword"
+        <input
+          type="password"
+          id="adminPassword"
           placeholder="Enter your password"
-          autocomplete="current-password" required>
+          autocomplete="current-password"
+          required
+        >
       </div>
 
-      <button class="login-submit" type="submit">
-        SECURE SIGN IN →
+      <button type="submit" id="loginButton" class="primary-btn">
+        Sign In Securely
       </button>
+
+      <div id="loginMessage" class="login-message" role="alert"></div>
     </form>
 
-    <div class="login-security">
-      <strong>Security notice:</strong>
-      This is the EDUNEXA Super Admin login interface.
-      Secure password verification, OTP and session protection
-      must be connected to the backend before real access is enabled.
-      Do not enter a real password in this demonstration.
+    <div class="login-footer">
+      Protected by EDUNEXA Secure Authentication
     </div>
-
-    <a class="back-home" href="./index.html">← Return to EDUNEXA Homepage</a>
   </div>
 </section>
 
-<!-- ADMIN CONTROL CENTRE -->
+<!-- SUPER ADMIN APPLICATION -->
+<section id="appShell" class="app-shell hidden">
 
-<section id="adminApp" class="admin-app hidden">
-
-<header class="topbar">
-  <div class="top-brand">
-    <span>E</span>
-    <span>EDUNEXA</span>
-  </div>
-
-  <div class="top-actions">
-    <span class="admin-label">SUPER ADMIN CONTROL CENTRE</span>
-    <button type="button" class="logout-button" id="logoutButton">
-      LOG OUT
-    </button>
-  </div>
-</header>
-
-<div class="layout">
-
-<aside class="sidebar">
-  <div class="sidebar-heading">PLATFORM MANAGEMENT</div>
-
-  <button class="nav-button active" data-page="dashboard">
-    <span class="nav-icon">▦</span><span>Dashboard</span>
-  </button>
-
-  <button class="nav-button" data-page="schools">
-    <span class="nav-icon">🏫</span><span>All Schools</span>
-  </button>
-
-  <button class="nav-button" data-page="approvals">
-    <span class="nav-icon">✓</span><span>School Approvals</span>
-  </button>
-
-  <button class="nav-button" data-page="administrators">
-    <span class="nav-icon">🛡️</span><span>Administrators</span>
-  </button>
-
-  <button class="nav-button" data-page="staff">
-    <span class="nav-icon">👥</span><span>Teachers & Staff</span>
-  </button>
-
-  <button class="nav-button" data-page="students">
-    <span class="nav-icon">🎓</span><span>Students</span>
-  </button>
-
-  <button class="nav-button" data-page="attendance">
-    <span class="nav-icon">📊</span><span>Attendance Analytics</span>
-  </button>
-
-  <button class="nav-button" data-page="subscriptions">
-    <span class="nav-icon">💳</span><span>Subscriptions</span>
-  </button>
-
-  <button class="nav-button" data-page="payments">
-    <span class="nav-icon">₦</span><span>Payments</span>
-  </button>
-
-  <button class="nav-button" data-page="notifications">
-    <span class="nav-icon">🔔</span><span>Notifications</span>
-  </button>
-
-  <button class="nav-button" data-page="security">
-    <span class="nav-icon">🔐</span><span>Security Centre</span>
-  </button>
-
-  <button class="nav-button" data-page="reports">
-    <span class="nav-icon">📄</span><span>Reports</span>
-  </button>
-
-  <button class="nav-button" data-page="settings">
-    <span class="nav-icon">⚙️</span><span>Platform Settings</span>
-  </button>
-
-  <div class="sidebar-footer">
-    EDUNEXA CENTRAL PLATFORM<br>
-    Version 1.0.0<br>
-    One Platform. Every School.
-  </div>
-</aside>
-
-<main class="main-content">
-
-<!-- DASHBOARD PAGE -->
-
-<section id="page-dashboard" class="page-section active">
-
-  <div class="page-header">
-    <div>
-      <h1>Executive Dashboard</h1>
-      <p>Monitor and manage the entire EDUNEXA platform.</p>
-    </div>
-    <div class="date-label" id="currentDate">Platform Overview</div>
-  </div>
-
-  <div class="welcome-banner">
-    <h2>Welcome to EDUNEXA Control Centre</h2>
-    <p>
-      Your central command for managing schools, attendance,
-      subscriptions and platform operations.
-    </p>
-    <div class="welcome-mark">E</div>
-  </div>
-
-  <h2 class="section-title">Platform Overview</h2>
-
-  <div class="stats-grid">
-    <div class="stat-card">
-      <div class="stat-top">
-        <span class="stat-name">TOTAL SCHOOLS</span>
-        <span class="stat-icon">🏫</span>
-      </div>
-      <div class="stat-number" id="totalSchools">0</div>
-      <div class="stat-note">Registered institutions</div>
+  <header class="topbar">
+    <div class="top-brand">
+      <button class="menu-toggle" id="menuToggle" type="button">☰</button>
+      <span>EDUNEXA</span>
+      SUPER ADMIN
     </div>
 
-    <div class="stat-card">
-      <div class="stat-top">
-        <span class="stat-name">APPROVED SCHOOLS</span>
-        <span class="stat-icon">✓</span>
-      </div>
-      <div class="stat-number" id="approvedSchools">0</div>
-      <div class="stat-note">Approved institutions</div>
+    <div class="top-right">
+      <span class="admin-pill">AUTHORISED ADMINISTRATOR</span>
+      <button id="logoutButton" class="logout-btn" type="button">
+        Sign Out
+      </button>
     </div>
+  </header>
 
-    <div class="stat-card">
-      <div class="stat-top">
-        <span class="stat-name">PENDING APPROVALS</span>
-        <span class="stat-icon">⌛</span>
-      </div>
-      <div class="stat-number" id="pendingSchools">0</div>
-      <div class="stat-note">Awaiting review</div>
-    </div>
+  <div class="layout">
 
-    <div class="stat-card">
-      <div class="stat-top">
-        <span class="stat-name">SUSPENDED SCHOOLS</span>
-        <span class="stat-icon">⛔</span>
-      </div>
-      <div class="stat-number" id="suspendedSchools">0</div>
-      <div class="stat-note">Currently suspended</div>
-    </div>
-  </div>
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-heading">PLATFORM MANAGEMENT</div>
 
-  <h2 class="section-title">Platform Operations</h2>
+      <button class="nav-btn active" data-page="dashboard" type="button">
+        <span class="nav-icon">▦</span> Dashboard
+      </button>
 
-  <div class="stats-grid">
-    <div class="stat-card">
-      <div class="stat-top">
-        <span class="stat-name">TOTAL STUDENTS</span>
-        <span class="stat-icon">🎓</span>
-      </div>
-      <div class="stat-number">0</div>
-      <div class="stat-note">Across all schools</div>
-    </div>
+      <button class="nav-btn" data-page="schools" type="button">
+        <span class="nav-icon">🏫</span> All Schools
+      </button>
 
-    <div class="stat-card">
-      <div class="stat-top">
-        <span class="stat-name">TOTAL TEACHERS</span>
-        <span class="stat-icon">👨‍🏫</span>
-      </div>
-      <div class="stat-number">0</div>
-      <div class="stat-note">Across all schools</div>
-    </div>
+      <button class="nav-btn" data-page="approvals" type="button">
+        <span class="nav-icon">✓</span> School Approvals
+      </button>
 
-    <div class="stat-card">
-      <div class="stat-top">
-        <span class="stat-name">ACTIVE SUBSCRIPTIONS</span>
-        <span class="stat-icon">💳</span>
-      </div>
-      <div class="stat-number">0</div>
-      <div class="stat-note">Current subscriptions</div>
-    </div>
+      <button class="nav-btn" data-page="administrators" type="button">
+        <span class="nav-icon">♙</span> Administrators
+      </button>
 
-    <div class="stat-card">
-      <div class="stat-top">
-        <span class="stat-name">TODAY'S ATTENDANCE</span>
-        <span class="stat-icon">📊</span>
-      </div>
-      <div class="stat-number">0%</div>
-      <div class="stat-note">Platform-wide attendance</div>
-    </div>
-  </div>
+      <button class="nav-btn" data-page="staff" type="button">
+        <span class="nav-icon">♧</span> Teachers & Staff
+      </button>
 
-  <div class="content-grid">
-    <div class="panel">
-      <div class="panel-heading">
-        <h3>Recent Platform Activities</h3>
-        <span>DEMONSTRATION</span>
-      </div>
-      <div class="activity-list">
-        <div class="activity-item">
-          <span class="activity-dot"></span>
+      <button class="nav-btn" data-page="students" type="button">
+        <span class="nav-icon">♧</span> Students
+      </button>
+
+      <button class="nav-btn" data-page="attendance" type="button">
+        <span class="nav-icon">▤</span> Attendance Analytics
+      </button>
+
+      <button class="nav-btn" data-page="subscriptions" type="button">
+        <span class="nav-icon">◇</span> Subscriptions
+      </button>
+
+      <button class="nav-btn" data-page="payments" type="button">
+        <span class="nav-icon">₦</span> Payments
+      </button>
+
+      <button class="nav-btn" data-page="notifications" type="button">
+        <span class="nav-icon">♢</span> Notifications
+      </button>
+
+      <button class="nav-btn" data-page="security" type="button">
+        <span class="nav-icon">♜</span> Security Centre
+      </button>
+
+      <button class="nav-btn" data-page="reports" type="button">
+        <span class="nav-icon">▥</span> Reports
+      </button>
+
+      <button class="nav-btn" data-page="settings" type="button">
+        <span class="nav-icon">⚙</span> Platform Settings
+      </button>
+    </aside>
+
+    <main class="main-content">
+
+      <!-- DASHBOARD -->
+      <section class="page active" id="page-dashboard">
+        <div class="page-heading">
           <div>
-            <strong>EDUNEXA Control Centre</strong>
-            <small>Dashboard interface prepared.</small>
+            <h1>Executive Dashboard</h1>
+            <p>Monitor and manage the entire EDUNEXA platform.</p>
+          </div>
+          <span class="status-label">SUPER ADMIN</span>
+        </div>
+
+        <div class="welcome-banner">
+          <h2>Welcome to EDUNEXA Control Centre</h2>
+          <p>One Platform. Every School. Smarter Attendance.</p>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-label">Total Schools</div>
+            <div class="stat-value">0</div>
+            <div class="stat-note">Registered on platform</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Pending Approvals</div>
+            <div class="stat-value">0</div>
+            <div class="stat-note">Awaiting review</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Approved Schools</div>
+            <div class="stat-value">0</div>
+            <div class="stat-note">Approved accounts</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Suspended Schools</div>
+            <div class="stat-value">0</div>
+            <div class="stat-note">Currently suspended</div>
           </div>
         </div>
-        <div class="activity-item">
-          <span class="activity-dot"></span>
-          <div>
-            <strong>School Management</strong>
-            <small>Central school management section prepared.</small>
+
+        <div class="content-grid">
+          <div class="panel">
+            <h3>Recent Platform Activity</h3>
+            <div class="empty-state">
+              No platform activity is available yet.
+              <br>Activity records will appear here when the backend modules are connected.
+            </div>
+          </div>
+
+          <div class="panel">
+            <h3>Quick Actions</h3>
+            <div class="quick-actions">
+              <button class="quick-action" data-go="schools" type="button">🏫 View Schools</button>
+              <button class="quick-action" data-go="approvals" type="button">✓ Review Approvals</button>
+              <button class="quick-action" data-go="administrators" type="button">♙ Administrators</button>
+              <button class="quick-action" data-go="reports" type="button">▥ View Reports</button>
+            </div>
           </div>
         </div>
-        <div class="activity-item">
-          <span class="activity-dot"></span>
+      </section>
+
+      <!-- ALL SCHOOLS -->
+      <section class="page" id="page-schools">
+        <div class="page-heading">
           <div>
-            <strong>Security Centre</strong>
-            <small>Security management section prepared.</small>
+            <h1>All Schools</h1>
+            <p>View and manage schools registered on EDUNEXA.</p>
           </div>
         </div>
+        <div class="panel">
+          <div class="toolbar">
+            <input id="schoolSearch" type="search" placeholder="Search school name or code">
+            <select id="schoolFilter">
+              <option value="all">All statuses</option>
+              <option value="Pending">Pending</option>
+              <option value="Approved">Approved</option>
+              <option value="Rejected">Rejected</option>
+              <option value="Suspended">Suspended</option>
+            </select>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>School</th><th>School Code</th><th>Type</th><th>Status</th><th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="schoolsTable">
+                <tr><td colspan="5">No school records loaded yet.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- APPROVALS -->
+      <section class="page" id="page-approvals">
+        <div class="page-heading">
+          <div>
+            <h1>School Approvals</h1>
+            <p>Review school registration applications.</p>
+          </div>
+        </div>
+        <div class="section-note">
+          School approval actions will be enabled after the registration database and approval workflow are connected.
+        </div>
+        <div class="panel">
+          <h3>Pending Applications</h3>
+          <div class="empty-state">No application records loaded yet.</div>
+        </div>
+      </section>
+
+      <!-- ADMINISTRATORS -->
+      <section class="page" id="page-administrators">
+        <div class="page-heading">
+          <div>
+            <h1>Administrators</h1>
+            <p>Manage authorised school administrator accounts.</p>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Administrator Directory</h3>
+          <div class="empty-state">Administrator records will appear here after the account management module is connected.</div>
+        </div>
+      </section>
+
+      <!-- TEACHERS AND STAFF -->
+      <section class="page" id="page-staff">
+        <div class="page-heading">
+          <div>
+            <h1>Teachers & Staff</h1>
+            <p>Platform-wide staff account overview.</p>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Staff Directory</h3>
+          <div class="empty-state">No staff records loaded yet.</div>
+        </div>
+      </section>
+
+      <!-- STUDENTS -->
+      <section class="page" id="page-students">
+        <div class="page-heading">
+          <div>
+            <h1>Students</h1>
+            <p>Monitor student account records across schools.</p>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Student Directory</h3>
+          <div class="empty-state">Student records will appear here when the school database is connected.</div>
+        </div>
+      </section>
+
+      <!-- ATTENDANCE -->
+      <section class="page" id="page-attendance">
+        <div class="page-heading">
+          <div>
+            <h1>Attendance Analytics</h1>
+            <p>Review attendance performance across the platform.</p>
+          </div>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card"><div class="stat-label">Attendance Records</div><div class="stat-value">0</div><div class="stat-note">Platform-wide</div></div>
+          <div class="stat-card"><div class="stat-label">Schools Reporting</div><div class="stat-value">0</div><div class="stat-note">Connected schools</div></div>
+        </div>
+        <div class="panel">
+          <h3>Attendance Overview</h3>
+          <div class="empty-state">Analytics will appear when attendance records are available.</div>
+        </div>
+      </section>
+
+      <!-- SUBSCRIPTIONS -->
+      <section class="page" id="page-subscriptions">
+        <div class="page-heading">
+          <div>
+            <h1>Subscriptions</h1>
+            <p>Manage school plans, trials and renewals.</p>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Subscription Management</h3>
+          <div class="empty-state">Subscription records are not connected yet.</div>
+        </div>
+      </section>
+
+      <!-- PAYMENTS -->
+      <section class="page" id="page-payments">
+        <div class="page-heading">
+          <div>
+            <h1>Payments</h1>
+            <p>Monitor school subscription payments.</p>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Payment Records</h3>
+          <div class="empty-state">No payment records loaded yet. Payment verification is not enabled.</div>
+        </div>
+      </section>
+
+      <!-- NOTIFICATIONS -->
+      <section class="page" id="page-notifications">
+        <div class="page-heading">
+          <div>
+            <h1>Notifications</h1>
+            <p>Prepare platform announcements for schools.</p>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Announcement Composer</h3>
+          <div class="field">
+            <label for="announcementTitle">Announcement title</label>
+            <input id="announcementTitle" type="text" placeholder="Enter announcement title">
+          </div>
+          <div class="field">
+            <label for="announcementBody">Message</label>
+            <textarea id="announcementBody" rows="5" placeholder="Write your announcement"></textarea>
+          </div>
+          <button id="previewAnnouncement" class="secondary-btn" type="button">Preview Announcement</button>
+          <div id="announcementPreview" class="section-note hidden"></div>
+          <p class="stat-note">Preview only. Sending announcements is not connected yet.</p>
+        </div>
+      </section>
+
+      <!-- SECURITY -->
+      <section class="page" id="page-security">
+        <div class="page-heading">
+          <div>
+            <h1>Security Centre</h1>
+            <p>Review platform security and administrator access.</p>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Security Status</h3>
+          <div class="security-item">Firebase Authentication <span class="status-label">CONNECTED IN LOGIN</span></div>
+          <div class="security-item">Super Admin permission check <span class="status-label">REQUIRED</span></div>
+          <div class="security-item">Firestore security rules <span class="status-label">PUBLISHED</span></div>
+          <div class="security-item">Login attempt monitoring <span class="status-label">NOT CONFIGURED</span></div>
+          <div class="security-item">Audit logging <span class="status-label">NOT CONFIGURED</span></div>
+        </div>
+      </section>
+
+      <!-- REPORTS -->
+      <section class="page" id="page-reports">
+        <div class="page-heading">
+          <div>
+            <h1>Reports</h1>
+            <p>Platform performance and management reports.</p>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Available Reports</h3>
+          <div class="empty-state">Reports will become available when platform data modules are connected.</div>
+        </div>
+      </section>
+
+      <!-- SETTINGS -->
+      <section class="page" id="page-settings">
+        <div class="page-heading">
+          <div>
+            <h1>Platform Settings</h1>
+            <p>Configure EDUNEXA platform-wide preferences.</p>
+          </div>
+        </div>
+        <div class="panel">
+          <h3>Platform Information</h3>
+          <div class="security-item"><strong>Platform:</strong> EDUNEXA</div>
+          <div class="security-item"><strong>Purpose:</strong> Multi-school attendance management</div>
+          <div class="security-item"><strong>Tagline:</strong> One Platform. Every School. Smarter Attendance.</div>
+          <div class="security-item"><strong>Platform access:</strong> Super Admin controlled</div>
+          <div class="section-note">Settings changes are not connected to the database yet.</div>
+        </div>
+      </section>
+
+      <div class="footer-note">
+        EDUNEXA Super Admin Control Centre · Secure Platform Administration
       </div>
-    </div>
 
-    <div class="panel">
-      <div class="panel-heading">
-        <h3>Quick Actions</h3>
-        <span>SHORTCUTS</span>
-      </div>
-      <div class="quick-grid">
-        <button class="quick-button" data-open="schools">
-          <span>🏫</span>All Schools
-        </button>
-        <button class="quick-button" data-open="approvals">
-          <span>✓</span>Approvals
-        </button>
-        <button class="quick-button" data-open="subscriptions">
-          <span>💳</span>Subscriptions
-        </button>
-        <button class="quick-button" data-open="security">
-          <span>🔐</span>Security
-        </button>
-      </div>
-    </div>
+    </main>
   </div>
 </section>
 
-<!-- ALL SCHOOLS -->
+  
+<script type="module">
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/13.2.0/firebase-app.js";
 
-<section id="page-schools" class="page-section">
-  <div class="page-header">
-    <div>
-      <h1>All Schools</h1>
-      <p>View and manage institutions registered on EDUNEXA.</p>
-    </div>
-  </div>
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
+  setPersistence,
+  browserLocalPersistence
+} from "https://www.gstatic.com/firebasejs/13.2.0/firebase-auth.js";
 
-  <div class="info-box">
-    Demonstration mode: school records will only be available after
-    the secure EDUNEXA database is connected.
-  </div>
+import {
+  getFirestore,
+  doc,
+  getDoc
+} from "https://www.gstatic.com/firebasejs/13.2.0/firebase-firestore.js";
 
-  <div class="data-panel">
-    <div class="toolbar">
-      <input type="search" placeholder="Search schools..." id="schoolSearch">
-      <select id="schoolFilter">
-        <option value="all">All Statuses</option>
-        <option value="Pending">Pending</option>
-        <option value="Approved">Approved</option>
-        <option value="Suspended">Suspended</option>
-        <option value="Rejected">Rejected</option>
-      </select>
-    </div>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>School Code</th>
-            <th>School Name</th>
-            <th>School Type</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody id="schoolTableBody"></tbody>
-      </table>
-    </div>
-    <div class="empty-state" id="schoolEmpty">
-      No school records available yet.
-    </div>
-  </div>
-</section>
+/* FIREBASE CONFIGURATION */
+const firebaseConfig = {
+  apiKey: "AIzaSyCBER_osAqxgSuIw4CWn_CIZBCC6XurXtg",
+  authDomain: "edunexa-35d82.firebaseapp.com",
+  projectId: "edunexa-35d82",
+  storageBucket: "edunexa-35d82.firebasestorage.app",
+  messagingSenderId: "213289462930",
+  appId: "1:213289462930:web:767ecc3b3428bd8c958a4b",
+  measurementId: "G-C0X6G5RZJW"
+};
 
-<!-- SCHOOL APPROVALS -->
+/* INITIALISE FIREBASE */
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
 
-<section id="page-approvals" class="page-section">
-  <div class="page-header">
-    <div>
-      <h1>School Approvals</h1>
-      <p>Review and manage new school registration applications.</p>
-    </div>
-  </div>
-  <div class="info-box">
-    School applications will appear here when the registration system
-    is connected to the EDUNEXA backend.
-  </div>
-  <div class="data-panel">
-    <h3 style="color:var(--green);font-size:14px;margin-bottom:12px">
-      Pending Applications
-    </h3>
-    <div class="empty-state">
-      No pending applications are connected to this demonstration dashboard.
-    </div>
-  </div>
-</section>
-
-<!-- ADMINISTRATORS -->
-
-<section id="page-administrators" class="page-section">
-  <div class="page-header">
-    <div>
-      <h1>School Administrators</h1>
-      <p>Manage authorised administrators across registered schools.</p>
-    </div>
-  </div>
-  <div class="info-box">
-    Administrator account creation, password resets, permissions
-    and account suspension require secure backend integration.
-  </div>
-  <div class="data-panel">
-    <div class="empty-state">
-      Administrator records will appear here after database connection.
-    </div>
-  </div>
-</section>
-
-<!-- TEACHERS AND STAFF -->
-
-<section id="page-staff" class="page-section">
-  <div class="page-header">
-    <div>
-      <h1>Teachers & Staff</h1>
-      <p>Platform-wide overview of school personnel accounts.</p>
-    </div>
-  </div>
-  <div class="info-box">
-    School administrators will manage their own teacher and staff
-    accounts. Super Admin will have platform-level monitoring
-    and authorised support controls.
-  </div>
-  <div class="simple-card-grid">
-    <div class="setting-card">
-      <h3>Teachers</h3>
-      <p>Monitor teacher account registrations and account status.</p>
-    </div>
-    <div class="setting-card">
-      <h3>Non-Teaching Staff</h3>
-      <p>Monitor gatemen, cleaners, drivers, secretaries and other staff.</p>
-    </div>
-  </div>
-</section>
-
-<!-- STUDENTS -->
-
-<section id="page-students" class="page-section">
-  <div class="page-header">
-    <div>
-      <h1>Students</h1>
-      <p>Platform-wide student account and attendance identity overview.</p>
-    </div>
-  </div>
-  <div class="info-box">
-    Student records belong to their respective schools. Access to
-    identifiable student information must be permission-controlled.
-  </div>
-  <div class="data-panel">
-    <div class="empty-state">
-      Student records will appear here after secure database integration.
-    </div>
-  </div>
-</section>
-
-<!-- ATTENDANCE ANALYTICS -->
-
-<section id="page-attendance" class="page-section">
-  <div class="page-header">
-    <div>
-      <h1>Attendance Analytics</h1>
-      <p>Monitor attendance performance across EDUNEXA schools.</p>
-    </div>
-  </div>
-  <div class="stats-grid">
-    <div class="stat-card">
-      <div class="stat-name">ATTENDANCE RECORDS</div>
-      <div class="stat-number">0</div>
-      <div class="stat-note">Demonstration data</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-name">SCHOOLS REPORTING</div>
-      <div class="stat-number">0</div>
-      <div class="stat-note">Schools submitting attendance</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-name">AVERAGE ATTENDANCE</div>
-      <div class="stat-number">0%</div>
-      <div class="stat-note">Across connected schools</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-name">REVIEW REQUIRED</div>
-      <div class="stat-number">0</div>
-      <div class="stat-note">Records requiring attention</div>
-    </div>
-  </div>
-  <div class="info-box" style="margin-top:18px">
-    Live attendance analytics will become available after school
-    attendance records are connected to the central database.
-  </div>
-</section>
-
-<!-- SUBSCRIPTIONS -->
-
-<section id="page-subscriptions" class="page-section">
-  <div class="page-header">
-    <div>
-      <h1>Subscriptions</h1>
-      <p>Manage EDUNEXA subscription plans and school renewals.</p>
-    </div>
-  </div>
-
-  <div class="stats-grid">
-    <div class="stat-card">
-      <div class="stat-name">ACTIVE SUBSCRIPTIONS</div>
-      <div class="stat-number">0</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-name">FREE TRIALS</div>
-      <div class="stat-number">0</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-name">EXPIRING SOON</div>
-      <div class="stat-number">0</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-name">EXPIRED</div>
-      <div class="stat-number">0</div>
-    </div>
-  </div>
-
-  <h2 class="section-title">Subscription Plans</h2>
-
-  <div class="simple-card-grid">
-    <div class="setting-card">
-      <h3>Monthly Plan</h3>
-      <p>Subscription duration: 1 month.</p>
-    </div>
-    <div class="setting-card">
-      <h3>Quarterly Plan</h3>
-      <p>Subscription duration: 3 months.</p>
-    </div>
-    <div class="setting-card">
-      <h3>Half-Yearly Plan</h3>
-      <p>Subscription duration: 6 months.</p>
-    </div>
-    <div class="setting-card">
-      <h3>Yearly Plan</h3>
-      <p>Subscription duration: 12 months.</p>
-    </div>
-  </div>
-
-  <div class="info-box" style="margin-top:18px">
-    <strong>Current platform policy:</strong><br>
-    Free trial: 7 days.<br>
-    Grace period: 3 days after expiry.<br>
-    Automatic activation and suspension require verified payments,
-    secure backend processing and scheduled server-side checks.
-  </div>
-</section>
-
-<!-- PAYMENTS -->
-
-<section id="page-payments" class="page-section">
-  <div class="page-header">
-    <div>
-      <h1>Payments</h1>
-      <p>Monitor subscription payments and transaction records.</p>
-    </div>
-  </div>
-  <div class="info-box">
-    Payment records must be verified by the payment provider.
-    A browser-only confirmation is not proof of payment.
-  </div>
-  <div class="data-panel">
-    <div class="empty-state">
-      No payment records are connected yet.
-    </div>
-  </div>
-</section>
-
-<!-- NOTIFICATIONS -->
-
-<section id="page-notifications" class="page-section">
-  <div class="page-header">
-    <div>
-      <h1>Communication Centre</h1>
-      <p>Prepare platform announcements and school notifications.</p>
-    </div>
-  </div>
-
-  <div class="data-panel">
-    <div class="form-group">
-      <label for="noticeTitle">Announcement Title</label>
-      <input id="noticeTitle" type="text"
-        placeholder="Enter announcement title">
-    </div>
-
-    <div class="form-group">
-      <label for="noticeAudience">Target Audience</label>
-      <select id="noticeAudience"
-        style="width:100%;padding:13px;border:1px solid var(--border);border-radius:8px">
-        <option value="All Schools">All Schools</option>
-        <option value="School Administrators">School Administrators</option>
-        <option value="Teachers">Teachers</option>
-        <option value="All School Staff">All School Staff</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label for="noticeMessage">Announcement Message</label>
-      <textarea id="noticeMessage" rows="5"
-        placeholder="Write your announcement..."
-        style="width:100%;padding:13px;border:1px solid var(--border);border-radius:8px;resize:vertical"></textarea>
-    </div>
-
-    <button class="primary-button" id="prepareNotice">
-      PREPARE ANNOUNCEMENT
-    </button>
-
-    <div id="noticeResult" style="margin-top:15px;font-size:12px;color:var(--green)"></div>
-  </div>
-
-  <div class="info-box" style="margin-top:16px">
-    This demonstration prepares announcement text only.
-    Actual delivery requires a connected notification service.
-  </div>
-</section>
-
-<!-- SECURITY CENTRE -->
-
-<section id="page-security" class="page-section">
-  <div class="page-header">
-    <div>
-      <h1>Security Centre</h1>
-      <p>Monitor platform security and administrator access.</p>
-    </div>
-  </div>
-
-  <div class="simple-card-grid">
-    <div class="setting-card">
-      <h3>Login Monitoring</h3>
-      <p>Review successful and unsuccessful administrator sign-ins.</p>
-    </div>
-    <div class="setting-card">
-      <h3>OTP Verification</h3>
-      <p>Manage secure one-time password verification.</p>
-    </div>
-    <div class="setting-card">
-      <h3>Device Management</h3>
-      <p>Review trusted devices and active sessions.</p>
-    </div>
-    <div class="setting-card">
-      <h3>Audit Logs</h3>
-      <p>Track important platform management actions.</p>
-    </div>
-  </div>
-
-  <div class="info-box" style="margin-top:18px">
-    These security controls are design placeholders until
-    authentication and audit logging are connected to the backend.
-  </div>
-</section>
-
-<!-- REPORTS -->
-
-<section id="page-reports" class="page-section">
-  <div class="page-header">
-    <div>
-      <h1>Platform Reports</h1>
-      <p>Prepare platform-wide performance and activity reports.</p>
-    </div>
-  </div>
-
-  <div class="simple-card-grid">
-    <div class="setting-card">
-      <h3>School Registration Report</h3>
-      <p>Registration, approval and suspension summaries.</p>
-    </div>
-    <div class="setting-card">
-      <h3>Attendance Report</h3>
-      <p>Attendance trends and school submission summaries.</p>
-    </div>
-    <div class="setting-card">
-      <h3>Subscription Report</h3>
-      <p>Renewal, expiry and subscription summaries.</p>
-    </div>
-    <div class="setting-card">
-      <h3>Security Report</h3>
-      <p>Administrator access and platform activity summaries.</p>
-    </div>
-  </div>
-  <div class="info-box" style="margin-top:18px">
-    Report generation and PDF/Excel export will be enabled when
-    the platform database is connected.
-  </div>
-</section>
-
-<!-- PLATFORM SETTINGS -->
-
-<section id="page-settings" class="page-section">
-  <div class="page-header">
-    <div>
-      <h1>Platform Settings</h1>
-      <p>Configure the central EDUNEXA platform.</p>
-    </div>
-  </div>
-
-  <div class="simple-card-grid">
-    <div class="setting-card">
-      <h3>Platform Identity</h3>
-      <p>EDUNEXA branding, name and platform information.</p>
-    </div>
-    <div class="setting-card">
-      <h3>Registration Settings</h3>
-      <p>Configure school registration and verification rules.</p>
-    </div>
-    <div class="setting-card">
-      <h3>Subscription Settings</h3>
-      <p>Configure plans, trial duration, renewal and grace periods.</p>
-    </div>
-    <div class="setting-card">
-      <h3>Attendance Settings</h3>
-      <p>Manage attendance policies and platform-wide options.</p>
-    </div>
-    <div class="setting-card">
-      <h3>Notification Settings</h3>
-      <p>Configure communication and notification services.</p>
-    </div>
-    <div class="setting-card">
-      <h3>Maintenance Mode</h3>
-      <p>Prepare scheduled maintenance and platform notices.</p>
-    </div>
-  </div>
-</section>
-
-<div class="footer-note">
-  © <span id="adminYear"></span> EDUNEXA.
-  Central Platform Administration.
-</div>
-
-</main>
-</div>
-</section>
-
-<script>
-"use strict";
-
-/*
-  EDUNEXA SUPER ADMIN FRONT-END DEMONSTRATION
-
-  IMPORTANT:
-  This page does not authenticate administrators.
-  It does not create secure sessions or protect data.
-  Connect Firebase Authentication and backend authorization
-  before enabling real Super Admin access.
-*/
+const ADMIN_EMAIL = "olohunwaabdulsalam47@gmail.com";
 
 const loginScreen = document.getElementById("loginScreen");
-const adminApp = document.getElementById("adminApp");
-const loginForm = document.getElementById("adminLoginForm");
+const appShell = document.getElementById("appShell");
+const loginForm = document.getElementById("loginForm");
+const loginButton = document.getElementById("loginButton");
 const loginMessage = document.getElementById("loginMessage");
+const emailInput = document.getElementById("adminEmail");
+const passwordInput = document.getElementById("adminPassword");
 
-document.getElementById("adminYear").textContent =
-  new Date().getFullYear();
+let loginInProgress = false;
 
-document.getElementById("currentDate").textContent =
-  new Date().toLocaleDateString("en-NG", {
-    weekday:"short",
-    year:"numeric",
-    month:"short",
-    day:"numeric"
-  });
-
-/* DEMONSTRATION LOGIN */
-
-loginForm.addEventListener("submit", event => {
-  event.preventDefault();
-
-  loginMessage.textContent =
-    "Secure Super Admin authentication is not connected yet. " +
-    "No login details were saved or verified. Please wait for the " +
-    "Firebase authentication setup before using real credentials.";
-
-  loginMessage.classList.add("show");
-});
-
-/* NAVIGATION */
-
-function openPage(pageName) {
-  document.querySelectorAll(".page-section").forEach(section => {
-    section.classList.remove("active");
-  });
-
-  const target = document.getElementById("page-" + pageName);
-
-  if (target) {
-    target.classList.add("active");
-  }
-
-  document.querySelectorAll(".nav-button").forEach(button => {
-    button.classList.toggle(
-      "active",
-      button.dataset.page === pageName
-    );
-  });
-
-  window.scrollTo({top:0,behavior:"smooth"});
+/* MESSAGE DISPLAY */
+function showMessage(message, success = false) {
+  loginMessage.textContent = message;
+  loginMessage.className =
+    "login-message" + (success ? " success" : "");
+  loginMessage.style.display = "block";
 }
 
-document.querySelectorAll(".nav-button").forEach(button => {
-  button.addEventListener("click", () => {
-    openPage(button.dataset.page);
+function hideMessage() {
+  loginMessage.textContent = "";
+  loginMessage.style.display = "none";
+}
+
+/* VERIFY SUPER ADMIN PERMISSION */
+async function verifySuperAdmin(user) {
+  if (!user || user.email !== ADMIN_EMAIL) {
+    throw new Error("This account is not authorised as Super Admin.");
+  }
+
+  const adminRef = doc(db, "admins", user.uid);
+  const adminSnapshot = await getDoc(adminRef);
+
+  if (!adminSnapshot.exists()) {
+    throw new Error("Super Admin permission record was not found.");
+  }
+
+  const adminData = adminSnapshot.data();
+
+  if (
+    adminData.role !== "super_admin" ||
+    adminData.active !== true
+  ) {
+    throw new Error("Your Super Admin account is not active.");
+  }
+
+  return true;
+}
+
+/* SHOW DASHBOARD */
+function showDashboard() {
+  loginScreen.classList.add("hidden");
+  appShell.classList.remove("hidden");
+  passwordInput.value = "";
+  hideMessage();
+}
+
+/* SHOW LOGIN */
+function showLogin() {
+  appShell.classList.add("hidden");
+  loginScreen.classList.remove("hidden");
+}
+
+/* ERROR MESSAGES */
+function friendlyError(error) {
+  const code = error.code || "";
+
+  if (code.includes("auth/invalid-credential") ||
+      code.includes("auth/wrong-password") ||
+      code.includes("auth/user-not-found")) {
+    return "Incorrect Gmail address or password.";
+  }
+
+  if (code.includes("auth/too-many-requests")) {
+    return "Too many login attempts. Please wait and try again later.";
+  }
+
+  if (code.includes("auth/network-request-failed")) {
+    return "Network error. Check your internet connection.";
+  }
+
+  if (code.includes("permission-denied")) {
+    return "Firebase denied access to your administrator record. Please check Firestore rules.";
+  }
+
+  if (code.includes("auth/invalid-email")) {
+    return "Please enter a valid Gmail address.";
+  }
+
+  return error.message || "Login failed. Please try again.";
+}
+
+/* LOGIN */
+loginForm.addEventListener("submit", async function(event) {
+  event.preventDefault();
+
+  if (loginInProgress) return;
+
+  hideMessage();
+
+  const email = emailInput.value.trim().toLowerCase();
+  const password = passwordInput.value;
+
+  if (email !== ADMIN_EMAIL) {
+    showMessage("This Gmail address is not authorised.");
+    return;
+  }
+
+  if (!password) {
+    showMessage("Please enter your password.");
+    return;
+  }
+
+  loginInProgress = true;
+  loginButton.disabled = true;
+  loginButton.textContent = "Verifying securely...";
+
+  try {
+    await setPersistence(auth, browserLocalPersistence);
+
+    const credential = await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+
+    await verifySuperAdmin(credential.user);
+
+    showDashboard();
+
+  } catch (error) {
+    if (auth.currentUser) {
+      try {
+        await signOut(auth);
+      } catch (signOutError) {
+        console.error("Sign-out error:", signOutError);
+      }
+    }
+
+    showLogin();
+    showMessage(friendlyError(error));
+
+  } finally {
+    loginInProgress = false;
+    loginButton.disabled = false;
+    loginButton.textContent = "Sign In Securely";
+  }
+});
+
+/* CHECK EXISTING LOGIN SESSION */
+onAuthStateChanged(auth, async function(user) {
+  if (loginInProgress) return;
+
+  if (!user) {
+    showLogin();
+    return;
+  }
+
+  try {
+    await verifySuperAdmin(user);
+    showDashboard();
+  } catch (error) {
+    console.error("Admin verification failed:", error);
+
+    try {
+      await signOut(auth);
+    } catch (signOutError) {
+      console.error(signOutError);
+    }
+
+    showLogin();
+    showMessage("Your administrator session could not be verified. Please sign in again.");
+  }
+});
+
+/* LOGOUT */
+document.getElementById("logoutButton")
+  .addEventListener("click", async function() {
+    try {
+      await signOut(auth);
+      showLogin();
+      passwordInput.value = "";
+      showMessage("You have signed out successfully.", true);
+    } catch (error) {
+      alert("Unable to sign out. Please try again.");
+    }
+  });
+
+/* DASHBOARD NAVIGATION */
+function openPage(pageName) {
+  document.querySelectorAll(".page").forEach(page => {
+    page.classList.remove("active");
+  });
+
+  document.querySelectorAll(".nav-btn").forEach(button => {
+    button.classList.remove("active");
+  });
+
+  const targetPage = document.getElementById("page-" + pageName);
+
+  if (!targetPage) return;
+
+  targetPage.classList.add("active");
+
+  const activeButton = document.querySelector(
+    '.nav-btn[data-page="' + pageName + '"]'
+  );
+
+  if (activeButton) activeButton.classList.add("active");
+
+  document.getElementById("sidebar").classList.remove("open");
+}
+
+document.querySelectorAll(".nav-btn").forEach(button => {
+  button.addEventListener("click", function() {
+    openPage(this.dataset.page);
   });
 });
 
 /* QUICK ACTIONS */
-
-document.querySelectorAll(".quick-button").forEach(button => {
-  button.addEventListener("click", () => {
-    openPage(button.dataset.open);
+document.querySelectorAll("[data-go]").forEach(button => {
+  button.addEventListener("click", function() {
+    openPage(this.dataset.go);
   });
 });
 
-/* LOGOUT */
-
-document.getElementById("logoutButton").addEventListener("click", () => {
-  adminApp.classList.add("hidden");
-  loginScreen.classList.remove("hidden");
-  loginForm.reset();
-  loginMessage.textContent = "";
-  loginMessage.classList.remove("show");
-  openPage("dashboard");
-});
-
-/* SCHOOL SEARCH */
-
-const schoolSearch = document.getElementById("schoolSearch");
-const schoolFilter = document.getElementById("schoolFilter");
-
-function filterSchools() {
-  const query = schoolSearch.value.toLowerCase();
-  const filter = schoolFilter.value;
-
-  const rows = document.querySelectorAll("#schoolTableBody tr");
-  let visible = 0;
-
-  rows.forEach(row => {
-    const matchesText =
-      row.textContent.toLowerCase().includes(query);
-
-    const matchesStatus =
-      filter === "all" || row.dataset.status === filter;
-
-    const show = matchesText && matchesStatus;
-
-    row.style.display = show ? "" : "none";
-
-    if (show) visible++;
+/* MOBILE MENU */
+document.getElementById("menuToggle")
+  .addEventListener("click", function() {
+    document.getElementById("sidebar").classList.toggle("open");
   });
-
-  document.getElementById("schoolEmpty").style.display =
-    visible === 0 ? "block" : "none";
-}
-
-schoolSearch.addEventListener("input", filterSchools);
-schoolFilter.addEventListener("change", filterSchools);
 
 /* ANNOUNCEMENT PREVIEW */
+document.getElementById("previewAnnouncement")
+  .addEventListener("click", function() {
+    const title = document.getElementById("announcementTitle").value.trim();
+    const body = document.getElementById("announcementBody").value.trim();
+    const preview = document.getElementById("announcementPreview");
 
-document.getElementById("prepareNotice").addEventListener(
-  "click",
-  () => {
-    const title =
-      document.getElementById("noticeTitle").value.trim();
-
-    const audience =
-      document.getElementById("noticeAudience").value;
-
-    const message =
-      document.getElementById("noticeMessage").value.trim();
-
-    const result = document.getElementById("noticeResult");
-
-    if (!title || !message) {
-      result.textContent =
-        "Please enter an announcement title and message.";
-      result.style.color = "#b83227";
+    if (!title || !body) {
+      alert("Enter an announcement title and message first.");
       return;
     }
 
-    result.style.color = "#073d2b";
-    result.textContent =
-      "Announcement prepared for " + audience +
-      ". It has NOT been sent. Connect the notification service to deliver it.";
-  }
-);
+    preview.textContent = title + " — " + body;
+    preview.classList.remove("hidden");
+  });
 
-/*
-  NO AUTOMATIC DASHBOARD ACCESS.
+/* SCHOOL SEARCH PLACEHOLDER */
+const schoolSearch = document.getElementById("schoolSearch");
+const schoolFilter = document.getElementById("schoolFilter");
 
-  The login interface stays visible until secure
-  authentication is implemented and verified.
-*/
+schoolSearch.addEventListener("input", function() {
+  // School search will be connected when school records are loaded.
+});
+
+schoolFilter.addEventListener("change", function() {
+  // School filtering will be connected when school records are loaded.
+});
+
 </script>
 
 <script src="./app-install.js"></script>
 </body>
-  </html>
-    
+</html>
