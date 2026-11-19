@@ -5,348 +5,239 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#073d2b">
-<title>EDUNEXA Student Connect</title>
+<meta name="description" content="EDUNEXA Student Connect - Secure student attendance portal.">
+<title>EDUNEXA | Student Connect</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
- --green:#073d2b;
- --green2:#0c6245;
- --gold:#d6ad50;
- --bg:#f4f7f4;
- --white:#fff;
- --ink:#17251e;
- --muted:#718078;
- --line:#e5ebe6;
- --red:#c84d4d;
- --orange:#bd7b22;
+  --green:#073d2b;
+  --green2:#0c6245;
+  --gold:#d6ad50;
+  --bg:#f4f7f4;
+  --white:#fff;
+  --ink:#17251e;
+  --muted:#718078;
+  --line:#e5ebe6;
+  --red:#c84d4d;
+  --orange:#bd7b22;
 }
-
 *{box-sizing:border-box;margin:0;padding:0}
-
 body{
- font-family:'DM Sans',sans-serif;
- background:var(--bg);
- color:var(--ink);
- line-height:1.6;
+  font-family:'DM Sans',sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.6;
 }
-
-button,input{font:inherit}
-
+button,input,select{font:inherit}
+button{cursor:pointer}
 .topbar{
- background:var(--green);
- color:white;
- padding:12px 5%;
- display:flex;
- justify-content:space-between;
- align-items:center;
- gap:12px;
- flex-wrap:wrap;
+  background:var(--green);
+  color:white;
+  padding:13px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
 }
-
-.brand{
- display:flex;
- align-items:center;
- gap:11px;
-}
-
+.brand{display:flex;align-items:center;gap:11px}
 .brand-icon{
- width:42px;
- height:42px;
- display:grid;
- place-items:center;
- background:var(--green);
- border:2px solid var(--gold);
- color:var(--gold);
- border-radius:12px;
- font-size:20px;
- font-weight:800;
+  width:43px;height:43px;
+  display:grid;place-items:center;
+  background:var(--green);
+  border:2px solid var(--gold);
+  color:var(--gold);
+  border-radius:12px;
+  font-size:21px;font-weight:800;
 }
-
 .brand-name{
- font-family:'Manrope',sans-serif;
- font-weight:800;
- letter-spacing:1px;
- font-size:19px;
- color:var(--green);
+  font-family:Manrope,sans-serif;
+  font-size:19px;font-weight:800;
+  letter-spacing:1px;
 }
-
 .brand-name small{
- display:block;
- font-family:'DM Sans',sans-serif;
- font-size:9px;
- letter-spacing:2px;
- color:var(--muted);
+  display:block;font-size:9px;
+  letter-spacing:2px;color:#d6ad50;
 }
-
+.tagline{font-size:12px;color:#e4eee7}
 .header{
- background:white;
- padding:15px 5%;
- display:flex;
- align-items:center;
- justify-content:space-between;
- box-shadow:0 3px 15px #00000008;
+  background:white;padding:14px 5%;
+  display:flex;justify-content:space-between;
+  align-items:center;gap:12px;
+  box-shadow:0 3px 15px #00000008;
 }
-
 .header a{
- color:var(--green);
- text-decoration:none;
- font-size:13px;
- font-weight:700;
+  color:var(--green);text-decoration:none;
+  font-size:12px;font-weight:800;
 }
-
-.container{
- width:min(1100px,92%);
- margin:35px auto;
+.container{width:min(1100px,92%);margin:35px auto}
+.heading{margin-bottom:23px}
+.heading span{
+  color:var(--green2);font-size:11px;
+  letter-spacing:2px;font-weight:800;
+  text-transform:uppercase;
 }
-
-.page-heading{
- margin-bottom:25px;
+.heading h1{
+  color:var(--green);font-family:Manrope,sans-serif;
+  font-size:clamp(27px,5vw,38px);
+  line-height:1.2;margin:8px 0;
 }
-
-.page-heading span{
- color:var(--green2);
- text-transform:uppercase;
- font-size:11px;
- letter-spacing:2px;
- font-weight:800;
+.heading p{color:var(--muted);font-size:14px}
+.notice{
+  background:#fff8e8;border:1px solid #efdbab;
+  border-radius:11px;padding:14px 16px;
+  color:#795b1d;font-size:12px;margin-bottom:22px;
 }
-
-.page-heading h1{
- font-family:'Manrope',sans-serif;
- color:var(--green);
- font-size:clamp(27px,5vw,38px);
- line-height:1.2;
- margin:9px 0;
-}
-
-.page-heading p{
- color:var(--muted);
- font-size:14px;
-}
-
-.demo-notice{
- background:#fff8e8;
- border:1px solid #efdbab;
- border-radius:10px;
- padding:13px 16px;
- color:#795b1d;
- font-size:12px;
- margin-bottom:22px;
-}
-
 .login-card{
- max-width:500px;
- margin:35px auto;
- background:white;
- border:1px solid var(--line);
- border-radius:17px;
- padding:30px;
- box-shadow:0 12px 35px #073d2b0b;
+  max-width:510px;margin:25px auto;
+  background:white;border:1px solid var(--line);
+  border-radius:18px;padding:29px;
+  box-shadow:0 12px 35px #073d2b0b;
 }
-
 .login-logo{
- width:58px;
- height:58px;
- margin:0 auto 15px;
- display:grid;
- place-items:center;
- border-radius:16px;
- background:var(--green);
- color:var(--gold);
- border:2px solid var(--gold);
- font-size:25px;
- font-weight:800;
+  width:60px;height:60px;margin:0 auto 15px;
+  display:grid;place-items:center;
+  border-radius:16px;background:var(--green);
+  color:var(--gold);border:2px solid var(--gold);
+  font-size:26px;font-weight:800;
 }
-
 .login-card h2{
- text-align:center;
- color:var(--green);
- font-family:'Manrope',sans-serif;
- font-size:23px;
+  text-align:center;color:var(--green);
+  font-family:Manrope,sans-serif;font-size:23px;
 }
-
-.login-subtitle{
- text-align:center;
- color:var(--muted);
- font-size:13px;
- margin:6px 0 25px;
+.subtitle{
+  text-align:center;color:var(--muted);
+  font-size:13px;margin:6px 0 24px;
 }
-
-.field{
- margin-bottom:17px;
-}
-
+.field{margin-bottom:17px}
 .field label{
- display:block;
- font-size:12px;
- font-weight:800;
- color:var(--green);
- margin-bottom:7px;
+  display:block;font-size:12px;font-weight:800;
+  color:var(--green);margin-bottom:7px;
 }
-
-.field input{
- width:100%;
- padding:13px;
- border:1px solid #dce5de;
- border-radius:8px;
- outline:none;
- background:white;
+.field input,.field select{
+  width:100%;padding:13px;
+  border:1px solid #dce5de;border-radius:9px;
+  outline:none;background:white;color:var(--ink);
 }
-
-.field input:focus{
- border-color:var(--green2);
- box-shadow:0 0 0 3px #0c62451a;
+.field input:focus,.field select:focus{
+  border-color:var(--green2);
+  box-shadow:0 0 0 3px #0c62451a;
 }
-
+.primary-btn,.secondary-btn{
+  width:100%;padding:13px;border-radius:9px;
+  font-weight:800;
+}
 .primary-btn{
- width:100%;
- border:0;
- padding:14px;
- border-radius:9px;
- background:var(--green);
- color:white;
- font-weight:800;
- cursor:pointer;
+  border:0;background:var(--green);color:white;
 }
-
 .primary-btn:hover{background:var(--green2)}
-
-.login-help{
- text-align:center;
- color:var(--muted);
- font-size:12px;
- margin-top:17px;
+.secondary-btn{
+  border:1px solid var(--green);
+  background:white;color:var(--green);
+  margin-top:10px;
 }
-
-.login-help a{
- color:var(--green2);
- font-weight:800;
- text-decoration:none;
+.security-note{
+  margin-top:17px;padding:12px;
+  background:#f4f8f5;border-radius:9px;
+  color:var(--muted);font-size:11px;
 }
-
+.help{
+  text-align:center;color:var(--muted);
+  font-size:12px;margin-top:16px;
+}
+.help a{color:var(--green2);font-weight:800}
 .dashboard{display:none}
-
 .dashboard-top{
- display:flex;
- justify-content:space-between;
- align-items:center;
- gap:15px;
- flex-wrap:wrap;
- margin-bottom:25px;
+  display:flex;justify-content:space-between;
+  align-items:center;gap:15px;
+  flex-wrap:wrap;margin-bottom:22px;
 }
-
-.student-welcome h2{
- font-family:'Manrope',sans-serif;
- color:var(--green);
- font-size:25px;
+.welcome h2{
+  color:var(--green);font-family:Manrope,sans-serif;
+  font-size:25px;
 }
-
-.student-welcome p{
- color:var(--muted);
- font-size:13px;
+.welcome p{color:var(--muted);font-size:13px}
+.logout{
+  border:1px solid var(--line);background:white;
+  padding:10px 16px;border-radius:8px;
+  color:var(--green);font-weight:800;
 }
-
-.logout-btn{
- border:1px solid var(--line);
- background:white;
- padding:10px 16px;
- border-radius:8px;
- color:var(--green);
- font-weight:800;
- cursor:pointer;
-}
-
 .stats-grid{
- display:grid;
- grid-template-columns:repeat(4,1fr);
- gap:15px;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:14px;
 }
-
 .stat-card{
- background:white;
- border:1px solid var(--line);
- border-radius:13px;
- padding:21px;
+  background:white;border:1px solid var(--line);
+  border-radius:13px;padding:19px;
 }
-
-.stat-card span{
- font-size:12px;
- color:var(--muted);
- font-weight:700;
-}
-
+.stat-card span{font-size:12px;color:var(--muted);font-weight:700}
 .stat-card strong{
- display:block;
- font-size:29px;
- color:var(--green);
- font-family:'Manrope',sans-serif;
- margin-top:8px;
+  display:block;font-family:Manrope,sans-serif;
+  font-size:27px;color:var(--green);margin-top:7px;
 }
-
-.stat-card small{
- color:var(--muted);
- font-size:11px;
-}
-
 .present{border-top:4px solid #279667}
 .absent{border-top:4px solid var(--red)}
 .late{border-top:4px solid var(--orange)}
 .percentage{border-top:4px solid var(--gold)}
-
 .panel{
- background:white;
- border:1px solid var(--line);
- border-radius:14px;
- padding:23px;
- margin-top:22px;
+  background:white;border:1px solid var(--line);
+  border-radius:14px;padding:22px;margin-top:21px;
 }
-
 .panel h3{
- font-family:'Manrope',sans-serif;
- color:var(--green);
- font-size:17px;
- margin-bottom:15px;
+  font-family:Manrope,sans-serif;
+  color:var(--green);font-size:17px;margin-bottom:14px;
 }
-
-.student-details{
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:15px;
+.details{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:13px;
 }
-
-.detail{
- background:#f6f9f6;
- border-radius:9px;
- padding:14px;
+.detail{background:#f6f9f6;border-radius:9px;padding:13px}
+.detail small{display:block;color:var(--muted);font-size:11px}
+.detail strong{color:var(--green);font-size:13px}
+.panel-description{font-size:13px;color:var(--muted)}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:480px}
+th,td{
+  padding:13px;text-align:left;
+  border-bottom:1px solid var(--line);font-size:12px;
 }
-
-.detail small{
- display:block;
- color:var(--muted);
- font-size:11px;
+th{background:#f1f6f2;color:var(--green)}
+.empty{text-align:center;color:var(--muted);padding:25px}
+.status-pill{
+  display:inline-block;padding:4px 9px;
+  border-radius:20px;font-size:10px;font-weight:800;
 }
-
-.detail strong{
- color:var(--green);
- font-size:13px;
- overflow-wrap:anywhere;
+.report-btn{
+  border:0;background:var(--green);
+  color:white;padding:12px 18px;
+  border-radius:8px;font-weight:800;
 }
-
+.report-btn:disabled{opacity:.5;cursor:not-allowed}
+.notification{
+  padding:13px;background:#f6f9f6;
+  border-radius:9px;margin-bottom:10px;
+  font-size:12px;color:var(--muted);
+}
+.footer{
+  background:#032719;color:#c5d8cb;
+  padding:27px 5%;text-align:center;margin-top:55px;
+}
+.footer strong{color:white;font-family:Manrope,sans-serif}
+.footer p{font-size:11px;margin-top:8px}
 @media(max-width:700px){
- .stats-grid{grid-template-columns:repeat(2,1fr)}
- .student-details{grid-template-columns:1fr 1fr}
- .login-card{padding:23px}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .details{grid-template-columns:1fr 1fr}
+  .login-card{padding:22px}
 }
-
 @media(max-width:420px){
- .student-details{grid-template-columns:1fr}
- .topbar{justify-content:center}
+  .details{grid-template-columns:1fr}
+  .topbar{justify-content:center}
 }
 </style>
 </head>
+
 <body>
 
 <div class="topbar">
@@ -357,265 +248,292 @@ button,input{font:inherit}
       <small>STUDENT CONNECT</small>
     </div>
   </div>
-  <div style="font-size:12px;color:#e4eee7">
+  <div class="tagline">
     Your Attendance. Your Progress. Your School.
   </div>
 </div>
 
 <div class="header">
-  <a href="index.html">← Back to EDUNEXA Homepage</a>
+  <a href="index.html">← Back to Homepage</a>
   <a href="school-login.html">School Login</a>
 </div>
 
 <main class="container">
 
-  <section id="loginSection">
-    <div class="page-heading">
-      <span>Student Access Portal</span>
-      <h1>Welcome to Student Connect</h1>
-      <p>Access your personal school attendance information securely.</p>
-    </div>
+<section id="loginSection">
 
-    <div class="demo-notice">
-      <strong>Development Preview:</strong>
-      Student authentication is not connected yet. Do not enter real passwords or sensitive account information.
-    </div>
+  <div class="heading">
+    <span>Student Access Portal</span>
+    <h1>Welcome to Student Connect</h1>
+    <p>View your personal attendance information securely.</p>
+  </div>
 
-    <div class="login-card">
-      <div class="login-logo">E</div>
-      <h2>Student Login</h2>
-      <p class="login-subtitle">Sign in to view your attendance dashboard.</p>
+  <div class="notice">
+    <strong>Development Preview:</strong>
+    The secure student verification and attendance database
+    are still being developed. Do not enter real student
+    information yet.
+  </div>
 
-      <form id="studentLoginForm">
+  <div class="login-card">
 
-        <div class="field">
-          <label for="schoolCode">School Code</label>
-          <input
-            type="text"
-            id="schoolCode"
-            placeholder="Enter your school code"
-            required
-          >
-        </div>
+    <div class="login-logo">E</div>
 
-        <div class="field">
-          <label for="studentId">EDUNEXA Student ID</label>
-          <input
-            type="text"
-            id="studentId"
-            placeholder="Example: EDU-2026-000125"
-            required
-          >
-        </div>
+    <h2>Student Access</h2>
 
-        <div class="field">
-          <label for="studentPassword">Password</label>
-          <input
-            type="password"
-            id="studentPassword"
-            placeholder="Enter your password"
-            required
-          >
-        </div>
+    <p class="subtitle">
+      Enter your school details and use your private
+      school-issued QR access pass.
+    </p>
 
-        <button class="primary-btn" type="submit">
-          SIGN IN →
-        </button>
+    <form id="studentLoginForm">
 
-      </form>
-
-      <p class="login-help">
-        Need help accessing your account?
-        <a href="mailto:olohunwaabdulsalam47@gmail.com">Contact your school</a>
-      </p>
-    </div>
-  </section>
-
-  <section id="dashboardSection" class="dashboard">
-
-    <div class="dashboard-top">
-      <div class="student-welcome">
-        <span style="color:var(--green2);font-size:11px;font-weight:800;letter-spacing:1px">
-          STUDENT DASHBOARD
-        </span>
-        <h2>Welcome, <span id="displayStudentName">Student</span></h2>
-        <p>Here is an overview of your attendance information.</p>
+      <div class="field">
+        <label for="schoolCode">School Code</label>
+        <input
+          type="text"
+          id="schoolCode"
+          placeholder="Enter your School Code"
+          autocomplete="off"
+          required
+        >
       </div>
 
-      <button class="logout-btn" id="logoutButton">
-        LOG OUT
+      <div class="field">
+        <label for="studentId">EDUNEXA Student ID</label>
+        <input
+          type="text"
+          id="studentId"
+          placeholder="Example: EDU-2026-000125"
+          autocomplete="off"
+          required
+        >
+      </div>
+
+      <button class="primary-btn" type="submit">
+        CONTINUE →
       </button>
+
+    </form>
+
+    <button class="secondary-btn" id="qrButton" type="button">
+      ▦ SCAN PRIVATE QR ACCESS PASS
+    </button>
+
+    <div class="security-note">
+      <strong>Privacy protection</strong><br>
+      Student attendance is private. The QR access pass
+      must be issued by the student's school. School Code
+      and Student ID alone will not unlock student records.
     </div>
 
-    <div class="demo-notice">
-      <strong>Preview Dashboard:</strong>
-      The information displayed here is sample data. Live student records will be connected after secure authentication and database integration.
+    <p class="help">
+      Need assistance?
+      <a href="mailto:olohunwaabdulsalam47@gmail.com">
+        Contact your school
+      </a>
+    </p>
+
+  </div>
+</section>
+
+<section id="dashboardSection" class="dashboard">
+
+  <div class="dashboard-top">
+    <div class="welcome">
+      <span style="color:var(--green2);font-size:11px;font-weight:800;letter-spacing:1px">
+        STUDENT DASHBOARD
+      </span>
+      <h2>Welcome, <span id="displayStudentName">Student</span></h2>
+      <p>Your personal attendance overview.</p>
     </div>
 
-    <div class="stats-grid">
+    <button class="logout" id="logoutButton">
+      LOG OUT
+    </button>
+  </div>
 
-      <div class="stat-card present">
-        <span>Present</span>
-        <strong id="presentCount">0</strong>
-        <small>Recorded present days</small>
-      </div>
+  <div class="notice">
+    Student records will appear here only after secure
+    verification and connection to the EDUNEXA database.
+  </div>
 
-      <div class="stat-card absent">
-        <span>Absent</span>
-        <strong id="absentCount">0</strong>
-        <small>Recorded absent days</small>
-      </div>
-
-      <div class="stat-card late">
-        <span>Late</span>
-        <strong id="lateCount">0</strong>
-        <small>Recorded late arrivals</small>
-      </div>
-
-      <div class="stat-card percentage">
-        <span>Attendance Rate</span>
-        <strong id="attendanceRate">0%</strong>
-        <small>Based on sample records</small>
-      </div>
-
+  <div class="stats-grid">
+    <div class="stat-card present">
+      <span>Present</span>
+      <strong id="presentCount">—</strong>
     </div>
+    <div class="stat-card absent">
+      <span>Absent</span>
+      <strong id="absentCount">—</strong>
+    </div>
+    <div class="stat-card late">
+      <span>Late</span>
+      <strong id="lateCount">—</strong>
+    </div>
+    <div class="stat-card percentage">
+      <span>Attendance Rate</span>
+      <strong id="attendanceRate">—</strong>
+    </div>
+  </div>
 
-    <div class="panel">
-      <h3>My Student Information</h3>
-
-      <div class="student-details">
-        <div class="detail">
-          <small>Student Name</small>
-          <strong id="profileName">Student</strong>
-        </div>
-
-        <div class="detail">
-          <small>EDUNEXA Student ID</small>
-          <strong id="profileId">Not connected</strong>
-        </div>
-
-        <div class="detail">
-          <small>School Code</small>
-          <strong id="profileSchool">Not connected</strong>
-        </div>
-
-        <div class="detail">
-          <small>Class</small>
-          <strong id="profileClass">Not connected</strong>
-        </div>
-
-        <div class="detail">
-          <small>Academic Session</small>
-          <strong id="profileSession">Not connected</strong>
-        </div>
-
-        <div class="detail">
-          <small>Account Access</small>
-          <strong>View Only</strong>
-        </div>
+  <div class="panel">
+    <h3>My Student Information</h3>
+    <div class="details">
+      <div class="detail">
+        <small>Student Name</small>
+        <strong id="profileName">Not connected</strong>
+      </div>
+      <div class="detail">
+        <small>EDUNEXA Student ID</small>
+        <strong id="profileId">Not connected</strong>
+      </div>
+      <div class="detail">
+        <small>School Code</small>
+        <strong id="profileSchool">Not connected</strong>
+      </div>
+      <div class="detail">
+        <small>Class</small>
+        <strong id="profileClass">Not connected</strong>
+      </div>
+      <div class="detail">
+        <small>Profile Photo</small>
+        <strong>School record</strong>
+      </div>
+      <div class="detail">
+        <small>Access Permission</small>
+        <strong>View Only</strong>
       </div>
     </div>
+  </div>
 
-    <div class="panel">
-      <h3>My Attendance History</h3>
+  <div class="panel">
+    <h3>Academic Attendance Records</h3>
+    <p class="panel-description">
+      Choose the academic session and term you want to view.
+    </p>
+    <div class="field" style="margin-top:15px">
+      <label for="sessionSelect">Academic Session</label>
+      <select id="sessionSelect">
+        <option value="">Select academic session</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="termSelect">Academic Term</label>
+      <select id="termSelect">
+        <option value="">Select academic term</option>
+        <option>First Term</option>
+        <option>Second Term</option>
+        <option>Third Term</option>
+      </select>
+    </div>
+  </div>
 
-      <div style="overflow-x:auto">
-        <table style="width:100%;border-collapse:collapse;min-width:450px">
-          <thead>
-            <tr style="background:#f1f6f2;color:var(--green);text-align:left">
-              <th style="padding:13px;font-size:12px">Date</th>
-              <th style="padding:13px;font-size:12px">Session</th>
-              <th style="padding:13px;font-size:12px">Status</th>
-              <th style="padding:13px;font-size:12px">Time</th>
-            </tr>
-          </thead>
+  <div class="panel">
+    <h3>My Attendance History</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Session</th>
+            <th>Status</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody id="attendanceHistory">
+          <tr>
+            <td colspan="4" class="empty">
+              No verified attendance records connected yet.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
-          <tbody id="attendanceHistory">
-            <tr>
-              <td colspan="4" style="padding:20px;text-align:center;color:var(--muted);font-size:12px">
-                No live attendance records are connected yet.
-              </td>
-            </tr>
-          </tbody>
-        </table>
+  <div class="panel">
+    <h3>My Notifications</h3>
+    <p class="panel-description">
+      Important attendance notifications from your school
+      will appear here.
+    </p>
+    <div id="studentNotifications" style="margin-top:15px">
+      <div class="notification">
+        No notifications available yet.
       </div>
     </div>
+  </div>
 
-    <div class="panel">
-      <h3>My Student QR Identification</h3>
-      <p style="font-size:13px;color:var(--muted)">
-        Your school-issued QR code will be displayed here when the secure student identification system is connected.
-      </p>
+  <div class="panel">
+    <h3>Download Attendance Report</h3>
+    <p class="panel-description">
+      Download your verified attendance report as a PDF.
+      Reports will become available after database integration.
+    </p>
+    <button class="report-btn" id="downloadReport" disabled>
+      DOWNLOAD PDF REPORT
+    </button>
+  </div>
 
-      <div style="margin-top:18px;padding:22px;background:#f6f9f6;border-radius:10px;text-align:center">
-        <div style="font-size:38px">▦</div>
-        <strong style="display:block;color:var(--green);font-size:13px;margin-top:8px">
-          QR CODE NOT YET GENERATED
-        </strong>
-        <small style="color:var(--muted);font-size:11px">
-          Your QR code will be linked to your secure student record.
-        </small>
-      </div>
-    </div>
+  <div class="panel">
+    <h3>Student Access Rules</h3>
+    <p class="panel-description">
+      Students can view their own attendance records only.
+      Students cannot mark attendance, edit records or
+      change attendance submitted by teachers.
+      School Admin manages student registration.
+    </p>
+  </div>
 
-    <div class="panel">
-      <h3>Student Access Rules</h3>
-      <p style="font-size:13px;color:var(--muted)">
-        Students can view their own attendance information and student identification details. Attendance records can only be submitted by authorised teachers and corrections must be reviewed by the School Admin or Principal.
-      </p>
-    </div>
-
-  </section>
+</section>
 
 </main>
 
+<footer class="footer">
+  <strong>EDUNEXA STUDENT CONNECT</strong>
+  <p>Your Attendance. Your Progress. Your School.</p>
+  <p>© <span id="footerYear"></span> EDUNEXA. All Rights Reserved.</p>
+</footer>
+
 <script>
 const loginForm = document.getElementById("studentLoginForm");
-const loginSection = document.getElementById("loginSection");
-const dashboardSection = document.getElementById("dashboardSection");
+const qrButton = document.getElementById("qrButton");
 const logoutButton = document.getElementById("logoutButton");
+const downloadReport = document.getElementById("downloadReport");
 
 loginForm.addEventListener("submit", function(event){
   event.preventDefault();
 
   alert(
-    "Student authentication is not connected yet.\n\n" +
-    "This is a demonstration page. No login details have been verified or saved."
+    "Student verification is not connected yet.\n\n" +
+    "This page is currently a frontend preview. " +
+    "No student information has been accessed or saved."
+  );
+});
+
+qrButton.addEventListener("click", function(){
+  alert(
+    "The private QR scanner is not connected yet.\n\n" +
+    "We will connect secure QR verification in the next " +
+    "implementation stage."
   );
 });
 
 logoutButton.addEventListener("click", function(){
-  dashboardSection.style.display = "none";
-  loginSection.style.display = "block";
+  document.getElementById("dashboardSection").style.display = "none";
+  document.getElementById("loginSection").style.display = "block";
   loginForm.reset();
 });
 
-</script>
+downloadReport.addEventListener("click", function(){
+  alert("PDF reports will be enabled after secure attendance database integration.");
+});
 
-<footer style="
-  background:#032719;
-  color:#c5d8cb;
-  padding:25px 5%;
-  text-align:center;
-  margin-top:55px;
-">
-  <strong style="color:white;font-family:Manrope,sans-serif">
-    EDUNEXA STUDENT CONNECT
-  </strong>
-
-  <p style="font-size:11px;margin-top:7px">
-    Your Attendance. Your Progress. Your School.
-  </p>
-
-  <p style="font-size:11px;margin-top:12px">
-    © <span id="footerYear"></span> EDUNEXA. All Rights Reserved.
-  </p>
-</footer>
-
-<script>
 document.getElementById("footerYear").textContent =
   new Date().getFullYear();
 </script>
 
 </body>
-</html>
+ </html>
+ 
