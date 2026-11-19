@@ -8,145 +8,225 @@
 <title>Register Your School | EDUNEXA</title>
 
 <style>
-:root {
+:root{
   --green:#073d2b;
-  --light:#0c6245;
+  --green2:#0c6245;
   --gold:#d6ad50;
-  --cream:#f4f7f4;
-  --text:#24332c;
-  --muted:#66756d;
-  --border:#dfe8e1;
+  --bg:#f4f7f4;
+  --white:#fff;
+  --text:#18251e;
+  --muted:#718078;
+  --border:#e1e9e3;
+  --red:#c0392b;
 }
-* {box-sizing:border-box;margin:0;padding:0}
-body {
-  font-family:Arial,Helvetica,sans-serif;
-  background:var(--cream);
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
   color:var(--text);
-  line-height:1.6;
+  font-family:Arial,sans-serif;
 }
-header {
+header{
   background:var(--green);
   color:white;
-  padding:20px;
-}
-.header-inner {
-  max-width:950px;
-  margin:auto;
+  padding:17px 5%;
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  gap:15px;
+  justify-content:space-between;
+  gap:12px;
 }
-.logo {font-size:25px;font-weight:900}
-.logo span {color:var(--gold)}
-header a {color:white;text-decoration:none;font-size:13px}
-.container {
-  width:min(950px,92%);
-  margin:35px auto;
+.brand{
+  font-size:23px;
+  font-weight:900;
+  letter-spacing:1px;
 }
-.intro {text-align:center;margin-bottom:25px}
-.intro h1 {color:var(--green);font-size:32px}
-.intro p {color:var(--muted);margin-top:8px}
-.notice {
-  background:#fff4d9;
-  border:1px solid #e8cf8d;
-  border-radius:10px;
-  padding:15px;
-  margin-bottom:20px;
+.brand span{color:var(--gold)}
+header a{
+  color:white;
+  text-decoration:none;
   font-size:13px;
-  color:#654d16;
 }
-.form-card {
+.hero{
+  background:linear-gradient(120deg,#073d2b,#0c6245);
+  color:white;
+  padding:35px 6% 42px;
+}
+.hero h1{font-size:29px;margin:0 0 10px}
+.hero p{color:#d9e9df;line-height:1.6;max-width:650px}
+.container{
+  max-width:950px;
+  margin:25px auto;
+  padding:0 14px 45px;
+}
+.card{
   background:white;
   border:1px solid var(--border);
   border-radius:15px;
-  padding:28px;
-  box-shadow:0 10px 30px rgba(5,48,32,.06);
+  padding:23px;
+  box-shadow:0 5px 20px rgba(0,0,0,.04);
 }
-.section-title {
-  color:var(--green);
-  font-size:18px;
-  border-bottom:1px solid var(--border);
-  padding-bottom:10px;
-  margin:25px 0 18px;
-}
-.section-title:first-child {margin-top:0}
-.grid {
+.progress{
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:17px;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+  margin-bottom:25px;
 }
-.field {margin-bottom:15px}
-.field.full {grid-column:1/-1}
-label {
+.progress-item{
+  text-align:center;
+  font-size:12px;
+  color:var(--muted);
+}
+.progress-line{
+  height:6px;
+  background:#e8eee9;
+  border-radius:10px;
+  margin-bottom:9px;
+}
+.progress-item.active .progress-line,
+.progress-item.done .progress-line{
+  background:var(--green2);
+}
+.progress-item.active{color:var(--green);font-weight:bold}
+.step{display:none}
+.step.active{display:block}
+h2{font-size:21px;color:var(--green);margin:0 0 8px}
+.subtitle{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:23px}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+}
+.field{margin-bottom:16px}
+.field.full{grid-column:1/-1}
+label{
   display:block;
   font-size:13px;
-  font-weight:700;
-  margin-bottom:6px;
+  font-weight:bold;
+  margin-bottom:7px;
 }
-input,select,textarea {
+input,select,textarea{
   width:100%;
   padding:13px;
   border:1px solid var(--border);
   border-radius:8px;
   background:white;
-  font:inherit;
+  color:var(--text);
   font-size:14px;
   outline:none;
 }
-input:focus,select:focus,textarea:focus {
-  border-color:var(--light);
+input:focus,select:focus,textarea:focus{
+  border-color:var(--green2);
+  box-shadow:0 0 0 2px rgba(12,98,69,.08);
 }
-textarea {min-height:90px;resize:vertical}
-.checkbox {
+textarea{min-height:90px;resize:vertical}
+small.help{
+  display:block;
+  color:var(--muted);
+  font-size:11px;
+  margin-top:6px;
+  line-height:1.5;
+}
+.section-title{
+  font-size:15px;
+  color:var(--green);
+  font-weight:bold;
+  border-bottom:1px solid var(--border);
+  padding-bottom:10px;
+  margin:25px 0 18px;
+}
+.notice{
+  background:#f1f7f2;
+  border-left:4px solid var(--green2);
+  padding:13px;
+  border-radius:6px;
+  font-size:12px;
+  line-height:1.6;
+  margin:16px 0;
+}
+.gold-notice{
+  background:#fff9eb;
+  border-left:4px solid var(--gold);
+  padding:13px;
+  border-radius:6px;
+  font-size:12px;
+  line-height:1.6;
+  margin:16px 0;
+}
+.campus{
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:17px;
+  margin:15px 0;
+  background:#fcfdfc;
+}
+.campus-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:15px;
+}
+.campus-head strong{color:var(--green)}
+button{
+  border:0;
+  border-radius:8px;
+  padding:13px 18px;
+  cursor:pointer;
+  font-size:13px;
+  font-weight:bold;
+}
+.primary{background:var(--green);color:white}
+.secondary{background:#edf3ee;color:var(--green)}
+.gold-btn{background:var(--gold);color:#17251e}
+.danger{background:#fff0ee;color:var(--red);padding:8px 11px}
+.actions{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  margin-top:25px;
+  flex-wrap:wrap;
+}
+.actions button{min-width:115px}
+.review-row{
+  border-bottom:1px solid var(--border);
+  padding:12px 0;
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  font-size:13px;
+}
+.review-row span:first-child{color:var(--muted)}
+.review-row strong{text-align:right;overflow-wrap:anywhere}
+.checkline{
   display:flex;
   align-items:flex-start;
   gap:10px;
-  margin:20px 0;
-  font-size:13px;
+  font-size:12px;
+  line-height:1.6;
+  margin:17px 0;
 }
-.checkbox input {width:auto;margin-top:5px}
-button {
-  width:100%;
-  padding:15px;
-  border:0;
-  border-radius:8px;
-  background:var(--green);
-  color:white;
-  font-size:14px;
-  font-weight:800;
-  cursor:pointer;
-}
-button:hover {background:var(--light)}
-#result {
+.checkline input{width:auto;margin-top:3px}
+#message{
   display:none;
-  margin-top:20px;
-  padding:20px;
-  background:#eaf4ec;
-  border:1px solid #b9d9c1;
+  padding:17px;
   border-radius:10px;
-  color:var(--green);
+  margin-bottom:18px;
+  line-height:1.6;
 }
-#result h3 {margin-bottom:8px}
-.back {
-  display:block;
-  text-align:center;
-  margin-top:22px;
-  color:var(--green);
-  font-weight:700;
-  text-decoration:none;
-  font-size:14px;
-}
-footer {
+.success{background:#eaf7ed;color:#176b35}
+.error{background:#fff0ee;color:#a52b20}
+footer{
   text-align:center;
   padding:25px;
-  color:var(--muted);
   font-size:12px;
+  color:var(--muted);
 }
-@media(max-width:650px) {
-  .grid {grid-template-columns:1fr}
-  .form-card {padding:20px}
-  .intro h1 {font-size:26px}
+@media(max-width:600px){
+  .grid{grid-template-columns:1fr}
+  .field.full{grid-column:auto}
+  .card{padding:17px}
+  .hero h1{font-size:24px}
+  .progress-item{font-size:10px}
+  .actions button{flex:1}
 }
 </style>
 </head>
@@ -154,188 +234,789 @@ footer {
 <body>
 
 <header>
-  <div class="header-inner">
-    <div class="logo">EDUN<span>EXA</span></div>
-    <a href="index.html">← Back to Homepage</a>
-  </div>
+  <div class="brand">EDU<span>NEXA</span></div>
+  <a href="./index.html">← Back to Homepage</a>
 </header>
 
+<section class="hero">
+  <h1>Register Your School</h1>
+  <p>
+    Join EDUNEXA and manage your school's attendance
+    through one professional platform.
+    One Platform. Every School. Smarter Attendance.
+  </p>
+</section>
+
 <main class="container">
+<div class="card">
 
-  <div class="intro">
-    <h1>Register Your School</h1>
-    <p>Start your institution's EDUNEXA registration profile.</p>
+<div id="message"></div>
+
+<div class="progress">
+  <div class="progress-item active" id="p1">
+    <div class="progress-line"></div>School
   </div>
-
-  <div class="notice">
-    <strong>DEVELOPMENT PREVIEW:</strong>
-    This page is not connected to the official database.
-    Use fictional test information only. Do not enter real
-    school, student, staff, contact or password information.
-    No official registration or school code will be issued here.
+  <div class="progress-item" id="p2">
+    <div class="progress-line"></div>Campuses
   </div>
+  <div class="progress-item" id="p3">
+    <div class="progress-line"></div>Administrator
+  </div>
+  <div class="progress-item" id="p4">
+    <div class="progress-line"></div>Documents
+  </div>
+</div>
 
-  <form class="form-card" id="registrationForm">
+<form id="registrationForm" novalidate>
 
-    <h2 class="section-title">Institution Information</h2>
+<!-- STEP 1 -->
+<section class="step active" id="step1">
+<h2>School Information</h2>
+<p class="subtitle">
+  Enter the official details of your educational institution.
+</p>
 
-    <div class="grid">
+<div class="grid">
+<div class="field full">
+<label>Official School Name *</label>
+<input name="schoolName" required maxlength="150"
+placeholder="Enter registered school name">
+</div>
 
-      <div class="field full">
-        <label for="schoolName">School / Institution Name *</label>
-        <input id="schoolName" required maxlength="100"
-          placeholder="Example: Demo International School">
-      </div>
+<div class="field">
+<label>School Type *</label>
+<select name="schoolType" required>
+<option value="">Select school type</option>
+<option>Nursery School</option>
+<option>Primary School</option>
+<option>Secondary School</option>
+<option>Nursery and Primary</option>
+<option>Primary and Secondary</option>
+<option>Combined School</option>
+<option>College</option>
+<option>Polytechnic</option>
+<option>University</option>
+<option>Technical or Vocational Institution</option>
+<option>Other Educational Institution</option>
+</select>
+</div>
 
-      <div class="field">
-        <label for="institutionType">Institution Type *</label>
-        <select id="institutionType" required>
-          <option value="">Select institution type</option>
-          <option>Nursery / Early Childhood</option>
-          <option>Primary School</option>
-          <option>Secondary School</option>
-          <option>Nursery, Primary & Secondary</option>
-          <option>College</option>
-          <option>Polytechnic</option>
-          <option>University</option>
-          <option>Technical / Vocational School</option>
-          <option>International School</option>
-          <option>Montessori School</option>
-          <option>Special Education School</option>
-          <option>Faith-Based Institution</option>
-          <option>Tutorial / Training Centre</option>
-          <option>Other</option>
-        </select>
-      </div>
+<div class="field">
+<label>Ownership *</label>
+<select name="ownership" required>
+<option value="">Select ownership</option>
+<option>Private</option>
+<option>Government</option>
+<option>Community</option>
+<option>Mission or Faith-based</option>
+<option>Other</option>
+</select>
+</div>
 
-      <div class="field">
-        <label for="country">Country *</label>
-        <input id="country" required value="Nigeria">
-      </div>
+<div class="field">
+<label>Year Established</label>
+<input name="yearEstablished" type="number"
+min="1800" max="2026" placeholder="e.g. 2010">
+</div>
 
-      <div class="field">
-        <label for="state">State / Region *</label>
-        <input id="state" required placeholder="Enter state or region">
-      </div>
+<div class="field">
+<label>Number of Campuses *</label>
+<select name="campusCount" id="campusCount" required>
+<option value="1">1 Campus</option>
+<option value="2">2 Campuses</option>
+<option value="3">3 Campuses</option>
+<option value="4">4 Campuses</option>
+<option value="5">5 Campuses</option>
+<option value="6">6 Campuses</option>
+<option value="7">7 Campuses</option>
+<option value="8">8 Campuses</option>
+<option value="9">9 Campuses</option>
+<option value="10">10 Campuses</option>
+</select>
+</div>
 
-      <div class="field">
-        <label for="city">City / Town *</label>
-        <input id="city" required placeholder="Enter city or town">
-      </div>
+<div class="field">
+<label>School Website (Optional)</label>
+<input name="website" type="url"
+placeholder="https://example.com">
+</div>
 
-      <div class="field full">
-        <label for="address">Institution Address *</label>
-        <textarea id="address" required
-          placeholder="Enter fictional test address"></textarea>
-      </div>
+<div class="field full">
+<label>School Description (Optional)</label>
+<textarea name="description"
+placeholder="Briefly describe your school"></textarea>
+</div>
+</div>
 
-      <div class="field">
-        <label for="website">Website (Optional)</label>
-        <input id="website" placeholder="https://example.com">
-      </div>
+<div class="notice">
+  Your school will receive its official EDUNEXA School ID
+  and School Code after successful approval and activation.
+</div>
 
-      <div class="field">
-        <label for="year">Year Established (Optional)</label>
-        <input id="year" type="number" min="1800" max="2100"
-          placeholder="Example: 2020">
-      </div>
+<div class="actions">
+  <button type="button" class="secondary" onclick="saveDraft()">Save Draft</button>
+  <button type="button" class="primary" onclick="nextStep(1)">Continue →</button>
+</div>
+</section>
 
-    </div>
+<!-- STEP 2 -->
+<section class="step" id="step2">
+<h2>Campus Information</h2>
+<p class="subtitle">
+  Provide the location of each school campus.
+  You can register multiple campuses under one school.
+</p>
 
-    <h2 class="section-title">Institution Contact (Test Information Only)</h2>
+<div id="campusContainer"></div>
 
-    <div class="grid">
+<div class="actions">
+  <button type="button" class="secondary" onclick="saveDraft()">Save Draft</button>
+  <button type="button" class="secondary" onclick="previousStep(2)">← Back</button>
+  <button type="button" class="primary" onclick="nextStep(2)">Continue →</button>
+</div>
+</section>
 
-      <div class="field">
-        <label for="email">Institution Email *</label>
-        <input id="email" type="email" required
-          placeholder="demo@example.com">
-      </div>
+<!-- STEP 3 -->
+<section class="step" id="step3">
+<h2>School Administrator Registration</h2>
+<p class="subtitle">
+  Register the person who will be responsible for managing
+  this school's EDUNEXA account.
+</p>
 
-      <div class="field">
-        <label for="phone">Institution Phone *</label>
-        <input id="phone" type="tel" required
-          placeholder="Use a fictional number">
-      </div>
+<div class="notice">
+  The registered School Administrator will manage authorised
+  teachers and staff, class assignments, attendance permissions,
+  school records and reports after activation.
+</div>
 
-      <div class="field">
-        <label for="learners">Estimated Number of Learners</label>
-        <input id="learners" type="number" min="0"
-          placeholder="Example: 500">
-      </div>
+<div class="grid">
+<div class="field">
+<label>Administrator Full Name *</label>
+<input name="adminName" required maxlength="120"
+placeholder="Full legal name">
+</div>
 
-      <div class="field">
-        <label for="contactPerson">Representative Name *</label>
-        <input id="contactPerson" required
-          placeholder="Fictional representative name">
-      </div>
+<div class="field">
+<label>Official Position *</label>
+<select name="adminPosition" required>
+<option value="">Select position</option>
+<option>School Administrator</option>
+<option>Principal</option>
+<option>Head Teacher</option>
+<option>Proprietor</option>
+<option>Director</option>
+<option>Registrar</option>
+<option>Other Authorised Officer</option>
+</select>
+</div>
 
-      <div class="field full">
-        <label for="role">Representative Role *</label>
-        <select id="role" required>
-          <option value="">Select role</option>
-          <option>School Proprietor / Owner</option>
-          <option>Principal / Head Teacher</option>
-          <option>Director</option>
-          <option>Administrator</option>
-          <option>Other Authorised Representative</option>
-        </select>
-      </div>
+<div class="field">
+<label>Official Phone Number *</label>
+<input name="adminPhone" type="tel" required
+maxlength="25" placeholder="Enter phone number">
+</div>
 
-    </div>
+<div class="field">
+<label>Official Email Address *</label>
+<input name="adminEmail" type="email" required
+placeholder="administrator@school.com">
+</div>
 
-    <div class="checkbox">
-      <input type="checkbox" id="agreement" required>
-      <label for="agreement">
-        I confirm that I am using fictional test information
-        and understand that this is only a preview. No official
-        registration is being submitted.
-      </label>
-    </div>
+<div class="field">
+<label>Relationship to School *</label>
+<select name="adminRelationship" required>
+<option value="">Select relationship</option>
+<option>School Owner</option>
+<option>Principal</option>
+<option>Employee</option>
+<option>Authorised Representative</option>
+</select>
+</div>
 
-    <button type="submit">PREVIEW REGISTRATION</button>
+<div class="field">
+<label>Alternative Phone (Optional)</label>
+<input name="adminAlternativePhone" type="tel"
+maxlength="25" placeholder="Alternative contact">
+</div>
+</div>
 
-    <div id="result" role="status" aria-live="polite">
-      <h3>Registration Preview Created</h3>
-      <p>Your test preview code:</p>
-      <h2 id="previewCode"></h2>
-      <p>This is not an official EDUNEXA school code.
-        No information has been submitted or saved.</p>
-    </div>
+<div class="section-title">Administrator Responsibilities</div>
 
-  </form>
+<div class="notice">
+  <strong>School Administrator permissions after activation:</strong>
+  <ul>
+    <li>Register and manage teachers.</li>
+    <li>Register and manage authorised school staff.</li>
+    <li>Assign teachers to classes.</li>
+    <li>Manage staff permissions.</li>
+    <li>Monitor attendance records and reports.</li>
+    <li>Manage school attendance settings.</li>
+  </ul>
+  The Super Admin retains control of the entire EDUNEXA platform.
+</div>
 
-  <a href="index.html" class="back">← Return to EDUNEXA Homepage</a>
+<div class="gold-notice">
+  No administrator password is requested on this demonstration
+  registration page. Secure account creation and verification
+  will be handled after approval through the protected account system.
+</div>
 
+<div class="actions">
+  <button type="button" class="secondary" onclick="saveDraft()">Save Draft</button>
+  <button type="button" class="secondary" onclick="previousStep(3)">← Back</button>
+  <button type="button" class="primary" onclick="nextStep(3)">Continue →</button>
+</div>
+</section>
+
+<!-- STEP 4 -->
+<section class="step" id="step4">
+<h2>Verification Documents</h2>
+<p class="subtitle">
+  Provide the supporting documents required for school verification.
+</p>
+
+<div class="gold-notice">
+  This is currently a front-end demonstration. Selected files
+  are not uploaded to a secure server. Do not select real
+  confidential school documents until secure document storage
+  is connected.
+</div>
+
+<div class="grid">
+<div class="field full">
+<label>School Registration Certificate *</label>
+<input type="file" id="registrationDocument"
+accept=".pdf,.jpg,.jpeg,.png" required>
+<small class="help">PDF, JPG or PNG. Required for this registration demonstration.</small>
+</div>
+
+<div class="field full">
+<label>School Accreditation or Licence (Optional)</label>
+<input type="file" id="accreditationDocument"
+accept=".pdf,.jpg,.jpeg,.png">
+</div>
+
+<div class="field full">
+<label>Additional Supporting Document (Optional)</label>
+<input type="file" id="additionalDocument"
+accept=".pdf,.jpg,.jpeg,.png">
+</div>
+</div>
+
+<div class="section-title">Review Your Application</div>
+<div id="reviewDetails"></div>
+
+<label class="checkline">
+<input type="checkbox" id="confirmInformation" required>
+<span>
+I confirm that the information supplied is accurate and
+that I am authorised to submit this application on behalf
+of the school.
+</span>
+</label>
+
+<label class="checkline">
+<input type="checkbox" id="acceptTerms" required>
+<span>
+I agree to the EDUNEXA registration terms and understand
+that school activation is subject to verification and approval.
+</span>
+</label>
+
+<div class="actions">
+  <button type="button" class="secondary" onclick="saveDraft()">Save Draft</button>
+  <button type="button" class="secondary" onclick="previousStep(4)">← Back</button>
+  <button type="submit" class="gold-btn">Submit School Application</button>
+</div>
+</section>
+
+</form>
+</div>
 </main>
 
 <footer>
-  © <span id="yearNow"></span> EDUNEXA.
-  One Platform. Every School. Endless Possibilities.
+  © <span id="year"></span> EDUNEXA.
+  One Platform. Every School. Smarter Attendance.
 </footer>
-
+</body>
+                              </html>
+                          
 <script>
-document.getElementById("yearNow").textContent =
+"use strict";
+
+const form = document.getElementById("registrationForm");
+const steps = 4;
+let currentStep = 1;
+const DRAFT_KEY = "edunexa_school_registration_draft_v1";
+const APPLICATION_KEY = "edunexa_demo_school_applications_v1";
+
+document.getElementById("year").textContent =
   new Date().getFullYear();
 
-document.getElementById("registrationForm")
-.addEventListener("submit", function(event) {
+function showMessage(message,type){
+  const box = document.getElementById("message");
+  box.textContent = message;
+  box.className = type;
+  box.style.display = "block";
+  box.scrollIntoView({behavior:"smooth",block:"center"});
+}
+
+function clearMessage(){
+  const box = document.getElementById("message");
+  box.style.display = "none";
+}
+
+function showStep(number){
+  currentStep = number;
+
+  for(let i=1;i<=steps;i++){
+    document.getElementById("step"+i)
+      .classList.toggle("active",i===number);
+
+    const progress = document.getElementById("p"+i);
+    progress.classList.toggle("active",i===number);
+    progress.classList.toggle("done",i<number);
+  }
+
+  clearMessage();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function validateStep(number){
+  const section = document.getElementById("step"+number);
+  const fields = section.querySelectorAll(
+    "input:not([type=file]),select,textarea"
+  );
+
+  for(const field of fields){
+    if(!field.checkValidity()){
+      field.reportValidity();
+      return false;
+    }
+  }
+
+  if(number===2){
+    const campuses = getCampusData();
+
+    if(campuses.some(c=>!c.name || !c.address || !c.country)){
+      showMessage(
+        "Please complete the campus name, address and country for every campus.",
+        "error"
+      );
+      return false;
+    }
+  }
+
+  return true;
+}
+
+function nextStep(number){
+  if(!validateStep(number)) return;
+
+  if(number===3){
+    buildReview();
+  }
+
+  showStep(number+1);
+}
+
+function previousStep(number){
+  showStep(number-1);
+}
+
+/* MULTIPLE CAMPUS MANAGEMENT */
+
+function renderCampuses(){
+  const count = Number(form.elements.campusCount.value);
+  const container = document.getElementById("campusContainer");
+
+  container.innerHTML = "";
+
+  for(let i=0;i<count;i++){
+    const card = document.createElement("div");
+    card.className = "campus";
+
+    card.innerHTML = `
+      <div class="campus-head">
+        <strong>Campus ${i+1}</strong>
+      </div>
+
+      <div class="grid">
+        <div class="field">
+          <label>Campus Name *</label>
+          <input data-campus="name" required
+            placeholder="e.g. Main Campus">
+        </div>
+
+        <div class="field">
+          <label>Campus Type</label>
+          <select data-campus="type">
+            <option>Main Campus</option>
+            <option>Branch Campus</option>
+            <option>Junior Campus</option>
+            <option>Senior Campus</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="field full">
+          <label>Full Campus Address *</label>
+          <textarea data-campus="address" required
+            placeholder="Enter complete campus address"></textarea>
+        </div>
+
+        <div class="field">
+          <label>Country *</label>
+          <input data-campus="country" required
+            placeholder="Enter country">
+        </div>
+
+        <div class="field">
+          <label>State / Province *</label>
+          <input data-campus="state" required
+            placeholder="Enter state or province">
+        </div>
+
+        <div class="field">
+          <label>City / Town *</label>
+          <input data-campus="city" required
+            placeholder="Enter city or town">
+        </div>
+
+        <div class="field">
+          <label>Postal Code (Optional)</label>
+          <input data-campus="postal"
+            placeholder="Postal code">
+        </div>
+      </div>
+    `;
+
+    container.appendChild(card);
+  }
+}
+
+function getCampusData(){
+  return [...document.querySelectorAll(".campus")].map(card=>{
+    const result={};
+
+    card.querySelectorAll("[data-campus]").forEach(input=>{
+      result[input.dataset.campus]=input.value.trim();
+    });
+
+    return result;
+  });
+}
+
+form.elements.campusCount.addEventListener("change",()=>{
+  renderCampuses();
+  saveDraft(false);
+});
+
+/* FORM DATA */
+
+function getFormData(){
+  const data={};
+
+  [...form.elements].forEach(field=>{
+    if(!field.name) return;
+
+    if(field.type==="file") return;
+
+    data[field.name]=field.value;
+  });
+
+  data.campuses=getCampusData();
+
+  return data;
+}
+
+function restoreFormData(data){
+  if(!data || typeof data!=="object") return;
+
+  Object.entries(data).forEach(([name,value])=>{
+    if(name==="campuses" || !form.elements[name]) return;
+
+    if(form.elements[name].type!=="file"){
+      form.elements[name].value=value;
+    }
+  });
+
+  renderCampuses();
+
+  if(Array.isArray(data.campuses)){
+    const cards=[...document.querySelectorAll(".campus")];
+
+    data.campuses.forEach((campus,index)=>{
+      const card=cards[index];
+      if(!card) return;
+
+      Object.entries(campus).forEach(([key,value])=>{
+        const field=card.querySelector(
+          `[data-campus="${key}"]`
+        );
+
+        if(field) field.value=value;
+      });
+    });
+  }
+}
+
+function saveDraft(showNotice=true){
+  try{
+    const draft={
+      data:getFormData(),
+      savedAt:new Date().toISOString(),
+      lastStep:currentStep
+    };
+
+    localStorage.setItem(DRAFT_KEY,JSON.stringify(draft));
+
+    if(showNotice){
+      showMessage(
+        "Your registration draft has been saved on this device. You can return to continue later using the same browser.",
+        "success"
+      );
+    }
+  }catch(error){
+    showMessage(
+      "Unable to save the draft on this device. Please check your browser storage.",
+      "error"
+    );
+  }
+}
+
+/* REVIEW */
+
+function buildReview(){
+  const data=getFormData();
+  const review=document.getElementById("reviewDetails");
+
+  const items=[
+    ["School Name",data.schoolName],
+    ["School Type",data.schoolType],
+    ["Ownership",data.ownership],
+    ["Year Established",data.yearEstablished || "Not supplied"],
+    ["Number of Campuses",data.campusCount],
+    ["Administrator",data.adminName],
+    ["Administrator Position",data.adminPosition],
+    ["Administrator Phone",data.adminPhone],
+    ["Administrator Email",data.adminEmail],
+    ["Administrator Relationship",data.adminRelationship]
+  ];
+
+  review.innerHTML="";
+
+  items.forEach(([label,value])=>{
+    const row=document.createElement("div");
+    row.className="review-row";
+
+    const left=document.createElement("span");
+    left.textContent=label;
+
+    const right=document.createElement("strong");
+    right.textContent=value || "Not supplied";
+
+    row.append(left,right);
+    review.appendChild(row);
+  });
+
+  data.campuses.forEach((campus,index)=>{
+    const row=document.createElement("div");
+    row.className="review-row";
+
+    const left=document.createElement("span");
+    left.textContent="Campus "+(index+1);
+
+    const right=document.createElement("strong");
+    right.textContent=campus.name+" — "+campus.city;
+
+    row.append(left,right);
+    review.appendChild(row);
+  });
+}
+
+/* APPLICATION SUBMISSION */
+
+function generateReference(){
+  const random=crypto.getRandomValues(new Uint32Array(2));
+
+  return "EDU-APP-"+Date.now().toString().slice(-8)+
+    random[0].toString(36).slice(0,4).toUpperCase();
+}
+
+form.addEventListener("submit",event=>{
   event.preventDefault();
 
-  if (!this.reportValidity()) return;
+  if(!validateStep(4)) return;
 
-  const code = "EDU-PREVIEW-" +
-    Math.random().toString(36).substring(2, 7).toUpperCase();
+  const registrationFile=
+    document.getElementById("registrationDocument").files[0];
 
-  document.getElementById("previewCode").textContent = code;
-  document.getElementById("result").style.display = "block";
+  if(!registrationFile){
+    showMessage(
+      "Please select the school registration certificate.",
+      "error"
+    );
+    return;
+  }
 
-  document.getElementById("result").scrollIntoView({
-    behavior:"smooth",
-    block:"center"
-  });
+  const allowedTypes=[
+    "application/pdf",
+    "image/jpeg",
+    "image/png"
+  ];
+
+  const files=[
+    registrationFile,
+    document.getElementById("accreditationDocument").files[0],
+    document.getElementById("additionalDocument").files[0]
+  ].filter(Boolean);
+
+  for(const file of files){
+    if(!allowedTypes.includes(file.type)){
+      showMessage(
+        "Only PDF, JPG and PNG documents are accepted.",
+        "error"
+      );
+      return;
+    }
+
+    if(file.size>5*1024*1024){
+      showMessage(
+        "Each selected document must be 5MB or smaller.",
+        "error"
+      );
+      return;
+    }
+  }
+
+  if(!document.getElementById("confirmInformation").checked ||
+     !document.getElementById("acceptTerms").checked){
+    showMessage(
+      "Please confirm your information and accept the registration terms.",
+      "error"
+    );
+    return;
+  }
+
+  const data=getFormData();
+
+  const application={
+    reference:generateReference(),
+    submittedAt:new Date().toISOString(),
+    status:"Pending Approval",
+    schoolName:data.schoolName,
+    schoolType:data.schoolType,
+    ownership:data.ownership,
+    yearEstablished:data.yearEstablished,
+    website:data.website,
+    description:data.description,
+    campuses:data.campuses,
+    administrator:{
+      name:data.adminName,
+      position:data.adminPosition,
+      phone:data.adminPhone,
+      email:data.adminEmail,
+      relationship:data.adminRelationship,
+      alternativePhone:data.adminAlternativePhone
+    },
+    documents:{
+      registration:registrationFile.name,
+      accreditation:files[1]?.name || "",
+      additional:files[2]?.name || ""
+    },
+    storageType:"Browser demonstration only"
+  };
+
+  try{
+    const existing=JSON.parse(
+      localStorage.getItem(APPLICATION_KEY)||"[]"
+    );
+
+    if(!Array.isArray(existing)){
+      throw new Error("Invalid application storage");
+    }
+
+    existing.push(application);
+
+    localStorage.setItem(
+      APPLICATION_KEY,
+      JSON.stringify(existing)
+    );
+
+    localStorage.removeItem(DRAFT_KEY);
+
+    form.innerHTML=`
+      <div style="text-align:center;padding:30px 8px">
+        <div style="font-size:48px;color:#0c6245">✓</div>
+
+        <h2>Application Submitted</h2>
+
+        <p style="line-height:1.7;color:#718078">
+          Your demonstration application has been saved
+          in this browser.
+        </p>
+
+        <div class="notice">
+          <strong>Application Reference</strong><br>
+          <span style="font-size:19px;font-weight:bold">
+            ${application.reference}
+          </span>
+        </div>
+
+        <p>
+          <strong>Status:</strong> Pending Approval
+        </p>
+
+        <p style="font-size:12px;color:#718078;line-height:1.7">
+          This is not a live submission to EDUNEXA.
+          The application and document names are stored only
+          in this browser. No Super Admin notification,
+          secure upload or actual approval has occurred.
+        </p>
+
+        <a href="./index.html"
+          style="display:inline-block;background:#073d2b;
+          color:white;text-decoration:none;padding:13px 22px;
+          border-radius:8px;font-weight:bold">
+          Return to Homepage
+        </a>
+      </div>
+    `;
+
+    document.querySelector(".progress").style.display="none";
+
+    window.scrollTo({top:0,behavior:"smooth"});
+
+  }catch(error){
+    showMessage(
+      "The application could not be saved on this device. Please try again.",
+      "error"
+    );
+  }
 });
-<script src="./app-install.js"></script>
 
+/* RESTORE DRAFT */
+
+renderCampuses();
+
+try{
+  const saved=JSON.parse(localStorage.getItem(DRAFT_KEY)||"null");
+
+  if(saved && saved.data){
+    restoreFormData(saved.data);
+
+    showMessage(
+      "A saved registration draft was found. Your previous information has been restored. Please select your documents again.",
+      "success"
+    );
+  }
+}catch(error){
+  console.warn("EDUNEXA draft could not be restored.",error);
+}
+</script>
+
+<script src="./app-install.js"></script>
 </body>
 </html>
