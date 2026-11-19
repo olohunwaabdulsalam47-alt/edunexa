@@ -1,0 +1,26 @@
+
+{
+  "name": "EDUNEXA - Smart Attendance",
+  "short_name": "EDUNEXA",
+  "description": "One Platform. Every School. Smarter Attendance.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f4f7f4",
+  "theme_color": "#073d2b",
+  "icons": [
+    {
+      "src": "./icons/edunexa-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/edunexa-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
