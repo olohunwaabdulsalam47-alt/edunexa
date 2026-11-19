@@ -5,401 +5,627 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#073d2b">
-<meta name="description" content="EDUNEXA School Login Portal">
+<meta name="description" content="Secure role-based EDUNEXA School Portal Login">
 <title>EDUNEXA | School Login</title>
 
 <style>
-:root {
-  --green: #073d2b;
-  --green2: #0c6245;
-  --gold: #d6ad50;
-  --bg: #f4f7f4;
-  --white: #ffffff;
-  --text: #24332b;
-  --muted: #718078;
-  --border: #dce5de;
+:root{
+  --green:#073d2b;
+  --green2:#0c6245;
+  --gold:#d6ad50;
+  --bg:#f4f7f4;
+  --white:#fff;
+  --text:#24332b;
+  --muted:#718078;
+  --border:#dce5de;
+  --red:#b83227;
 }
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
 }
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  min-height: 100vh;
+header{
+  background:var(--green);
+  padding:17px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
 }
-
-header {
-  background: var(--green);
-  padding: 18px 7%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:white;
+  text-decoration:none;
+  font-size:23px;
+  font-weight:900;
+  letter-spacing:1px;
 }
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: white;
-  text-decoration: none;
-  font-size: 23px;
-  font-weight: 800;
-  letter-spacing: 1px;
+.logo-icon{
+  background:var(--gold);
+  color:var(--green);
+  width:39px;height:39px;
+  border-radius:10px;
+  display:grid;
+  place-items:center;
+  font-size:24px;
 }
-
-.logo-icon {
-  background: var(--gold);
-  color: var(--green);
-  width: 39px;
-  height: 39px;
-  border-radius: 10px;
-  display: grid;
-  place-items: center;
-  font-size: 24px;
+.home-link{
+  color:white;
+  text-decoration:none;
+  font-size:13px;
+  font-weight:bold;
 }
-
-.home-link {
-  color: white;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: bold;
+main{
+  min-height:calc(100vh - 145px);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:38px 16px;
 }
-
-main {
-  min-height: calc(100vh - 150px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 45px 18px;
+.login-container{width:100%;max-width:510px}
+.heading{text-align:center;margin-bottom:25px}
+.heading-icon{
+  width:68px;height:68px;
+  border-radius:20px;
+  background:#e4eee7;
+  display:grid;
+  place-items:center;
+  font-size:32px;
+  margin:0 auto 15px;
 }
-
-.login-container {
-  width: 100%;
-  max-width: 460px;
+.heading h1{
+  color:var(--green);
+  font-size:29px;
+  margin-bottom:9px;
 }
-
-.heading {
-  text-align: center;
-  margin-bottom: 28px;
+.heading p{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.6;
 }
-
-.heading .icon {
-  width: 68px;
-  height: 68px;
-  border-radius: 20px;
-  background: #e4eee7;
-  display: grid;
-  place-items: center;
-  font-size: 32px;
-  margin: 0 auto 17px;
+.login-card{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:17px;
+  padding:29px;
+  box-shadow:0 12px 35px rgba(7,61,43,.07);
 }
-
-.heading h1 {
-  color: var(--green);
-  font-size: 29px;
-  margin-bottom: 10px;
+.login-card h2{
+  color:var(--green);
+  font-size:20px;
+  margin-bottom:8px;
 }
-
-.heading p {
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.6;
+.description{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.6;
+  margin-bottom:22px;
 }
-
-.login-card {
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 17px;
-  padding: 32px;
-  box-shadow: 0 12px 35px rgba(7,61,43,0.07);
+.role-title{
+  font-size:13px;
+  font-weight:bold;
+  margin-bottom:11px;
 }
-
-.login-card h2 {
-  color: var(--green);
-  font-size: 20px;
-  margin-bottom: 8px;
+.role-options{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:9px;
+  margin-bottom:19px;
 }
-
-.card-description {
-  color: var(--muted);
-  font-size: 13px;
-  margin-bottom: 25px;
-  line-height: 1.5;
+.role-option{
+  border:1px solid var(--border);
+  background:#fff;
+  color:var(--text);
+  border-radius:10px;
+  padding:15px 6px;
+  cursor:pointer;
+  text-align:center;
+  transition:.2s;
 }
-
-.form-group {
-  margin-bottom: 19px;
+.role-option:hover{
+  border-color:var(--green2);
+  background:#f6faf7;
 }
-
-label {
-  display: block;
-  font-size: 13px;
-  font-weight: bold;
-  color: var(--text);
-  margin-bottom: 8px;
+.role-option.selected{
+  border:2px solid var(--green2);
+  background:#edf6ef;
+  color:var(--green);
+  padding:14px 5px;
 }
-
-input {
-  width: 100%;
-  padding: 14px;
-  border: 1px solid var(--border);
-  border-radius: 9px;
-  outline: none;
-  font-size: 15px;
-  background: #fff;
-  color: var(--text);
+.role-icon{
+  display:block;
+  font-size:23px;
+  margin-bottom:7px;
 }
-
-input:focus {
-  border-color: var(--green2);
-  box-shadow: 0 0 0 3px rgba(12,98,69,0.09);
+.role-option strong{font-size:12px}
+.role-description{
+  background:#f1f7f2;
+  border-left:4px solid var(--green2);
+  padding:12px;
+  border-radius:7px;
+  color:#385346;
+  font-size:12px;
+  line-height:1.6;
+  margin-bottom:20px;
 }
-
-.password-wrap {
-  position: relative;
+.staff-positions{
+  display:none;
+  background:#fbf8ef;
+  border:1px solid #eee2c3;
+  border-radius:9px;
+  padding:13px;
+  margin:-5px 0 19px;
 }
-
-.password-wrap input {
-  padding-right: 75px;
+.staff-positions.visible{display:block}
+.staff-positions strong{
+  display:block;
+  color:#72571e;
+  font-size:12px;
+  margin-bottom:8px;
 }
-
-.show-password {
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  border: none;
-  background: none;
-  color: var(--green2);
-  font-size: 12px;
-  font-weight: bold;
-  cursor: pointer;
+.position-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
 }
-
-.forgot {
-  display: block;
-  text-align: right;
-  margin-top: -5px;
-  margin-bottom: 22px;
-  color: var(--green2);
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: bold;
+.position-tag{
+  background:white;
+  border:1px solid #eadbb6;
+  border-radius:20px;
+  padding:5px 9px;
+  color:#66501e;
+  font-size:11px;
 }
-
-.login-button {
-  width: 100%;
-  padding: 15px;
-  background: var(--green);
-  border: none;
-  border-radius: 9px;
-  color: white;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
+.form-group{margin-bottom:17px}
+label{
+  display:block;
+  font-size:13px;
+  font-weight:bold;
+  color:var(--text);
+  margin-bottom:8px;
 }
-
-.login-button:hover {
-  background: var(--green2);
+input{
+  width:100%;
+  padding:14px;
+  border:1px solid var(--border);
+  border-radius:9px;
+  outline:none;
+  font-size:14px;
+  background:white;
+  color:var(--text);
 }
-
-.notice {
-  margin-top: 19px;
-  padding: 13px;
-  background: #fff8e8;
-  border: 1px solid #f0dfb6;
-  border-radius: 9px;
-  color: #76591c;
-  font-size: 12px;
-  line-height: 1.6;
+input:focus{
+  border-color:var(--green2);
+  box-shadow:0 0 0 3px rgba(12,98,69,.09);
 }
-
-.register-link {
-  text-align: center;
-  margin-top: 23px;
-  font-size: 13px;
-  color: var(--muted);
+input::placeholder{color:#a0aaa3}
+.password-wrap{position:relative}
+.password-wrap input{padding-right:75px}
+.show-password{
+  position:absolute;
+  right:12px;
+  top:50%;
+  transform:translateY(-50%);
+  border:0;
+  background:none;
+  color:var(--green2);
+  font-size:12px;
+  font-weight:bold;
+  cursor:pointer;
 }
-
-.register-link a {
-  color: var(--green2);
-  font-weight: bold;
-  text-decoration: none;
+.forgot{
+  display:block;
+  text-align:right;
+  margin-top:-3px;
+  margin-bottom:20px;
+  color:var(--green2);
+  text-decoration:none;
+  font-size:12px;
+  font-weight:bold;
 }
-
-footer {
-  background: var(--green);
-  color: rgba(255,255,255,0.8);
-  text-align: center;
-  padding: 20px;
-  font-size: 12px;
+.login-button{
+  width:100%;
+  padding:15px;
+  background:var(--green);
+  border:0;
+  border-radius:9px;
+  color:white;
+  font-size:14px;
+  font-weight:bold;
+  cursor:pointer;
 }
-
-@media(max-width: 480px) {
-  header {
-    padding: 15px 5%;
-  }
-
-  .logo {
-    font-size: 19px;
-  }
-
-  .login-card {
-    padding: 24px 19px;
-  }
-
-  .heading h1 {
-    font-size: 25px;
-  }
+.login-button:hover{background:var(--green2)}
+.security-notice{
+  margin-top:18px;
+  padding:13px;
+  background:#fff8e8;
+  border:1px solid #f0dfb6;
+  border-radius:9px;
+  color:#76591c;
+  font-size:12px;
+  line-height:1.7;
+}
+.status-message{
+  display:none;
+  padding:13px;
+  border-radius:8px;
+  margin-bottom:16px;
+  font-size:13px;
+  line-height:1.6;
+}
+.status-message.error{
+  display:block;
+  background:#fff0ee;
+  border:1px solid #f0d0cc;
+  color:var(--red);
+}
+.status-message.info{
+  display:block;
+  background:#edf6ef;
+  border:1px solid #d4e7d8;
+  color:var(--green);
+}
+.register-link{
+  text-align:center;
+  margin-top:21px;
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.7;
+}
+.register-link a{
+  color:var(--green2);
+  font-weight:bold;
+  text-decoration:none;
+}
+footer{
+  background:var(--green);
+  color:rgba(255,255,255,.8);
+  text-align:center;
+  padding:19px;
+  font-size:12px;
+}
+@media(max-width:480px){
+  header{padding:14px 5%}
+  .logo{font-size:19px}
+  .login-card{padding:22px 17px}
+  .heading h1{font-size:25px}
+  .role-option{padding:13px 4px}
+  .role-option strong{font-size:11px}
 }
 </style>
 </head>
 
 <body>
-
 <header>
-  <a href="index.html" class="logo">
+  <a href="./index.html" class="logo">
     <span class="logo-icon">E</span>
     <span>EDUNEXA</span>
   </a>
-
-  <a href="index.html" class="home-link">← Back Home</a>
+  <a href="./index.html" class="home-link">← Back Home</a>
 </header>
 
 <main>
-  <div class="login-container">
+<div class="login-container">
 
-    <div class="heading">
-      <div class="icon">🏫</div>
-      <h1>School Login</h1>
-      <p>
-        Welcome to the EDUNEXA School Portal.
-        Access your school's management workspace.
-      </p>
-    </div>
-
-    <div class="login-card">
-      <h2>Sign in to your school</h2>
-      <p class="card-description">
-        Enter your registered school details below.
-      </p>
-
-      <form id="schoolLoginForm">
-
-        <div class="form-group">
-          <label for="schoolCode">School Code</label>
-          <input
-            type="text"
-            id="schoolCode"
-            placeholder="e.g. EDU-123456"
-            autocomplete="off"
-            required
-          >
-        </div>
-
-        <div class="form-group">
-          <label for="phone">Registered Phone Number</label>
-          <input
-            type="tel"
-            id="phone"
-            placeholder="Enter registered phone number"
-            autocomplete="tel"
-            required
-          >
-        </div>
-
-        <div class="form-group">
-          <label for="password">Password</label>
-          <div class="password-wrap">
-            <input
-              type="password"
-              id="password"
-              placeholder="Enter your password"
-              autocomplete="current-password"
-              required
-            >
-            <button
-              type="button"
-              class="show-password"
-              id="togglePassword"
-            >SHOW</button>
-          </div>
-        </div>
-
-        <a href="#" class="forgot" id="forgotPassword">
-          Forgot Password?
-        </a>
-
-        <button type="submit" class="login-button">
-          SIGN IN →
-        </button>
-
-      </form>
-
-      <div class="notice">
-        <strong>Security notice:</strong>
-        School authentication is not connected yet.
-        Do not enter real passwords or sensitive account information.
-      </div>
-
-      <div class="register-link">
-        Don't have a school account?
-        <a href="school-registration.html">Register Your School</a>
-      </div>
-    </div>
-
+  <div class="heading">
+    <div class="heading-icon">🏫</div>
+    <h1>School Portal Login</h1>
+    <p>
+      Welcome to EDUNEXA. Sign in to access your authorised
+      school attendance workspace.
+    </p>
   </div>
+
+  <div class="login-card">
+    <h2>Sign in to your account</h2>
+    <p class="description">
+      Select your account type and enter your registered login details.
+    </p>
+
+    <div id="statusMessage" class="status-message"
+         role="status" aria-live="polite"></div>
+
+    <div class="role-title">Select your account type</div>
+
+    <div class="role-options" role="group"
+         aria-label="Account type">
+
+      <button type="button"
+        class="role-option selected"
+        data-role="administrator"
+        aria-pressed="true">
+        <span class="role-icon">🛡️</span>
+        <strong>Administrator</strong>
+      </button>
+
+      <button type="button"
+        class="role-option"
+        data-role="teacher"
+        aria-pressed="false">
+        <span class="role-icon">🎓</span>
+        <strong>Teacher</strong>
+      </button>
+
+      <button type="button"
+        class="role-option"
+        data-role="staff"
+        aria-pressed="false">
+        <span class="role-icon">👥</span>
+        <strong>Staff</strong>
+      </button>
+    </div>
+
+    <div id="roleDescription" class="role-description">
+      Administrator access is for the authorised person managing
+      the school's EDUNEXA account.
+    </div>
+
+    <div id="staffPositions" class="staff-positions">
+      <strong>EDUNEXA supports these staff positions:</strong>
+      <div class="position-list">
+        <span class="position-tag">Gateman</span>
+        <span class="position-tag">Cleaner</span>
+        <span class="position-tag">Security Officer</span>
+        <span class="position-tag">Driver</span>
+        <span class="position-tag">Cook</span>
+        <span class="position-tag">Secretary</span>
+        <span class="position-tag">Receptionist</span>
+        <span class="position-tag">Bursar</span>
+        <span class="position-tag">Accountant</span>
+        <span class="position-tag">Librarian</span>
+        <span class="position-tag">Nurse</span>
+        <span class="position-tag">Electrician</span>
+        <span class="position-tag">Plumber</span>
+        <span class="position-tag">Gardener</span>
+        <span class="position-tag">Storekeeper</span>
+        <span class="position-tag">Other</span>
+      </div>
+      <p style="font-size:11px;color:#72571e;margin-top:9px;line-height:1.5">
+        Your school Administrator assigns your position when creating
+        your staff account. You do not need to select it here.
+      </p>
+    </div>
+
+    <form id="schoolLoginForm" novalidate>
+
+      <div class="form-group">
+        <label for="accountId" id="idLabel">Administrator ID</label>
+        <input
+          type="text"
+          id="accountId"
+          placeholder="Enter your Administrator ID"
+          autocomplete="username"
+          maxlength="60"
+          required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Registered Phone Number</label>
+        <input
+          type="tel"
+          id="phone"
+          placeholder="Enter your registered phone number"
+          autocomplete="tel"
+          maxlength="25"
+          required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="password-wrap">
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+            autocomplete="current-password"
+            required>
+          <button type="button"
+            class="show-password"
+            id="togglePassword">SHOW</button>
+        </div>
+      </div>
+
+      <a href="#" class="forgot" id="forgotPassword">
+        Forgot Password?
+      </a>
+
+      <button type="submit" class="login-button">
+        SIGN IN →
+      </button>
+    </form>
+
+    <div class="security-notice">
+      <strong>New-device security:</strong>
+      When secure authentication is connected, a login from a new
+      device will require an OTP sent to the registered phone number.
+      Previously trusted devices will still require your password.
+      OTP verification and trusted-device recognition are not active yet.
+    </div>
+
+    <div class="register-link">
+      Is your school new to EDUNEXA?<br>
+      <a href="./school-registration.html">Register Your School</a>
+    </div>
+  </div>
+</div>
 </main>
 
 <footer>
   © <span id="year"></span> EDUNEXA. All Rights Reserved.
 </footer>
 
+
 <script>
+"use strict";
+
+/* EDUNEXA SCHOOL LOGIN */
+
 document.getElementById("year").textContent =
   new Date().getFullYear();
 
-const passwordInput = document.getElementById("password");
-const toggleButton = document.getElementById("togglePassword");
+const loginForm = document.getElementById("schoolLoginForm");
+const accountId = document.getElementById("accountId");
+const phone = document.getElementById("phone");
+const password = document.getElementById("password");
+const togglePassword = document.getElementById("togglePassword");
+const statusMessage = document.getElementById("statusMessage");
+const idLabel = document.getElementById("idLabel");
+const roleDescription = document.getElementById("roleDescription");
+const staffPositions = document.getElementById("staffPositions");
 
-toggleButton.addEventListener("click", function () {
-  if (passwordInput.type === "password") {
-    passwordInput.type = "text";
-    toggleButton.textContent = "HIDE";
-  } else {
-    passwordInput.type = "password";
-    toggleButton.textContent = "SHOW";
+let selectedRole = "administrator";
+
+const roleSettings = {
+  administrator: {
+    label: "Administrator ID",
+    placeholder: "Enter your Administrator ID",
+    description:
+      "Administrator access is for the authorised person managing the school's EDUNEXA account."
+  },
+  teacher: {
+    label: "Teacher ID",
+    placeholder: "Enter your Teacher ID",
+    description:
+      "Teacher access is for authorised teachers. Your school Administrator must create and activate your account."
+  },
+  staff: {
+    label: "Staff ID",
+    placeholder: "Enter your Staff ID",
+    description:
+      "Staff access is for authorised non-teaching employees, including security officers, cleaners, drivers and other school staff."
   }
+};
+
+/* ACCOUNT TYPE SELECTION */
+
+document.querySelectorAll(".role-option").forEach(button => {
+  button.addEventListener("click", () => {
+    selectedRole = button.dataset.role;
+
+    document.querySelectorAll(".role-option").forEach(option => {
+      const isSelected = option.dataset.role === selectedRole;
+
+      option.classList.toggle("selected", isSelected);
+      option.setAttribute("aria-pressed", String(isSelected));
+    });
+
+    const settings = roleSettings[selectedRole];
+
+    idLabel.textContent = settings.label;
+    accountId.placeholder = settings.placeholder;
+    roleDescription.textContent = settings.description;
+
+    staffPositions.classList.toggle(
+      "visible",
+      selectedRole === "staff"
+    );
+
+    clearStatus();
+    accountId.value = "";
+  });
 });
 
-document.getElementById("schoolLoginForm").addEventListener(
-  "submit",
-  function (event) {
-    event.preventDefault();
+/* SHOW AND HIDE PASSWORD */
 
-    alert(
-      "School Login is not connected to secure authentication yet. " +
-      "Please wait for the authentication system to be implemented."
+togglePassword.addEventListener("click", () => {
+  const showing = password.type === "password";
+
+  password.type = showing ? "text" : "password";
+  togglePassword.textContent = showing ? "HIDE" : "SHOW";
+  togglePassword.setAttribute(
+    "aria-label",
+    showing ? "Hide password" : "Show password"
+  );
+});
+
+/* STATUS MESSAGE */
+
+function showStatus(message, type = "info") {
+  statusMessage.textContent = message;
+  statusMessage.className = "status-message " + type;
+  statusMessage.scrollIntoView({
+    behavior: "smooth",
+    block: "nearest"
+  });
+}
+
+function clearStatus() {
+  statusMessage.textContent = "";
+  statusMessage.className = "status-message";
+}
+
+/* LOGIN */
+
+loginForm.addEventListener("submit", event => {
+  event.preventDefault();
+  clearStatus();
+
+  const enteredId = accountId.value.trim();
+  const enteredPhone = phone.value.trim();
+  const enteredPassword = password.value;
+
+  if (!enteredId || !enteredPhone || !enteredPassword) {
+    showStatus(
+      "Please enter your ID, registered phone number and password.",
+      "error"
     );
+    return;
   }
-);
+
+  if (enteredPhone.replace(/[^0-9]/g, "").length < 7) {
+    showStatus(
+      "Please enter a valid registered phone number.",
+      "error"
+    );
+    return;
+  }
+
+  /*
+    SECURITY NOTE:
+
+    This page is only the login interface.
+    It does not verify passwords, create sessions,
+    send OTPs or grant access.
+
+    Real authentication must be connected to the
+    EDUNEXA secure backend before login is enabled.
+  */
+
+  showStatus(
+    "The EDUNEXA " +
+    selectedRole +
+    " login interface is ready, but secure authentication is not connected yet. " +
+    "No login details were sent or saved. Do not use a real password here.",
+    "info"
+  );
+});
+
+/* FORGOT PASSWORD */
 
 document.getElementById("forgotPassword").addEventListener(
   "click",
-  function (event) {
+  event => {
     event.preventDefault();
 
-    alert(
-      "Password recovery will be available after secure authentication is connected."
+    showStatus(
+      "Password recovery will use OTP sent to the registered phone number after the secure EDUNEXA authentication backend is connected. Password recovery is not active yet.",
+      "info"
     );
   }
 );
-<script src="./app-install.js"></script>
 
+/* CLEAR STATUS WHEN DETAILS CHANGE */
+
+[accountId, phone, password].forEach(field => {
+  field.addEventListener("input", clearStatus);
+});
+</script>
+
+<script src="./app-install.js"></script>
 </body>
 </html>
