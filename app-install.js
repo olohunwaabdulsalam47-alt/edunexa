@@ -2,16 +2,26 @@
 (() => {
   "use strict";
 
-  // Register the EDUNEXA app manifest.
+  // EDUNEXA browser detection
+  const ua = navigator.userAgent || "";
+
+  const isOperaMini = /Opera Mini|OPiOS/i.test(ua);
+  const isChrome = /Chrome|CriOS/i.test(ua) &&
+                   !/Edg|OPR|Opera Mini/i.test(ua);
+  const isIOS = /iPhone|iPad|iPod/i.test(ua);
+
+  // Add PWA manifest
   if (!document.querySelector('link[rel="manifest"]')) {
-    const link = document.createElement("link");
-    link.rel = "manifest";
-    link.href = "./manifest.json";
-    document.head.appendChild(link);
+    const manifest = document.createElement("link");
+    manifest.rel = "manifest";
+    manifest.href = "./manifest.json";
+    document.head.appendChild(manifest);
   }
 
-  // Set browser theme.
-  let theme = document.querySelector('meta[name="theme-color"]');
+  // Theme colour
+  let theme = document.querySelector(
+    'meta[name="theme-color"]'
+  );
 
   if (!theme) {
     theme = document.createElement("meta");
@@ -21,25 +31,34 @@
 
   theme.content = "#073d2b";
 
-  // Register offline support.
+  // Register service worker
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
-      navigator.serviceWorker.register("./service-worker.js")
-        .catch(error => console.error("EDUNEXA service worker:", error));
+      navigator.serviceWorker
+        .register("./service-worker.js")
+        .catch(error => {
+          console.error(
+            "EDUNEXA service worker error:",
+            error
+          );
+        });
     });
   }
 
-  // Check whether EDUNEXA is already installed.
-  const isInstalled = () =>
-    window.matchMedia("(display-mode: standalone)").matches ||
-    window.navigator.standalone === true;
+  // Hide installation button when already installed
+  const installed = () =>
+    window.matchMedia(
+      "(display-mode: standalone)"
+    ).matches ||
+    navigator.standalone === true;
 
-  if (isInstalled()) return;
+  if (installed()) return;
 
   let installPrompt = null;
 
-  // Create installation button.
+  // Installation button
   const button = document.createElement("button");
+
   button.id = "edunexaInstallButton";
   button.type = "button";
   button.textContent = "⬇ Install EDUNEXA";
@@ -60,8 +79,9 @@
     cursor: "pointer"
   });
 
-  // Create installation instructions.
+  // Installation help overlay
   const overlay = document.createElement("div");
+
   overlay.id = "edunexaInstallHelp";
 
   Object.assign(overlay.style, {
@@ -89,20 +109,23 @@
   });
 
   const title = document.createElement("h2");
+
   title.textContent = "Install EDUNEXA";
   title.style.color = "#073d2b";
 
   const instructions = document.createElement("p");
+
   instructions.style.fontSize = "14px";
   instructions.style.margin = "15px 0";
 
   const close = document.createElement("button");
+
   close.type = "button";
   close.textContent = "Close";
 
   Object.assign(close.style, {
     background: "#073d2b",
-    color: "white",
+    color: "#ffffff",
     border: "0",
     borderRadius: "8px",
     padding: "11px 22px",
@@ -128,7 +151,6 @@
     }
   });
 
-  // Show installation button.
   function addControls() {
     if (!document.body.contains(button)) {
       document.body.append(button, overlay);
@@ -136,24 +158,31 @@
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", addControls);
+    document.addEventListener(
+      "DOMContentLoaded",
+      addControls
+    );
   } else {
     addControls();
   }
 
-  // Listen for Android Chrome installation readiness.
-  window.addEventListener("beforeinstallprompt", event => {
-    event.preventDefault();
-    installPrompt = event;
-    button.textContent = "⬇ Install EDUNEXA";
-  });
+  // Capture native browser installation prompt
+  window.addEventListener(
+    "beforeinstallprompt",
+    event => {
+      event.preventDefault();
+      installPrompt = event;
+    }
+  );
 
-  // Handle installation button.
+  // Installation button action
   button.addEventListener("click", async () => {
+
     if (installPrompt) {
       installPrompt.prompt();
 
       const result = await installPrompt.userChoice;
+
       installPrompt = null;
 
       if (result.outcome === "accepted") {
@@ -163,23 +192,39 @@
       return;
     }
 
-    const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+    if (isOperaMini) {
+      showHelp(
+        "You are using Opera Mini. Opera Mini may not support EDUNEXA installation. For the best experience, open this same EDUNEXA address in Google Chrome or another supported browser. Installation is available only if the browser offers an Install app or Add to Home screen option."
+      );
+
+      return;
+    }
 
     if (isIOS) {
       showHelp(
-        "To install EDUNEXA on your iPhone or iPad: open this website in Safari, tap the Share button, choose Add to Home Screen, then tap Add."
+        "To install EDUNEXA on your iPhone or iPad, open this website in Safari, tap the Share button, choose Add to Home Screen, then tap Add."
       );
-    } else {
-      showHelp(
-        "To install EDUNEXA, open this website in Chrome, tap the three-dot menu in the top-right corner, then choose Install app or Add to Home screen if available."
-      );
+
+      return;
     }
+
+    if (isChrome) {
+      showHelp(
+        "To install EDUNEXA in Chrome, tap the three-dot menu in the top-right corner and choose Install app or Add to Home screen if available."
+      );
+
+      return;
+    }
+
+    showHelp(
+      "Your current browser has not provided an installation prompt. Try opening EDUNEXA in Google Chrome or another supported browser and look for Install app or Add to Home screen."
+    );
   });
 
-  // Hide the button after successful installation.
+  // Remove button after successful installation
   window.addEventListener("appinstalled", () => {
     button.remove();
     installPrompt = null;
   });
+
 })();
-    
