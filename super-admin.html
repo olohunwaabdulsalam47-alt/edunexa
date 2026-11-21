@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,33 +5,61 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#073d2b">
 <meta name="description" content="EDUNEXA Super Admin Control Centre">
-<title>EDUNEXA | Super Admin</title>
+<title>EDUNEXA | Super Admin Dashboard</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
   --green:#073d2b;
   --green2:#0c6245;
+  --green3:#e8f3ed;
   --gold:#d6ad50;
-  --bg:#f4f7f4;
+  --gold-light:#fbf5e6;
   --white:#ffffff;
+  --bg:#f4f7f4;
   --text:#17251e;
-  --muted:#718078;
-  --border:#e3eae5;
-  --red:#c43d3d;
-  --shadow:0 8px 28px rgba(7,61,43,.08);
+  --muted:#748078;
+  --border:#e5ebe6;
+  --red:#c74747;
+  --red-bg:#fff0f0;
+  --orange:#bd791c;
+  --orange-bg:#fff6e8;
+  --blue:#3267a8;
+  --blue-bg:#edf4ff;
+  --shadow:0 8px 28px rgba(7,61,43,.07);
+  --radius:14px;
 }
-*{box-sizing:border-box}
-body{
+
+*{
+  box-sizing:border-box;
   margin:0;
-  font-family:Arial,Helvetica,sans-serif;
+  padding:0;
+}
+
+body{
+  font-family:'DM Sans',sans-serif;
   background:var(--bg);
   color:var(--text);
+  min-height:100vh;
 }
-button,input,select,textarea{font:inherit}
-button{cursor:pointer}
-.hidden{display:none!important}
 
-/* LOGIN */
+button,input,select,textarea{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.hidden{
+  display:none!important;
+}
+
+/* LOGIN PAGE */
+
 .login-screen{
   min-height:100vh;
   display:flex;
@@ -40,190 +67,377 @@ button{cursor:pointer}
   justify-content:center;
   padding:22px;
   background:
-    radial-gradient(circle at top right,rgba(214,173,80,.16),transparent 35%),
+    radial-gradient(circle at top right,rgba(214,173,80,.15),transparent 35%),
     linear-gradient(135deg,#052d20,#0c6245);
 }
+
 .login-card{
   width:100%;
-  max-width:430px;
+  max-width:440px;
   background:#fff;
-  border-radius:20px;
-  padding:34px 28px;
-  box-shadow:0 20px 60px rgba(0,0,0,.2);
+  border-radius:22px;
+  padding:36px;
+  box-shadow:0 25px 70px rgba(0,0,0,.2);
 }
-.brand-mark{
-  width:62px;height:62px;
-  display:grid;place-items:center;
-  margin:0 auto 15px;
-  border-radius:17px;
+
+.login-brand{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.brand-symbol{
+  width:62px;
+  height:62px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 13px;
+  border-radius:18px;
   background:var(--green);
   color:var(--gold);
+  font-family:'Manrope',sans-serif;
   font-size:25px;
-  font-weight:900;
-  border:2px solid var(--gold);
+  font-weight:800;
 }
-.login-card h1{
-  text-align:center;
-  margin:0;
+
+.login-brand h1{
   color:var(--green);
-  font-size:25px;
+  font-family:'Manrope',sans-serif;
+  font-size:27px;
+  font-weight:800;
+  letter-spacing:1px;
 }
-.login-subtitle{
-  text-align:center;
+
+.login-brand p{
+  color:var(--muted);
+  font-size:12px;
+  margin-top:5px;
+  letter-spacing:1.5px;
+  font-weight:700;
+}
+
+.login-heading{
+  margin-bottom:22px;
+}
+
+.login-heading h2{
+  font-family:'Manrope',sans-serif;
+  font-size:21px;
+  color:var(--text);
+  margin-bottom:6px;
+}
+
+.login-heading p{
   color:var(--muted);
   font-size:13px;
-  margin:9px 0 27px;
+  line-height:1.6;
 }
-.gold-line{
-  width:55px;height:3px;
-  background:var(--gold);
-  margin:15px auto 23px;
-  border-radius:5px;
+
+.form-group{
+  margin-bottom:17px;
 }
-.field{margin-bottom:17px}
-.field label{
+
+.form-group label{
   display:block;
   font-size:13px;
   font-weight:700;
   margin-bottom:8px;
+  color:#35443b;
 }
-.field input,.field select,.field textarea{
+
+.form-control{
   width:100%;
   padding:13px 14px;
   border:1px solid var(--border);
-  border-radius:9px;
+  border-radius:10px;
   outline:none;
-  background:#fbfdfb;
+  background:#fff;
   color:var(--text);
+  font-size:14px;
+  transition:.2s;
 }
-.field input:focus,.field select:focus,.field textarea:focus{
+
+.form-control:focus{
   border-color:var(--green2);
   box-shadow:0 0 0 3px rgba(12,98,69,.09);
 }
+
 .primary-btn{
   border:0;
-  border-radius:9px;
-  padding:13px 17px;
   background:var(--green);
-  color:white;
+  color:#fff;
+  padding:13px 18px;
+  border-radius:10px;
+  font-size:14px;
   font-weight:700;
-  width:100%;
+  transition:.2s;
 }
-.primary-btn:hover{background:var(--green2)}
-.primary-btn:disabled{opacity:.6;cursor:wait}
+
+.primary-btn:hover{
+  background:var(--green2);
+}
+
+.login-button{
+  width:100%;
+  margin-top:7px;
+}
+
 .login-message{
-  display:none;
-  padding:11px 13px;
-  border-radius:8px;
+  margin-top:15px;
   font-size:13px;
   line-height:1.5;
-  margin-top:15px;
-  background:#fff2f0;
-  color:#9d3028;
+  text-align:center;
 }
-.login-message.success{
-  background:#eaf6ee;
-  color:#17643a;
-}
+
 .login-footer{
+  margin-top:25px;
+  padding-top:18px;
+  border-top:1px solid var(--border);
   text-align:center;
   color:var(--muted);
   font-size:11px;
-  margin-top:22px;
 }
 
-/* APPLICATION */
-.app-shell{min-height:100vh}
-.topbar{
-  height:68px;
-  background:var(--green);
-  color:white;
+/* APPLICATION LAYOUT */
+
+.app-layout{
+  min-height:100vh;
   display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 22px;
-  position:sticky;
-  top:0;
-  z-index:20;
-  box-shadow:0 3px 15px rgba(0,0,0,.12);
 }
-.top-brand{
-  display:flex;
-  align-items:center;
-  gap:11px;
-  font-weight:900;
-  letter-spacing:.5px;
-}
-.top-brand span{
-  color:var(--gold);
-  font-size:21px;
-}
-.top-right{
-  display:flex;
-  align-items:center;
-  gap:15px;
-  font-size:12px;
-}
-.admin-pill{
-  border:1px solid rgba(214,173,80,.55);
-  color:var(--gold);
-  padding:7px 11px;
-  border-radius:20px;
-}
-.logout-btn{
-  background:var(--gold);
-  border:0;
-  color:var(--green);
-  padding:9px 13px;
-  border-radius:7px;
-  font-weight:800;
-}
-.layout{display:flex;min-height:calc(100vh - 68px)}
+
 .sidebar{
-  width:245px;
-  flex-shrink:0;
-  background:#fff;
-  border-right:1px solid var(--border);
-  padding:20px 13px;
+  width:255px;
+  background:var(--green);
+  color:#fff;
+  position:fixed;
+  top:0;
+  left:0;
+  bottom:0;
+  display:flex;
+  flex-direction:column;
+  z-index:100;
+  overflow-y:auto;
 }
-.sidebar-heading{
-  color:var(--muted);
-  font-size:10px;
-  font-weight:800;
-  letter-spacing:1.3px;
-  padding:8px 12px 13px;
+
+.sidebar-brand{
+  padding:24px 20px;
+  border-bottom:1px solid rgba(255,255,255,.12);
 }
-.nav-btn{
+
+.sidebar-brand-row{
   display:flex;
   align-items:center;
   gap:11px;
+}
+
+.sidebar-logo{
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(214,173,80,.15);
+  border:1px solid rgba(214,173,80,.4);
+  color:var(--gold);
+  font-size:18px;
+  font-weight:800;
+}
+
+.sidebar-brand h2{
+  font-family:'Manrope',sans-serif;
+  font-size:20px;
+  font-weight:800;
+  letter-spacing:.7px;
+}
+
+.sidebar-brand small{
+  display:block;
+  color:#c4d8cd;
+  font-size:9px;
+  letter-spacing:1.4px;
+  margin-top:3px;
+  font-weight:700;
+}
+
+.sidebar-section{
+  padding:20px 14px 7px;
+  color:#a8c4b5;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:1.5px;
+}
+
+.sidebar-nav{
+  padding:0 10px 20px;
+}
+
+.nav-item{
   width:100%;
-  border:0;
-  background:transparent;
-  color:#526158;
+  display:flex;
+  align-items:center;
+  gap:12px;
   padding:12px 13px;
-  border-radius:8px;
+  margin:3px 0;
+  color:#d6e5dc;
+  background:transparent;
+  border:0;
+  border-radius:9px;
   text-align:left;
   font-size:13px;
-  margin-bottom:4px;
+  font-weight:600;
+  transition:.2s;
 }
-.nav-btn:hover,.nav-btn.active{
-  background:#edf5ef;
-  color:var(--green);
-  font-weight:800;
+
+.nav-item:hover{
+  background:rgba(255,255,255,.09);
+  color:#fff;
 }
+
+.nav-item.active{
+  background:rgba(214,173,80,.17);
+  color:#f5d88f;
+  border-left:3px solid var(--gold);
+}
+
 .nav-icon{
-  width:20px;
+  width:19px;
   text-align:center;
   font-size:16px;
 }
-.main-content{
-  flex:1;
-  min-width:0;
-  padding:27px;
+
+.sidebar-bottom{
+  margin-top:auto;
+  padding:15px;
+  border-top:1px solid rgba(255,255,255,.12);
 }
-.page{display:none}
-.page.active{display:block}
+
+.admin-profile{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:8px 5px 13px;
+}
+
+.admin-avatar{
+  width:36px;
+  height:36px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--gold);
+  color:var(--green);
+  border-radius:50%;
+  font-size:14px;
+  font-weight:800;
+}
+
+.admin-profile strong{
+  display:block;
+  font-size:12px;
+}
+
+.admin-profile small{
+  display:block;
+  color:#bdd2c5;
+  font-size:10px;
+  margin-top:3px;
+}
+
+.logout-btn{
+  width:100%;
+  padding:10px;
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:8px;
+  color:#fff;
+  background:rgba(255,255,255,.06);
+  font-size:12px;
+  font-weight:700;
+}
+
+.logout-btn:hover{
+  background:rgba(255,255,255,.14);
+}
+
+.main-area{
+  width:calc(100% - 255px);
+  margin-left:255px;
+  min-height:100vh;
+}
+
+.topbar{
+  height:70px;
+  background:#fff;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 30px;
+  position:sticky;
+  top:0;
+  z-index:50;
+}
+
+.topbar-left{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.topbar h2{
+  font-family:'Manrope',sans-serif;
+  font-size:17px;
+  font-weight:800;
+}
+
+.topbar-subtitle{
+  color:var(--muted);
+  font-size:11px;
+  margin-top:3px;
+}
+
+.topbar-right{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.secure-label{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  color:var(--green2);
+  background:var(--green3);
+  padding:8px 11px;
+  border-radius:20px;
+  font-size:10px;
+  font-weight:800;
+}
+
+.menu-toggle{
+  display:none;
+  border:0;
+  background:var(--green3);
+  color:var(--green);
+  border-radius:8px;
+  padding:8px 11px;
+  font-size:19px;
+}
+
+.content-area{
+  padding:27px 30px 45px;
+  max-width:1600px;
+  margin:0 auto;
+}
+
+.page{
+  display:none;
+}
+
+.page.active{
+  display:block;
+}
+
 .page-heading{
   display:flex;
   justify-content:space-between;
@@ -231,221 +445,400 @@ button{cursor:pointer}
   gap:15px;
   margin-bottom:23px;
 }
+
 .page-heading h1{
-  margin:0;
+  font-family:'Manrope',sans-serif;
+  font-size:23px;
+  font-weight:800;
   color:var(--green);
-  font-size:25px;
 }
+
 .page-heading p{
   color:var(--muted);
-  margin:7px 0 0;
-  font-size:13px;
-  line-height:1.5;
+  font-size:12px;
+  margin-top:6px;
+  line-height:1.6;
 }
-.welcome-banner{
-  background:linear-gradient(110deg,#073d2b,#0c6245);
-  color:white;
-  border-radius:14px;
-  padding:24px;
-  margin-bottom:22px;
-  position:relative;
-  overflow:hidden;
-}
-.welcome-banner:after{
-  content:"";
-  position:absolute;
-  width:170px;height:170px;
-  border:24px solid rgba(214,173,80,.15);
-  border-radius:50%;
-  right:-45px;top:-65px;
-}
-.welcome-banner h2{
-  margin:0 0 9px;
-  font-size:21px;
-  position:relative;
-  z-index:1;
-}
-.welcome-banner p{
-  margin:0;
-  color:#d8e8df;
-  font-size:13px;
-  position:relative;
-  z-index:1;
-}
-.stats-grid{
-  display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:15px;
-  margin-bottom:22px;
-}
-.stat-card{
-  background:white;
-  border:1px solid var(--border);
-  border-radius:12px;
-  padding:19px;
-  box-shadow:var(--shadow);
-}
-.stat-label{color:var(--muted);font-size:12px}
-.stat-value{
-  font-size:27px;
-  font-weight:900;
-  color:var(--green);
-  margin:12px 0 5px;
-}
-.stat-note{font-size:11px;color:var(--muted)}
-.content-grid{
-  display:grid;
-  grid-template-columns:1.5fr 1fr;
-  gap:17px;
-}
-.panel{
+
+.section-card{
   background:#fff;
   border:1px solid var(--border);
-  border-radius:12px;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  margin-bottom:20px;
+  overflow:hidden;
+}
+
+.section-card-header{
+  padding:18px 20px;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.section-card-header h3{
+  font-family:'Manrope',sans-serif;
+  font-size:14px;
+  font-weight:800;
+}
+
+.section-card-header p{
+  color:var(--muted);
+  font-size:11px;
+  margin-top:4px;
+}
+
+.section-card-body{
+  padding:20px;
+}
+
+.stat-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:16px;
+  margin-bottom:22px;
+}
+
+.stat-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:13px;
   padding:19px;
-  margin-bottom:18px;
   box-shadow:var(--shadow);
   min-width:0;
 }
-.panel h3{
-  margin:0 0 16px;
-  color:var(--green);
-  font-size:15px;
-}
-.empty-state{
-  text-align:center;
-  padding:25px 12px;
-  color:var(--muted);
-  font-size:13px;
-  line-height:1.6;
-}
-.quick-actions{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:10px;
-}
-.quick-action{
-  padding:14px;
-  border:1px solid var(--border);
-  border-radius:9px;
-  background:#fbfdfb;
-  text-align:left;
-  color:var(--green);
-  font-weight:700;
-  font-size:12px;
-}
-.quick-action:hover{border-color:var(--gold);background:#fffdf6}
-.section-note{
-  background:#fff9e9;
-  border:1px solid #f0dfb3;
-  color:#72591e;
-  padding:13px;
-  border-radius:9px;
-  font-size:12px;
-  line-height:1.6;
-  margin-bottom:17px;
-}
-.table-wrap{overflow-x:auto}
-table{width:100%;border-collapse:collapse;min-width:550px}
-th,td{
-  text-align:left;
-  padding:12px 10px;
-  border-bottom:1px solid var(--border);
-  font-size:12px;
-}
-th{color:var(--muted);font-weight:800;background:#fbfdfb}
-td{color:#45534a}
-.toolbar{
+
+.stat-top{
   display:flex;
-  gap:10px;
-  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
   margin-bottom:15px;
 }
-.toolbar input,.toolbar select{
-  padding:10px 12px;
-  border:1px solid var(--border);
-  border-radius:8px;
-  background:white;
-  min-width:160px;
-}
-.secondary-btn{
-  padding:10px 14px;
-  border:1px solid var(--border);
-  background:white;
-  color:var(--green);
-  border-radius:8px;
+
+.stat-label{
+  color:var(--muted);
+  font-size:11px;
   font-weight:700;
-  font-size:12px;
 }
-.secondary-btn:hover{border-color:var(--gold)}
-.security-item{
-  padding:13px 0;
-  border-bottom:1px solid var(--border);
-  font-size:13px;
+
+.stat-icon{
+  width:35px;
+  height:35px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:10px;
+  background:var(--green3);
+  color:var(--green);
+  font-size:17px;
 }
-.security-item:last-child{border-bottom:0}
-.status-label{
-  display:inline-block;
+
+.stat-number{
+  font-family:'Manrope',sans-serif;
+  font-size:27px;
+  font-weight:800;
+  color:var(--green);
+  overflow-wrap:anywhere;
+}
+
+.stat-note{
+  color:var(--muted);
+  font-size:10px;
+  margin-top:5px;
+}
+
+.status-badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
   padding:5px 9px;
   border-radius:20px;
-  background:#eaf6ee;
-  color:#17643a;
+  font-size:10px;
+  font-weight:800;
+  text-transform:capitalize;
+  white-space:nowrap;
+}
+
+.status-approved{
+  background:#e7f6ed;
+  color:#187342;
+}
+
+.status-pending{
+  background:var(--orange-bg);
+  color:var(--orange);
+}
+
+.status-rejected,
+.status-suspended{
+  background:var(--red-bg);
+  color:var(--red);
+}
+
+.status-unknown{
+  background:#edf0ed;
+  color:#66716a;
+}
+
+.table-wrap{
+  width:100%;
+  overflow-x:auto;
+}
+
+.data-table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:650px;
+}
+
+.data-table th{
+  padding:13px 16px;
+  background:#f8faf8;
+  color:#68766d;
+  font-size:10px;
+  font-weight:800;
+  text-align:left;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+  border-bottom:1px solid var(--border);
+}
+
+.data-table td{
+  padding:15px 16px;
+  font-size:12px;
+  border-bottom:1px solid #edf1ed;
+  vertical-align:middle;
+}
+
+.data-table tbody tr:hover{
+  background:#fbfdfb;
+}
+
+.data-table tbody tr:last-child td{
+  border-bottom:0;
+}
+
+.school-name-cell{
+  font-weight:800;
+  color:var(--green);
+}
+
+.school-code-cell{
+  font-family:monospace;
+  font-size:11px;
+  color:#647269;
+}
+
+.table-action{
+  padding:7px 11px;
+  border:1px solid #dce8df;
+  background:#f5faf6;
+  color:var(--green);
+  border-radius:7px;
   font-size:10px;
   font-weight:800;
 }
-.footer-note{
-  color:var(--muted);
-  font-size:11px;
-  text-align:center;
-  padding:18px 5px;
+
+.table-action:hover{
+  background:var(--green);
+  color:#fff;
 }
 
-/* MOBILE */
-.menu-toggle{
-  display:none;
-  border:1px solid rgba(255,255,255,.25);
-  background:transparent;
-  color:white;
-  padding:7px 10px;
-  border-radius:7px;
+.empty-state{
+  padding:35px 18px;
+  text-align:center;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.7;
 }
-@media(max-width:900px){
-  .stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .content-grid{grid-template-columns:1fr}
+
+.empty-state strong{
+  display:block;
+  color:var(--text);
+  font-size:13px;
+  margin-bottom:5px;
 }
-@media(max-width:700px){
-  .topbar{padding:0 13px;height:60px}
-  .top-brand{font-size:14px}
-  .top-brand span{font-size:18px}
-  .menu-toggle{display:block}
-  .top-right{gap:8px}
-  .admin-pill{display:none}
-  .logout-btn{padding:8px 10px;font-size:11px}
-  .layout{min-height:calc(100vh - 60px)}
-  .sidebar{
-    position:fixed;
-    z-index:30;
-    top:60px;
-    bottom:0;
-    left:0;
-    width:255px;
-    overflow-y:auto;
-    transform:translateX(-105%);
-    transition:transform .2s ease;
-    box-shadow:var(--shadow);
+
+.toolbar{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:10px;
+}
+
+.toolbar .form-control{
+  width:auto;
+  min-width:180px;
+  padding:10px 12px;
+  font-size:12px;
+}
+
+.notice{
+  padding:13px 15px;
+  border-radius:10px;
+  background:var(--blue-bg);
+  color:#315c91;
+  font-size:11px;
+  line-height:1.6;
+  margin-bottom:18px;
+}
+
+.notice strong{
+  font-weight:800;
+}
+
+.secondary-btn{
+  padding:10px 14px;
+  border:1px solid var(--border);
+  background:#fff;
+  color:var(--green);
+  border-radius:9px;
+  font-size:11px;
+  font-weight:800;
+}
+
+.secondary-btn:hover{
+  background:var(--green3);
+}
+
+.gold-btn{
+  padding:10px 14px;
+  border:0;
+  background:var(--gold);
+  color:#352809;
+  border-radius:9px;
+  font-size:11px;
+  font-weight:800;
+}
+
+.gold-btn:hover{
+  background:#e5c36f;
+}
+
+.quick-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:13px;
+}
+
+.quick-action{
+  padding:17px;
+  border:1px solid var(--border);
+  border-radius:11px;
+  background:#fff;
+  text-align:left;
+  transition:.2s;
+}
+
+.quick-action:hover{
+  border-color:var(--green2);
+  background:#f8fcf9;
+}
+
+.quick-action span{
+  display:block;
+  font-size:20px;
+  margin-bottom:9px;
+}
+
+.quick-action strong{
+  display:block;
+  color:var(--green);
+  font-size:12px;
+}
+
+.quick-action small{
+  display:block;
+  color:var(--muted);
+  font-size:10px;
+  margin-top:5px;
+  line-height:1.5;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1100px){
+  .stat-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
   }
-  .sidebar.open{transform:translateX(0)}
-  .main-content{padding:18px 13px}
-  .page-heading h1{font-size:21px}
-  .welcome-banner{padding:20px}
-  .welcome-banner h2{font-size:18px}
-  .stats-grid{gap:10px}
-  .stat-card{padding:14px}
-  .stat-value{font-size:23px}
 }
-@media(max-width:380px){
-  .stats-grid{grid-template-columns:1fr}
-  .login-card{padding:27px 20px}
+
+@media(max-width:800px){
+  .sidebar{
+    transform:translateX(-100%);
+    transition:transform .25s ease;
+  }
+
+  .sidebar.open{
+    transform:translateX(0);
+  }
+
+  .main-area{
+    width:100%;
+    margin-left:0;
+  }
+
+  .menu-toggle{
+    display:block;
+  }
+
+  .topbar{
+    padding:0 17px;
+  }
+
+  .content-area{
+    padding:22px 16px 35px;
+  }
+
+  .quick-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+@media(max-width:520px){
+  .login-card{
+    padding:27px 21px;
+  }
+
+  .stat-grid{
+    gap:10px;
+  }
+
+  .stat-card{
+    padding:14px;
+  }
+
+  .stat-number{
+    font-size:23px;
+  }
+
+  .page-heading h1{
+    font-size:20px;
+  }
+
+  .topbar h2{
+    font-size:14px;
+  }
+
+  .secure-label{
+    font-size:9px;
+    padding:7px 8px;
+  }
+
+  .quick-grid{
+    grid-template-columns:1fr;
+  }
+
+  .toolbar{
+    width:100%;
+  }
+
+  .toolbar .form-control{
+    width:100%;
+  }
 }
 </style>
 </head>
@@ -453,416 +846,882 @@ td{color:#45534a}
 <body>
 
 <!-- SUPER ADMIN LOGIN -->
+
 <section id="loginScreen" class="login-screen">
   <div class="login-card">
-    <div class="brand-mark">E</div>
-    <h1>EDUNEXA</h1>
-    <div class="gold-line"></div>
-    <p class="login-subtitle">
-      SUPER ADMIN CONTROL CENTRE<br>
-      Secure Platform Administration
-    </p>
+
+    <div class="login-brand">
+      <div class="brand-symbol">E</div>
+      <h1>EDUNEXA</h1>
+      <p>SUPER ADMIN CONTROL</p>
+    </div>
+
+    <div class="login-heading">
+      <h2>Administrator Login</h2>
+      <p>Sign in with your authorised Super Admin account to manage the EDUNEXA platform.</p>
+    </div>
 
     <form id="loginForm">
-      <div class="field">
-        <label for="adminEmail">Gmail Address</label>
+
+      <div class="form-group">
+        <label for="adminEmail">Administrator Email</label>
         <input
           type="email"
           id="adminEmail"
-          value="olohunwaabdulsalam47@gmail.com"
-          placeholder="Enter your administrator email"
+          class="form-control"
+          placeholder="Enter your authorised email"
           autocomplete="username"
           required
         >
       </div>
 
-      <div class="field">
+      <div class="form-group">
         <label for="adminPassword">Password</label>
         <input
           type="password"
           id="adminPassword"
+          class="form-control"
           placeholder="Enter your password"
           autocomplete="current-password"
           required
         >
       </div>
 
-      <button type="submit" id="loginButton" class="primary-btn">
-        Sign In Securely
+      <button type="submit" id="loginButton" class="primary-btn login-button">
+        Sign In to Super Admin
       </button>
 
-      <div id="loginMessage" class="login-message" role="alert"></div>
+      <div id="loginMessage" class="login-message" aria-live="polite"></div>
+
     </form>
 
     <div class="login-footer">
-      Protected by EDUNEXA Secure Authentication
+      EDUNEXA — One Platform. Every School. Endless Possibilities.
+      <br><br>
+      Protected Super Administrator Access
     </div>
+
   </div>
 </section>
 
-<!-- SUPER ADMIN APPLICATION -->
-<section id="appShell" class="app-shell hidden">
+<!-- MAIN ADMIN APPLICATION -->
 
-  <header class="topbar">
-    <div class="top-brand">
-      <button class="menu-toggle" id="menuToggle" type="button">☰</button>
-      <span>EDUNEXA</span>
-      SUPER ADMIN
+<div id="adminApp" class="app-layout hidden">
+
+  <!-- SIDEBAR -->
+
+  <aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-brand">
+      <div class="sidebar-brand-row">
+        <div class="sidebar-logo">E</div>
+        <div>
+          <h2>EDUNEXA</h2>
+          <small>SUPER ADMIN CONTROL</small>
+        </div>
+      </div>
     </div>
 
-    <div class="top-right">
-      <span class="admin-pill">AUTHORISED ADMINISTRATOR</span>
-      <button id="logoutButton" class="logout-btn" type="button">
-        Sign Out
+    <div class="sidebar-section">MAIN CONTROL</div>
+
+    <nav class="sidebar-nav">
+
+      <button class="nav-item active" data-page="dashboardPage">
+        <span class="nav-icon">▦</span>
+        Dashboard
       </button>
+
+      <button class="nav-item" data-page="schoolsPage">
+        <span class="nav-icon">🏫</span>
+        All Schools
+      </button>
+
+      <button class="nav-item" data-page="approvalsPage">
+        <span class="nav-icon">✓</span>
+        School Approvals
+      </button>
+
+      <button class="nav-item" data-page="staffPage">
+        <span class="nav-icon">👥</span>
+        Platform Staff
+      </button>
+
+      <button class="nav-item" data-page="studentsPage">
+        <span class="nav-icon">🎓</span>
+        Students
+      </button>
+
+      <button class="nav-item" data-page="analyticsPage">
+        <span class="nav-icon">📊</span>
+        Analytics
+      </button>
+
+    </nav>
+
+    <div class="sidebar-section">FINANCIAL MANAGEMENT</div>
+
+    <nav class="sidebar-nav">
+
+      <button class="nav-item" data-page="subscriptionsPage">
+        <span class="nav-icon">◇</span>
+        Subscriptions
+      </button>
+
+      <button class="nav-item" data-page="paymentsPage">
+        <span class="nav-icon">₦</span>
+        Payments
+      </button>
+
+    </nav>
+
+    <div class="sidebar-section">COMMUNICATION & SECURITY</div>
+
+    <nav class="sidebar-nav">
+
+      <button class="nav-item" data-page="notificationsPage">
+        <span class="nav-icon">🔔</span>
+        Notifications
+      </button>
+
+      <button class="nav-item" data-page="securityPage">
+        <span class="nav-icon">🛡</span>
+        Security
+      </button>
+
+      <button class="nav-item" data-page="reportsPage">
+        <span class="nav-icon">📄</span>
+        Reports
+      </button>
+
+      <button class="nav-item" data-page="settingsPage">
+        <span class="nav-icon">⚙</span>
+        Platform Settings
+      </button>
+
+    </nav>
+
+    <div class="sidebar-bottom">
+
+      <div class="admin-profile">
+        <div class="admin-avatar">SA</div>
+        <div>
+          <strong>Super Administrator</strong>
+          <small>Authorised Account</small>
+        </div>
+      </div>
+
+      <button type="button" id="logoutButton" class="logout-btn">
+        ↪ Sign Out
+      </button>
+
     </div>
-  </header>
 
-  <div class="layout">
+  </aside>
 
-    <aside class="sidebar" id="sidebar">
-      <div class="sidebar-heading">PLATFORM MANAGEMENT</div>
+  <!-- MAIN CONTENT AREA -->
 
-      <button class="nav-btn active" data-page="dashboard" type="button">
-        <span class="nav-icon">▦</span> Dashboard
-      </button>
+  <main class="main-area">
 
-      <button class="nav-btn" data-page="schools" type="button">
-        <span class="nav-icon">🏫</span> All Schools
-      </button>
+    <header class="topbar">
 
-      <button class="nav-btn" data-page="approvals" type="button">
-        <span class="nav-icon">✓</span> School Approvals
-      </button>
+      <div class="topbar-left">
+        <button type="button" class="menu-toggle" id="menuToggle">☰</button>
+        <div>
+          <h2 id="topbarTitle">Dashboard Overview</h2>
+          <div class="topbar-subtitle">EDUNEXA Platform Management</div>
+        </div>
+      </div>
 
-      <button class="nav-btn" data-page="administrators" type="button">
-        <span class="nav-icon">♙</span> Administrators
-      </button>
+      <div class="topbar-right">
+        <div class="secure-label">
+          <span>●</span>
+          Secure Admin
+        </div>
+      </div>
 
-      <button class="nav-btn" data-page="staff" type="button">
-        <span class="nav-icon">♧</span> Teachers & Staff
-      </button>
+    </header>
 
-      <button class="nav-btn" data-page="students" type="button">
-        <span class="nav-icon">♧</span> Students
-      </button>
+    <div class="content-area">
 
-      <button class="nav-btn" data-page="attendance" type="button">
-        <span class="nav-icon">▤</span> Attendance Analytics
-      </button>
+            <!-- DASHBOARD PAGE -->
 
-      <button class="nav-btn" data-page="subscriptions" type="button">
-        <span class="nav-icon">◇</span> Subscriptions
-      </button>
+      <section class="page active" id="dashboardPage">
 
-      <button class="nav-btn" data-page="payments" type="button">
-        <span class="nav-icon">₦</span> Payments
-      </button>
-
-      <button class="nav-btn" data-page="notifications" type="button">
-        <span class="nav-icon">♢</span> Notifications
-      </button>
-
-      <button class="nav-btn" data-page="security" type="button">
-        <span class="nav-icon">♜</span> Security Centre
-      </button>
-
-      <button class="nav-btn" data-page="reports" type="button">
-        <span class="nav-icon">▥</span> Reports
-      </button>
-
-      <button class="nav-btn" data-page="settings" type="button">
-        <span class="nav-icon">⚙</span> Platform Settings
-      </button>
-    </aside>
-
-    <main class="main-content">
-
-      <!-- DASHBOARD -->
-      <section class="page active" id="page-dashboard">
         <div class="page-heading">
           <div>
-            <h1>Executive Dashboard</h1>
-            <p>Monitor and manage the entire EDUNEXA platform.</p>
+            <h1>Platform Dashboard</h1>
+            <p>Monitor schools, registrations and platform activities across EDUNEXA.</p>
           </div>
-          <span class="status-label">SUPER ADMIN</span>
+          <span class="status-badge status-approved">Platform Active</span>
         </div>
 
-        <div class="welcome-banner">
-          <h2>Welcome to EDUNEXA Control Centre</h2>
-          <p>One Platform. Every School. Smarter Attendance.</p>
-        </div>
+        <div class="stat-grid">
 
-        <div class="stats-grid">
           <div class="stat-card">
-            <div class="stat-label">Total Schools</div>
-            <div class="stat-value">0</div>
-            <div class="stat-note">Registered on platform</div>
+            <div class="stat-top">
+              <span class="stat-label">Total Schools</span>
+              <span class="stat-icon">🏫</span>
+            </div>
+            <div class="stat-number" id="totalSchoolsStat">0</div>
+            <div class="stat-note">All registered schools</div>
           </div>
+
           <div class="stat-card">
-            <div class="stat-label">Pending Approvals</div>
-            <div class="stat-value">0</div>
+            <div class="stat-top">
+              <span class="stat-label">Approved Schools</span>
+              <span class="stat-icon">✓</span>
+            </div>
+            <div class="stat-number" id="approvedSchoolsStat">0</div>
+            <div class="stat-note">Schools with approved status</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-top">
+              <span class="stat-label">Pending Approvals</span>
+              <span class="stat-icon">◷</span>
+            </div>
+            <div class="stat-number" id="pendingSchoolsStat">0</div>
             <div class="stat-note">Awaiting review</div>
           </div>
+
           <div class="stat-card">
-            <div class="stat-label">Approved Schools</div>
-            <div class="stat-value">0</div>
-            <div class="stat-note">Approved accounts</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-label">Suspended Schools</div>
-            <div class="stat-value">0</div>
+            <div class="stat-top">
+              <span class="stat-label">Suspended Schools</span>
+              <span class="stat-icon">!</span>
+            </div>
+            <div class="stat-number" id="suspendedSchoolsStat">0</div>
             <div class="stat-note">Currently suspended</div>
           </div>
+
         </div>
 
-        <div class="content-grid">
-          <div class="panel">
-            <h3>Recent Platform Activity</h3>
-            <div class="empty-state">
-              No platform activity is available yet.
-              <br>Activity records will appear here when the backend modules are connected.
+        <div class="notice">
+          <strong>Live school database:</strong>
+          School statistics and school records will be loaded from your EDUNEXA Firestore database after Super Admin verification.
+        </div>
+
+        <div class="section-card">
+
+          <div class="section-card-header">
+            <div>
+              <h3>Recently Registered Schools</h3>
+              <p>Latest schools registered on EDUNEXA</p>
             </div>
+
+            <button class="secondary-btn" type="button" data-goto="schoolsPage">
+              View All Schools →
+            </button>
           </div>
 
-          <div class="panel">
-            <h3>Quick Actions</h3>
-            <div class="quick-actions">
-              <button class="quick-action" data-go="schools" type="button">🏫 View Schools</button>
-              <button class="quick-action" data-go="approvals" type="button">✓ Review Approvals</button>
-              <button class="quick-action" data-go="administrators" type="button">♙ Administrators</button>
-              <button class="quick-action" data-go="reports" type="button">▥ View Reports</button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ALL SCHOOLS -->
-      <section class="page" id="page-schools">
-        <div class="page-heading">
-          <div>
-            <h1>All Schools</h1>
-            <p>View and manage schools registered on EDUNEXA.</p>
-          </div>
-        </div>
-        <div class="panel">
-          <div class="toolbar">
-            <input id="schoolSearch" type="search" placeholder="Search school name or code">
-            <select id="schoolFilter">
-              <option value="all">All statuses</option>
-              <option value="Pending">Pending</option>
-              <option value="Approved">Approved</option>
-              <option value="Rejected">Rejected</option>
-              <option value="Suspended">Suspended</option>
-            </select>
-          </div>
           <div class="table-wrap">
-            <table>
+            <table class="data-table">
               <thead>
                 <tr>
-                  <th>School</th><th>School Code</th><th>Type</th><th>Status</th><th>Action</th>
+                  <th>School Name</th>
+                  <th>School Code</th>
+                  <th>School Type</th>
+                  <th>Status</th>
+                  <th>Action</th>
                 </tr>
               </thead>
-              <tbody id="schoolsTable">
-                <tr><td colspan="5">No school records loaded yet.</td></tr>
+              <tbody id="recentSchoolsTable">
+                <tr>
+                  <td colspan="5">
+                    <div class="empty-state">
+                      <strong>Loading school records...</strong>
+                      School information will appear here after connection.
+                    </div>
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>
+
         </div>
+
+        <div class="section-card">
+
+          <div class="section-card-header">
+            <div>
+              <h3>Quick Actions</h3>
+              <p>Quick access to important platform management sections</p>
+            </div>
+          </div>
+
+          <div class="section-card-body">
+            <div class="quick-grid">
+
+              <button class="quick-action" type="button" data-goto="schoolsPage">
+                <span>🏫</span>
+                <strong>Manage Schools</strong>
+                <small>View and search all registered schools.</small>
+              </button>
+
+              <button class="quick-action" type="button" data-goto="approvalsPage">
+                <span>✓</span>
+                <strong>School Approvals</strong>
+                <small>Review school applications awaiting approval.</small>
+              </button>
+
+              <button class="quick-action" type="button" data-goto="analyticsPage">
+                <span>📊</span>
+                <strong>Platform Analytics</strong>
+                <small>View platform statistics and performance.</small>
+              </button>
+
+            </div>
+          </div>
+
+        </div>
+
       </section>
 
-      <!-- APPROVALS -->
-      <section class="page" id="page-approvals">
+      <!-- ALL SCHOOLS PAGE -->
+
+      <section class="page" id="schoolsPage">
+
+        <div class="page-heading">
+          <div>
+            <h1>All Registered Schools</h1>
+            <p>View and manage schools registered on the EDUNEXA platform.</p>
+          </div>
+          <span class="status-badge status-approved" id="schoolCountBadge">0 Schools</span>
+        </div>
+
+        <div class="notice">
+          School records are retrieved from the central EDUNEXA database. Use the search and status filter to locate a school.
+        </div>
+
+        <div class="section-card">
+
+          <div class="section-card-header">
+            <div>
+              <h3>School Directory</h3>
+              <p>Search by school name or EDUNEXA school code.</p>
+            </div>
+          </div>
+
+          <div class="section-card-body">
+
+            <div class="toolbar" style="margin-bottom:18px;">
+
+              <input
+                type="search"
+                id="schoolSearch"
+                class="form-control"
+                placeholder="Search school name or code..."
+              >
+
+              <select id="schoolFilter" class="form-control">
+                <option value="all">All School Statuses</option>
+                <option value="approved">Approved</option>
+                <option value="pending">Pending</option>
+                <option value="rejected">Rejected</option>
+                <option value="suspended">Suspended</option>
+              </select>
+
+              <button type="button" class="secondary-btn" id="refreshSchoolsButton">
+                ↻ Refresh
+              </button>
+
+            </div>
+
+            <div id="schoolsError" class="notice hidden"></div>
+
+          </div>
+
+          <div class="table-wrap">
+
+            <table class="data-table">
+
+              <thead>
+                <tr>
+                  <th>School Name</th>
+                  <th>School Code</th>
+                  <th>Institution Type</th>
+                  <th>Administrator</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+
+              <tbody id="schoolsTable">
+                <tr>
+                  <td colspan="6">
+                    <div class="empty-state">
+                      <strong>Loading schools...</strong>
+                      Please wait while school records are retrieved.
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- SCHOOL APPROVALS PAGE -->
+
+      <section class="page" id="approvalsPage">
+
         <div class="page-heading">
           <div>
             <h1>School Approvals</h1>
-            <p>Review school registration applications.</p>
+            <p>Review and monitor school applications submitted to EDUNEXA.</p>
           </div>
+          <span class="status-badge status-pending" id="pendingCountBadge">0 Pending</span>
         </div>
-        <div class="section-note">
-          School approval actions will be enabled after the registration database and approval workflow are connected.
+
+        <div class="notice">
+          Only schools whose database status is <strong>pending</strong> will appear in this section.
         </div>
-        <div class="panel">
-          <h3>Pending Applications</h3>
-          <div class="empty-state">No application records loaded yet.</div>
+
+        <div class="section-card">
+
+          <div class="section-card-header">
+            <div>
+              <h3>Pending School Applications</h3>
+              <p>Schools awaiting administrator review</p>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+
+            <table class="data-table">
+
+              <thead>
+                <tr>
+                  <th>School Name</th>
+                  <th>School Code</th>
+                  <th>Administrator</th>
+                  <th>Registration Date</th>
+                  <th>Status</th>
+                  <th>Details</th>
+                </tr>
+              </thead>
+
+              <tbody id="pendingSchoolsTable">
+                <tr>
+                  <td colspan="6">
+                    <div class="empty-state">
+                      <strong>Loading pending applications...</strong>
+                      Pending school applications will appear here.
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+
+            </table>
+
+          </div>
+
         </div>
+
       </section>
 
-      <!-- ADMINISTRATORS -->
-      <section class="page" id="page-administrators">
+      <!-- PLATFORM STAFF PAGE -->
+
+      <section class="page" id="staffPage">
+
         <div class="page-heading">
           <div>
-            <h1>Administrators</h1>
-            <p>Manage authorised school administrator accounts.</p>
+            <h1>Platform Staff</h1>
+            <p>Manage authorised personnel responsible for operating EDUNEXA.</p>
           </div>
         </div>
-        <div class="panel">
-          <h3>Administrator Directory</h3>
-          <div class="empty-state">Administrator records will appear here after the account management module is connected.</div>
+
+        <div class="section-card">
+          <div class="section-card-header">
+            <div>
+              <h3>Staff Management</h3>
+              <p>Platform staff administration</p>
+            </div>
+          </div>
+
+          <div class="section-card-body">
+            <div class="empty-state">
+              <strong>Staff management section</strong>
+              This section will be connected to authorised platform staff records in a future development step.
+            </div>
+          </div>
         </div>
+
       </section>
 
-      <!-- TEACHERS AND STAFF -->
-      <section class="page" id="page-staff">
+      <!-- STUDENTS PAGE -->
+
+      <section class="page" id="studentsPage">
+
         <div class="page-heading">
           <div>
-            <h1>Teachers & Staff</h1>
-            <p>Platform-wide staff account overview.</p>
+            <h1>Platform Students</h1>
+            <p>Student management across registered EDUNEXA schools.</p>
           </div>
         </div>
-        <div class="panel">
-          <h3>Staff Directory</h3>
-          <div class="empty-state">No staff records loaded yet.</div>
+
+        <div class="section-card">
+          <div class="section-card-header">
+            <div>
+              <h3>Student Records</h3>
+              <p>Central student management</p>
+            </div>
+          </div>
+
+          <div class="section-card-body">
+            <div class="empty-state">
+              <strong>Student management</strong>
+              This section will be connected to school student records in a future development step.
+            </div>
+          </div>
         </div>
+
       </section>
 
-      <!-- STUDENTS -->
-      <section class="page" id="page-students">
+      <!-- ANALYTICS PAGE -->
+
+      <section class="page" id="analyticsPage">
+
         <div class="page-heading">
           <div>
-            <h1>Students</h1>
-            <p>Monitor student account records across schools.</p>
+            <h1>Platform Analytics</h1>
+            <p>Understand the growth and activity of the EDUNEXA network.</p>
           </div>
         </div>
-        <div class="panel">
-          <h3>Student Directory</h3>
-          <div class="empty-state">Student records will appear here when the school database is connected.</div>
-        </div>
-      </section>
 
-      <!-- ATTENDANCE -->
-      <section class="page" id="page-attendance">
-        <div class="page-heading">
-          <div>
-            <h1>Attendance Analytics</h1>
-            <p>Review attendance performance across the platform.</p>
+        <div class="stat-grid">
+
+          <div class="stat-card">
+            <div class="stat-top">
+              <span class="stat-label">Total Schools</span>
+              <span class="stat-icon">🏫</span>
+            </div>
+            <div class="stat-number" id="analyticsTotalSchools">0</div>
+            <div class="stat-note">Registered schools</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-top">
+              <span class="stat-label">Approved Schools</span>
+              <span class="stat-icon">✓</span>
+            </div>
+            <div class="stat-number" id="analyticsApprovedSchools">0</div>
+            <div class="stat-note">Approved institutions</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-top">
+              <span class="stat-label">Pending Schools</span>
+              <span class="stat-icon">◷</span>
+            </div>
+            <div class="stat-number" id="analyticsPendingSchools">0</div>
+            <div class="stat-note">Awaiting review</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-top">
+              <span class="stat-label">Suspended Schools</span>
+              <span class="stat-icon">!</span>
+            </div>
+            <div class="stat-number" id="analyticsSuspendedSchools">0</div>
+            <div class="stat-note">Suspended institutions</div>
+          </div>
+
+        </div>
+
+        <div class="section-card">
+          <div class="section-card-header">
+            <div>
+              <h3>School Registration Overview</h3>
+              <p>Current registration figures from the school database</p>
+            </div>
+          </div>
+
+          <div class="section-card-body">
+            <div class="empty-state">
+              <strong>Platform statistics</strong>
+              The figures above will update when the school database is connected.
+            </div>
           </div>
         </div>
-        <div class="stats-grid">
-          <div class="stat-card"><div class="stat-label">Attendance Records</div><div class="stat-value">0</div><div class="stat-note">Platform-wide</div></div>
-          <div class="stat-card"><div class="stat-label">Schools Reporting</div><div class="stat-value">0</div><div class="stat-note">Connected schools</div></div>
-        </div>
-        <div class="panel">
-          <h3>Attendance Overview</h3>
-          <div class="empty-state">Analytics will appear when attendance records are available.</div>
-        </div>
+
       </section>
 
-      <!-- SUBSCRIPTIONS -->
-      <section class="page" id="page-subscriptions">
+      <!-- SUBSCRIPTIONS PAGE -->
+
+      <section class="page" id="subscriptionsPage">
+
         <div class="page-heading">
           <div>
             <h1>Subscriptions</h1>
-            <p>Manage school plans, trials and renewals.</p>
+            <p>Manage EDUNEXA subscription plans and school memberships.</p>
           </div>
         </div>
-        <div class="panel">
-          <h3>Subscription Management</h3>
-          <div class="empty-state">Subscription records are not connected yet.</div>
+
+        <div class="section-card">
+          <div class="section-card-header">
+            <div>
+              <h3>Subscription Management</h3>
+              <p>Platform subscription administration</p>
+            </div>
+          </div>
+
+          <div class="section-card-body">
+            <div class="empty-state">
+              <strong>Subscription management</strong>
+              Subscription plans and billing records will be connected in a future development step.
+            </div>
+          </div>
         </div>
+
       </section>
 
-      <!-- PAYMENTS -->
-      <section class="page" id="page-payments">
+      <!-- PAYMENTS PAGE -->
+
+      <section class="page" id="paymentsPage">
+
         <div class="page-heading">
           <div>
             <h1>Payments</h1>
-            <p>Monitor school subscription payments.</p>
+            <p>Monitor platform payments and financial transactions.</p>
           </div>
         </div>
-        <div class="panel">
-          <h3>Payment Records</h3>
-          <div class="empty-state">No payment records loaded yet. Payment verification is not enabled.</div>
+
+        <div class="section-card">
+          <div class="section-card-header">
+            <div>
+              <h3>Payment Records</h3>
+              <p>Financial transaction administration</p>
+            </div>
+          </div>
+
+          <div class="section-card-body">
+            <div class="empty-state">
+              <strong>Payment management</strong>
+              Payment records will be connected when the EDUNEXA payment system is implemented.
+            </div>
+          </div>
         </div>
+
       </section>
 
-      <!-- NOTIFICATIONS -->
-      <section class="page" id="page-notifications">
+      <!-- NOTIFICATIONS PAGE -->
+
+      <section class="page" id="notificationsPage">
+
         <div class="page-heading">
           <div>
             <h1>Notifications</h1>
-            <p>Prepare platform announcements for schools.</p>
+            <p>Manage platform announcements and communication.</p>
           </div>
         </div>
-        <div class="panel">
-          <h3>Announcement Composer</h3>
-          <div class="field">
-            <label for="announcementTitle">Announcement title</label>
-            <input id="announcementTitle" type="text" placeholder="Enter announcement title">
+
+        <div class="section-card">
+          <div class="section-card-header">
+            <div>
+              <h3>Platform Announcements</h3>
+              <p>Communication management</p>
+            </div>
           </div>
-          <div class="field">
-            <label for="announcementBody">Message</label>
-            <textarea id="announcementBody" rows="5" placeholder="Write your announcement"></textarea>
+
+          <div class="section-card-body">
+            <div class="empty-state">
+              <strong>Notification centre</strong>
+              Platform-wide announcements and messaging will be connected in a future development step.
+            </div>
           </div>
-          <button id="previewAnnouncement" class="secondary-btn" type="button">Preview Announcement</button>
-          <div id="announcementPreview" class="section-note hidden"></div>
-          <p class="stat-note">Preview only. Sending announcements is not connected yet.</p>
         </div>
+
       </section>
 
-      <!-- SECURITY -->
-      <section class="page" id="page-security">
+      <!-- SECURITY PAGE -->
+
+      <section class="page" id="securityPage">
+
         <div class="page-heading">
           <div>
             <h1>Security Centre</h1>
-            <p>Review platform security and administrator access.</p>
+            <p>Monitor and manage EDUNEXA platform security.</p>
           </div>
         </div>
-        <div class="panel">
-          <h3>Security Status</h3>
-          <div class="security-item">Firebase Authentication <span class="status-label">CONNECTED IN LOGIN</span></div>
-          <div class="security-item">Super Admin permission check <span class="status-label">REQUIRED</span></div>
-          <div class="security-item">Firestore security rules <span class="status-label">PUBLISHED</span></div>
-          <div class="security-item">Login attempt monitoring <span class="status-label">NOT CONFIGURED</span></div>
-          <div class="security-item">Audit logging <span class="status-label">NOT CONFIGURED</span></div>
+
+        <div class="section-card">
+          <div class="section-card-header">
+            <div>
+              <h3>Security Information</h3>
+              <p>Administrator access and platform protection</p>
+            </div>
+          </div>
+
+          <div class="section-card-body">
+            <div class="notice">
+              Super Admin access is verified through Firebase Authentication and the authorised administrator record in Firestore.
+            </div>
+
+            <div class="empty-state">
+              <strong>Security management</strong>
+              Additional security monitoring tools will be implemented in a future development step.
+            </div>
+          </div>
         </div>
+
       </section>
 
-      <!-- REPORTS -->
-      <section class="page" id="page-reports">
+      <!-- REPORTS PAGE -->
+
+      <section class="page" id="reportsPage">
+
         <div class="page-heading">
           <div>
-            <h1>Reports</h1>
-            <p>Platform performance and management reports.</p>
+            <h1>Platform Reports</h1>
+            <p>Platform-wide reporting and administrative summaries.</p>
           </div>
         </div>
-        <div class="panel">
-          <h3>Available Reports</h3>
-          <div class="empty-state">Reports will become available when platform data modules are connected.</div>
+
+        <div class="section-card">
+          <div class="section-card-header">
+            <div>
+              <h3>Reports Centre</h3>
+              <p>Administrative reports</p>
+            </div>
+          </div>
+
+          <div class="section-card-body">
+            <div class="empty-state">
+              <strong>Reports centre</strong>
+              Detailed downloadable platform reports will be implemented in a future development step.
+            </div>
+          </div>
         </div>
+
       </section>
 
-      <!-- SETTINGS -->
-      <section class="page" id="page-settings">
+      <!-- PLATFORM SETTINGS PAGE -->
+
+      <section class="page" id="settingsPage">
+
         <div class="page-heading">
           <div>
             <h1>Platform Settings</h1>
-            <p>Configure EDUNEXA platform-wide preferences.</p>
+            <p>General settings and configuration for EDUNEXA.</p>
           </div>
         </div>
-        <div class="panel">
-          <h3>Platform Information</h3>
-          <div class="security-item"><strong>Platform:</strong> EDUNEXA</div>
-          <div class="security-item"><strong>Purpose:</strong> Multi-school attendance management</div>
-          <div class="security-item"><strong>Tagline:</strong> One Platform. Every School. Smarter Attendance.</div>
-          <div class="security-item"><strong>Platform access:</strong> Super Admin controlled</div>
-          <div class="section-note">Settings changes are not connected to the database yet.</div>
+
+        <div class="section-card">
+          <div class="section-card-header">
+            <div>
+              <h3>Platform Information</h3>
+              <p>EDUNEXA general information</p>
+            </div>
+          </div>
+
+          <div class="section-card-body">
+
+            <div class="form-group">
+              <label>Platform Name</label>
+              <input class="form-control" value="EDUNEXA" readonly>
+            </div>
+
+            <div class="form-group">
+              <label>Platform Slogan</label>
+              <input class="form-control" value="One Platform. Every School. Endless Possibilities." readonly>
+            </div>
+
+            <div class="form-group">
+              <label>Platform Database</label>
+              <input class="form-control" value="Firebase Cloud Firestore" readonly>
+            </div>
+
+            <div class="form-group">
+              <label>Platform Status</label>
+              <input class="form-control" value="Active" readonly>
+            </div>
+
+          </div>
         </div>
+
       </section>
 
-      <div class="footer-note">
-        EDUNEXA Super Admin Control Centre · Secure Platform Administration
+    </div>
+  </main>
+
+</div>
+
+<!-- SCHOOL DETAILS MODAL -->
+
+<div
+  id="schoolDetailsModal"
+  class="hidden"
+  style="
+    position:fixed;
+    inset:0;
+    z-index:500;
+    background:rgba(0,0,0,.55);
+    padding:18px;
+    overflow-y:auto;
+  "
+>
+
+  <div style="
+    max-width:650px;
+    margin:35px auto;
+    background:#fff;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 20px 60px rgba(0,0,0,.2);
+  ">
+
+    <div style="
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:19px 21px;
+      background:#073d2b;
+      color:#fff;
+    ">
+
+      <div>
+        <h3 style="font-size:16px;">School Information</h3>
+        <p style="font-size:11px;color:#d1e2d7;margin-top:4px;">
+          EDUNEXA School Record
+        </p>
       </div>
 
-    </main>
-  </div>
-</section>
+      <button
+        type="button"
+        id="closeSchoolDetails"
+        style="
+          border:0;
+          background:rgba(255,255,255,.15);
+          color:#fff;
+          border-radius:8px;
+          width:34px;
+          height:34px;
+          font-size:20px;
+        "
+      >×</button>
 
-  
+    </div>
+
+    <div id="schoolDetailsContent" style="padding:22px;">
+      <div class="empty-state">School information will appear here.</div>
+    </div>
+
+  </div>
+
+</div>
+
 <script type="module">
-import {
-  initializeApp
-} from "https://www.gstatic.com/firebasejs/13.2.0/firebase-app.js";
+
+/* =========================================
+   EDUNEXA FIREBASE CONFIGURATION
+========================================= */
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-app.js";
 
 import {
   getAuth,
@@ -876,10 +1735,12 @@ import {
 import {
   getFirestore,
   doc,
-  getDoc
+  getDoc,
+  collection,
+  onSnapshot
 } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-firestore.js";
 
-/* FIREBASE CONFIGURATION */
+
 const firebaseConfig = {
   apiKey: "AIzaSyCBER_osAqxgSuIw4CWn_CIZBCC6XurXtg",
   authDomain: "edunexa-35d82.firebaseapp.com",
@@ -890,274 +1751,1251 @@ const firebaseConfig = {
   measurementId: "G-C0X6G5RZJW"
 };
 
-/* INITIALISE FIREBASE */
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
-
 const ADMIN_EMAIL = "olohunwaabdulsalam47@gmail.com";
 
+const SUPER_ADMIN_UID = "Dh3c7nXrmlVrZ9livLIgHNIGHYq2";
+
+
+/* =========================================
+   INITIALIZE FIREBASE
+========================================= */
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+const db = getFirestore(app);
+
+let schoolsData = [];
+
+let unsubscribeSchools = null;
+
+let currentAdmin = null;
+
+let verificationInProgress = false;
+
+
+/* =========================================
+   HTML ELEMENTS
+========================================= */
+
 const loginScreen = document.getElementById("loginScreen");
-const appShell = document.getElementById("appShell");
+
+const adminApp = document.getElementById("adminApp");
+
 const loginForm = document.getElementById("loginForm");
+
 const loginButton = document.getElementById("loginButton");
+
 const loginMessage = document.getElementById("loginMessage");
-const emailInput = document.getElementById("adminEmail");
-const passwordInput = document.getElementById("adminPassword");
 
-let loginInProgress = false;
+const logoutButton = document.getElementById("logoutButton");
 
-/* MESSAGE DISPLAY */
-function showMessage(message, success = false) {
+const sidebar = document.getElementById("sidebar");
+
+const menuToggle = document.getElementById("menuToggle");
+
+const schoolSearch = document.getElementById("schoolSearch");
+
+const schoolFilter = document.getElementById("schoolFilter");
+
+const schoolsTable = document.getElementById("schoolsTable");
+
+const recentSchoolsTable = document.getElementById("recentSchoolsTable");
+
+const pendingSchoolsTable = document.getElementById("pendingSchoolsTable");
+
+const schoolDetailsModal = document.getElementById("schoolDetailsModal");
+
+const schoolDetailsContent = document.getElementById("schoolDetailsContent");
+
+const schoolsError = document.getElementById("schoolsError");
+
+
+/* =========================================
+   GENERAL HELPERS
+========================================= */
+
+function showLoginMessage(message, type = "error") {
+
   loginMessage.textContent = message;
-  loginMessage.className =
-    "login-message" + (success ? " success" : "");
-  loginMessage.style.display = "block";
+
+  loginMessage.style.color =
+    type === "success" ? "#187342" : "#c74747";
+
 }
 
-function hideMessage() {
-  loginMessage.textContent = "";
-  loginMessage.style.display = "none";
+function getValue(data, keys, fallback = "Not provided") {
+
+  for (const key of keys) {
+
+    const value = data?.[key];
+
+    if (
+      value !== undefined &&
+      value !== null &&
+      String(value).trim() !== ""
+    ) {
+      return value;
+    }
+
+  }
+
+  return fallback;
+
 }
 
-/* VERIFY SUPER ADMIN PERMISSION */
-async function verifySuperAdmin(user) {
-  if (!user || user.email !== ADMIN_EMAIL) {
-    throw new Error("This account is not authorised as Super Admin.");
-  }
+function normaliseStatus(status) {
 
-  const adminRef = doc(db, "admins", user.uid);
-  const adminSnapshot = await getDoc(adminRef);
+  return String(status || "unknown")
+    .trim()
+    .toLowerCase();
 
-  if (!adminSnapshot.exists()) {
-    throw new Error("Super Admin permission record was not found.");
-  }
-
-  const adminData = adminSnapshot.data();
-
-  if (
-    adminData.role !== "super_admin" ||
-    adminData.active !== true
-  ) {
-    throw new Error("Your Super Admin account is not active.");
-  }
-
-  return true;
 }
 
-/* SHOW DASHBOARD */
-function showDashboard() {
-  loginScreen.classList.add("hidden");
-  appShell.classList.remove("hidden");
-  passwordInput.value = "";
-  hideMessage();
+function statusBadge(status) {
+
+  const value = normaliseStatus(status);
+
+  let className = "status-unknown";
+
+  if (value === "approved") className = "status-approved";
+
+  if (value === "pending") className = "status-pending";
+
+  if (value === "rejected") className = "status-rejected";
+
+  if (value === "suspended") className = "status-suspended";
+
+  const badge = document.createElement("span");
+
+  badge.className = "status-badge " + className;
+
+  badge.textContent = value;
+
+  return badge;
+
 }
 
-/* SHOW LOGIN */
-function showLogin() {
-  appShell.classList.add("hidden");
-  loginScreen.classList.remove("hidden");
-}
+function formatDate(value) {
 
-/* ERROR MESSAGES */
-function friendlyError(error) {
-  const code = error.code || "";
-
-  if (code.includes("auth/invalid-credential") ||
-      code.includes("auth/wrong-password") ||
-      code.includes("auth/user-not-found")) {
-    return "Incorrect Gmail address or password.";
-  }
-
-  if (code.includes("auth/too-many-requests")) {
-    return "Too many login attempts. Please wait and try again later.";
-  }
-
-  if (code.includes("auth/network-request-failed")) {
-    return "Network error. Check your internet connection.";
-  }
-
-  if (code.includes("permission-denied")) {
-    return "Firebase denied access to your administrator record. Please check Firestore rules.";
-  }
-
-  if (code.includes("auth/invalid-email")) {
-    return "Please enter a valid Gmail address.";
-  }
-
-  return error.message || "Login failed. Please try again.";
-}
-
-/* LOGIN */
-loginForm.addEventListener("submit", async function(event) {
-  event.preventDefault();
-
-  if (loginInProgress) return;
-
-  hideMessage();
-
-  const email = emailInput.value.trim().toLowerCase();
-  const password = passwordInput.value;
-
-  if (email !== ADMIN_EMAIL) {
-    showMessage("This Gmail address is not authorised.");
-    return;
-  }
-
-  if (!password) {
-    showMessage("Please enter your password.");
-    return;
-  }
-
-  loginInProgress = true;
-  loginButton.disabled = true;
-  loginButton.textContent = "Verifying securely...";
+  if (!value) return "Not available";
 
   try {
-    await setPersistence(auth, browserLocalPersistence);
 
-    const credential = await signInWithEmailAndPassword(
+    let date;
+
+    if (typeof value.toDate === "function") {
+
+      date = value.toDate();
+
+    } else {
+
+      date = new Date(value);
+
+    }
+
+    if (isNaN(date.getTime())) return "Not available";
+
+    return date.toLocaleDateString("en-NG", {
+      day: "numeric",
+      month: "short",
+      year: "numeric"
+    });
+
+  } catch (error) {
+
+    return "Not available";
+
+  }
+
+}
+
+function createCell(value, className = "") {
+
+  const td = document.createElement("td");
+
+  td.textContent = String(value ?? "");
+
+  if (className) td.className = className;
+
+  return td;
+
+}
+
+function createEmptyRow(table, colspan, title, message) {
+
+  table.replaceChildren();
+
+  const row = document.createElement("tr");
+
+  const cell = document.createElement("td");
+
+  cell.colSpan = colspan;
+
+  const empty = document.createElement("div");
+
+  empty.className = "empty-state";
+
+  const heading = document.createElement("strong");
+
+  heading.textContent = title;
+
+  const description = document.createElement("span");
+
+  description.textContent = message;
+
+  empty.append(heading, description);
+
+  cell.appendChild(empty);
+
+  row.appendChild(cell);
+
+  table.appendChild(row);
+
+}
+
+function getSchoolName(school) {
+
+  return getValue(
+    school,
+    ["schoolName", "name", "institutionName"],
+    "Unnamed School"
+  );
+
+}
+
+function getSchoolCode(school) {
+
+  return getValue(
+    school,
+    ["schoolCode", "edunexaSchoolCode", "code"],
+    "Not assigned"
+  );
+
+}
+
+function getSchoolType(school) {
+
+  return getValue(
+    school,
+    ["schoolType", "institutionType", "type"],
+    "Not specified"
+  );
+
+}
+
+function getAdminName(school) {
+
+  return getValue(
+    school,
+    ["adminName", "administratorName", "proprietorName", "contactPerson"],
+    "Not provided"
+  );
+
+}
+
+function getCreatedDate(school) {
+
+  return formatDate(
+    getValue(
+      school,
+      ["createdAt", "registrationDate", "dateCreated"],
+      null
+    )
+  );
+
+}
+
+
+/* =========================================
+   PAGE NAVIGATION
+========================================= */
+
+const pageTitles = {
+
+  dashboardPage: "Dashboard Overview",
+
+  schoolsPage: "All Registered Schools",
+
+  approvalsPage: "School Approvals",
+
+  staffPage: "Platform Staff",
+
+  studentsPage: "Student Management",
+
+  analyticsPage: "Platform Analytics",
+
+  subscriptionsPage: "Subscriptions",
+
+  paymentsPage: "Payments",
+
+  notificationsPage: "Notifications",
+
+  securityPage: "Security Centre",
+
+  reportsPage: "Platform Reports",
+
+  settingsPage: "Platform Settings"
+
+};
+
+
+function openPage(pageId) {
+
+  const target = document.getElementById(pageId);
+
+  if (!target || !target.classList.contains("page")) return;
+
+  document.querySelectorAll(".page").forEach(page => {
+
+    page.classList.remove("active");
+
+  });
+
+  target.classList.add("active");
+
+  document.querySelectorAll(".nav-item").forEach(button => {
+
+    button.classList.toggle(
+      "active",
+      button.dataset.page === pageId
+    );
+
+  });
+
+  document.getElementById("topbarTitle").textContent =
+    pageTitles[pageId] || "EDUNEXA";
+
+  sidebar.classList.remove("open");
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+}
+
+
+document.querySelectorAll(".nav-item").forEach(button => {
+
+  button.addEventListener("click", () => {
+
+    openPage(button.dataset.page);
+
+  });
+
+});
+
+
+document.querySelectorAll("[data-goto]").forEach(button => {
+
+  button.addEventListener("click", () => {
+
+    openPage(button.dataset.goto);
+
+  });
+
+});
+
+
+menuToggle.addEventListener("click", () => {
+
+  sidebar.classList.toggle("open");
+
+});
+
+
+/* =========================================
+   SUPER ADMIN VERIFICATION
+========================================= */
+
+async function verifySuperAdmin(user) {
+
+  if (verificationInProgress) return;
+
+  verificationInProgress = true;
+
+  try {
+
+    if (!user) {
+
+      loginScreen.classList.remove("hidden");
+
+      adminApp.classList.add("hidden");
+
+      verificationInProgress = false;
+
+      return;
+
+    }
+
+    const userEmail = String(user.email || "").toLowerCase();
+
+    if (
+      user.uid !== SUPER_ADMIN_UID ||
+      userEmail !== ADMIN_EMAIL.toLowerCase()
+    ) {
+
+      await signOut(auth);
+
+      showLoginMessage(
+        "Access denied. This account is not authorised as the EDUNEXA Super Admin."
+      );
+
+      loginScreen.classList.remove("hidden");
+
+      adminApp.classList.add("hidden");
+
+      verificationInProgress = false;
+
+      return;
+
+    }
+
+    const adminRef = doc(db, "admins", user.uid);
+
+    const adminSnapshot = await getDoc(adminRef);
+
+    if (!adminSnapshot.exists()) {
+
+      await signOut(auth);
+
+      showLoginMessage(
+        "Super Admin record was not found in the database."
+      );
+
+      loginScreen.classList.remove("hidden");
+
+      adminApp.classList.add("hidden");
+
+      verificationInProgress = false;
+
+      return;
+
+    }
+
+    const adminData = adminSnapshot.data();
+
+    if (
+      adminData.role !== "super_admin" ||
+      adminData.active !== true
+    ) {
+
+      await signOut(auth);
+
+      showLoginMessage(
+        "Your Super Admin account is inactive or does not have the required role."
+      );
+
+      loginScreen.classList.remove("hidden");
+
+      adminApp.classList.add("hidden");
+
+      verificationInProgress = false;
+
+      return;
+
+    }
+
+    currentAdmin = user;
+
+    loginScreen.classList.add("hidden");
+
+    adminApp.classList.remove("hidden");
+
+    showLoginMessage("", "success");
+
+    startSchoolsListener();
+
+    verificationInProgress = false;
+
+  } catch (error) {
+
+    console.error("Admin verification error:", error);
+
+    showLoginMessage(
+      "Unable to verify administrator access. Please check your internet connection and try again."
+    );
+
+    if (auth.currentUser) {
+
+      await signOut(auth).catch(() => {});
+
+    }
+
+    loginScreen.classList.remove("hidden");
+
+    adminApp.classList.add("hidden");
+
+    verificationInProgress = false;
+
+  }
+
+}
+
+
+/* =========================================
+   LOGIN
+========================================= */
+
+loginForm.addEventListener("submit", async event => {
+
+  event.preventDefault();
+
+  const email = document
+    .getElementById("adminEmail")
+    .value
+    .trim()
+    .toLowerCase();
+
+  const password = document
+    .getElementById("adminPassword")
+    .value;
+
+  if (!email || !password) {
+
+    showLoginMessage("Please enter your email and password.");
+
+    return;
+
+  }
+
+  loginButton.disabled = true;
+
+  loginButton.textContent = "Signing in...";
+
+  showLoginMessage("Connecting to EDUNEXA...", "success");
+
+  try {
+
+    await signInWithEmailAndPassword(
       auth,
       email,
       password
     );
 
-    await verifySuperAdmin(credential.user);
-
-    showDashboard();
-
   } catch (error) {
-    if (auth.currentUser) {
-      try {
-        await signOut(auth);
-      } catch (signOutError) {
-        console.error("Sign-out error:", signOutError);
-      }
+
+    console.error("Login error:", error);
+
+    let message = "Login failed. Please check your details.";
+
+    if (error.code === "auth/invalid-credential") {
+
+      message = "Incorrect email or password.";
+
+    } else if (error.code === "auth/too-many-requests") {
+
+      message = "Too many attempts. Please wait and try again.";
+
+    } else if (error.code === "auth/network-request-failed") {
+
+      message = "Network error. Please check your internet connection.";
+
     }
 
-    showLogin();
-    showMessage(friendlyError(error));
+    showLoginMessage(message);
 
   } finally {
-    loginInProgress = false;
+
     loginButton.disabled = false;
-    loginButton.textContent = "Sign In Securely";
+
+    loginButton.textContent = "Sign In to Super Admin";
+
   }
+
 });
 
-/* CHECK EXISTING LOGIN SESSION */
-onAuthStateChanged(auth, async function(user) {
-  if (loginInProgress) return;
 
-  if (!user) {
-    showLogin();
-    return;
+/* =========================================
+   AUTOMATIC AUTHENTICATION CHECK
+========================================= */
+
+setPersistence(auth, browserLocalPersistence)
+  .catch(error => {
+
+    console.error("Persistence error:", error);
+
+  })
+  .finally(() => {
+
+    onAuthStateChanged(auth, user => {
+
+      verifySuperAdmin(user);
+
+    });
+
+  });
+
+
+/* =========================================
+   SCHOOL DATABASE REAL-TIME LISTENER
+========================================= */
+
+function startSchoolsListener() {
+
+  if (unsubscribeSchools) {
+
+    unsubscribeSchools();
+
+    unsubscribeSchools = null;
+
   }
 
-  try {
-    await verifySuperAdmin(user);
-    showDashboard();
-  } catch (error) {
-    console.error("Admin verification failed:", error);
+  schoolsError.classList.add("hidden");
 
-    try {
-      await signOut(auth);
-    } catch (signOutError) {
-      console.error(signOutError);
-    }
-
-    showLogin();
-    showMessage("Your administrator session could not be verified. Please sign in again.");
-  }
-});
-
-/* LOGOUT */
-document.getElementById("logoutButton")
-  .addEventListener("click", async function() {
-    try {
-      await signOut(auth);
-      showLogin();
-      passwordInput.value = "";
-      showMessage("You have signed out successfully.", true);
-    } catch (error) {
-      alert("Unable to sign out. Please try again.");
-    }
-  });
-
-/* DASHBOARD NAVIGATION */
-function openPage(pageName) {
-  document.querySelectorAll(".page").forEach(page => {
-    page.classList.remove("active");
-  });
-
-  document.querySelectorAll(".nav-btn").forEach(button => {
-    button.classList.remove("active");
-  });
-
-  const targetPage = document.getElementById("page-" + pageName);
-
-  if (!targetPage) return;
-
-  targetPage.classList.add("active");
-
-  const activeButton = document.querySelector(
-    '.nav-btn[data-page="' + pageName + '"]'
+  createEmptyRow(
+    schoolsTable,
+    6,
+    "Connecting to school database...",
+    "Please wait while EDUNEXA retrieves school records."
   );
 
-  if (activeButton) activeButton.classList.add("active");
+  const schoolsRef = collection(db, "schools");
 
-  document.getElementById("sidebar").classList.remove("open");
-}
+  unsubscribeSchools = onSnapshot(
+    schoolsRef,
 
-document.querySelectorAll(".nav-btn").forEach(button => {
-  button.addEventListener("click", function() {
-    openPage(this.dataset.page);
-  });
-});
+    snapshot => {
 
-/* QUICK ACTIONS */
-document.querySelectorAll("[data-go]").forEach(button => {
-  button.addEventListener("click", function() {
-    openPage(this.dataset.go);
-  });
-});
+      schoolsData = snapshot.docs.map(documentSnapshot => ({
 
-/* MOBILE MENU */
-document.getElementById("menuToggle")
-  .addEventListener("click", function() {
-    document.getElementById("sidebar").classList.toggle("open");
-  });
+        id: documentSnapshot.id,
 
-/* ANNOUNCEMENT PREVIEW */
-document.getElementById("previewAnnouncement")
-  .addEventListener("click", function() {
-    const title = document.getElementById("announcementTitle").value.trim();
-    const body = document.getElementById("announcementBody").value.trim();
-    const preview = document.getElementById("announcementPreview");
+        ...documentSnapshot.data()
 
-    if (!title || !body) {
-      alert("Enter an announcement title and message first.");
-      return;
+      }));
+
+      schoolsData.sort((a, b) => {
+
+        const dateA = a.createdAt?.toMillis
+          ? a.createdAt.toMillis()
+          : 0;
+
+        const dateB = b.createdAt?.toMillis
+          ? b.createdAt.toMillis()
+          : 0;
+
+        return dateB - dateA;
+
+      });
+
+      updateSchoolStatistics();
+
+      renderAllSchools();
+
+      renderRecentSchools();
+
+      renderPendingSchools();
+
+    },
+
+    error => {
+
+      console.error("Schools database error:", error);
+
+      schoolsError.textContent =
+        "Unable to load school records. Check your Firestore security rules and internet connection.";
+
+      schoolsError.classList.remove("hidden");
+
+      createEmptyRow(
+        schoolsTable,
+        6,
+        "Unable to load schools",
+        "Please check your database permissions and try again."
+      );
+
+      createEmptyRow(
+        pendingSchoolsTable,
+        6,
+        "Unable to load applications",
+        "Please check your database permissions."
+      );
+
+      createEmptyRow(
+        recentSchoolsTable,
+        5,
+        "Unable to load school records",
+        "Please check your database connection."
+      );
+
     }
 
-    preview.textContent = title + " — " + body;
-    preview.classList.remove("hidden");
+  );
+
+}
+
+
+/* =========================================
+   DASHBOARD STATISTICS
+========================================= */
+
+function updateSchoolStatistics() {
+
+  const total = schoolsData.length;
+
+  const approved = schoolsData.filter(school =>
+
+    normaliseStatus(school.status) === "approved"
+
+  ).length;
+
+  const pending = schoolsData.filter(school =>
+
+    normaliseStatus(school.status) === "pending"
+
+  ).length;
+
+  const suspended = schoolsData.filter(school =>
+
+    normaliseStatus(school.status) === "suspended"
+
+  ).length;
+
+
+  document.getElementById("totalSchoolsStat").textContent = total;
+
+  document.getElementById("approvedSchoolsStat").textContent = approved;
+
+  document.getElementById("pendingSchoolsStat").textContent = pending;
+
+  document.getElementById("suspendedSchoolsStat").textContent = suspended;
+
+
+  document.getElementById("analyticsTotalSchools").textContent = total;
+
+  document.getElementById("analyticsApprovedSchools").textContent = approved;
+
+  document.getElementById("analyticsPendingSchools").textContent = pending;
+
+  document.getElementById("analyticsSuspendedSchools").textContent = suspended;
+
+
+  document.getElementById("schoolCountBadge").textContent =
+    total + (total === 1 ? " School" : " Schools");
+
+  document.getElementById("pendingCountBadge").textContent =
+    pending + " Pending";
+
+}
+
+
+/* =========================================
+   SCHOOL DETAILS BUTTON
+========================================= */
+
+function createViewButton(schoolId) {
+
+  const button = document.createElement("button");
+
+  button.type = "button";
+
+  button.className = "table-action";
+
+  button.textContent = "View Details";
+
+  button.addEventListener("click", () => {
+
+    openSchoolDetails(schoolId);
+
   });
 
-/* SCHOOL SEARCH PLACEHOLDER */
-const schoolSearch = document.getElementById("schoolSearch");
-const schoolFilter = document.getElementById("schoolFilter");
+  return button;
 
-schoolSearch.addEventListener("input", function() {
-  // School search will be connected when school records are loaded.
+}
+
+
+/* =========================================
+   ALL SCHOOLS DIRECTORY
+========================================= */
+
+function renderAllSchools() {
+
+  const searchTerm = schoolSearch.value
+    .trim()
+    .toLowerCase();
+
+  const selectedStatus = schoolFilter.value;
+
+  const filteredSchools = schoolsData.filter(school => {
+
+    const name = getSchoolName(school).toLowerCase();
+
+    const code = getSchoolCode(school).toLowerCase();
+
+    const status = normaliseStatus(school.status);
+
+    const matchesSearch =
+      name.includes(searchTerm) ||
+      code.includes(searchTerm);
+
+    const matchesStatus =
+      selectedStatus === "all" ||
+      status === selectedStatus;
+
+    return matchesSearch && matchesStatus;
+
+  });
+
+
+  schoolsTable.replaceChildren();
+
+  if (filteredSchools.length === 0) {
+
+    createEmptyRow(
+      schoolsTable,
+      6,
+      schoolsData.length === 0
+        ? "No schools registered yet"
+        : "No matching schools found",
+      schoolsData.length === 0
+        ? "Registered schools will appear here automatically."
+        : "Try changing your search or status filter."
+    );
+
+    return;
+
+  }
+
+
+  filteredSchools.forEach(school => {
+
+    const row = document.createElement("tr");
+
+    row.appendChild(
+      createCell(
+        getSchoolName(school),
+        "school-name-cell"
+      )
+    );
+
+    row.appendChild(
+      createCell(
+        getSchoolCode(school),
+        "school-code-cell"
+      )
+    );
+
+    row.appendChild(
+      createCell(getSchoolType(school))
+    );
+
+    row.appendChild(
+      createCell(getAdminName(school))
+    );
+
+    const statusCell = document.createElement("td");
+
+    statusCell.appendChild(
+      statusBadge(school.status)
+    );
+
+    row.appendChild(statusCell);
+
+    const actionCell = document.createElement("td");
+
+    actionCell.appendChild(
+      createViewButton(school.id)
+    );
+
+    row.appendChild(actionCell);
+
+    schoolsTable.appendChild(row);
+
+  });
+
+}
+
+
+/* =========================================
+   RECENTLY REGISTERED SCHOOLS
+========================================= */
+
+function renderRecentSchools() {
+
+  recentSchoolsTable.replaceChildren();
+
+  if (schoolsData.length === 0) {
+
+    createEmptyRow(
+      recentSchoolsTable,
+      5,
+      "No registered schools",
+      "New school registrations will appear here."
+    );
+
+    return;
+
+  }
+
+  schoolsData.slice(0, 5).forEach(school => {
+
+    const row = document.createElement("tr");
+
+    row.appendChild(
+      createCell(
+        getSchoolName(school),
+        "school-name-cell"
+      )
+    );
+
+    row.appendChild(
+      createCell(
+        getSchoolCode(school),
+        "school-code-cell"
+      )
+    );
+
+    row.appendChild(
+      createCell(getSchoolType(school))
+    );
+
+    const statusCell = document.createElement("td");
+
+    statusCell.appendChild(
+      statusBadge(school.status)
+    );
+
+    row.appendChild(statusCell);
+
+    const actionCell = document.createElement("td");
+
+    actionCell.appendChild(
+      createViewButton(school.id)
+    );
+
+    row.appendChild(actionCell);
+
+    recentSchoolsTable.appendChild(row);
+
+  });
+
+}
+
+
+/* =========================================
+   PENDING SCHOOL APPLICATIONS
+========================================= */
+
+function renderPendingSchools() {
+
+  pendingSchoolsTable.replaceChildren();
+
+  const pendingSchools = schoolsData.filter(school =>
+
+    normaliseStatus(school.status) === "pending"
+
+  );
+
+  if (pendingSchools.length === 0) {
+
+    createEmptyRow(
+      pendingSchoolsTable,
+      6,
+      "No pending school applications",
+      "There are currently no schools awaiting approval."
+    );
+
+    return;
+
+  }
+
+
+  pendingSchools.forEach(school => {
+
+    const row = document.createElement("tr");
+
+    row.appendChild(
+      createCell(
+        getSchoolName(school),
+        "school-name-cell"
+      )
+    );
+
+    row.appendChild(
+      createCell(
+        getSchoolCode(school),
+        "school-code-cell"
+      )
+    );
+
+    row.appendChild(
+      createCell(getAdminName(school))
+    );
+
+    row.appendChild(
+      createCell(getCreatedDate(school))
+    );
+
+    const statusCell = document.createElement("td");
+
+    statusCell.appendChild(
+      statusBadge(school.status)
+    );
+
+    row.appendChild(statusCell);
+
+    const actionCell = document.createElement("td");
+
+    actionCell.appendChild(
+      createViewButton(school.id)
+    );
+
+    row.appendChild(actionCell);
+
+    pendingSchoolsTable.appendChild(row);
+
+  });
+
+}
+
+
+/* =========================================
+   SCHOOL SEARCH AND FILTER
+========================================= */
+
+schoolSearch.addEventListener("input", () => {
+
+  renderAllSchools();
+
 });
 
-schoolFilter.addEventListener("change", function() {
-  // School filtering will be connected when school records are loaded.
+schoolFilter.addEventListener("change", () => {
+
+  renderAllSchools();
+
 });
+
+document
+  .getElementById("refreshSchoolsButton")
+  .addEventListener("click", () => {
+
+    renderAllSchools();
+
+    renderRecentSchools();
+
+    renderPendingSchools();
+
+    updateSchoolStatistics();
+
+  });
+
+
+/* =========================================
+   SCHOOL DETAILS MODAL
+========================================= 
+  function addDetailRow(container, label, value) {
+
+  const row = document.createElement("div");
+
+  row.style.display = "grid";
+  row.style.gridTemplateColumns = "minmax(110px, 35%) 1fr";
+  row.style.gap = "12px";
+  row.style.padding = "12px 0";
+  row.style.borderBottom = "1px solid #edf1ed";
+
+  const heading = document.createElement("strong");
+  heading.textContent = label;
+  heading.style.fontSize = "11px";
+  heading.style.color = "#748078";
+
+  const content = document.createElement("span");
+  content.textContent = String(value ?? "Not provided");
+  content.style.fontSize = "12px";
+  content.style.fontWeight = "600";
+  content.style.overflowWrap = "anywhere";
+
+  row.append(heading, content);
+  container.appendChild(row);
+}
+
+
+function openSchoolDetails(schoolId) {
+
+  const school = schoolsData.find(item => item.id === schoolId);
+
+  if (!school) return;
+
+  schoolDetailsContent.replaceChildren();
+
+  const schoolTitle = document.createElement("h3");
+  schoolTitle.textContent = getSchoolName(school);
+  schoolTitle.style.color = "#073d2b";
+  schoolTitle.style.fontSize = "18px";
+  schoolTitle.style.marginBottom = "8px";
+
+  schoolDetailsContent.appendChild(schoolTitle);
+
+  const statusContainer = document.createElement("div");
+  statusContainer.style.marginBottom = "15px";
+  statusContainer.appendChild(statusBadge(school.status));
+
+  schoolDetailsContent.appendChild(statusContainer);
+
+  addDetailRow(schoolDetailsContent, "School ID", school.id);
+  addDetailRow(schoolDetailsContent, "School Code", getSchoolCode(school));
+  addDetailRow(schoolDetailsContent, "School Name", getSchoolName(school));
+  addDetailRow(schoolDetailsContent, "Institution Type", getSchoolType(school));
+
+  addDetailRow(
+    schoolDetailsContent,
+    "Ownership",
+    getValue(school, ["ownership", "schoolOwnership"])
+  );
+
+  addDetailRow(
+    schoolDetailsContent,
+    "Administrator",
+    getAdminName(school)
+  );
+
+  addDetailRow(
+    schoolDetailsContent,
+    "Administrator Position",
+    getValue(school, ["adminPosition", "administratorPosition"])
+  );
+
+  addDetailRow(
+    schoolDetailsContent,
+    "Administrator Email",
+    getValue(school, ["adminEmail", "administratorEmail", "email"])
+  );
+
+  addDetailRow(
+    schoolDetailsContent,
+    "Administrator Phone",
+    getValue(school, ["adminPhone", "administratorPhone", "phoneNumber", "phone"])
+  );
+
+  addDetailRow(
+    schoolDetailsContent,
+    "Administrator ID",
+    getValue(school, ["administratorId", "adminId"])
+  );
+
+  addDetailRow(
+    schoolDetailsContent,
+    "Registration Date",
+    getCreatedDate(school)
+  );
+
+  /* CAMPUS INFORMATION */
+
+  const campuses = school.campuses;
+
+  if (Array.isArray(campuses) && campuses.length > 0) {
+
+    const campusHeading = document.createElement("h4");
+
+    campusHeading.textContent = "Campus Information";
+    campusHeading.style.marginTop = "20px";
+    campusHeading.style.marginBottom = "8px";
+    campusHeading.style.color = "#073d2b";
+
+    schoolDetailsContent.appendChild(campusHeading);
+
+    campuses.forEach((campus, index) => {
+
+      const campusName =
+        typeof campus === "string"
+          ? campus
+          : getValue(campus, ["name", "campusName"], "Campus " + (index + 1));
+
+      const campusAddress =
+        typeof campus === "object"
+          ? getValue(campus, ["address", "location"], "Not provided")
+          : "Not provided";
+
+      addDetailRow(
+        schoolDetailsContent,
+        "Campus " + (index + 1),
+        campusName + " — " + campusAddress
+      );
+
+    });
+
+  } else {
+
+    addDetailRow(
+      schoolDetailsContent,
+      "Campus Information",
+      "No campus details available"
+    );
+
+  }
+
+  schoolDetailsModal.classList.remove("hidden");
+}
+
+
+/* CLOSE SCHOOL DETAILS */
+
+document
+  .getElementById("closeSchoolDetails")
+  .addEventListener("click", () => {
+
+    schoolDetailsModal.classList.add("hidden");
+
+  });
+
+
+schoolDetailsModal.addEventListener("click", event => {
+
+  if (event.target === schoolDetailsModal) {
+    schoolDetailsModal.classList.add("hidden");
+  }
+
+});
+
+
+/* LOGOUT */
+
+logoutButton.addEventListener("click", async () => {
+
+  const confirmed = window.confirm(
+    "Are you sure you want to sign out of EDUNEXA Super Admin?"
+  );
+
+  if (!confirmed) return;
+
+  if (unsubscribeSchools) {
+    unsubscribeSchools();
+    unsubscribeSchools = null;
+  }
+
+  schoolsData = [];
+  currentAdmin = null;
+
+  try {
+
+    await signOut(auth);
+
+    adminApp.classList.add("hidden");
+    loginScreen.classList.remove("hidden");
+
+    document.getElementById("adminPassword").value = "";
+
+    showLoginMessage(
+      "You have signed out successfully.",
+      "success"
+    );
+
+  } catch (error) {
+
+    console.error("Logout error:", error);
+
+    alert("Unable to sign out. Please try again.");
+
+  }
+
+});
+
+
+/* END OF EDUNEXA SUPER ADMIN */
 
 </script>
 
-<script src="./app-install.js"></script>
 </body>
 </html>
