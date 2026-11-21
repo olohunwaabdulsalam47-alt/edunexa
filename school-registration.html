@@ -6,15 +6,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#073d2b">
 <title>Register Your School | EDUNEXA</title>
+
 <style>
-:root{--g:#073d2b;--g2:#0c6245;--gold:#d6ad50;--bg:#f4f7f4;--white:#fff;--text:#18251e;--muted:#718078;--border:#e1e9e3;--red:#c0392b}
+:root{
+--g:#073d2b;--g2:#0c6245;--gold:#d6ad50;
+--bg:#f4f7f4;--white:#fff;--text:#18251e;
+--muted:#718078;--border:#e1e9e3;--red:#c0392b
+}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif}
 header{background:var(--g);color:white;padding:17px 5%;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.brand{font-size:23px;font-weight:900;letter-spacing:1px}.brand span{color:var(--gold)}
+.brand{font-size:23px;font-weight:900;letter-spacing:1px}
+.brand span{color:var(--gold)}
 header a{color:white;text-decoration:none;font-size:13px}
 .hero{background:linear-gradient(120deg,#073d2b,#0c6245);color:white;padding:35px 6% 42px}
-.hero h1{font-size:29px;margin:0 0 10px}.hero p{color:#d9e9df;line-height:1.6;max-width:650px}
+.hero h1{font-size:29px;margin:0 0 10px}
+.hero p{color:#d9e9df;line-height:1.6;max-width:650px}
 .container{max-width:950px;margin:25px auto;padding:0 14px 45px}
 .card{background:white;border:1px solid var(--border);border-radius:15px;padding:23px;box-shadow:0 5px 20px #0000000a}
 .progress{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:25px}
@@ -22,11 +29,13 @@ header a{color:white;text-decoration:none;font-size:13px}
 .progress-line{height:6px;background:#e8eee9;border-radius:10px;margin-bottom:9px}
 .progress-item.active .progress-line,.progress-item.done .progress-line{background:var(--g2)}
 .progress-item.active{color:var(--g);font-weight:bold}
-.step{display:none}.step.active{display:block}
+.step{display:none}
+.step.active{display:block}
 h2{font-size:21px;color:var(--g);margin:0 0 8px}
 .subtitle{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:23px}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.field{margin-bottom:16px}.field.full{grid-column:1/-1}
+.field{margin-bottom:16px}
+.field.full{grid-column:1/-1}
 label{display:block;font-size:13px;font-weight:bold;margin-bottom:7px}
 input,select,textarea{width:100%;padding:13px;border:1px solid var(--border);border-radius:8px;background:white;color:var(--text);font-size:14px;outline:none}
 input:focus,select:focus,textarea:focus{border-color:var(--g2);box-shadow:0 0 0 2px #0c624514}
@@ -42,304 +51,430 @@ small.help{display:block;color:var(--muted);font-size:11px;margin-top:6px;line-h
 .campus-head strong{color:var(--g)}
 button{border:0;border-radius:8px;padding:13px 18px;cursor:pointer;font-size:13px;font-weight:bold}
 button:disabled{opacity:.5;cursor:not-allowed}
-.primary{background:var(--g);color:white}.secondary{background:#edf3ee;color:var(--g)}
-.gold-btn{background:var(--gold);color:#17251e}.danger{background:#fff0ee;color:var(--red);padding:8px 11px}
+.primary{background:var(--g);color:white}
+.secondary{background:#edf3ee;color:var(--g)}
+.gold-btn{background:var(--gold);color:#17251e}
 .actions{display:flex;justify-content:space-between;gap:10px;margin-top:25px;flex-wrap:wrap}
 .actions button{min-width:115px}
 .review-row{border-bottom:1px solid var(--border);padding:12px 0;display:flex;justify-content:space-between;gap:12px;font-size:13px}
-.review-row span:first-child{color:var(--muted)}.review-row strong{text-align:right;overflow-wrap:anywhere}
+.review-row span:first-child{color:var(--muted)}
+.review-row strong{text-align:right;overflow-wrap:anywhere}
 .checkline{display:flex;align-items:flex-start;gap:10px;font-size:12px;line-height:1.6;margin:17px 0}
 .checkline input{width:auto;margin-top:3px}
 #message{display:none;padding:17px;border-radius:10px;margin-bottom:18px;line-height:1.6}
-.success{background:#eaf7ed;color:#176b35}.error{background:#fff0ee;color:#a52b20}
-.otp-panel{border:1px solid var(--border);border-radius:10px;padding:16px;margin:15px 0;background:#fbfdfb}
-.otp-panel h3{color:var(--g);font-size:15px;margin:0 0 8px}
-.otp-row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
-.otp-row input{flex:1;min-width:130px}
+.success{background:#eaf7ed;color:#176b35}
+.error{background:#fff0ee;color:#a52b20}
 .generated-id{background:#f1f7f2;border:1px dashed var(--g2);padding:13px;border-radius:8px;font-weight:bold;color:var(--g);letter-spacing:1px;overflow-wrap:anywhere}
 footer{text-align:center;padding:25px;font-size:12px;color:var(--muted)}
-@media(max-width:600px){.grid{grid-template-columns:1fr}.field.full{grid-column:auto}.card{padding:17px}.hero h1{font-size:24px}.progress-item{font-size:10px}.actions button{flex:1}}
+@media(max-width:600px){
+.grid{grid-template-columns:1fr}
+.field.full{grid-column:auto}
+.card{padding:17px}
+.hero h1{font-size:24px}
+.progress-item{font-size:10px}
+.actions button{flex:1}
+}
 </style>
 </head>
+
 <body>
+
 <header>
-  <div class="brand">EDU<span>NEXA</span></div>
-  <a href="./index.html">← Back to Homepage</a>
+<div class="brand">EDU<span>NEXA</span></div>
+<a href="./index.html">← Back to Homepage</a>
 </header>
 
 <section class="hero">
-  <h1>Register Your School</h1>
-  <p>Join EDUNEXA and manage your school's attendance through one professional platform. One Platform. Every School. Smarter Attendance.</p>
+<h1>Register Your School</h1>
+<p>Join EDUNEXA and manage your school's attendance through one professional platform. One Platform. Every School. Smarter Attendance.</p>
 </section>
 
 <main class="container">
 <div class="card">
+
 <div id="message"></div>
 
 <div class="progress" id="progress">
-  <div class="progress-item active" id="p1"><div class="progress-line"></div>School</div>
-  <div class="progress-item" id="p2"><div class="progress-line"></div>Campuses</div>
-  <div class="progress-item" id="p3"><div class="progress-line"></div>Administrator</div>
-  <div class="progress-item" id="p4"><div class="progress-line"></div>Documents</div>
+<div class="progress-item active" id="p1"><div class="progress-line"></div>School</div>
+<div class="progress-item" id="p2"><div class="progress-line"></div>Campuses</div>
+<div class="progress-item" id="p3"><div class="progress-line"></div>Administrator</div>
+<div class="progress-item" id="p4"><div class="progress-line"></div>Documents</div>
 </div>
 
 <form id="registrationForm" novalidate>
 
+<!-- STEP 1 -->
+
 <section class="step active" id="step1">
 <h2>School Information</h2>
 <p class="subtitle">Enter the official details of your educational institution.</p>
+
 <div class="grid">
-<div class="field full"><label>Official School Name *</label><input name="schoolName" required maxlength="150" placeholder="Enter registered school name"></div>
-<div class="field"><label>School Type *</label><select name="schoolType" required>
-<option value="">Select school type</option><option>Nursery School</option><option>Primary School</option><option>Secondary School</option><option>Nursery and Primary</option><option>Primary and Secondary</option><option>Combined School</option><option>College</option><option>Polytechnic</option><option>University</option><option>Technical or Vocational Institution</option><option>Other Educational Institution</option>
-</select></div>
-<div class="field"><label>Ownership *</label><select name="ownership" required>
-<option value="">Select ownership</option><option>Private</option><option>Government</option><option>Community</option><option>Mission or Faith-based</option><option>Other</option>
-</select></div>
-<div class="field"><label>Year Established</label><input name="yearEstablished" type="number" min="1800" max="2026" placeholder="e.g. 2010"></div>
-<div class="field"><label>Number of Campuses *</label><select name="campusCount" id="campusCount" required>
-<option value="1">1 Campus</option><option value="2">2 Campuses</option><option value="3">3 Campuses</option><option value="4">4 Campuses</option><option value="5">5 Campuses</option><option value="6">6 Campuses</option><option value="7">7 Campuses</option><option value="8">8 Campuses</option><option value="9">9 Campuses</option><option value="10">10 Campuses</option>
-</select></div>
-<div class="field"><label>School Website (Optional)</label><input name="website" type="url" placeholder="https://example.com"></div>
-<div class="field full"><label>School Description (Optional)</label><textarea name="description" placeholder="Briefly describe your school"></textarea></div>
+
+<div class="field full">
+<label>Official School Name *</label>
+<input name="schoolName" required maxlength="150" placeholder="Enter registered school name">
 </div>
-<div class="notice">Your official EDUNEXA School ID and School Code will be issued after approval and activation.</div>
-<div class="actions"><button type="button" class="secondary" onclick="saveDraft()">Save Draft</button><button type="button" class="primary" onclick="nextStep(1)">Continue →</button></div>
+
+<div class="field">
+<label>School Type *</label>
+<select name="schoolType" required>
+<option value="">Select school type</option>
+<option>Nursery School</option>
+<option>Primary School</option>
+<option>Secondary School</option>
+<option>Nursery and Primary</option>
+<option>Primary and Secondary</option>
+<option>Combined School</option>
+<option>College</option>
+<option>Polytechnic</option>
+<option>University</option>
+<option>Technical or Vocational Institution</option>
+<option>Other Educational Institution</option>
+</select>
+</div>
+
+<div class="field">
+<label>Ownership *</label>
+<select name="ownership" required>
+<option value="">Select ownership</option>
+<option>Private</option>
+<option>Government</option>
+<option>Community</option>
+<option>Mission or Faith-based</option>
+<option>Other</option>
+</select>
+</div>
+
+<div class="field">
+<label>Year Established</label>
+<input name="yearEstablished" type="number" min="1800" max="2026" placeholder="e.g. 2010">
+</div>
+
+<div class="field">
+<label>Number of Campuses *</label>
+<select name="campusCount" id="campusCount" required>
+<option value="1">1 Campus</option>
+<option value="2">2 Campuses</option>
+<option value="3">3 Campuses</option>
+<option value="4">4 Campuses</option>
+<option value="5">5 Campuses</option>
+<option value="6">6 Campuses</option>
+<option value="7">7 Campuses</option>
+<option value="8">8 Campuses</option>
+<option value="9">9 Campuses</option>
+<option value="10">10 Campuses</option>
+</select>
+</div>
+
+<div class="field">
+<label>School Website (Optional)</label>
+<input name="website" type="url" placeholder="https://example.com">
+</div>
+
+<div class="field full">
+<label>School Description (Optional)</label>
+<textarea name="description" placeholder="Briefly describe your school"></textarea>
+</div>
+
+</div>
+
+<div class="notice">
+Your EDUNEXA School ID and School Code will be generated automatically when your registration is saved.
+</div>
+
+<div class="actions">
+<button type="button" class="secondary" onclick="saveDraft()">Save Draft</button>
+<button type="button" class="primary" onclick="nextStep(1)">Continue →</button>
+</div>
 </section>
+
+<!-- STEP 2 -->
 
 <section class="step" id="step2">
 <h2>Campus Information</h2>
 <p class="subtitle">Provide the location of each school campus.</p>
+
 <div id="campusContainer"></div>
-<div class="actions"><button type="button" class="secondary" onclick="saveDraft()">Save Draft</button><button type="button" class="secondary" onclick="previousStep(2)">← Back</button><button type="button" class="primary" onclick="nextStep(2)">Continue →</button></div>
+
+<div class="actions">
+<button type="button" class="secondary" onclick="saveDraft()">Save Draft</button>
+<button type="button" class="secondary" onclick="previousStep(2)">← Back</button>
+<button type="button" class="primary" onclick="nextStep(2)">Continue →</button>
+</div>
 </section>
+
+<!-- STEP 3 -->
 
 <section class="step" id="step3">
 <h2>School Administrator Registration</h2>
 <p class="subtitle">Register the authorised person responsible for this school's EDUNEXA account.</p>
-<div class="notice">The School Administrator will manage authorised teachers and staff, class assignments, attendance permissions, school records and reports after activation.</div>
+
+<div class="notice">
+The School Administrator will manage authorised teachers and staff, class assignments, attendance permissions, school records and reports after activation.
+</div>
 
 <div class="section-title">Administrator Details</div>
+
 <div class="grid">
-<div class="field"><label>Administrator Full Name *</label><input name="adminName" required maxlength="120" placeholder="Full legal name"></div>
-<div class="field"><label>Official Position *</label><select name="adminPosition" required>
-<option value="">Select position</option><option>School Administrator</option><option>Principal</option><option>Head Teacher</option><option>Proprietor</option><option>Director</option><option>Registrar</option><option>Other Authorised Officer</option>
-</select></div>
-<div class="field"><label>Official Phone Number *</label><input name="adminPhone" type="tel" required maxlength="25" placeholder="e.g. +234..."></div>
-<div class="field"><label>Official Email Address *</label><input name="adminEmail" type="email" required placeholder="administrator@school.com"></div>
-<div class="field"><label>Relationship to School *</label><select name="adminRelationship" required>
-<option value="">Select relationship</option><option>School Owner</option><option>Principal</option><option>Employee</option><option>Authorised Representative</option>
-</select></div>
-<div class="field"><label>Alternative Phone (Optional)</label><input name="adminAlternativePhone" type="tel" maxlength="25" placeholder="Alternative contact"></div>
+
+<div class="field">
+<label>Administrator Full Name *</label>
+<input name="adminName" required maxlength="120" placeholder="Full legal name">
 </div>
 
-<div class="section-title">Your EDUNEXA Administrator ID</div>
-<p class="subtitle">A unique ID will be generated for this registration. Keep it safe; you will use it to identify your administrator account after approval.</p>
-<div class="generated-id" id="adminIdDisplay">Generated when you continue</div>
+<div class="field">
+<label>Official Position *</label>
+<select name="adminPosition" required>
+<option value="">Select position</option>
+<option>School Administrator</option>
+<option>Principal</option>
+<option>Head Teacher</option>
+<option>Proprietor</option>
+<option>Director</option>
+<option>Registrar</option>
+<option>Other Authorised Officer</option>
+</select>
+</div>
 
-<div class="section-title">Verify Your Phone Number</div>
-<div class="warning"><strong>Demonstration only:</strong> This page cannot send a real SMS. The sample OTP process is for testing the registration screens only. It does not verify ownership of a phone number.</div>
-<div class="otp-panel">
-<h3>Phone OTP Verification</h3>
-<p class="subtitle">Request a demonstration OTP for the phone number entered above.</p>
-<div class="otp-row">
-<button type="button" class="secondary" id="requestOtpBtn" onclick="requestDemoOtp()">Request OTP</button>
+<div class="field">
+<label>Official Phone Number *</label>
+<input name="adminPhone" type="tel" required maxlength="25" placeholder="e.g. +234...">
 </div>
-<div id="demoOtpNotice" class="notice" hidden></div>
-<div class="field" style="margin-top:14px">
-<label>Enter OTP *</label>
-<input id="adminOtp" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="6-digit OTP">
+
+<div class="field">
+<label>Official Email Address *</label>
+<input name="adminEmail" type="email" required placeholder="administrator@school.com">
 </div>
-<button type="button" class="primary" onclick="verifyDemoOtp()">Verify OTP</button>
-<p id="otpStatus" class="help" aria-live="polite">Phone verification: Not completed</p>
+
+<div class="field">
+<label>Relationship to School *</label>
+<select name="adminRelationship" required>
+<option value="">Select relationship</option>
+<option>School Owner</option>
+<option>Principal</option>
+<option>Employee</option>
+<option>Authorised Representative</option>
+</select>
 </div>
+
+<div class="field">
+<label>Alternative Phone (Optional)</label>
+<input name="adminAlternativePhone" type="tel" maxlength="25" placeholder="Alternative contact">
+</div>
+
+</div>
+
+<div class="section-title">Administrator ID</div>
+<p class="subtitle">Your unique Administrator ID will be generated during registration.</p>
+<div class="generated-id" id="adminIdDisplay">Generated when you submit</div>
 
 <div class="section-title">Create Administrator Password</div>
-<div class="grid">
-<div class="field"><label>Create Password *</label><input name="adminPassword" type="password" minlength="10" autocomplete="new-password" required placeholder="At least 10 characters"><small class="help">Use at least 10 characters. Do not reuse another account's password.</small></div>
-<div class="field"><label>Confirm Password *</label><input name="adminPasswordConfirm" type="password" minlength="10" autocomplete="new-password" required placeholder="Enter password again"></div>
-</div>
-<div class="gold-notice">Your password is used only for this demonstration form and will not be saved in browser storage or included in the application record. Secure account creation will be completed through the real authentication backend.</div>
 
-<div class="section-title">Administrator Responsibilities</div>
-<div class="notice"><strong>After school approval and secure account activation, the Administrator can:</strong>
-<ul><li>Register and manage teachers.</li><li>Register and manage authorised school staff.</li><li>Assign teachers to classes.</li><li>Manage staff permissions.</li><li>Monitor attendance records and reports.</li><li>Manage school attendance settings.</li></ul>
+<div class="grid">
+<div class="field">
+<label>Create Password *</label>
+<input name="adminPassword" type="password" minlength="10" autocomplete="new-password" required placeholder="At least 10 characters">
+<small class="help">Use at least 10 characters. Do not reuse another account's password.</small>
+</div>
+
+<div class="field">
+<label>Confirm Password *</label>
+<input name="adminPasswordConfirm" type="password" minlength="10" autocomplete="new-password" required placeholder="Enter password again">
+</div>
+</div>
+
+<div class="gold-notice">
+Your password will be sent directly to Firebase Authentication through its secure sign-up process. EDUNEXA will not save your password in Firestore or browser draft storage.
+</div>
+
+<div class="notice">
+<strong>Administrator responsibilities after registration:</strong>
+<ul>
+<li>Register and manage teachers.</li>
+<li>Register and manage authorised school staff.</li>
+<li>Assign teachers to classes.</li>
+<li>Manage staff permissions.</li>
+<li>Monitor attendance records and reports.</li>
+<li>Manage school attendance settings.</li>
+</ul>
 The Super Admin retains control of the entire EDUNEXA platform.
 </div>
-<div class="actions"><button type="button" class="secondary" onclick="saveDraft()">Save Draft</button><button type="button" class="secondary" onclick="previousStep(3)">← Back</button><button type="button" class="primary" onclick="nextStep(3)">Continue →</button></div>
+
+<div class="actions">
+<button type="button" class="secondary" onclick="saveDraft()">Save Draft</button>
+<button type="button" class="secondary" onclick="previousStep(3)">← Back</button>
+<button type="button" class="primary" onclick="nextStep(3)">Continue →</button>
+</div>
 </section>
 
+<!-- STEP 4 -->
+
 <section class="step" id="step4">
-<h2>Verification Documents</h2>
-<p class="subtitle">Provide the supporting documents required for school verification.</p>
-<div class="gold-notice">Front-end demonstration only. Selected files are not uploaded to a secure server. Do not select real confidential school documents until secure document storage is connected.</div>
-<div class="grid">
-<div class="field full"><label>School Registration Certificate *</label><input type="file" id="registrationDocument" accept=".pdf,.jpg,.jpeg,.png" required><small class="help">PDF, JPG or PNG. Required.</small></div>
-<div class="field full"><label>School Accreditation or Licence (Optional)</label><input type="file" id="accreditationDocument" accept=".pdf,.jpg,.jpeg,.png"></div>
-<div class="field full"><label>Additional Supporting Document (Optional)</label><input type="file" id="additionalDocument" accept=".pdf,.jpg,.jpeg,.png"></div>
+<h2>Supporting Documents</h2>
+<p class="subtitle">Prepare the supporting documents for future verification.</p>
+
+<div class="warning">
+Document storage is not connected yet. Selecting a file here does NOT upload it to Firebase. Do not treat these files as submitted or verified. School registration will currently be approved automatically based on the submitted form.
 </div>
+
+<div class="grid">
+
+<div class="field full">
+<label>School Registration Certificate (Optional)</label>
+<input type="file" id="registrationDocument" accept=".pdf,.jpg,.jpeg,.png">
+<small class="help">PDF, JPG or PNG. Maximum 5MB. Not uploaded.</small>
+</div>
+
+<div class="field full">
+<label>School Accreditation or Licence (Optional)</label>
+<input type="file" id="accreditationDocument" accept=".pdf,.jpg,.jpeg,.png">
+</div>
+
+<div class="field full">
+<label>Additional Supporting Document (Optional)</label>
+<input type="file" id="additionalDocument" accept=".pdf,.jpg,.jpeg,.png">
+</div>
+
+</div>
+
 <div class="section-title">Review Your Application</div>
 <div id="reviewDetails"></div>
-<label class="checkline"><input type="checkbox" id="confirmInformation" required><span>I confirm that the information supplied is accurate and that I am authorised to submit this application on behalf of the school.</span></label>
-<label class="checkline"><input type="checkbox" id="acceptTerms" required><span>I agree to the EDUNEXA registration terms and understand that school activation is subject to verification and approval.</span></label>
-<div class="actions"><button type="button" class="secondary" onclick="saveDraft()">Save Draft</button><button type="button" class="secondary" onclick="previousStep(4)">← Back</button><button type="submit" class="gold-btn">Submit School Application</button></div>
+
+<label class="checkline">
+<input type="checkbox" id="confirmInformation" required>
+<span>I confirm that the information supplied is accurate and that I am authorised to submit this application on behalf of the school.</span>
+</label>
+
+<label class="checkline">
+<input type="checkbox" id="acceptTerms" required>
+<span>I understand that this initial EDUNEXA registration process automatically marks successful registrations as approved, and that Super Admin can suspend or remove a school.</span>
+</label>
+
+<div class="actions">
+<button type="button" class="secondary" onclick="saveDraft()">Save Draft</button>
+<button type="button" class="secondary" onclick="previousStep(4)">← Back</button>
+<button type="submit" class="gold-btn" id="submitButton">Register School</button>
+</div>
+
 </section>
 </form>
 </div>
 </main>
-<footer>© <span id="year"></span> EDUNEXA. One Platform. Every School. Smarter Attendance.</footer>
-</body>
-</html>
 
-<script>
-"use strict";
+<footer>© <span id="year"></span> EDUNEXA. One Platform. Every School. Smarter Attendance.</footer>
+  
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/13.2.0/firebase-app.js";
+
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  deleteUser
+} from "https://www.gstatic.com/firebasejs/13.2.0/firebase-auth.js";
+
+import {
+  getFirestore,
+  doc,
+  setDoc,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/13.2.0/firebase-firestore.js";
+
+/* FIREBASE CONFIGURATION */
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCBER_osAqxgSuIw4CWn_CIZBCC6XurXtg",
+  authDomain: "edunexa-35d82.firebaseapp.com",
+  projectId: "edunexa-35d82",
+  storageBucket: "edunexa-35d82.firebasestorage.app",
+  messagingSenderId: "213289462930",
+  appId: "1:213289462930:web:767ecc3b3428bd8c958a4b",
+  measurementId: "G-C0X6G5RZJW"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
 
 const form = document.getElementById("registrationForm");
-const DRAFT_KEY = "edunexa_school_registration_draft_v1";
-const APPLICATION_KEY = "edunexa_demo_school_applications_v1";
-const ADMIN_ID_KEY = "edunexa_demo_admin_ids_v1";
+const DRAFT_KEY = "edunexa_school_registration_draft_v2";
 
 let currentStep = 1;
 let generatedAdminId = "";
-let otpVerified = false;
-let otpCode = "";
-let otpPhone = "";
-let otpExpires = 0;
+let submitting = false;
 
 document.getElementById("year").textContent =
   new Date().getFullYear();
 
-function showMessage(message, type) {
-  const box = document.getElementById("message");
-  box.textContent = message;
-  box.className = type;
-  box.style.display = "block";
-  box.scrollIntoView({ behavior: "smooth", block: "center" });
+/* MESSAGES */
+
+function showMessage(message,type="success"){
+  const box=document.getElementById("message");
+  box.textContent=message;
+  box.className=type;
+  box.style.display="block";
+  box.scrollIntoView({behavior:"smooth",block:"center"});
 }
 
-function clearMessage() {
-  const box = document.getElementById("message");
-  box.style.display = "none";
+function clearMessage(){
+  document.getElementById("message").style.display="none";
 }
 
-function showStep(number) {
-  currentStep = number;
+/* NAVIGATION */
 
-  for (let i = 1; i <= 4; i++) {
-    document.getElementById("step" + i)
-      .classList.toggle("active", i === number);
+function showStep(number){
+  currentStep=number;
 
-    const progress = document.getElementById("p" + i);
-    progress.classList.toggle("active", i === number);
-    progress.classList.toggle("done", i < number);
+  for(let i=1;i<=4;i++){
+    document.getElementById("step"+i)
+      .classList.toggle("active",i===number);
+
+    const progress=document.getElementById("p"+i);
+
+    progress.classList.toggle("active",i===number);
+    progress.classList.toggle("done",i<number);
   }
 
   clearMessage();
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  window.scrollTo({top:0,behavior:"smooth"});
 }
 
-function previousStep(number) {
-  showStep(number - 1);
-}
+window.previousStep=function(number){
+  showStep(number-1);
+};
 
-function validateStep(number) {
-  const section = document.getElementById("step" + number);
-  const fields = section.querySelectorAll(
-    "input:not([type=file]), select, textarea"
-  );
+window.nextStep=function(number){
+  if(!validateStep(number))return;
 
-  for (const field of fields) {
-    if (!field.checkValidity()) {
-      field.reportValidity();
-      return false;
-    }
-  }
+  if(number===3)buildReview();
 
-  if (number === 2) {
-    const campuses = getCampusData();
-
-    if (campuses.some(c =>
-      !c.name || !c.address || !c.country ||
-      !c.state || !c.city
-    )) {
-      showMessage(
-        "Complete the campus name, address, country, state and city for every campus.",
-        "error"
-      );
-      return false;
-    }
-  }
-
-  if (number === 3) {
-    if (!generatedAdminId) {
-      generatedAdminId = createAdminId();
-      document.getElementById("adminIdDisplay").textContent =
-        generatedAdminId;
-    }
-
-    const phone = normalizePhone(form.elements.adminPhone.value);
-
-    if (!phone) {
-      showMessage("Enter a valid administrator phone number.", "error");
-      return false;
-    }
-
-    if (!otpVerified || otpPhone !== phone) {
-      showMessage(
-        "Verify the administrator's current phone number before continuing.",
-        "error"
-      );
-      return false;
-    }
-
-    const password = form.elements.adminPassword.value;
-    const confirmation = form.elements.adminPasswordConfirm.value;
-
-    if (password.length < 10) {
-      showMessage("Your password must contain at least 10 characters.", "error");
-      return false;
-    }
-
-    if (password !== confirmation) {
-      showMessage("The two passwords do not match.", "error");
-      return false;
-    }
-  }
-
-  return true;
-}
-
-function nextStep(number) {
-  if (!validateStep(number)) return;
-
-  if (number === 3) {
-    buildReview();
-  }
-
-  showStep(number + 1);
-}
+  showStep(number+1);
+};
 
 /* CAMPUS MANAGEMENT */
 
-function renderCampuses() {
-  const count = Number(form.elements.campusCount.value);
-  const container = document.getElementById("campusContainer");
+function renderCampuses(){
+  const count=Number(form.elements.campusCount.value);
+  const container=document.getElementById("campusContainer");
 
-  container.innerHTML = "";
+  container.innerHTML="";
 
-  for (let i = 0; i < count; i++) {
-    const card = document.createElement("div");
-    card.className = "campus";
+  for(let i=0;i<count;i++){
+    const card=document.createElement("div");
+    card.className="campus";
 
-    card.innerHTML = `
+    card.innerHTML=`
       <div class="campus-head">
-        <strong>Campus ${i + 1}</strong>
+        <strong>Campus ${i+1}</strong>
       </div>
+
       <div class="grid">
+
         <div class="field">
           <label>Campus Name *</label>
           <input data-campus="name" required placeholder="e.g. Main Campus">
         </div>
+
         <div class="field">
           <label>Campus Type</label>
           <select data-campus="type">
@@ -350,26 +485,32 @@ function renderCampuses() {
             <option>Other</option>
           </select>
         </div>
+
         <div class="field full">
           <label>Full Campus Address *</label>
           <textarea data-campus="address" required placeholder="Complete campus address"></textarea>
         </div>
+
         <div class="field">
           <label>Country *</label>
           <input data-campus="country" required placeholder="Country">
         </div>
+
         <div class="field">
           <label>State / Province *</label>
           <input data-campus="state" required placeholder="State or province">
         </div>
+
         <div class="field">
           <label>City / Town *</label>
           <input data-campus="city" required placeholder="City or town">
         </div>
+
         <div class="field">
           <label>Postal Code (Optional)</label>
           <input data-campus="postal" placeholder="Postal code">
         </div>
+
       </div>
     `;
 
@@ -377,473 +518,587 @@ function renderCampuses() {
   }
 }
 
-function getCampusData() {
-  return [...document.querySelectorAll(".campus")].map(card => {
-    const result = {};
+function getCampusData(){
+  return [...document.querySelectorAll(".campus")].map(card=>{
+    const result={};
 
-    card.querySelectorAll("[data-campus]").forEach(input => {
-      result[input.dataset.campus] = input.value.trim();
+    card.querySelectorAll("[data-campus]").forEach(input=>{
+      result[input.dataset.campus]=input.value.trim();
     });
 
     return result;
   });
 }
 
-form.elements.campusCount.addEventListener("change", () => {
+form.elements.campusCount.addEventListener("change",()=>{
+  const previous=getCampusData();
+
   renderCampuses();
+
+  const cards=[...document.querySelectorAll(".campus")];
+
+  previous.forEach((campus,index)=>{
+    const card=cards[index];
+    if(!card)return;
+
+    Object.entries(campus).forEach(([key,value])=>{
+      const field=card.querySelector(`[data-campus="${key}"]`);
+
+      if(field)field.value=value;
+    });
+  });
+
   saveDraft(false);
 });
 
-/* PHONE AND ADMINISTRATOR ID */
+/* VALIDATION */
 
-function normalizePhone(value) {
-  return value.trim().replace(/[\s()-]/g, "");
-}
+function validateStep(number){
+  const section=document.getElementById("step"+number);
 
-function createAdminId() {
-  let ids = [];
-
-  try {
-    ids = JSON.parse(localStorage.getItem(ADMIN_ID_KEY) || "[]");
-    if (!Array.isArray(ids)) ids = [];
-  } catch {
-    ids = [];
-  }
-
-  let id;
-
-  do {
-    const random = new Uint32Array(1);
-    crypto.getRandomValues(random);
-    id = "EDU-ADM-" + random[0].toString(36).toUpperCase().padStart(7, "0");
-  } while (ids.includes(id));
-
-  ids.push(id);
-
-  try {
-    localStorage.setItem(ADMIN_ID_KEY, JSON.stringify(ids));
-  } catch {
-    // ID is still displayed for this demonstration.
-  }
-
-  return id;
-}
-
-function resetOtpVerification() {
-  otpVerified = false;
-  otpCode = "";
-  otpPhone = "";
-  otpExpires = 0;
-
-  document.getElementById("otpStatus").textContent =
-    "Phone verification: Not completed";
-
-  document.getElementById("demoOtpNotice").hidden = true;
-  document.getElementById("adminOtp").value = "";
-}
-
-form.elements.adminPhone.addEventListener("input", () => {
-  resetOtpVerification();
-});
-
-/* DEMONSTRATION OTP */
-
-function requestDemoOtp() {
-  const phone = normalizePhone(form.elements.adminPhone.value);
-
-  if (!phone || phone.length < 7) {
-    showMessage("Enter a valid phone number before requesting OTP.", "error");
-    return;
-  }
-
-  const random = new Uint32Array(1);
-  crypto.getRandomValues(random);
-
-  otpCode = String(random[0] % 1000000).padStart(6, "0");
-  otpPhone = phone;
-  otpExpires = Date.now() + 5 * 60 * 1000;
-  otpVerified = false;
-
-  const notice = document.getElementById("demoOtpNotice");
-  notice.hidden = false;
-  notice.textContent =
-    "DEMONSTRATION OTP: " + otpCode +
-    ". This code is displayed only for testing and was NOT sent by SMS. It expires in 5 minutes.";
-
-  document.getElementById("otpStatus").textContent =
-    "A demonstration OTP has been generated. It has not been sent to your phone.";
-
-  document.getElementById("adminOtp").value = "";
-
-  showMessage(
-    "Demonstration OTP generated. Remember, no real SMS was sent.",
-    "success"
+  const fields=section.querySelectorAll(
+    "input:not([type=file]),select,textarea"
   );
+
+  for(const field of fields){
+    if(!field.checkValidity()){
+      field.reportValidity();
+      return false;
+    }
+  }
+
+  if(number===2){
+    const campuses=getCampusData();
+
+    if(campuses.some(c=>
+      !c.name||!c.address||!c.country||!c.state||!c.city
+    )){
+      showMessage(
+        "Complete the campus name, address, country, state and city for every campus.",
+        "error"
+      );
+
+      return false;
+    }
+  }
+
+  if(number===3){
+    const password=form.elements.adminPassword.value;
+    const confirmation=form.elements.adminPasswordConfirm.value;
+
+    if(password.length<10){
+      showMessage(
+        "Your password must contain at least 10 characters.",
+        "error"
+      );
+
+      return false;
+    }
+
+    if(password!==confirmation){
+      showMessage(
+        "The two passwords do not match.",
+        "error"
+      );
+
+      return false;
+    }
+
+    const email=form.elements.adminEmail.value.trim().toLowerCase();
+
+    if(!email){
+      showMessage(
+        "Enter the administrator email address.",
+        "error"
+      );
+
+      return false;
+    }
+  }
+
+  return true;
 }
 
-function verifyDemoOtp() {
-  const entered = document.getElementById("adminOtp").value.trim();
-  const currentPhone = normalizePhone(form.elements.adminPhone.value);
+/* ADMINISTRATOR ID */
 
-  if (!otpCode) {
-    showMessage("Request an OTP first.", "error");
-    return;
-  }
+function createAdminId(){
+  const random=crypto.getRandomValues(new Uint32Array(2));
 
-  if (Date.now() > otpExpires) {
-    resetOtpVerification();
-    showMessage("Your OTP has expired. Request a new one.", "error");
-    return;
-  }
-
-  if (currentPhone !== otpPhone) {
-    resetOtpVerification();
-    showMessage("The phone number changed. Request a new OTP.", "error");
-    return;
-  }
-
-  if (entered !== otpCode) {
-    showMessage("Incorrect OTP. Please check the code and try again.", "error");
-    return;
-  }
-
-  otpVerified = true;
-  otpCode = "";
-
-  document.getElementById("demoOtpNotice").hidden = true;
-  document.getElementById("otpStatus").textContent =
-    "Demonstration phone verification: Successful.";
-
-  showMessage(
-    "Demonstration OTP accepted. This does not verify the real phone number.",
-    "success"
-  );
+  return "EDU-ADM-"+
+    random[0].toString(36).toUpperCase().padStart(7,"0")+
+    random[1].toString(36).toUpperCase().slice(0,4);
 }
 
-/* FORM DATA AND DRAFTS */
+/* FORM DATA */
 
-function getFormData() {
-  const data = {};
+function getFormData(){
+  const data={};
 
-  [...form.elements].forEach(field => {
-    if (!field.name) return;
-    if (field.type === "file") return;
+  [...form.elements].forEach(field=>{
+    if(!field.name)return;
+    if(field.type==="file")return;
 
-    // Never save administrator passwords.
-    if (field.name === "adminPassword" ||
-        field.name === "adminPasswordConfirm") return;
+    if(
+      field.name==="adminPassword"||
+      field.name==="adminPasswordConfirm"
+    )return;
 
-    data[field.name] = field.value;
+    data[field.name]=field.value;
   });
 
-  data.campuses = getCampusData();
-  data.adminId = generatedAdminId;
+  data.campuses=getCampusData();
+  data.adminId=generatedAdminId;
 
   return data;
 }
 
-function restoreFormData(data) {
-  if (!data || typeof data !== "object") return;
+function restoreFormData(data){
+  if(!data||typeof data!=="object")return;
 
-  Object.entries(data).forEach(([name, value]) => {
-    if (name === "campuses" || name === "adminId") return;
+  Object.entries(data).forEach(([name,value])=>{
+    if(name==="campuses"||name==="adminId")return;
 
-    const field = form.elements.namedItem(name);
+    const field=form.elements.namedItem(name);
 
-    if (field && field.type !== "file" &&
-        field.name !== "adminPassword" &&
-        field.name !== "adminPasswordConfirm") {
-      field.value = value;
+    if(
+      field&&
+      field.type!=="file"&&
+      field.name!=="adminPassword"&&
+      field.name!=="adminPasswordConfirm"
+    ){
+      field.value=value;
     }
   });
 
-  if (typeof data.adminId === "string" &&
-      /^EDU-ADM-[A-Z0-9]+$/.test(data.adminId)) {
-    generatedAdminId = data.adminId;
-    document.getElementById("adminIdDisplay").textContent =
+  if(
+    typeof data.adminId==="string"&&
+    /^EDU-ADM-[A-Z0-9]+$/.test(data.adminId)
+  ){
+    generatedAdminId=data.adminId;
+
+    document.getElementById("adminIdDisplay").textContent=
       generatedAdminId;
   }
 
   renderCampuses();
 
-  if (Array.isArray(data.campuses)) {
-    const cards = [...document.querySelectorAll(".campus")];
+  if(Array.isArray(data.campuses)){
+    const cards=[...document.querySelectorAll(".campus")];
 
-    data.campuses.forEach((campus, index) => {
-      const card = cards[index];
-      if (!card) return;
+    data.campuses.forEach((campus,index)=>{
+      const card=cards[index];
+      if(!card)return;
 
-      Object.entries(campus).forEach(([key, value]) => {
-        const field = card.querySelector(
-          `[data-campus="${key}"]`
-        );
+      Object.entries(campus).forEach(([key,value])=>{
+        const field=card.querySelector(`[data-campus="${key}"]`);
 
-        if (field) field.value = value;
+        if(field)field.value=value;
       });
     });
   }
 }
 
-function saveDraft(showNotice = true) {
-  try {
-    const draft = {
-      data: getFormData(),
-      savedAt: new Date().toISOString(),
-      lastStep: currentStep
+/* DRAFT STORAGE */
+
+window.saveDraft=function(showNotice=true){
+  try{
+    const draft={
+      data:getFormData(),
+      savedAt:new Date().toISOString(),
+      lastStep:currentStep
     };
 
-    localStorage.setItem(DRAFT_KEY, JSON.stringify(draft));
+    localStorage.setItem(DRAFT_KEY,JSON.stringify(draft));
 
-    if (showNotice) {
+    if(showNotice){
       showMessage(
-        "Your draft has been saved on this device. Passwords and OTP verification are not saved. You must verify your phone again when continuing.",
+        "Your draft has been saved on this device. Passwords are never saved. You must enter them again when continuing.",
         "success"
       );
     }
-  } catch {
-    showMessage("Unable to save your draft on this device.", "error");
+
+  }catch(error){
+
+    showMessage(
+      "Unable to save your draft on this device.",
+      "error"
+    );
   }
-}
+};
 
-/* APPLICATION REVIEW */
+/* REVIEW */
 
-function buildReview() {
-  const data = getFormData();
-  const review = document.getElementById("reviewDetails");
+function buildReview(){
+  const data=getFormData();
 
-  const items = [
-    ["School Name", data.schoolName],
-    ["School Type", data.schoolType],
-    ["Ownership", data.ownership],
-    ["Year Established", data.yearEstablished || "Not supplied"],
-    ["Number of Campuses", data.campusCount],
-    ["Administrator ID", generatedAdminId],
-    ["Administrator", data.adminName],
-    ["Administrator Position", data.adminPosition],
-    ["Administrator Phone", data.adminPhone],
-    ["Administrator Email", data.adminEmail],
-    ["Administrator Relationship", data.adminRelationship],
-    ["Phone OTP", "Demonstration verification completed"]
+  const review=document.getElementById("reviewDetails");
+
+  const items=[
+    ["School Name",data.schoolName],
+    ["School Type",data.schoolType],
+    ["Ownership",data.ownership],
+    ["Year Established",data.yearEstablished||"Not supplied"],
+    ["Number of Campuses",data.campusCount],
+    ["Administrator ID",generatedAdminId],
+    ["Administrator",data.adminName],
+    ["Administrator Position",data.adminPosition],
+    ["Administrator Phone",data.adminPhone],
+    ["Administrator Email",data.adminEmail],
+    ["Administrator Relationship",data.adminRelationship]
   ];
 
-  review.innerHTML = "";
+  review.innerHTML="";
 
-  items.forEach(([label, value]) => {
-    const row = document.createElement("div");
-    row.className = "review-row";
+  items.forEach(([label,value])=>{
+    const row=document.createElement("div");
+    row.className="review-row";
 
-    const left = document.createElement("span");
-    left.textContent = label;
+    const left=document.createElement("span");
+    left.textContent=label;
 
-    const right = document.createElement("strong");
-    right.textContent = value || "Not supplied";
+    const right=document.createElement("strong");
+    right.textContent=value||"Not supplied";
 
-    row.append(left, right);
+    row.append(left,right);
+
     review.appendChild(row);
   });
 
-  data.campuses.forEach((campus, index) => {
-    const row = document.createElement("div");
-    row.className = "review-row";
+  data.campuses.forEach((campus,index)=>{
+    const row=document.createElement("div");
+    row.className="review-row";
 
-    const left = document.createElement("span");
-    left.textContent = "Campus " + (index + 1);
+    const left=document.createElement("span");
+    left.textContent="Campus "+(index+1);
 
-    const right = document.createElement("strong");
-    right.textContent = campus.name + " — " + campus.city;
+    const right=document.createElement("strong");
+    right.textContent=campus.name+" — "+campus.city;
 
-    row.append(left, right);
+    row.append(left,right);
+
     review.appendChild(row);
   });
 }
 
-/* SUBMISSION */
+/* FILE VALIDATION */
 
-function generateReference() {
-  const random = new Uint32Array(2);
-  crypto.getRandomValues(random);
-
-  return "EDU-APP-" + Date.now().toString().slice(-8) +
-    random[0].toString(36).slice(0, 4).toUpperCase();
-}
-
-function validateDocuments() {
-  const registrationFile =
-    document.getElementById("registrationDocument").files[0];
-
-  if (!registrationFile) {
-    showMessage("Please select the school registration certificate.", "error");
-    return null;
-  }
-
-  const files = [
-    registrationFile,
+function validateDocuments(){
+  const files=[
+    document.getElementById("registrationDocument").files[0],
     document.getElementById("accreditationDocument").files[0],
     document.getElementById("additionalDocument").files[0]
   ].filter(Boolean);
 
-  const allowedTypes = [
-    "application/pdf",
-    "image/jpeg",
-    "image/png"
-  ];
+  const allowed=["pdf","jpg","jpeg","png"];
 
-  for (const file of files) {
-    const extension = file.name.split(".").pop().toLowerCase();
-    const allowedExtensions = ["pdf", "jpg", "jpeg", "png"];
+  for(const file of files){
 
-    if (!allowedExtensions.includes(extension) ||
-        (file.type && !allowedTypes.includes(file.type))) {
-      showMessage("Only PDF, JPG and PNG documents are accepted.", "error");
-      return null;
+    const extension=file.name.split(".").pop().toLowerCase();
+
+    if(!allowed.includes(extension)){
+      showMessage(
+        "Only PDF, JPG and PNG documents are accepted.",
+        "error"
+      );
+
+      return false;
     }
 
-    if (file.size > 5 * 1024 * 1024) {
-      showMessage("Each selected document must be 5MB or smaller.", "error");
-      return null;
+    if(file.size>5*1024*1024){
+      showMessage(
+        "Each selected document must be 5MB or smaller.",
+        "error"
+      );
+
+      return false;
     }
   }
 
-  return files;
+  return true;
 }
 
-form.addEventListener("submit", event => {
+/* FIREBASE ERROR MESSAGES */
+
+function friendlyError(error){
+  const code=error?.code||"";
+
+  const messages={
+
+    "auth/email-already-in-use":
+    "This email address already has an EDUNEXA account. Use another email address.",
+
+    "auth/invalid-email":
+    "The administrator email address is invalid.",
+
+    "auth/weak-password":
+    "Choose a stronger password with at least 10 characters.",
+
+    "auth/network-request-failed":
+    "Network connection failed. Check your internet connection and try again.",
+
+    "permission-denied":
+    "Firestore rejected this registration. Please check the published database rules.",
+
+    "unavailable":
+    "Firebase is temporarily unavailable. Please try again."
+
+  };
+
+  return messages[code]||
+    "Registration could not be completed. Please check your internet connection and try again. Error: "+code;
+}
+
+/* FIREBASE REGISTRATION */
+
+form.addEventListener("submit",async(event)=>{
+
   event.preventDefault();
 
-  if (!validateStep(4)) return;
+  if(submitting)return;
 
-  const files = validateDocuments();
-  if (!files) return;
+  if(!validateStep(4))return;
 
-  if (!document.getElementById("confirmInformation").checked ||
-      !document.getElementById("acceptTerms").checked) {
-    showMessage("Please confirm your information and accept the terms.", "error");
+  if(!validateDocuments())return;
+
+  if(
+    !document.getElementById("confirmInformation").checked||
+    !document.getElementById("acceptTerms").checked
+  ){
+    showMessage(
+      "Please confirm your information and accept the terms.",
+      "error"
+    );
+
     return;
   }
 
-  const data = getFormData();
+  const data=getFormData();
 
-  // Never submit or store passwords from this browser demonstration.
-  const application = {
-    reference: generateReference(),
-    submittedAt: new Date().toISOString(),
-    status: "Pending Approval",
-    schoolName: data.schoolName,
-    schoolType: data.schoolType,
-    ownership: data.ownership,
-    yearEstablished: data.yearEstablished,
-    website: data.website,
-    description: data.description,
-    campuses: data.campuses,
-    administrator: {
-      administratorId: generatedAdminId,
-      name: data.adminName,
-      position: data.adminPosition,
-      phone: data.adminPhone,
-      email: data.adminEmail,
-      relationship: data.adminRelationship,
-      alternativePhone: data.adminAlternativePhone,
-      accountStatus: "Pending School Approval",
-      passwordSetup: "Not saved; secure backend required",
-      phoneVerification: "Demonstration only"
-    },
-    documents: {
-      registration: files[0].name,
-      accreditation: files[1]?.name || "",
-      additional: files[2]?.name || ""
-    },
-    storageType: "Browser demonstration only"
-  };
+  const email=data.adminEmail.trim().toLowerCase();
 
-  try {
-    const existing = JSON.parse(
-      localStorage.getItem(APPLICATION_KEY) || "[]"
+  const password=form.elements.adminPassword.value;
+
+  if(!generatedAdminId){
+    generatedAdminId=createAdminId();
+  }
+
+  const submitButton=document.getElementById("submitButton");
+
+  submitting=true;
+
+  submitButton.disabled=true;
+  submitButton.textContent="Registering School...";
+
+  let newUser=null;
+
+  try{
+
+    /* CREATE ADMINISTRATOR ACCOUNT */
+
+    const credential=await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
     );
 
-    if (!Array.isArray(existing)) {
-      throw new Error("Invalid application storage");
-    }
+    newUser=credential.user;
 
-    existing.push(application);
+    const uid=newUser.uid;
 
-    localStorage.setItem(
-      APPLICATION_KEY,
-      JSON.stringify(existing)
+    /* GENERATE SCHOOL ID AND CODE */
+
+    const schoolId=uid;
+
+    const schoolCode="EDU-"+uid;
+
+    /* SCHOOL RECORD */
+
+    const schoolData={
+
+      schoolName:data.schoolName.trim(),
+
+      schoolType:data.schoolType,
+
+      ownership:data.ownership,
+
+      yearEstablished:data.yearEstablished?
+        Number(data.yearEstablished):null,
+
+      campusCount:Number(data.campusCount),
+
+      website:data.website.trim(),
+
+      description:data.description.trim(),
+
+      campuses:data.campuses,
+
+      ownerUid:uid,
+
+      adminEmail:email,
+
+      adminName:data.adminName.trim(),
+
+      adminPosition:data.adminPosition,
+
+      adminPhone:data.adminPhone.trim(),
+
+      adminRelationship:data.adminRelationship,
+
+      adminAlternativePhone:data.adminAlternativePhone.trim(),
+
+      administratorId:generatedAdminId,
+
+      schoolCode:schoolCode,
+
+      status:"approved",
+
+      createdAt:serverTimestamp()
+
+    };
+
+    /* SAVE TO FIRESTORE */
+
+    await setDoc(
+      doc(db,"schools",schoolId),
+      schoolData
     );
+
+    /* REMOVE DRAFT */
 
     localStorage.removeItem(DRAFT_KEY);
 
-    // Clear the password fields immediately.
-    form.elements.adminPassword.value = "";
-    form.elements.adminPasswordConfirm.value = "";
+    form.elements.adminPassword.value="";
+    form.elements.adminPasswordConfirm.value="";
 
-    form.innerHTML = `
+    /* SUCCESS PAGE */
+
+    document.getElementById("progress").style.display="none";
+
+    form.innerHTML=`
+
       <div style="text-align:center;padding:30px 8px">
+
         <div style="font-size:48px;color:#0c6245">✓</div>
-        <h2>Application Submitted</h2>
+
+        <h2>School Registered Successfully!</h2>
+
         <p style="line-height:1.7;color:#718078">
-          Your demonstration application has been saved in this browser.
+          Your school has been successfully registered on EDUNEXA.
         </p>
+
         <div class="notice">
-          <strong>Application Reference</strong><br>
-          <span style="font-size:19px;font-weight:bold">
-            ${application.reference}
+          <strong>School Status</strong><br>
+          <span style="font-size:21px;font-weight:bold;color:#176b35">
+            APPROVED
           </span>
         </div>
+
+        <div class="notice">
+          <strong>EDUNEXA School ID</strong><br>
+          <span style="font-size:15px;font-weight:bold;overflow-wrap:anywhere">
+            ${schoolId}
+          </span>
+        </div>
+
+        <div class="notice">
+          <strong>EDUNEXA School Code</strong><br>
+          <span style="font-size:17px;font-weight:bold;overflow-wrap:anywhere">
+            ${schoolCode}
+          </span>
+        </div>
+
         <div class="notice">
           <strong>Administrator ID</strong><br>
-          <span style="font-size:19px;font-weight:bold">
+          <span style="font-size:17px;font-weight:bold">
             ${generatedAdminId}
           </span>
-          <br>Please keep this ID for your records.
         </div>
-        <p><strong>Status:</strong> Pending Approval</p>
-        <p style="font-size:12px;color:#718078;line-height:1.7">
-          This is not a live EDUNEXA submission. The application and document
-          names are stored only in this browser. The OTP was simulated,
-          no SMS was sent, no password was saved, and no secure administrator
-          account has been created. The administrator cannot log in yet.
+
+        <p style="font-size:13px;line-height:1.7">
+          Administrator email: <strong>${email}</strong>
         </p>
-        <a href="./index.html"
+
+        <p style="font-size:12px;color:#718078;line-height:1.7">
+          Your administrator account has been created using Firebase Authentication.
+          Keep your School Code and Administrator ID safe.
+        </p>
+
+        <a href="./school-login.html"
           style="display:inline-block;background:#073d2b;color:white;
           text-decoration:none;padding:13px 22px;border-radius:8px;
-          font-weight:bold">
+          font-weight:bold;margin:8px">
+          Go to School Login
+        </a>
+
+        <a href="./index.html"
+          style="display:inline-block;background:#edf3ee;color:#073d2b;
+          text-decoration:none;padding:13px 22px;border-radius:8px;
+          font-weight:bold;margin:8px">
           Return to Homepage
         </a>
+
       </div>
     `;
 
-    document.getElementById("progress").style.display = "none";
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({top:0,behavior:"smooth"});
 
-  } catch (error) {
-    showMessage(
-      "The application could not be saved on this device. Please try again.",
-      "error"
-    );
+  }catch(error){
+
+    console.error("EDUNEXA registration error:",error);
+
+    if(newUser){
+
+      try{
+
+        await deleteUser(newUser);
+
+      }catch(deleteError){
+
+        console.error("Account cleanup failed:",deleteError);
+
+      }
+
+    }
+
+    showMessage(friendlyError(error),"error");
+
+    submitting=false;
+
+    submitButton.disabled=false;
+
+    submitButton.textContent="Register School";
+
   }
+
 });
 
 /* RESTORE SAVED DRAFT */
 
 renderCampuses();
 
-try {
-  const saved = JSON.parse(
-    localStorage.getItem(DRAFT_KEY) || "null"
+try{
+
+  const saved=JSON.parse(
+    localStorage.getItem(DRAFT_KEY)||"null"
   );
 
-  if (saved && saved.data) {
+  if(saved&&saved.data){
+
     restoreFormData(saved.data);
 
     showMessage(
-      "A saved draft was found and restored. Passwords and OTP verification must be entered again. Please select your documents again.",
+      "A saved draft was restored. Passwords and selected documents must be entered again.",
       "success"
     );
+
   }
-} catch (error) {
-  console.warn("EDUNEXA draft could not be restored.", error);
+
+}catch(error){
+
+  console.warn("EDUNEXA draft could not be restored.",error);
+
 }
+
 </script>
 
 <script src="./app-install.js"></script>
