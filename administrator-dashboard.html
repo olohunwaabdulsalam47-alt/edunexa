@@ -1,0 +1,697 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#073d2b">
+<meta name="description" content="EDUNEXA School Administrator Dashboard">
+<title>EDUNEXA | Administrator Dashboard</title>
+
+<style>
+:root {
+  --green:#073d2b;
+  --green2:#0c6245;
+  --gold:#d6ad50;
+  --bg:#f4f7f4;
+  --white:#ffffff;
+  --text:#20352b;
+  --muted:#78877e;
+  --border:#e5ebe6;
+  --red:#c94444;
+  --shadow:0 5px 20px rgba(0,0,0,.05);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+.layout{display:flex;min-height:100vh}
+.sidebar{
+  width:260px;
+  background:var(--green);
+  color:white;
+  position:fixed;
+  inset:0 auto 0 0;
+  overflow-y:auto;
+  z-index:100;
+  padding:22px 15px;
+  transition:.25s;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  padding:5px 8px 22px;
+  border-bottom:1px solid #ffffff22;
+}
+.brand-logo{
+  width:43px;height:43px;
+  background:var(--gold);
+  color:var(--green);
+  border-radius:12px;
+  display:grid;
+  place-items:center;
+  font-size:22px;
+  font-weight:bold;
+}
+.brand h2{font-size:19px;letter-spacing:1px}
+.brand small{display:block;color:#d6e2d9;margin-top:4px}
+.school-label{
+  margin:20px 8px 9px;
+  font-size:10px;
+  color:#c6d9cd;
+  letter-spacing:1.5px;
+  font-weight:bold;
+}
+.nav-btn{
+  width:100%;
+  border:0;
+  background:transparent;
+  color:#e2eee6;
+  text-align:left;
+  padding:12px 11px;
+  border-radius:9px;
+  margin:3px 0;
+  display:flex;
+  align-items:center;
+  gap:11px;
+  font-size:13px;
+}
+.nav-btn:hover,.nav-btn.active{
+  background:#ffffff18;
+  color:var(--gold);
+}
+.nav-icon{width:21px;text-align:center;font-size:17px}
+.sidebar-footer{
+  border-top:1px solid #ffffff22;
+  margin-top:22px;
+  padding-top:15px;
+}
+.main{
+  margin-left:260px;
+  width:calc(100% - 260px);
+  min-width:0;
+}
+.topbar{
+  height:72px;
+  background:white;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 28px;
+  position:sticky;
+  top:0;
+  z-index:50;
+}
+.top-left{display:flex;align-items:center;gap:14px}
+.menu-btn{
+  display:none;
+  border:0;background:#edf3ee;
+  padding:9px 12px;border-radius:8px;
+}
+.topbar h3{font-size:17px}
+.top-right{display:flex;align-items:center;gap:13px}
+.profile{
+  display:flex;align-items:center;gap:9px;
+  background:#f5f8f5;padding:8px 12px;
+  border-radius:10px;
+}
+.avatar{
+  width:34px;height:34px;
+  border-radius:50%;
+  background:var(--green2);
+  color:white;
+  display:grid;place-items:center;
+  font-weight:bold;
+}
+.profile small{display:block;color:var(--muted);font-size:10px;margin-top:3px}
+.content{padding:27px;max-width:1500px;margin:auto}
+.page{display:none}
+.page.active{display:block}
+.page-heading{
+  display:flex;justify-content:space-between;
+  align-items:center;gap:12px;flex-wrap:wrap;
+  margin-bottom:22px;
+}
+.page-heading h1{font-size:23px;color:var(--green)}
+.page-heading p{color:var(--muted);font-size:13px;margin-top:6px}
+.btn{
+  border:0;border-radius:8px;
+  padding:11px 16px;font-weight:bold;
+  font-size:12px;
+}
+.btn-primary{background:var(--green2);color:white}
+.btn-gold{background:var(--gold);color:var(--green)}
+.btn-light{background:#edf3ee;color:var(--green)}
+.btn-danger{background:#fff0f0;color:var(--red)}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:15px;
+}
+.stat-card,.panel{
+  background:white;border:1px solid var(--border);
+  border-radius:13px;padding:19px;
+  box-shadow:var(--shadow);
+}
+.stat-card small{color:var(--muted);font-size:12px}
+.stat-card h2{font-size:26px;color:var(--green);margin:12px 0 6px}
+.stat-card p{font-size:11px;color:var(--muted)}
+.stat-icon{
+  width:38px;height:38px;border-radius:10px;
+  background:#edf5ef;display:grid;place-items:center;
+  font-size:19px;
+}
+.panel{margin-top:19px}
+.panel-head{
+  display:flex;justify-content:space-between;
+  align-items:center;gap:10px;flex-wrap:wrap;
+  margin-bottom:17px;
+}
+.panel-head h3{font-size:15px}
+.panel-head small{color:var(--muted)}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:570px}
+th,td{
+  padding:13px 11px;text-align:left;
+  border-bottom:1px solid var(--border);
+  font-size:12px;
+}
+th{color:var(--muted);font-weight:bold;background:#fafcfa}
+.status{
+  display:inline-block;padding:5px 9px;
+  border-radius:20px;font-size:10px;font-weight:bold;
+}
+.pending{background:#fff4db;color:#986b12}
+.approved{background:#e5f6e9;color:#24733b}
+.rejected{background:#ffebeb;color:#b52c2c}
+.active-status{background:#e5f6e9;color:#24733b}
+.form-grid{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+}
+.field{display:flex;flex-direction:column;gap:7px}
+.field label{font-size:12px;font-weight:bold}
+.field input,.field select,.field textarea{
+  width:100%;border:1px solid var(--border);
+  border-radius:8px;padding:12px;
+  background:white;outline:none;font-size:13px;
+}
+.field input:focus,.field select:focus,.field textarea:focus{
+  border-color:var(--green2);
+}
+.field textarea{min-height:115px;resize:vertical}
+.full{grid-column:1/-1}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
+.notice{
+  padding:14px;border-radius:9px;
+  background:#fff8e8;color:#805d15;
+  font-size:12px;line-height:1.6;margin-bottom:15px;
+}
+.quick-grid{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+}
+.quick-card{
+  border:1px solid var(--border);
+  border-radius:10px;padding:17px;
+  background:white;text-align:left;
+}
+.quick-card:hover{border-color:var(--gold)}
+.quick-card strong{display:block;font-size:13px;margin:9px 0 5px}
+.quick-card small{color:var(--muted);font-size:11px}
+.empty{
+  text-align:center;padding:30px;color:var(--muted);
+  font-size:13px;
+}
+.hidden{display:none!important}
+.overlay{
+  display:none;position:fixed;inset:0;
+  background:#0007;z-index:90;
+}
+.overlay.show{display:block}
+@media(max-width:1050px){
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:760px){
+  .sidebar{transform:translateX(-100%)}
+  .sidebar.open{transform:translateX(0)}
+  .main{margin-left:0;width:100%}
+  .menu-btn{display:block}
+  .topbar{padding:0 14px;height:65px}
+  .content{padding:18px 13px}
+  .grid{gap:10px}
+  .stat-card{padding:14px}
+  .stat-card h2{font-size:22px}
+  .quick-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .profile .profile-info{display:none}
+}
+@media(max-width:480px){
+  .form-grid{grid-template-columns:1fr}
+  .full{grid-column:auto}
+  .page-heading h1{font-size:20px}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+</style>
+</head>
+
+<body>
+<div class="layout">
+
+<aside class="sidebar" id="sidebar">
+  <div class="brand">
+    <div class="brand-logo">E</div>
+    <div>
+      <h2>EDUNEXA</h2>
+      <small>School Administrator</small>
+    </div>
+  </div>
+
+  <div class="school-label">MAIN MENU</div>
+  <button class="nav-btn active" data-page="dashboard"><span class="nav-icon">▦</span>Dashboard</button>
+  <button class="nav-btn" data-page="students"><span class="nav-icon">👨‍🎓</span>Students</button>
+  <button class="nav-btn" data-page="teachers"><span class="nav-icon">👨‍🏫</span>Teachers</button>
+  <button class="nav-btn" data-page="staff"><span class="nav-icon">👥</span>Other Staff</button>
+  <button class="nav-btn" data-page="requests"><span class="nav-icon">📩</span>Teacher Requests</button>
+  <button class="nav-btn" data-page="classes"><span class="nav-icon">🏫</span>Classes & Subjects</button>
+  <button class="nav-btn" data-page="attendance"><span class="nav-icon">📅</span>Attendance</button>
+  <button class="nav-btn" data-page="parents"><span class="nav-icon">👨‍👩‍👧</span>Parents & Guardians</button>
+
+  <div class="school-label">COMMUNICATION</div>
+  <button class="nav-btn" data-page="messages"><span class="nav-icon">✉️</span>Communication Centre</button>
+  <button class="nav-btn" data-page="announcements"><span class="nav-icon">📢</span>Announcements</button>
+
+  <div class="school-label">MANAGEMENT</div>
+  <button class="nav-btn" data-page="reports"><span class="nav-icon">📊</span>Reports & Analytics</button>
+  <button class="nav-btn" data-page="permissions"><span class="nav-icon">🔐</span>Roles & Permissions</button>
+  <button class="nav-btn" data-page="subscription"><span class="nav-icon">💳</span>Subscription</button>
+  <button class="nav-btn" data-page="settings"><span class="nav-icon">⚙️</span>School Settings</button>
+
+  <div class="sidebar-footer">
+    <button class="nav-btn" id="logoutBtn"><span class="nav-icon">↪</span>Logout</button>
+  </div>
+</aside>
+
+<div class="overlay" id="overlay"></div>
+
+<main class="main">
+<header class="topbar">
+  <div class="top-left">
+    <button class="menu-btn" id="menuBtn">☰</button>
+    <h3 id="topTitle">Dashboard Overview</h3>
+  </div>
+  <div class="top-right">
+    <div class="profile">
+      <div class="avatar">A</div>
+      <div class="profile-info">
+        <strong id="adminName">Administrator</strong>
+        <small>School Administrator</small>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="content">
+
+<section class="page active" id="page-dashboard">
+  <div class="page-heading">
+    <div>
+      <h1>School Dashboard</h1>
+      <p>Welcome to your EDUNEXA school control centre.</p>
+    </div>
+    <button class="btn btn-primary" data-goto="messages">Send Message</button>
+  </div>
+
+  <div class="grid">
+    <div class="stat-card"><div class="stat-icon">👨‍🎓</div><small>Total Students</small><h2 id="studentCount">0</h2><p>Registered students</p></div>
+    <div class="stat-card"><div class="stat-icon">👨‍🏫</div><small>Teachers</small><h2 id="teacherCount">0</h2><p>Authorised teachers</p></div>
+    <div class="stat-card"><div class="stat-icon">👥</div><small>Other Staff</small><h2 id="staffCount">0</h2><p>Authorised staff</p></div>
+    <div class="stat-card"><div class="stat-icon">📩</div><small>Teacher Requests</small><h2 id="requestCount">0</h2><p>Awaiting review</p></div>
+  </div>
+
+  <div class="grid" style="margin-top:15px">
+    <div class="stat-card"><small>Present Today</small><h2>—</h2><p>Attendance data pending</p></div>
+    <div class="stat-card"><small>Absent Today</small><h2>—</h2><p>Attendance data pending</p></div>
+    <div class="stat-card"><small>Late Arrivals</small><h2>—</h2><p>Attendance data pending</p></div>
+    <div class="stat-card"><small>Attendance Rate</small><h2>—</h2><p>Attendance data pending</p></div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-head"><h3>Quick Actions</h3><small>Common school tasks</small></div>
+    <div class="quick-grid">
+      <button class="quick-card" data-goto="students">➕<strong>Student Management</strong><small>Manage student records</small></button>
+      <button class="quick-card" data-goto="teachers">👨‍🏫<strong>Manage Teachers</strong><small>Authorised teachers</small></button>
+      <button class="quick-card" data-goto="requests">📩<strong>Review Requests</strong><small>Teacher applications</small></button>
+      <button class="quick-card" data-goto="attendance">📅<strong>Attendance</strong><small>Attendance management</small></button>
+      <button class="quick-card" data-goto="messages">✉️<strong>Send Message</strong><small>Contact parents and staff</small></button>
+      <button class="quick-card" data-goto="announcements">📢<strong>New Announcement</strong><small>Publish school notices</small></button>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-head"><h3>Recent Activities</h3></div>
+    <div class="empty">Live activity records will appear here after Firebase integration.</div>
+  </div>
+</section>
+
+<section class="page" id="page-students">
+  <div class="page-heading"><div><h1>Student Management</h1><p>Register and manage your school's students.</p></div></div>
+  <div class="notice">Student records will be connected to the school's secure Firebase database.</div>
+  <div class="panel">
+    <div class="panel-head"><h3>Student Records</h3><button class="btn btn-primary" type="button">Register Student</button></div>
+    <div class="empty">No live student records connected yet.</div>
+  </div>
+</section>
+
+<section class="page" id="page-teachers">
+  <div class="page-heading"><div><h1>Teacher Management</h1><p>Manage authorised teachers and their assignments.</p></div></div>
+  <div class="panel">
+    <div class="panel-head"><h3>Authorised Teachers</h3></div>
+    <div class="empty">Approved teachers will appear here.</div>
+  </div>
+</section>
+
+<section class="page" id="page-staff">
+  <div class="page-heading"><div><h1>Other Staff</h1><p>Manage non-teaching school personnel.</p></div></div>
+  <div class="panel">
+    <div class="panel-head"><h3>Staff Directory</h3></div>
+    <div class="empty">Authorised non-teaching staff will appear here.</div>
+  </div>
+</section>
+
+<section class="page" id="page-requests">
+  <div class="page-heading"><div><h1>Teacher Registration Requests</h1><p>Review teachers requesting access using your School Code.</p></div></div>
+  <div class="notice">A School Code identifies your school. It does not automatically authorise a teacher. Verify every request before approval.</div>
+  <div class="panel">
+    <div class="panel-head"><h3>Pending Requests</h3></div>
+    <div class="empty">No live registration requests connected yet.</div>
+  </div>
+</section>
+
+<section class="page" id="page-classes">
+  <div class="page-heading"><div><h1>Classes & Subjects</h1><p>Organise classes, arms, subjects and teacher assignments.</p></div></div>
+  <div class="panel"><div class="empty">Class and subject management will be connected to Firebase.</div></div>
+</section>
+
+<section class="page" id="page-attendance">
+  <div class="page-heading"><div><h1>Attendance Management</h1><p>Monitor daily school attendance.</p></div></div>
+  <div class="panel"><div class="empty">Live attendance records are not connected yet.</div></div>
+</section>
+
+<section class="page" id="page-parents">
+  <div class="page-heading"><div><h1>Parents & Guardians</h1><p>Manage verified parent accounts and student links.</p></div></div>
+  <div class="panel"><div class="empty">Parent records will appear here after database integration.</div></div>
+</section>
+
+<section class="page" id="page-messages">
+  <div class="page-heading"><div><h1>Communication Centre</h1><p>Send school messages to parents, teachers and staff.</p></div></div>
+  <div class="notice">Messages will only be delivered when the secure messaging service is connected. This page is currently a dashboard interface.</div>
+  <div class="panel">
+    <div class="panel-head"><h3>Compose Message</h3></div>
+    <div class="form-grid">
+      <div class="field">
+        <label>Choose recipients</label>
+        <select id="messageRecipients">
+          <option value="all_parents">All Parents</option>
+          <option value="class_parents">Parents of a Class</option>
+          <option value="all_teachers">All Teachers</option>
+          <option value="selected_teachers">Selected Teachers</option>
+          <option value="all_staff">All Staff</option>
+          <option value="all_students">All Students</option>
+          <option value="everyone">Everyone</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Message category</label>
+        <select id="messageCategory">
+          <option>General Message</option>
+          <option>Important Notice</option>
+          <option>Attendance Notice</option>
+          <option>Meeting Reminder</option>
+          <option>Emergency Notice</option>
+          <option>Fee Reminder</option>
+        </select>
+      </div>
+      <div class="field full">
+        <label>Message subject</label>
+        <input id="messageSubject" placeholder="Enter message subject">
+      </div>
+      <div class="field full">
+        <label>Message</label>
+        <textarea id="messageBody" placeholder="Write your message here..."></textarea>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="btn btn-primary" type="button">Send Message</button>
+      <button class="btn btn-light" type="button">Save Draft</button>
+    </div>
+  </div>
+  <div class="panel"><div class="panel-head"><h3>Message History</h3></div><div class="empty">Message history will appear here after integration.</div></div>
+</section>
+
+<section class="page" id="page-announcements">
+  <div class="page-heading"><div><h1>School Announcements</h1><p>Publish school closures, holidays, events and important notices.</p></div></div>
+  <div class="notice">Announcements will be published to selected school users after the secure notification service is connected.</div>
+  <div class="panel">
+    <div class="panel-head"><h3>Create Announcement</h3></div>
+    <div class="form-grid">
+      <div class="field">
+        <label>Announcement type</label>
+        <select id="announcementType">
+          <option>General Announcement</option>
+          <option>No School / School Closure</option>
+          <option>Public Holiday</option>
+          <option>School Resumption</option>
+          <option>Examination Notice</option>
+          <option>Parents' Meeting</option>
+          <option>Staff Meeting</option>
+          <option>Emergency Notice</option>
+          <option>School Event</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Recipients</label>
+        <select id="announcementRecipients">
+          <option>Everyone</option>
+          <option>All Parents</option>
+          <option>All Teachers</option>
+          <option>All Staff</option>
+          <option>All Students</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Effective date</label>
+        <input id="announcementDate" type="date">
+      </div>
+      <div class="field">
+        <label>Publication</label>
+        <select id="announcementSchedule">
+          <option value="now">Publish immediately</option>
+          <option value="scheduled">Schedule publication</option>
+        </select>
+      </div>
+      <div class="field full">
+        <label>Announcement title</label>
+        <input id="announcementTitle" placeholder="Example: No School Tomorrow">
+      </div>
+      <div class="field full">
+        <label>Announcement details</label>
+        <textarea id="announcementBody" placeholder="Write the full announcement..."></textarea>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="btn btn-primary" type="button">Publish Announcement</button>
+    </div>
+  </div>
+  <div class="panel"><div class="panel-head"><h3>Published Announcements</h3></div><div class="empty">Your announcements will appear here.</div></div>
+</section>
+
+<section class="page" id="page-reports">
+  <div class="page-heading"><div><h1>Reports & Analytics</h1><p>Review school attendance and administrative reports.</p></div></div>
+  <div class="panel"><div class="empty">Reports will be available after database integration.</div></div>
+</section>
+
+<section class="page" id="page-permissions">
+  <div class="page-heading"><div><h1>Roles & Permissions</h1><p>Control what each authorised school user can access.</p></div></div>
+  <div class="panel"><div class="empty">Permission management will be connected to secure server-side controls.</div></div>
+</section>
+
+<section class="page" id="page-subscription">
+  <div class="page-heading"><div><h1>Subscription & Billing</h1><p>View your school's subscription and payment records.</p></div></div>
+  <div class="panel"><div class="empty">Subscription information will be loaded from the platform.</div></div>
+</section>
+
+<section class="page" id="page-settings">
+  <div class="page-heading"><div><h1>School Settings</h1><p>Manage your school's information and attendance settings.</p></div></div>
+  <div class="panel"><div class="empty">School settings will be connected to Firebase.</div></div>
+</section>
+
+</div>
+</main>
+</div>
+</body>
+  </html>
+    
+<script>
+/* =====================================
+   EDUNEXA ADMINISTRATOR DASHBOARD
+   PART 2 — NAVIGATION AND INTERACTIONS
+===================================== */
+
+const sidebar = document.getElementById("sidebar");
+const overlay = document.getElementById("overlay");
+const menuBtn = document.getElementById("menuBtn");
+const topTitle = document.getElementById("topTitle");
+
+const pageTitles = {
+  dashboard: "Dashboard Overview",
+  students: "Student Management",
+  teachers: "Teacher Management",
+  staff: "Other Staff Management",
+  requests: "Teacher Registration Requests",
+  classes: "Classes & Subjects",
+  attendance: "Attendance Management",
+  parents: "Parents & Guardians",
+  messages: "Communication Centre",
+  announcements: "School Announcements",
+  reports: "Reports & Analytics",
+  permissions: "Roles & Permissions",
+  subscription: "Subscription & Billing",
+  settings: "School Settings"
+};
+
+function closeMenu() {
+  sidebar.classList.remove("open");
+  overlay.classList.remove("show");
+}
+
+function openPage(page) {
+  if (!pageTitles[page]) return;
+
+  document.querySelectorAll(".page").forEach(section => {
+    section.classList.remove("active");
+  });
+
+  const selectedPage = document.getElementById("page-" + page);
+
+  if (!selectedPage) return;
+
+  selectedPage.classList.add("active");
+
+  document.querySelectorAll(".nav-btn[data-page]").forEach(button => {
+    button.classList.toggle(
+      "active",
+      button.dataset.page === page
+    );
+  });
+
+  topTitle.textContent = pageTitles[page];
+
+  closeMenu();
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+/* Sidebar navigation */
+document.querySelectorAll(".nav-btn[data-page]").forEach(button => {
+  button.addEventListener("click", () => {
+    openPage(button.dataset.page);
+  });
+});
+
+/* Quick action navigation */
+document.querySelectorAll("[data-goto]").forEach(button => {
+  button.addEventListener("click", () => {
+    openPage(button.dataset.goto);
+  });
+});
+
+/* Mobile menu */
+menuBtn.addEventListener("click", () => {
+  sidebar.classList.add("open");
+  overlay.classList.add("show");
+});
+
+overlay.addEventListener("click", closeMenu);
+
+/* Logout navigation */
+document.getElementById("logoutBtn").addEventListener("click", () => {
+  if (confirm("Do you want to leave the Administrator Dashboard?")) {
+    window.location.href = "./school-login.html";
+  }
+});
+
+/* Communication form validation */
+const messageSubject = document.getElementById("messageSubject");
+const messageBody = document.getElementById("messageBody");
+
+document.querySelectorAll("#page-messages .btn-primary").forEach(button => {
+  button.addEventListener("click", () => {
+    if (!messageSubject.value.trim() || !messageBody.value.trim()) {
+      alert("Please enter both the message subject and message.");
+      return;
+    }
+
+    alert(
+      "Your message has been prepared, but has NOT been sent. " +
+      "Firebase messaging integration is required before delivery."
+    );
+  });
+});
+
+/* Announcement form validation */
+document.querySelectorAll("#page-announcements .btn-primary").forEach(button => {
+  button.addEventListener("click", () => {
+    const title = document.getElementById("announcementTitle").value.trim();
+    const body = document.getElementById("announcementBody").value.trim();
+    const date = document.getElementById("announcementDate").value;
+
+    if (!title || !body) {
+      alert("Please enter the announcement title and details.");
+      return;
+    }
+
+    if (!date) {
+      alert("Please select the effective date.");
+      return;
+    }
+
+    alert(
+      "Your announcement has been prepared, but has NOT been published. " +
+      "Firebase announcement and notification integration is required."
+    );
+  });
+});
+
+/* Display a notice for modules awaiting implementation */
+document.querySelectorAll(
+  "#page-students .btn-primary"
+).forEach(button => {
+  button.addEventListener("click", () => {
+    alert("Student registration will be enabled after Firebase integration.");
+  });
+});
+
+/* Dashboard initial state */
+openPage("dashboard");
+
+/*
+SECURITY AND INTEGRATION NOTES:
+
+1. This page is currently a front-end dashboard.
+2. It does not yet authenticate school administrators.
+3. It does not yet read or write school records in Firebase.
+4. Message and announcement buttons do not deliver messages.
+5. Logout navigation is not a substitute for Firebase signOut().
+6. Every school record must be restricted by verified school ID.
+7. User permissions must be enforced by Firebase Security Rules
+   and trusted server-side functions.
+*/
+</script>
+</body>
+</html>
